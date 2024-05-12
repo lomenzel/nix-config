@@ -175,7 +175,7 @@
                     "downloads-button",
                     "fxa-toolbar-menu-button",
                     "unified-extensions-button",
-                    "_2ea2bfef-af69-4427-909c-34e1f3f5a418_-browser-action"
+                    "_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action"
                   ],
                   "toolbar-menubar":["menubar-items"],
                   "TabsToolbar":[
@@ -187,7 +187,7 @@
                     "ipfs-firefox-addon_lidel_org-browser-action",
                     "plasma-browser-integration_kde_org-browser-action",
                     "ublock0_raymondhill_net-browser-action",
-                    "_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action
+                    "_2ea2bfef-af69-4427-909c-34e1f3f5a418_-browser-action"
                   ]
                 },
                 "seen":[
