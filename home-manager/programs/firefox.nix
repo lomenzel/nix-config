@@ -134,7 +134,7 @@
         in { 
           "widget.use-xdg-desktop-portal.file-picker" = {Value = 1; Status = "locked";};
           "browser.download.useDownloadDir" = lock-false;
-          "browser.startup.homepage" = {Value = "moz-extension://a6cabe9f-2de2-4c85-af42-d0f6aa8620a8/src/entries/newTab/index.html"; Status = "locked";};
+          "browser.startup.homepage" = {Value = "https://ankiuser.net/study"; Status = "locked";};
           "browser.contentblocking.category" = { Value = "strict"; Status = "locked"; };
           "extensions.pocket.enabled" = lock-false;
           "extensions.screenshots.disabled" = lock-true;
