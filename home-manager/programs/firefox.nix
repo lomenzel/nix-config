@@ -6,7 +6,7 @@
       enable = true;
       package = firefox-esr;
       
-      profiles."default" = {
+      profiles.default = {
         userChrome = ''
             /* Hide tab bar in FF Quantum */
             @-moz-document url("chrome://browser/content/browser.xul") {
