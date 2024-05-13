@@ -57,7 +57,7 @@
             proxy_set_header Host $host;
             proxy_read_timeout 36000s;
           '';
-        };mastermaster
+        };
 
         # Admin Console websocket
         "^~ /lool/adminws" = {
