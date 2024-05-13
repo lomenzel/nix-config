@@ -15,7 +15,7 @@
                 height: 27px !important;
             }
             #nav-bar {
-                margin-top: -42px;
+                margin-top: -32px;
                 margin-right: 140px;
                 box-shadow: none !important;
             }
