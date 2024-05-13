@@ -8,7 +8,7 @@
     };
 
     wsh = {
-      url = "github:draculente/web-command";
+      url = "github:lomenzel/web-command";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
