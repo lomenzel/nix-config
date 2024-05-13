@@ -5,7 +5,7 @@
     firefox = {
       enable = true;
       package = firefox-esr;
-      languagePacks = [ "de" "de" ];
+      
 
       # Check about:policies#documentation for options.
       policies = {
