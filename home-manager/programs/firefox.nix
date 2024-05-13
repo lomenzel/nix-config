@@ -134,7 +134,7 @@
         in { 
           "widget.use-xdg-desktop-portal.file-picker" = {Value = 1; Status = "locked";};
           "browser.download.useDownloadDir" = lock-false;
-          "browser.startup.homepage" = {Value = "moz-extension://cee62b5d-a583-4605-9561-7a0c45a66eb4/src/entries/newTab/index.html"; Status = "locked";};
+          "browser.startup.homepage" = {Value = "https://menzel.lol"; Status = "locked";};
           "browser.contentblocking.category" = { Value = "strict"; Status = "locked"; };
           "extensions.pocket.enabled" = lock-false;
           "extensions.screenshots.disabled" = lock-true;
