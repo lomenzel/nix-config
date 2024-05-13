@@ -1,8 +1,15 @@
 { config, pkgs, ... }:
 
  {
-  imports = [ ./shell.nix ./desktop.nix ./programms/firefox.nix];
+  imports = [ ./shell.nix ./desktop.nix];
 
+
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      "leonard" = import ../home-manager/home.nix;
+    };
+  };
   
   #programs.adb.enable = true;
   programs.partition-manager.enable = true;
