@@ -25,6 +25,8 @@
       kdePackages.elisa
       kdePackages.kmail
       kdePackages.kontact
+      kdePackages.kmail-account-wizard
+      kdePackages.akonadi-import-wizard
       jetbrains.webstorm
       libsForQt5.polonium
       minetest
