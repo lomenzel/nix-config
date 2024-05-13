@@ -170,7 +170,8 @@
                   "toolbar-menubar":["menubar-items"],
                   "TabsToolbar":[
                     "tabbrowser-tabs",
-                    "new-tab-button"
+                    "new-tab-button",
+                    "alltabs-button"
                   ],
                   "PersonalToolbar":["personal-bookmarks"],
                   "unified-extensions-area":[
