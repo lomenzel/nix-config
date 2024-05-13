@@ -170,15 +170,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1715256537,
-        "narHash": "sha256-GquFnnlMvm+4VNNnTPdXdTPvoDz8hL+hT7aVCLEFo8U=",
-        "owner": "draculente",
+        "lastModified": 1715617438,
+        "narHash": "sha256-FAy1VVFLbrS1SmQsOw9PS99FHxUIr0WixoTqSBsZ8Cs=",
+        "owner": "lomenzel",
         "repo": "web-command",
-        "rev": "ce9b75de62ad7f029f98fce3eb1ed2e21cee2adb",
+        "rev": "b7afaefd81e358b7113dc2396b21043691b6d767",
         "type": "github"
       },
       "original": {
-        "owner": "draculente",
+        "owner": "lomenzel",
         "repo": "web-command",
         "type": "github"
       }
