@@ -12,7 +12,7 @@
             @-moz-document url("chrome://browser/content/browser.xul") {
                 #TabsToolbar {
                 visibility: collapse !important;
-                margin-bottom: 21px !important;
+                margin-bottom: 210px !important;
                 }
             
                 #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
