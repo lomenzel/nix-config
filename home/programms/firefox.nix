@@ -169,6 +169,8 @@
                   ],
                   "toolbar-menubar":["menubar-items"],
                   "TabsToolbar":[
+                    "tabbrowser-tabs",
+                    "new-tab-button"
                   ],
                   "PersonalToolbar":["personal-bookmarks"],
                   "unified-extensions-area":[
