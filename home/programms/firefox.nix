@@ -1,18 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }: {
 
-  let
-    lock-false = {
-      Value = false;
-      Status = "locked";
-    };
-    lock-true = {
-      Value = true;
-      Status = "locked";
-    };
-  in
-{
-
-
+  imports = [
+    inputs.home-manager.nixosModules.default
+  ]; # TODO homemanager userChrome.css
 
   services.wsh = {
     enable = true;

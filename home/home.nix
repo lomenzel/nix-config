@@ -23,6 +23,7 @@
     packages = with pkgs; [
       #nodejs_21
       kdePackages.elisa
+      kdePackages.kmail
       jetbrains.webstorm
       libsForQt5.polonium
       minetest

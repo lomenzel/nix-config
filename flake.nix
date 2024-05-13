@@ -14,12 +14,17 @@
       url = "github:draculente/web-command";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixos-cosmic, wsh }: {
+  outputs = { self, nixpkgs, nixos-cosmic, wsh }@inputs: {
     nixosConfigurations = {
       laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        extraSpecialArgs = {inherit inputs;};
         modules = [
            {
             nix.settings = {
@@ -30,11 +35,13 @@
           nixos-cosmic.nixosModules.default
           wsh.nixosModules."x86_64-linux".default
           ./devices/laptop/configuration.nix
+          inputs.home-manager.nixosModules.default
         ];
 	
       };
       desktop = nixpkgs.lib.nixosSystem {
 	system = "x86_64-linux";
+       extraSpecialArgs = {inherit inputs;};
         modules = [
            {
             nix.settings = {
@@ -46,6 +53,8 @@
           wsh.nixosModules."x86_64-linux".default
 		      /etc/nixos/configuration.nix
 		      ./devices/desktop.nix
+          inputs.home-manager.nixosModules.default
+
 	];
       };
     };
