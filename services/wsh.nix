@@ -39,7 +39,7 @@
       [[sites]]
       name = "homemanageroptions"
       key = "h"
-      url = "https://home-manager-options.extranix.com/?query={{s}}&release=master"
+      url = "https://home-manager-options.extranix.com/?query={{s}}"
     '';
   };
 }
