@@ -4,7 +4,7 @@
 
   inputs = {
     nixpkgs = {
-      url = "github:NixOS/nixpkgs/6c36d24bda28207959f603bf0f5e1eff8a949a8f";
+      url = "github:NixOS/nixpkgs/98739384322150c85dd6979d7bf763f8916200c0";
     };
 
     wsh = {
