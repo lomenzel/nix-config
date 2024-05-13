@@ -20,7 +20,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixos-cosmic, wsh }@inputs: {
+  outputs = { self, nixpkgs, nixos-cosmic, wsh, home-manager }@inputs: {
     nixosConfigurations = {
       laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
