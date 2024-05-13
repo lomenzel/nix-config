@@ -24,7 +24,7 @@
     nixosConfigurations = {
       laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        extraSpecialArgs = {inherit inputs;};
+        specialArgs = {inherit inputs;};
         modules = [
            {
             nix.settings = {
@@ -41,7 +41,7 @@
       };
       desktop = nixpkgs.lib.nixosSystem {
 	system = "x86_64-linux";
-       extraSpecialArgs = {inherit inputs;};
+       specialArgs = {inherit inputs;};
         modules = [
            {
             nix.settings = {
