@@ -33,7 +33,7 @@
           Add = [
             {
               Name = "wsh";
-              URLTemplate = "http://localhost:${toString config.services.wsh.port}/{searchTerms}";
+              URLTemplate = "http://localhost:8012/{searchTerms}";
             }
           ];
           Default = "wsh";
