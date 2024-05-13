@@ -16,7 +16,7 @@
             }
             #nav-bar {
                 margin-top: -38px;
-                margin-right: 140px;
+                margin-right: 0px;
                 box-shadow: none !important;
             }
 
