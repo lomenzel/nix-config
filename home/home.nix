@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
  {
   imports = [ ./shell.nix ./desktop.nix];
