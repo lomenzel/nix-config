@@ -8,17 +8,44 @@
       
       profiles.default = {
         userChrome = ''
-            /* Hide tab bar in FF Quantum */
-            @-moz-document url("chrome://browser/content/browser.xul") {
-                #TabsToolbar {
-                visibility: collapse !important;
-                margin-bottom: 210px !important;
-                }
-            
-                #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
-                visibility: collapse !important;
-                }
+            .tabbrowser-tab {
+                visibility: collapse;
             }
+            .titlebar-button {
+                height: 27px !important;
+            }
+            #nav-bar {
+                margin-top: -42px;
+                margin-right: 140px;
+                box-shadow: none !important;
+            }
+
+            [uidensity="compact"]:root .titlebar-button {
+                height: 32px !important;
+            }
+            [uidensity="compact"]:root #nav-bar {
+                margin-top: -32px;
+            }
+
+            #titlebar-spacer {
+                background-color: var(--chrome-secondary-background-color);
+            }
+            #titlebar-buttonbox-container {
+                background-color: var(--chrome-secondary-background-color);
+            }
+            .titlebar-color {
+                background-color: var(--toolbar-bgcolor);
+            }
+
+            #main-window[inFullscreen="true"] #sidebar-box,
+            #main-window[inFullscreen="true"] #sidebar-box + splitter {
+                visibility: collapse;
+            }
+
+            #sidebar-box #sidebar-header {
+                display: none !important;
+            }
+
         '';
       };
 
