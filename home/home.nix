@@ -24,6 +24,7 @@
       #nodejs_21
       kdePackages.elisa
       kdePackages.kmail
+      kdePackages.kontact
       jetbrains.webstorm
       libsForQt5.polonium
       minetest
