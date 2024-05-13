@@ -117,6 +117,7 @@
           "browser.search.suggest.enabled.private" = lock-false;
           "browser.urlbar.suggest.searches" = lock-false;
           "browser.urlbar.showSearchSuggestionsFirst" = lock-false;
+          "toolkit.legacyUserProfileCustomizations.stylesheets" = lock-true;
 
 
           #Toolbar
