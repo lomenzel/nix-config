@@ -36,6 +36,10 @@
       name = "kinox"
       key = "k"
       url = "https://kinox.to/Search.html?q={{s}}"
+      [[sites]]
+      name = "homemanagerOptions"
+      key = "h"
+      url = "https://home-manager-options.extranix.com/?query={{s}}&release=master"
     '';
   };
 }
