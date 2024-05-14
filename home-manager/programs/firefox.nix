@@ -66,6 +66,7 @@
         DisableFirefoxScreenshots = true;
         OverrideFirstRunPage = "";
         OverridePostUpdatePage = "";
+        OfferToSaveLogins = false;
         DontCheckDefaultBrowser = true;
         DisplayBookmarksToolbar = "never";
         DisplayMenuBar = "default-off";
