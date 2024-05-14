@@ -8,17 +8,17 @@ in {
         ./acme.nix
         
         #working
-        ./gitlab.nix
-        ./jellyfin.nix
-        ./kubo.nix
-        ./mastodon.nix
-        ./minecraft.nix
-        ./nextcloud.nix
+        #./gitlab.nix
+        #./jellyfin.nix
+        #./kubo.nix
+        #./mastodon.nix
+        #./minecraft.nix
+        #./nextcloud.nix
 
         #testing
         #./matrix.nix
-        ./jitsi.nix
-        ./comfy.nix
+        #./jitsi.nix
+        #./comfy.nix
     ];
 
 
