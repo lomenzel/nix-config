@@ -1,7 +1,7 @@
-{ config, pkgs, ...}:
+{ config, pkgs, secrets, ...}:
 
 let
-  inwxCredentials = config.secrets.acme.inwxCredentials;
+  inwxCredentials = pkgs.writeText "inwx-credentials" secrets.acme.inwxCredentials;
 in {
 
   users.extraGroups.acme.members = [ "nginx" ];

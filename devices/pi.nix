@@ -2,7 +2,7 @@
 
 {
   imports = [
-      /home/leonard/.config/secrets/default.nix
+
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;

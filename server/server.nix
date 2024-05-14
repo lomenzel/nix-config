@@ -1,5 +1,5 @@
-{ config, pkgs, ... }: let
-  sshKey = config.secrets.ssh.keys.laptop;
+{ config, pkgs, secrets, ... }: let
+  sshKey = secrets.ssh.keys.laptop;
 in {
   imports =
     [ 

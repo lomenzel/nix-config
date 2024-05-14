@@ -1,15 +1,15 @@
-{config, pkgs, ...}: {
+{config, pkgs, secrets, ...}: {
   services.gitlab = {
     enable = true;
     host = "git.menzel.lol";
     port = 443;
     https = true;
-    databasePasswordFile = config.secrets.gitlab.rootPassword;
-    initialRootPasswordFile = config.secrets.gitlab.rootPassword;
+    databasePasswordFile = pkgs.writeText "password" secrets.gitlab.rootPassword;
+    initialRootPasswordFile = pkgs.writeText "password" secrets.gitlab.rootPassword;
     secrets = {
-      secretFile = config.secrets.gitlab.rootPassword;
-      otpFile = config.secrets.gitlab.rootPassword;
-      dbFile = config.secrets.gitlab.rootPassword;
+      secretFile = pkgs.writeText "password" secrets.gitlab.rootPassword;
+      otpFile = pkgs.writeText "password" secrets.gitlab.rootPassword;
+      dbFile = pkgs.writeText "password" secrets.gitlab.rootPassword;
       jwsFile = pkgs.runCommand "oidcKeyBase" { }
         "${pkgs.openssl}/bin/openssl genrsa 2048 > $out";
     };
@@ -23,7 +23,7 @@
       # File should contain at least these two variables:
       # `CI_SERVER_URL`
       # `REGISTRATION_TOKEN`
-      registrationConfigFile = config.secrets.gitlab.registrationConfigFile;
+      registrationConfigFile = pkgs.writeText "reg-file" secrets.gitlab.registrationConfigFile;
       dockerImage = "debian:stable";
       runUntagged = true;
     };
@@ -31,7 +31,7 @@
       # File should contain at least these two variables:
       # `CI_SERVER_URL`
       # `REGISTRATION_TOKEN`
-      registrationConfigFile = config.secrets.gitlab.registrationConfigFile;
+      registrationConfigFile = pkgs.writeText "reg-file" secrets.gitlab.registrationConfigFile;
       dockerImage = "debian:stable";
       runUntagged = true;
     };
@@ -39,7 +39,7 @@
       # File should contain at least these two variables:
       # `CI_SERVER_URL`
       # `REGISTRATION_TOKEN`
-      registrationConfigFile = config.secrets.gitlab.registrationConfigFile;
+      registrationConfigFile = pkgs.writeText "reg-file" secrets.gitlab.registrationConfigFile;
       dockerImage = "debian:stable";
       runUntagged = true;
     };
@@ -47,7 +47,7 @@
       # File should contain at least these two variables:
       # `CI_SERVER_URL`
       # `REGISTRATION_TOKEN`
-      registrationConfigFile = config.secrets.gitlab.registrationConfigFile;
+      registrationConfigFile = pkgs.writeText "reg-file" secrets.gitlab.registrationConfigFile;
       dockerImage = "debian:stable";
       runUntagged = true;
     };
@@ -55,7 +55,7 @@
       # File should contain at least these two variables:
       # `CI_SERVER_URL`
       # `REGISTRATION_TOKEN`
-      registrationConfigFile = config.secrets.gitlab.registrationConfigFile;
+      registrationConfigFile = pkgs.writeText "reg-file" secrets.gitlab.registrationConfigFile;
       dockerImage = "debian:stable";
       runUntagged = true;
     };
@@ -63,7 +63,7 @@
       # File should contain at least these two variables:
       # `CI_SERVER_URL`
       # `REGISTRATION_TOKEN`
-      registrationConfigFile = config.secrets.gitlab.registrationConfigFile;
+      registrationConfigFile = pkgs.writeText "reg-file" secrets.gitlab.registrationConfigFile;
       dockerImage = "debian:stable";
       runUntagged = true;
     };

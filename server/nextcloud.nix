@@ -1,10 +1,10 @@
-{config, pkgs, ...}: {
+{config, pkgs, secrets, ...}: {
 
     imports = [
         ./office.nix
     ];
 
-    environment.etc."nextcloud-admin-pass".text = config.secrets.nextcloud.adminPassword;
+    environment.etc."nextcloud-admin-pass".text = secrets.nextcloud.adminPassword;
     services.nextcloud = {
         enable = true;
         package = pkgs.nextcloud28;

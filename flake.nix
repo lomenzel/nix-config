@@ -33,7 +33,7 @@
       };
       desktop = nixpkgs.lib.nixosSystem {
 	system = "x86_64-linux";
-       specialArgs = {inherit inputs;};
+       specialArgs = {inherit inputs; secrets = import /home/leonard/.config/secrets/secrets.nix; };
         modules = [
 
           wsh.nixosModules."x86_64-linux".default

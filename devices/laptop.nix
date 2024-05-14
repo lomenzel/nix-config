@@ -2,7 +2,7 @@
   imports =
     [ ../home/home.nix 
     ../home/vm.nix
-    /home/leonard/.config/secrets/default.nix
+
     ../services/wsh.nix
 #../home/ipfs.nix 
 #../home/vm.nix 

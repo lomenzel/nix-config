@@ -1,8 +1,9 @@
 { config, pkgs, ... }: {
   imports = [ 
-  /home/leonard/.config/secrets/default.nix
+
     
-    ../home/home.nix ../server/server.nix 
+    ../home/home.nix 
+    ../server/server.nix 
    ];
 
   fileSystems."/mnt/snd" = {
