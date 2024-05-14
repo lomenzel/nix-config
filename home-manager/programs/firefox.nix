@@ -1,13 +1,13 @@
 { config, pkgs, ...}: {
-
-  home.packages = with pkgs; [
-    kdePackages.plasma-browser-integration
-  ];
-
+  
   programs = with pkgs; {
     firefox = {
       enable = true;
       package = firefox-esr;
+      nativeMessagingHosts = with pkgs.kdePackages; [
+        plasma-browser-integration
+      ];
+    
       
       profiles.default = {
         userChrome = ''
