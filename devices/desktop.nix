@@ -1,7 +1,7 @@
 { config, pkgs, ... }: {
   imports = [ 
 
-    
+    ../services/wsh.nix
     ../home/home.nix 
     ../server/server.nix 
    ];
