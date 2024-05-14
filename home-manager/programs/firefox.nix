@@ -128,7 +128,7 @@
           "{762f9885-5a13-4abd-9c77-433dcd38b8fd}" = {
             install_url = nameToURL "return-youtube-dislikes";
             installation_mode = "force_installedd";
-          }
+          };
 
         };
 
