@@ -134,11 +134,6 @@
     isNormalUser = true;
     description = "Leonard Menzel";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      firefox
-      kate
-    #  thunderbird
-    ];
   };
 
   # Allow unfree packages
