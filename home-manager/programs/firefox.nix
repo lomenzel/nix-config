@@ -1,5 +1,8 @@
 { config, pkgs, ...}: {
 
+  home.packages = with pkgs; [
+    kdePackages.plasma-browser-integration
+  ];
 
   programs = with pkgs; {
     firefox = {
