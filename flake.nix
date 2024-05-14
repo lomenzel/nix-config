@@ -37,7 +37,7 @@
         modules = [
 
           wsh.nixosModules."x86_64-linux".default
-		      /etc/nixos/configuration.nix
+		      ./devices/desktop/configuration.nix
 		      ./devices/desktop.nix
           inputs.home-manager.nixosModules.default
 
