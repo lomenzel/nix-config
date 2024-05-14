@@ -86,7 +86,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   #boot.loader.timeout = 1;
 
-  boot.kernelPackages = pkgs.linuxPackages_testing;
+
   #boot.kernelParams = [ "quiet" "splash" ];
   #boot.consoleLogLevel = 0;
   #boot.initrd.verbose = false;
