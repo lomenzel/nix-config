@@ -4,13 +4,6 @@
 
   ];
 
-  #services.flatpak.enable = true;
-  services.xserver.enable = true;
-
-  boot.plymouth = {
-    enable = true;
-    logo = ./pdh_128.png;
-  };
 
   config = lib.mkIf (config.specialisation != { }) {
     # Config that should only apply to the default system, not the specialised ones
