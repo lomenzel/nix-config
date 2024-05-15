@@ -21,6 +21,9 @@
 
   #services.fwupd.enable = true;
 
+  environment.sessionVariables = {
+    FLAKE = "/home/leonard/.config/nix-config";
+  };
 
 
   users.users.leonard = {
@@ -28,6 +31,7 @@
     description = "Leonard Menzel";
     extraGroups = [ "networkmanager" "wheel" "libvirtd" "docker" "adbusers" ];
     packages = with pkgs; [
+      nh
       #nodejs_21
       kdePackages.elisa
       kdePackages.kmail
