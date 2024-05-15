@@ -40,6 +40,10 @@
       name = "homemanageroptions"
       key = "h"
       url = "https://home-manager-options.extranix.com/?query={{s}}"
+      [[sites]]
+      name = "lernraum"
+      key = "l"
+      url = "https://lernraum.th-luebeck.de/my/courses.php"
     '';
   };
 }
