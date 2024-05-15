@@ -22,7 +22,7 @@
     ];
   };
 
-  specialisation = {
+  config.specialisation = {
     cosmic.configuration = {
       services.desktopManager.cosmic.enable = true;
       services.displayManager.cosmic-greeter.enable = true;
