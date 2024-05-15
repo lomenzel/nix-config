@@ -5,17 +5,14 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
 
-    ];
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-
 
   networking.hostName = "desktop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -45,14 +42,14 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
- hardware.opengl = {
+  hardware.opengl = {
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
   };
 
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
 
@@ -79,19 +76,16 @@
     open = false;
 
     # Enable the Nvidia settings menu,
-        # accessible via `nvidia-settings`.
+    # accessible via `nvidia-settings`.
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
-
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   #services.xserver.videoDrivers = ["nvidia"];
-
-
 
   # Enable the KDE Plasma Desktop Environment.
   #services.xserver.displayManager.sddm.enable = true;
@@ -157,7 +151,7 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-   services.openssh.enable = true;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -166,10 +160,10 @@
   # networking.firewall.enable = false;
 
   nix = {
-        package = pkgs.nixFlakes;
-        extraOptions = ''
-                experimental-features = nix-command flakes
-        '';
+    package = pkgs.nixFlakes;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
   };
 
   # This value determines the NixOS release from which the default

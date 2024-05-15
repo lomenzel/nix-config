@@ -1,16 +1,13 @@
 { config, pkgs, inputs, ... }:
 
- {
-  imports = [ ./shell.nix ./desktop.nix];
-
+{
+  imports = [ ./shell.nix ./desktop.nix ];
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
-    users = {
-      "leonard" = import ../home-manager/home.nix;
-    };
+    users = { "leonard" = import ../home-manager/home.nix; };
   };
-  
+
   #programs.adb.enable = true;
   programs.partition-manager.enable = true;
   #programs.steam.enable = true;
@@ -24,7 +21,6 @@
   environment.sessionVariables = {
     FLAKE = "/home/leonard/.config/nix-config";
   };
-
 
   users.users.leonard = {
     isNormalUser = true;

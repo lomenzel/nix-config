@@ -1,22 +1,23 @@
 { config, pkgs, ... }: {
-  imports =
-    [ ../home/home.nix 
+  imports = [
+    ../home/home.nix
     ../home/vm.nix
 
     ../services/wsh.nix
-#../home/ipfs.nix 
-#../home/vm.nix 
-#../server/mysql.nix
-#../../kde2nix/nixos.nix
-];
+    #../home/ipfs.nix 
+    #../home/vm.nix 
+    #../server/mysql.nix
+    #../../kde2nix/nixos.nix
+  ];
 
-hardware.tuxedo-rs.enable = true;
-hardware.tuxedo-rs.tailor-gui.enable = true;
+  hardware.tuxedo-rs.enable = true;
+  hardware.tuxedo-rs.tailor-gui.enable = true;
 
-nixpkgs.config.nativeOptimization = "native";
-virtualisation.docker.enable = true;
+  nixpkgs.config.nativeOptimization = "native";
+  virtualisation.docker.enable = true;
+  boot.kernelPackages = pkgs.linuxPackages_testing;
 
-services.openssh.settings.PermitRootLogin = "yes";
+  services.openssh.settings.PermitRootLogin = "yes";
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [

@@ -1,7 +1,8 @@
-{ config, pkgs, secrets, ...}:
+{ config, pkgs, secrets, ... }:
 
 let
-  inwxCredentials = pkgs.writeText "inwx-credentials" secrets.acme.inwxCredentials;
+  inwxCredentials =
+    pkgs.writeText "inwx-credentials" secrets.acme.inwxCredentials;
 in {
 
   users.extraGroups.acme.members = [ "nginx" ];
@@ -29,15 +30,14 @@ in {
         dnsProvider = "inwx";
         credentialsFile = inwxCredentials;
       };
-      /*
-      "turn.menzel.lol" = {
-        # TODO
-        dnsProvider = "inwx";
-        credentialsFile = inwxCredentials;
-        
-        postRun = "systemctl restart coturn.service";
-        group = "turnserver";
-      };
+      /* "turn.menzel.lol" = {
+           # TODO
+           dnsProvider = "inwx";
+           credentialsFile = inwxCredentials;
+
+           postRun = "systemctl restart coturn.service";
+           group = "turnserver";
+         };
       */
     };
   };

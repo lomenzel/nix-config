@@ -1,26 +1,24 @@
-{ config, pkgs, secrets, ... }: let
-  sshKey = secrets.ssh.keys.laptop;
+{ config, pkgs, secrets, ... }:
+let sshKey = secrets.ssh.keys.laptop;
 in {
-  imports =
-    [ 
-        #helpers
-        ./nginx.nix
-        ./acme.nix
-        
-        #working
-        ./gitlab.nix
-        ./jellyfin.nix
-        ./kubo.nix
-        ./mastodon.nix
-        ./minecraft.nix
-        ./nextcloud.nix
+  imports = [
+    #helpers
+    ./nginx.nix
+    ./acme.nix
 
-        #testing
-        #./matrix.nix
-        ./jitsi.nix
-        ./comfy.nix
-    ];
+    #working
+    ./gitlab.nix
+    ./jellyfin.nix
+    ./kubo.nix
+    ./mastodon.nix
+    ./minecraft.nix
+    ./nextcloud.nix
 
+    #testing
+    #./matrix.nix
+    ./jitsi.nix
+    ./comfy.nix
+  ];
 
   #Security
   services.openssh = {
@@ -32,9 +30,8 @@ in {
     };
   };
 
-  users.users."leonard".openssh.authorizedKeys.keys = [
-    "ssh-ed25519 ${sshKey} leonard"
-  ];
+  users.users."leonard".openssh.authorizedKeys.keys =
+    [ "ssh-ed25519 ${sshKey} leonard" ];
 
   networking.firewall = let
     kdeConnectPorts = {

@@ -1,15 +1,15 @@
-{ config, pkgs, ... }: 
-let 
-    domain = "matrix.menzel.lol";
-    baseUrl = "https://${domain}";
-    fqdn = domain;
-    clientConfig."m.homeserver".base_url = baseUrl;
-    serverConfig."m.server" = "${fqdn}:443";
-    mkWellKnown = data: ''
-        default_type application/json;
-        add_header Access-Control-Allow-Origin *;
-        return 200 '${builtins.toJSON data}';
-    '';
+{ config, pkgs, ... }:
+let
+  domain = "matrix.menzel.lol";
+  baseUrl = "https://${domain}";
+  fqdn = domain;
+  clientConfig."m.homeserver".base_url = baseUrl;
+  serverConfig."m.server" = "${fqdn}:443";
+  mkWellKnown = data: ''
+    default_type application/json;
+    add_header Access-Control-Allow-Origin *;
+    return 200 '${builtins.toJSON data}';
+  '';
 in {
 
   services.postgresql.enable = true;
@@ -21,7 +21,7 @@ in {
       LC_CTYPE = "C";
   '';
 
-     # enable coturn
+  # enable coturn
   services.coturn = rec {
     enable = true;
     no-cli = true;
@@ -63,53 +63,51 @@ in {
     '';
   };
 
-    services.matrix-synapse = with config.services.coturn; {
-        settings.turn_uris = ["turn:${realm}:3478?transport=udp" "turn:${realm}:3478?transport=tcp"];
-        settings.turn_shared_secret = static-auth-secret;
-        settings.turn_user_lifetime = "1h";
+  services.matrix-synapse = with config.services.coturn; {
+    settings.turn_uris =
+      [ "turn:${realm}:3478?transport=udp" "turn:${realm}:3478?transport=tcp" ];
+    settings.turn_shared_secret = static-auth-secret;
+    settings.turn_user_lifetime = "1h";
 
-        enable = true;
-        #sliding-sync.enable = true;
-        settings.server_name = fqdn;
-        settings.public_baseurs = baseUrl;
-        settings.listeners = [
-            { port = 8008;
-                bind_addresses = [ "::1" ];
-                type = "http";
-                tls = false;
-                x_forwarded = true;
-                resources = [ {
-                names = [ "client" "federation" ];
-                compress = true;
-                } ];
-            }
-        ];
-        settings.registration_shared_secret = config.secrets.matrix.sharedSecret;
+    enable = true;
+    #sliding-sync.enable = true;
+    settings.server_name = fqdn;
+    settings.public_baseurs = baseUrl;
+    settings.listeners = [{
+      port = 8008;
+      bind_addresses = [ "::1" ];
+      type = "http";
+      tls = false;
+      x_forwarded = true;
+      resources = [{
+        names = [ "client" "federation" ];
+        compress = true;
+      }];
+    }];
+    settings.registration_shared_secret = config.secrets.matrix.sharedSecret;
+  };
+
+  services.nginx.virtualHosts."${fqdn}" = {
+    enableACME = true;
+    forceSSL = true;
+    locations."/".extraConfig = ''
+      return 404;
+    '';
+    locations."/_matrix".proxyPass = "http://[::1]:8008";
+    # Forward requests for e.g. SSO and password-resets.
+    locations."/_synapse/client".proxyPass = "http://[::1]:8008";
+  };
+
+  services.nginx.virtualHosts."chat.menzel.lol" = {
+    enableACME = true;
+    forceSSL = true;
+
+    root = pkgs.element-web.override {
+      conf = {
+        default_server_config =
+          clientConfig; # see `clientConfig` from the snippet above.
+      };
     };
+  };
 
-
-
-    services.nginx.virtualHosts."${fqdn}" = {
-        enableACME = true;
-        forceSSL = true;
-        locations."/".extraConfig = ''
-          return 404;
-        '';
-        locations."/_matrix".proxyPass = "http://[::1]:8008";
-        # Forward requests for e.g. SSO and password-resets.
-        locations."/_synapse/client".proxyPass = "http://[::1]:8008";
-    };
-
-    
-    services.nginx.virtualHosts."chat.menzel.lol" = {
-        enableACME = true;
-        forceSSL = true;
-
-        root = pkgs.element-web.override {
-            conf = {
-                default_server_config = clientConfig; # see `clientConfig` from the snippet above.
-            };
-        };
-    };
-    
 }

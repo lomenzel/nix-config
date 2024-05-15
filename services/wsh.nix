@@ -1,7 +1,7 @@
-{config, pkgs, ...}: {
+{ config, pkgs, ... }: {
   services.wsh = {
     enable = true;
-    
+
     host_mode = "local";
     configFile = pkgs.writeText "wsh-config.toml" ''
       prefix = "."

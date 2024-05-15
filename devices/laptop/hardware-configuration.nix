@@ -38,9 +38,9 @@
     lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   hardware.bluetooth.enable = true;
-    hardware.opengl.enable = true;
+  hardware.opengl.enable = true;
 
-      # Configure keymap in X11
+  # Configure keymap in X11
   services.xserver = {
     xkb.layout = "de";
     xkb.variant = "";
@@ -63,7 +63,7 @@
     pulse.enable = true;
   };
 
-    # Set your time zone.
+  # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
   # Select internationalisation properties.
@@ -85,7 +85,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   #boot.loader.timeout = 1;
-
 
   #boot.kernelParams = [ "quiet" "splash" ];
   #boot.consoleLogLevel = 0;
