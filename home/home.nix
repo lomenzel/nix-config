@@ -51,7 +51,7 @@
       tor-browser-bundle-bin
       vlc
       anki
-      git
+      #git
       discord
       thunderbird
       prismlauncher
