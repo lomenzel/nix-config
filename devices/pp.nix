@@ -42,7 +42,7 @@
     environment.systemPackages = with pkgs; [
         vim
         wget
-        git
+        #git
     ];
   
   users.users."leonard" = {

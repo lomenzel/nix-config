@@ -95,7 +95,7 @@
     wget
     libraspberrypi
     raspberrypi-eeprom
-    git
+    #git
   ];
 
   security.sudo.package = pkgs.sudo.override { withInsults = true; };
