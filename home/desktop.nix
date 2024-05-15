@@ -11,13 +11,12 @@
     programs.kdeconnect.enable = true;
 
     users.users.leonard.packages = with pkgs; [
-      plasma-browser-integration
       kdePackages.yakuake
       kdePackages.kio-gdrive
       kde-rounded-corners
-      libsForQt5.kaccounts-providers
-      libsForQt5.kaccounts-integration
-      libsForQt5.kcmutils
+      kdePackages.kaccounts-providers
+      kdePackages.kaccounts-integration
+      kdePackages.kcmutils
     ];
  };
   })
