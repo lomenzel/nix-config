@@ -1,7 +1,7 @@
 { config, pkgs, ... }:{
   imports = [
     ./hardware-configuration.nix
-    /home/leonard/.config/nix-config/devices/laptop.nix
+    ../laptop.nix
   ];
 
 
