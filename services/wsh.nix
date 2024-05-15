@@ -43,7 +43,7 @@
       [[sites]]
       name = "lernraum"
       key = "l"
-      url = "https://lernraum.th-luebeck.de/my/courses.php"
+      url = "https://lernraum.th-luebeck.de/my/courses.php{{s}}"
     '';
   };
 }
