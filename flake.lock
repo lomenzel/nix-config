@@ -115,11 +115,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1715802063,
-        "narHash": "sha256-nq6WC+ZtaOeQ96IpS8+xXBzcUii93tn3BMZJXo0K53c=",
+        "lastModified": 1715804270,
+        "narHash": "sha256-0iNUjfMBZZSVcBMBCH9gK00R7rZpgeks+IiP/eqzvEM=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "10955966a54cd52b090691bf1839c385f5c8d0e7",
+        "rev": "4b86c13e402209255399b929afa26f5d3253c226",
         "type": "github"
       },
       "original": {
@@ -150,7 +150,24 @@
         "home-manager": "home-manager",
         "nixos-cosmic": "nixos-cosmic",
         "nixpkgs": "nixpkgs",
+        "rounded-plasma": "rounded-plasma",
         "wsh": "wsh"
+      }
+    },
+    "rounded-plasma": {
+      "locked": {
+        "lastModified": 1715829273,
+        "narHash": "sha256-vav4duJdj/tEdo2auXpJBJvPPzK+IYuOrBbK+EvW+3I=",
+        "owner": "devusb",
+        "repo": "nixpkgs",
+        "rev": "b6de1a6a8596510eb0fd4a6d5f64e177252b7529",
+        "type": "github"
+      },
+      "original": {
+        "owner": "devusb",
+        "ref": "rounded-plasma6",
+        "repo": "nixpkgs",
+        "type": "github"
       }
     },
     "rust-overlay": {

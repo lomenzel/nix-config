@@ -8,6 +8,10 @@
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
+    rounded-plasma = {
+      url = "github:devusb/nixpkgs/rounded-plasma6";
+    };
 
     wsh = {
       url = "github:lomenzel/web-command";
@@ -19,7 +23,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixos-cosmic, wsh, home-manager }@inputs: {
+  outputs = { self, nixpkgs, rounded-plasma, nixos-cosmic, wsh, home-manager }@inputs: {
     nixosConfigurations = {
       laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";

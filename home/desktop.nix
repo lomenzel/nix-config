@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }: {
+{ config, pkgs, inputs, lib, ... }: {
 
   imports = [
 
@@ -13,7 +13,7 @@
     users.users.leonard.packages = with pkgs; [
       kdePackages.yakuake
       kdePackages.kio-gdrive
-      kde-rounded-corners
+      inputs.rounded-plasma.legacyPackages."x86_64-linux".kde-rounded-corners
       kdePackages.kaccounts-providers
       kdePackages.kaccounts-integration
       kdePackages.kcmutils
