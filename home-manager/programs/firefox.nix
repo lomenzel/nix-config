@@ -16,9 +16,20 @@
               height: 27px !important;
           }
           #nav-bar {
-              margin-top: -38px;
+              margin-top: -34px;
               margin-right: 0px;
               box-shadow: none !important;
+          }
+
+          #sidebar-box {
+            padding-left: 3px;
+            width: 10cm
+          }
+
+          #sidebar-box + splitter {
+            width: 0px;
+            visibility: collapse;
+            display: none !important;
           }
 
           [uidensity="compact"]:root .titlebar-button {
