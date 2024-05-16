@@ -10,6 +10,15 @@
 
   services.xserver.enable = true;
 
+  nix.settings.trusted-users = [
+    "root"
+    "leonard"
+  ];
+
+
+  nix.sshServe.write = true;
+  nix.sshServe.enable = true;
+
   boot.plymouth = {
     enable = true;
     logo = ./pdh_128.png;

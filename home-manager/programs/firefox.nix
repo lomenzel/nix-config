@@ -1,4 +1,10 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }: let 
+
+  accentColor = "#744A8A";
+  inactiveAccentColor = "#31283C";
+  inactiveSelected = "#462E54";
+
+in {
 
   programs = with pkgs; {
     firefox = {
@@ -19,6 +25,19 @@
               margin-top: -34px;
               margin-right: 0px;
               box-shadow: none !important;
+              background-color: ${accentColor} !important;
+          }
+          tab-item.active {
+            background-color: #744A8A;
+          }
+
+          tab-item-substance .background{
+            outline: none;
+            border-radius: 0;
+            width: 100%;
+            background-color: transparent;
+            padding: 0;
+            margin: 0;
           }
 
           #sidebar-box {
@@ -26,10 +45,22 @@
             width: 10cm
           }
 
+          #TabsToolbar {
+            background-color:${accentColor} !important;
+          }
+
+          #TabsToolbar:-moz-window-inactive,
+          #nav-bar:-moz-window-inactive {
+            background-color: ${inactiveAccentColor} !important;
+          }
+
           #sidebar-box + splitter {
             width: 0px;
             visibility: collapse;
             display: none !important;
+          }
+          #tabbar-container {
+            background-color: ${inactiveAccentColor} !important;
           }
 
           [uidensity="compact"]:root .titlebar-button {

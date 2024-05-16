@@ -10,6 +10,22 @@
     #../../kde2nix/nixos.nix
   ];
 
+  nix.buildMachines = [
+    {
+      hostName = "ssh.menzel.lol";
+      system = "x86_64-linux";
+      protocol = "ssh";
+      maxJobs = 32;
+      speedFactor = 2;
+      supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
+      mandatoryFeatures = [ ];
+      sshUser = "leonard";
+    }
+  ];
+
+  nix.distributedBuilds = true;
+
+
   hardware.tuxedo-rs.enable = true;
   hardware.tuxedo-rs.tailor-gui.enable = true;
 
