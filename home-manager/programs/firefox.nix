@@ -1,9 +1,40 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 let
 
   accentColor = "#744A8A";
   inactiveAccentColor = "#2E2A39";
   inactiveSelected = "#463054";
+ 
+  toBase64 = text: let
+    inherit (lib) sublist mod stringToCharacters concatMapStrings;
+    inherit (lib.strings) charToInt;
+    inherit (builtins) substring foldl' genList elemAt length concatStringsSep stringLength;
+    lookup = stringToCharacters "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+    sliceN = size: list: n: sublist (n * size) size list;
+    pows = [(64 * 64 * 64) (64 * 64) 64 1];
+    intSextets = i: map (j: mod (i / j) 64) pows;
+    compose = f: g: x: f (g x);
+    intToChar = elemAt lookup;
+    convertTripletInt = sliceInt: concatMapStrings intToChar (intSextets sliceInt);
+    sliceToInt = foldl' (acc: val: acc * 256 + val) 0;
+    convertTriplet = compose convertTripletInt sliceToInt;
+    join = concatStringsSep "";
+    convertLastSlice = slice: let
+      len = length slice;
+    in
+      if len == 1
+      then (substring 0 2 (convertTripletInt ((sliceToInt slice) * 256 * 256))) + "=="
+      else if len == 2
+      then (substring 0 3 (convertTripletInt ((sliceToInt slice) * 256))) + "="
+      else "";
+    len = stringLength text;
+    nFullSlices = len / 3;
+    bytes = map charToInt (stringToCharacters text);
+    tripletAt = sliceN 3 bytes;
+    head = genList (compose convertTriplet tripletAt) nFullSlices;
+    tail = convertLastSlice (tripletAt nFullSlices);
+  in
+    join (head ++ [tail]);
 
 in {
 
@@ -16,84 +47,12 @@ in {
 
       profiles.default = {
         userChrome = ''
-          .tabbrowser-tab {
-              visibility: collapse;
+          :root {
+            --config-accent-color: ${accentColor};
+            --config-dimmed-accent-color: ${inactiveSelected};
+            --config-tinted-background: ${inactiveAccentColor};
           }
-          .titlebar-button {
-              height: 27px !important;
-          }
-          #nav-bar {
-              margin-top: -34px;
-              margin-right: 0px;
-              box-shadow: none !important;
-              background-color: ${accentColor} !important;
-          }
-
-          tab-item.active {
-            background-color: #744A8A !important;
-          }
-
-          tab-item-substance .background{
-            outline: none !important;
-            border-radius: 0 !important;
-            width: 100%;
-            background-color: transparent !important;
-            padding: 0;
-            margin: 0;
-          }
-
-          #sidebar-box {
-            padding-left: 3px;
-            width: 10cm
-          }
-
-          #TabsToolbar {
-            background-color:${accentColor} !important;
-          }
-
-          #TabsToolbar:-moz-window-inactive,
-          #nav-bar:-moz-window-inactive {
-            background-color: ${inactiveAccentColor} !important;
-          }
-
-          #sidebar-box + splitter {
-            width: 0px;
-            visibility: collapse;
-            display: none !important;
-          }
-          #tabbar {
-            background-color: ${inactiveAccentColor} !important;
-          }
-
-          [uidensity="compact"]:root .titlebar-button {
-              height: 32px !important;
-          }
-          [uidensity="compact"]:root #nav-bar {
-              margin-top: -32px;
-          }
-
-          #titlebar-spacer {
-              background-color: var(--chrome-secondary-background-color);
-          }
-          #titlebar-buttonbox-container {
-              background-color: var(--chrome-secondary-background-color);
-          }
-          .titlebar-color {
-              background-color: var(--toolbar-bgcolor);
-          }
-
-          #main-window[inFullscreen="true"] #sidebar-box,
-          #main-window[inFullscreen="true"] #sidebar-box + splitter {
-              visibility: collapse;
-          }
-
-          #sidebar-box #sidebar-header {
-              display: none !important;
-          }
-          .tab-close-button {
-            display: none !important;
-          }
-
+          @import url("${./userChrome.css}")
         '';
       };
 
@@ -179,41 +138,49 @@ in {
 
         };
 
-        "3rdparty".Extenions = {
+        "3rdparty".Extensions = {
           "treestyletab@piro.sakura.ne.jp" = {
 
-            "__ConfigsMigration__userValeusSameToDefaultAreCleared" = true;
-            "chunkedUserStyleRules0" =
-              "I3RhYmJhciB7CmJhY2tncm91bmQtY29sb3I6IzJFMkEzOTsKfQoKdGFiLWl0ZW0uYWN0aXZlIHsKICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogIzc0NEE4QSAhaW1wb3J0YW50OwogICAgICB9CnRhYi1pdGVtLmFjdGl2ZTotbW96LXdpbmRvdy1pbmFjdGl2ZSB7CiAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICM0NjMwNTQgIWltcG9ydGFudDsKICAgICAgfQoKCgogICAgICAgICAgdGFiLWl0ZW0tc3Vic3RhbmNlIC5iYWNrZ3JvdW5kewogICAgICAgICAgICBoZWlnaHQ6IGF1dG87CiAgICAgICAgICAgIG91dGxpbmU6IG5vbmUgIWltcG9ydGFudDsKICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogMCAhaW1wb3J0YW50OwogICAgICAgICAgICB3aWR0aDogMTAwJTsKICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQgIWltcG9ydGFudDsKICAgICAgICAgICAgcGFkZGluZzogMDsKICAgICAgICAgICAgbWFyZ2luOiAwOwogICAgICAgICAgICBib3gtc2hhZG93OiBub25lOwogICAgICAgICAgfQo=";
-            "configsVersion" = 31;
-            "notifiedFeaturesVersion" = 9;
-            "optionsExpandedGroups" = [ "group-allConfigs" ];
-            "optionsExpandedSections" = [ "section-advanced" "section-debug" ];
-            "showExpertOptions" = true;
-            "syncDevices" = {
-              "device-1715622178665-56471" = {
-                "id" = "device-1715622178665-56471";
-                "name" = "Firefox on Linux";
-                "icon" = "device-desktop";
-                "timestamp" = 1715887311185;
+            __ConfigsMigration__userValeusSameToDefaultAreCleared = true;
+            chunkedUserStyleRules0 = toBase64 ''
+              :root {
+                --config-accent-color: ${accentColor};
+                --config-dimmed-accent-color: ${inactiveSelected};
+                --config-tinted-background: ${inactiveAccentColor};
+              }
+              @import url("${./userChrome.css}")
+            '';
+            
+            
+            configsVersion = 31;
+            notifiedFeaturesVersion = 9;
+            optionsExpandedGroups = [ "group-allConfigs" ];
+            optionsExpandedSections = [ "section-advanced" "section-debug" ];
+            showExpertOptions = true;
+            syncDevices = {
+              device-1715622178665-56471 = {
+                id = "device-1715622178665-56471";
+                name = "Firefox on Linux";
+                icon = "device-desktop";
+                timestamp = 1715887311185;
               };
-              "device-1715892191672-35004" = {
-                "id" = "device-1715892191672-35004";
-                "name" = "Firefox on Linux";
-                "icon" = "device-desktop";
-                "timestamp" = 1715928836601;
+              device-1715892191672-35004 = {
+                id = "device-1715892191672-35004";
+                name = "Firefox on Linux";
+                icon = "device-desktop";
+                timestamp = 1715928836601;
               };
             };
-            "userStyleRules" = "";
-            "userStyleRules0" = "";
-            "userStyleRules1" = "";
-            "userStyleRules2" = "";
-            "userStyleRules3" = "";
-            "userStyleRules4" = "";
-            "userStyleRules5" = "";
-            "userStyleRules6" = "";
-            "userStyleRules7" = "";
-            "userStyleRulesFieldHeight" = "596px";
+            userStyleRules = "";
+            userStyleRules0 = "";
+            userStyleRules1 = "";
+            userStyleRules2 = "";
+            userStyleRules3 = "";
+            userStyleRules4 = "";
+            userStyleRules5 = "";
+            userStyleRules6 = "";
+            userStyleRules7 = "";
+            userStyleRulesFieldHeight = "596px";
 
           };
         };
