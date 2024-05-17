@@ -32,6 +32,9 @@ tab-item-substance .background{
 #urlbar #urlbar-background {
   background-color: var(--config-dimmed-accent-color) !important;
 }
+#urlbar #urlbar-background:-moz-window-inactive {
+    background-color: var(--config-tinted-background) !important;
+  }
 
 #urlbar[focused] #urlbar-background {
   background-color: var(--config-dimmed-accent-color) !important;
