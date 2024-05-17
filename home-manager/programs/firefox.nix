@@ -1,8 +1,9 @@
-{ config, pkgs, ... }: let 
+{ config, pkgs, ... }:
+let
 
   accentColor = "#744A8A";
-  inactiveAccentColor = "#31283C";
-  inactiveSelected = "#462E54";
+  inactiveAccentColor = "#2E2A39";
+  inactiveSelected = "#463054";
 
 in {
 
@@ -27,15 +28,16 @@ in {
               box-shadow: none !important;
               background-color: ${accentColor} !important;
           }
+
           tab-item.active {
-            background-color: #744A8A;
+            background-color: #744A8A !important;
           }
 
           tab-item-substance .background{
-            outline: none;
-            border-radius: 0;
+            outline: none !important;
+            border-radius: 0 !important;
             width: 100%;
-            background-color: transparent;
+            background-color: transparent !important;
             padding: 0;
             margin: 0;
           }
@@ -59,7 +61,7 @@ in {
             visibility: collapse;
             display: none !important;
           }
-          #tabbar-container {
+          #tabbar {
             background-color: ${inactiveAccentColor} !important;
           }
 
@@ -87,6 +89,9 @@ in {
 
           #sidebar-box #sidebar-header {
               display: none !important;
+          }
+          .tab-close-button {
+            display: none !important;
           }
 
         '';
@@ -172,6 +177,45 @@ in {
             installation_mode = "force_installed";
           };
 
+        };
+
+        "3rdparty".Extenions = {
+          "treestyletab@piro.sakura.ne.jp" = {
+
+            "__ConfigsMigration__userValeusSameToDefaultAreCleared" = true;
+            "chunkedUserStyleRules0" =
+              "I3RhYmJhciB7CmJhY2tncm91bmQtY29sb3I6IzJFMkEzOTsKfQoKdGFiLWl0ZW0uYWN0aXZlIHsKICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogIzc0NEE4QSAhaW1wb3J0YW50OwogICAgICB9CnRhYi1pdGVtLmFjdGl2ZTotbW96LXdpbmRvdy1pbmFjdGl2ZSB7CiAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICM0NjMwNTQgIWltcG9ydGFudDsKICAgICAgfQoKCgogICAgICAgICAgdGFiLWl0ZW0tc3Vic3RhbmNlIC5iYWNrZ3JvdW5kewogICAgICAgICAgICBoZWlnaHQ6IGF1dG87CiAgICAgICAgICAgIG91dGxpbmU6IG5vbmUgIWltcG9ydGFudDsKICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogMCAhaW1wb3J0YW50OwogICAgICAgICAgICB3aWR0aDogMTAwJTsKICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQgIWltcG9ydGFudDsKICAgICAgICAgICAgcGFkZGluZzogMDsKICAgICAgICAgICAgbWFyZ2luOiAwOwogICAgICAgICAgICBib3gtc2hhZG93OiBub25lOwogICAgICAgICAgfQo=";
+            "configsVersion" = 31;
+            "notifiedFeaturesVersion" = 9;
+            "optionsExpandedGroups" = [ "group-allConfigs" ];
+            "optionsExpandedSections" = [ "section-advanced" "section-debug" ];
+            "showExpertOptions" = true;
+            "syncDevices" = {
+              "device-1715622178665-56471" = {
+                "id" = "device-1715622178665-56471";
+                "name" = "Firefox on Linux";
+                "icon" = "device-desktop";
+                "timestamp" = 1715887311185;
+              };
+              "device-1715892191672-35004" = {
+                "id" = "device-1715892191672-35004";
+                "name" = "Firefox on Linux";
+                "icon" = "device-desktop";
+                "timestamp" = 1715928836601;
+              };
+            };
+            "userStyleRules" = "";
+            "userStyleRules0" = "";
+            "userStyleRules1" = "";
+            "userStyleRules2" = "";
+            "userStyleRules3" = "";
+            "userStyleRules4" = "";
+            "userStyleRules5" = "";
+            "userStyleRules6" = "";
+            "userStyleRules7" = "";
+            "userStyleRulesFieldHeight" = "596px";
+
+          };
         };
 
         # about:config

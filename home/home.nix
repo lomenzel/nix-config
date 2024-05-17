@@ -10,11 +10,7 @@
 
   services.xserver.enable = true;
 
-  nix.settings.trusted-users = [
-    "root"
-    "leonard"
-  ];
-
+  nix.settings.trusted-users = [ "root" "leonard" ];
 
   nix.sshServe.write = true;
   nix.sshServe.enable = true;
