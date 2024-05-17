@@ -52,7 +52,7 @@ in {
             --config-dimmed-accent-color: ${inactiveSelected};
             --config-tinted-background: ${inactiveAccentColor};
           }
-          @import url("${./userChrome.css}")
+          @import url("/home/leonard/.config/nix-config/home-manager/programs/userChrome.css")
         '';
       };
 
