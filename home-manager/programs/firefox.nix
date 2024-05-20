@@ -33,8 +33,16 @@ let
     tripletAt = sliceN 3 bytes;
     head = genList (compose convertTriplet tripletAt) nFullSlices;
     tail = convertLastSlice (tripletAt nFullSlices);
+  
   in
     join (head ++ [tail]);
+  css-colors = ''
+  :root {
+            --config-accent-color: ${accentColor};
+            --config-dimmed-accent-color: ${inactiveSelected};
+            --config-tinted-background: ${inactiveAccentColor};
+          }
+  '';
 
 in {
 
@@ -47,13 +55,14 @@ in {
 
       profiles.default = {
         userChrome = ''
-          :root {
-            --config-accent-color: ${accentColor};
-            --config-dimmed-accent-color: ${inactiveSelected};
-            --config-tinted-background: ${inactiveAccentColor};
-          }
+          ${css-colors}
           ${builtins.readFile ./userChrome.css}
         '';
+        userContent = ''
+          ${css-colors}
+          ${builtins.readFile ./userContent.css}
+        '';
+
       };
 
       # Check about:policies#documentation for options.

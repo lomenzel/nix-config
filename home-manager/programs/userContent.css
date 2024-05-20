@@ -1,0 +1,9 @@
+@-moz-document url(about:blank),
+               url(about:newtab)
+{
+  #newtab-window,
+  html
+  {
+    background: #0000ff;
+  }
+}

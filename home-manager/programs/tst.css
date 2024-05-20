@@ -13,3 +13,7 @@ tab-item.active tab-item-substance .background {
     margin-left: 3px;
     box-shadow: none;
 }
+
+tab-item.active tab-item-substance .background:-moz-window-inactive {
+    background-color: var(--config-dimmed-accent-color);
+}

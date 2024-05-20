@@ -90,3 +90,14 @@ tab-item-substance .background{
 .tab-close-button {
   display: none !important;
 }
+
+
+menupopup {
+  --panel-color: whitesmoke !important;
+  --panel-background: var(--config-tinted-background) !important;
+}
+
+menu:not([disabled="true"])[_moz-menuactive="true"], menuitem:not([disabled="true"])[_moz-menuactive="true"] {
+  background-color: var(--config-accent-color) !important;
+  color: whitesmoke !important;
+}
