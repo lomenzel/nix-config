@@ -2,8 +2,8 @@
                url(about:newtab)
 {
   #newtab-window,
-  html
+  html, body
   {
-    background: #0000ff;
+    background: var(--config-tinted-background);
   }
 }

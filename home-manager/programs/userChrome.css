@@ -101,3 +101,11 @@ menu:not([disabled="true"])[_moz-menuactive="true"], menuitem:not([disabled="tru
   background-color: var(--config-accent-color) !important;
   color: whitesmoke !important;
 }
+
+@-moz-document url(chrome://browser/content/browser.xul)
+{
+  browser[type="content-primary"], tabbrowser tabpanels, #appcontent > #content
+  {
+    background: greenyellow !important;
+  }
+}

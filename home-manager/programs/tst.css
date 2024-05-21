@@ -7,7 +7,7 @@
 tab-item.active tab-item-substance .background {
     height: auto;
     outline: none !important;
-    
+
     background-color: var(--config-accent-color) !important;
     padding: 0;
     margin-left: 3px;
@@ -16,4 +16,8 @@ tab-item.active tab-item-substance .background {
 
 tab-item.active tab-item-substance .background:-moz-window-inactive {
     background-color: var(--config-dimmed-accent-color);
+}
+
+.newtab-button-box {
+    display: none !important;
 }

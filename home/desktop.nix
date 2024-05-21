@@ -12,7 +12,7 @@
         users.users.leonard.packages = with pkgs; [
           kdePackages.yakuake
           kdePackages.kio-gdrive
-          inputs.rounded-plasma.legacyPackages."x86_64-linux".kde-rounded-corners
+          kde-rounded-corners
           kdePackages.kaccounts-providers
           kdePackages.kaccounts-integration
           kdePackages.kcmutils
@@ -23,8 +23,8 @@
 
   specialisation = {
     cosmic.configuration = {
-      #services.desktopManager.cosmic.enable = true;
-      #services.displayManager.cosmic-greeter.enable = true;
+      services.desktopManager.cosmic.enable = true;
+      services.displayManager.cosmic-greeter.enable = true;
     };
   };
 }

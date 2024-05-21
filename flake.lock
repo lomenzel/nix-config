@@ -100,11 +100,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1716127988,
-        "narHash": "sha256-Fokupzx3eyBITjBRJx1Zhit+4aj6auU+19Xs4JRhuFw=",
+        "lastModified": 1716309012,
+        "narHash": "sha256-G/yn1ygK8CcCAd/Y4J0uUz9ClkMgVwyFSVHb9DbhqNs=",
         "owner": "lilyinstarlight",
         "repo": "nixos-cosmic",
-        "rev": "0f1be96f9508bf01163671091183773155aa7c30",
+        "rev": "9c01a06f81fdc3673c2b96575b835693ca763bad",
         "type": "github"
       },
       "original": {
@@ -115,11 +115,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1716148562,
-        "narHash": "sha256-iDkzkKZSNnvDW8mpvNS/lay2wIsn4XkRAagjBrr5nfM=",
+        "lastModified": 1716322306,
+        "narHash": "sha256-7GuHudoqIpsueSj0sQDZGLu8tk3Wt6tIliola7VD0vI=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "ad9cfa229d3d20e8519422ee9717d9044a990db3",
+        "rev": "7a35ba84331efd0bd4a8a760a52cc53c10e7a544",
         "type": "github"
       },
       "original": {
@@ -150,24 +150,7 @@
         "home-manager": "home-manager",
         "nixos-cosmic": "nixos-cosmic",
         "nixpkgs": "nixpkgs",
-        "rounded-plasma": "rounded-plasma",
         "wsh": "wsh"
-      }
-    },
-    "rounded-plasma": {
-      "locked": {
-        "lastModified": 1715829273,
-        "narHash": "sha256-vav4duJdj/tEdo2auXpJBJvPPzK+IYuOrBbK+EvW+3I=",
-        "owner": "devusb",
-        "repo": "nixpkgs",
-        "rev": "b6de1a6a8596510eb0fd4a6d5f64e177252b7529",
-        "type": "github"
-      },
-      "original": {
-        "owner": "devusb",
-        "ref": "rounded-plasma6",
-        "repo": "nixpkgs",
-        "type": "github"
       }
     },
     "rust-overlay": {

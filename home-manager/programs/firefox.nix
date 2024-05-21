@@ -112,10 +112,6 @@ in {
             install_url = nameToURL "breezedarktheme";
             installation_mode = "force_installed";
           };
-          "new-tab-art@importantus.me" = {
-            install_url = nameToURL "artful-tab";
-            installation_mode = "force_installed";
-          };
           "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
             install_url = nameToURL "bitwarden-password-manager";
             installation_mode = "force_installed";
@@ -211,7 +207,11 @@ in {
           };
           "browser.download.useDownloadDir" = lock-false;
           "browser.startup.homepage" = {
-            Value = "https://media.menzel.lol";
+            Value = "about:blank";
+            Status = "locked";
+          };
+          "browser.newtab.url" = {
+            Value = "about:blank";
             Status = "locked";
           };
           "browser.contentblocking.category" = {
@@ -256,7 +256,7 @@ in {
                   ],
                   "PersonalToolbar":["personal-bookmarks"],
                   "unified-extensions-area":[
-                    "new-tab-art_importantus_me-browser-action",
+                   
                     "idcac-pub_guus_ninja-browser-action",
                     "ipfs-firefox-addon_lidel_org-browser-action",
                     "plasma-browser-integration_kde_org-browser-action",
@@ -265,7 +265,7 @@ in {
                   ]
                 },
                 "seen":[
-                  "new-tab-art_importantus_me-browser-action",
+                  
                   "idcac-pub_guus_ninja-browser-action",
                   "ipfs-firefox-addon_lidel_org-browser-action",
                   "plasma-browser-integration_kde_org-browser-action",

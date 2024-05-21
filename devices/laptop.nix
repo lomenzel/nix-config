@@ -21,6 +21,8 @@
     sshUser = "leonard";
   }];
 
+  systemd.services.NetworkManager-wait-online.enable = false;
+
   nix.distributedBuilds = true;
 
   hardware.tuxedo-rs.enable = true;
