@@ -20,18 +20,16 @@
   systemd.services.sysflake = {
     serviceConfig.Type = "oneshot";
     script = ''
+      export PATH=${pkgs.nixFlakes}/bin:${pkgs.git}/bin:$PATH
       cd /home/leonard/.config/nix-config
-      ${pkgs.nixFlakes}/bin/nix --extra-experimental-features "nix-command flakes" flake update
-      ${pkgs.git}/bin/git add flake.lock
-      ${pkgs.git}/bin/git commit -m "auto upgrade"
-      ${pkgs.git}/bin/git push
+      nix --extra-experimental-features "nix-command flakes" flake update
      '';
   };
 
 
   boot.kernelPackages = pkgs.linuxPackages_testing;
 
-  environment.systemPackages = with pkgs; [ helix rsync git ];
+  environment.systemPackages = with pkgs; [ helix rsync ];
 
 
   system.autoUpgrade = {
