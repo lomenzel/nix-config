@@ -20,7 +20,7 @@
     flake = inputs.self.outPath;
     flags = [
       "--impure"
-      "--update-input" "uex"
+      #"--update-input" "uex"
       ];
     dates = "minutely";
   };
