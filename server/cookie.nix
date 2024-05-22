@@ -3,11 +3,11 @@
   environment.systemPackages = with pkgs; [ nodejs ];
 
   systemd.services.json-db = {
-    description = "WSH Service";
+    description = "DB for uex";
     wantedBy = [ "multi-user.target" ];
     after = [ "network.target" ];
     serviceConfig = {
-      ExecStart = "npx --yes json-server ${pkgs.callPackage ./cookiePackage.nix}/db.json -p 3002";
+      ExecStart = "npx --yes json-server ${pkgs.callPackage ./cookiePackage.nix { inherit pkgs; }}/db.json -p 3002";
       Environment = [
 
       ];
@@ -15,11 +15,11 @@
   };
 
   systemd.services.cookie-web = {
-    description = "WSH Service";
+    description = "static web for uex";
     wantedBy = [ "multi-user.target" ];
     after = [ "network.target" ];
     serviceConfig = {
-      ExecStart = "npx --yes serve ${pkgs.callPackage ./cookiePackage.nix}/public -p 3001";
+      ExecStart = "npx --yes serve ${pkgs.callPackage ./cookiePackage.nix {inherit pkgs;}}/public -p 3001";
       Environment = [
 
       ];
