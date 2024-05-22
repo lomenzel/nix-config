@@ -31,7 +31,7 @@
 
   boot.kernelPackages = pkgs.linuxPackages_testing;
 
-  environment.systemPackages = with pkgs; [ helix rsync ];
+  environment.systemPackages = with pkgs; [ helix rsync git ];
 
 
   system.autoUpgrade = {
