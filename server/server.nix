@@ -18,6 +18,8 @@ in {
     #./matrix.nix
     ./jitsi.nix
     ./comfy.nix
+
+    ./cookie.nix
   ];
 
   #Security

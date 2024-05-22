@@ -41,7 +41,7 @@
     packages = with pkgs; [
       nh
       #nodejs_21
-gimp
+      gimp
       kdePackages.elisa
       kdePackages.kmail
       kdePackages.kontact
