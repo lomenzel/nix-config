@@ -8,10 +8,6 @@
     '';
   };
 
-  services.cron = {
-    enable = false;
-    systemCronJobs = [ "* * * * * root /etc/nixos/cronup.sh" ];
-  };
 
   system.stateVersion = "23.11";
 

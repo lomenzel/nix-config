@@ -7,24 +7,20 @@
     wantedBy = [ "multi-user.target" ];
     after = [ "network.target" ];
     serviceConfig = {
-      ExecStart = "npx --yes json-server ${pkgs.callPackage ./cookiePackage.nix { inherit pkgs; }}/db.json -p 3002";
+      ExecStart = "npx --yes json-server /home/leonard/Projekte/CookieDB -p 3002";
       Environment = [
 
       ];
     };
   };
 
-  systemd.services.cookie-web = {
-    description = "static web for uex";
-    wantedBy = [ "multi-user.target" ];
-    after = [ "network.target" ];
-    serviceConfig = {
-      ExecStart = "npx --yes serve ${pkgs.callPackage ./cookiePackage.nix {inherit pkgs;}}/public -p 3001";
-      Environment = [
-
-      ];
-    };
+    services.cron = {
+    enable = true;
+    systemCronJobs = [ "* * * * * ${./cookieCron.sh}"];
   };
+
+
+
 
   services.nginx.virtualHosts."jsondb.menzel.lol" = {
     forceSSL = true;
@@ -35,7 +31,7 @@
   services.nginx.virtualHosts."uex.menzel.lol" = {
     forceSSL = true;
     useACMEHost = "wildcard";
-    locations."/" = { proxyPass = "http://192.168.178.61:3001"; };
+    root = "${pkgs.callPackage ./cookiePackage.nix {inherit pkgs;}}/public";
   };
 
 }
