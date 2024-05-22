@@ -3,7 +3,7 @@
   description = "flake for laptop";
 
   inputs = {
-    nixpkgs = { url = "github:NixOS/nixpkgs/master"; };
+    nixpkgs = { url = "github:NixOS/nixpkgs/nixos-unstable"; };
     nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,9 +17,16 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    uex = {
+      type = "gitlab";
+      owner = "ux-cookie-banner";
+      repo = "uex-cookie-banner-website";
+      host = "git.mylab.th-luebeck.de";
+    };
   };
 
-  outputs = { self, nixpkgs, nixos-cosmic, wsh, home-manager }@inputs: {
+
+  outputs = { self, nixpkgs,uex, nixos-cosmic, wsh, home-manager }@inputs: {
     nixosConfigurations = {
       laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
