@@ -17,7 +17,7 @@
 
   system.autoUpgrade = {
     enable = true;
-    flake = inputs.self.outPath;
+    flake = "/home/leonard/.config/nix-config";
     flags = [
       "--impure"
       #"--update-input" "uex"
