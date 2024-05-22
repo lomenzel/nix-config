@@ -218,16 +218,17 @@
       },
       "locked": {
         "host": "git.mylab.th-luebeck.de",
-        "lastModified": 1716407890,
-        "narHash": "sha256-3BI5KWnMv7ZJomdBLPJLwrlIQMBF/M6JyfIDkxOPgyk=",
+        "lastModified": 1716411076,
+        "narHash": "sha256-L/GdpZiI8YoFFRLbLCiJi9kWJtP31K2NbHsIvX2R6Mk=",
         "owner": "ux-cookie-banner",
         "repo": "uex-cookie-banner-website",
-        "rev": "81013879d2d67a732054a72c33e22e0f7d343453",
+        "rev": "89ddec4eb06b4e605aea7b3199f6c8d0c550d4e4",
         "type": "gitlab"
       },
       "original": {
         "host": "git.mylab.th-luebeck.de",
         "owner": "ux-cookie-banner",
+        "ref": "main",
         "repo": "uex-cookie-banner-website",
         "type": "gitlab"
       }

@@ -22,6 +22,7 @@
       owner = "ux-cookie-banner";
       repo = "uex-cookie-banner-website";
       host = "git.mylab.th-luebeck.de";
+      ref = "main";
     };
   };
 
