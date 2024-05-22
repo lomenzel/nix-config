@@ -20,7 +20,7 @@
     flake = "/home/leonard/.config/nix-config";
     flags = [
       "--impure"
-      "--update-input" "uex" "nixpkgs"
+      "--update-input" "uex"
       "--commit-lock-file"
       ];
     dates = "minutely";
