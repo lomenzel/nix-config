@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, inputs, ... }: {
   imports = [
 
     ../services/wsh.nix
@@ -14,4 +14,14 @@
 
   environment.systemPackages = with pkgs; [ helix rsync ];
 
+
+  system.autoUpgrade = {
+    enable = true;
+    flake = inputs.self.outPath;
+    flags = [
+      "--impure"
+      "--update-input" "uex"
+      ];
+    dates = "minutely";
+  };
 }
