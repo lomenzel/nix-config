@@ -21,7 +21,7 @@
     flags = [
       "--impure"
       "--update-input" "uex"
-      "--commit-lock-file"
+      "--no-write-lock-file"
       ];
     dates = "minutely";
   };
