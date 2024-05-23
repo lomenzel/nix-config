@@ -1,6 +1,6 @@
 { config, pkgs, secrets, inputs, ... }: {
     
-  systemd.services.json-db = {
+  systemd.services.deploy-uex = {
     description = "update flake and rebuild triggered by pipeline";
     wantedBy = [ "multi-user.target" ];
     after = [ "network.target" ];
