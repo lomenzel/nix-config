@@ -19,7 +19,7 @@ in {
     ./jitsi.nix
     ./comfy.nix
 
-    ./cookie.nix
+    ./cookie/cookie.nix
   ];
 
   #Security

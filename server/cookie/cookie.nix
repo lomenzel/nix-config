@@ -2,6 +2,7 @@
 
 {
 
+imports = [ ./update.nix ];
   systemd.timers.cookieBackup = {
     wantedBy = [ "timers.target" ];
     partOf = [ "cookieBackup.service" ];
