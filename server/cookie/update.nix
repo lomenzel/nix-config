@@ -1,8 +1,7 @@
 { config, pkgs, secrets, inputs, ... }: let 
   startScript = pkgs.writeShellScriptBin "start-uex-deploy-server" ''
-    export PATH=${pkgs.nodejs}/bin:${pkgs.nixFlakes}/bin:${pkgs.git}/bin:$PATH
+    export PATH=${pkgs.nixos-rebuild}/bin:${pkgs.nodejs}/bin:${pkgs.nixFlakes}/bin:${pkgs.git}/bin:$PATH
     node ${./upServer.js}
-    nixos-rebuild
   '';
 in {
     
