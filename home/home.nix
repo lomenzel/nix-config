@@ -44,6 +44,7 @@
       #nodejs_21
       gimp
       picard
+      parabolic
       kdePackages.elisa
       kdePackages.kmail
       kdePackages.kontact
