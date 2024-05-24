@@ -10,7 +10,7 @@ in {
     wantedBy = [ "multi-user.target" ];
     after = [ "network.target" ];
     serviceConfig = {
-      ExecStart = "${startScript}";
+      ExecStart = "${startScript}/bin/start-uex-deploy-server";
     };
   };
 
