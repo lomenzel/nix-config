@@ -6,7 +6,7 @@
     after = [ "network.target" ];
     serviceConfig = {
       ExecStart =
-        "export PATH=${pkgs.nixFlakes}/bin:${pkgs.git}/bin:$PATH && ${pkgs.nodejs}/bin/node ${./upServer.js}";
+        "export PATH=${pkgs.nodejs}/bin:${pkgs.nixFlakes}/bin:${pkgs.git}/bin:$PATH && node ${./upServer.js}";
       Environment = [
 
       ];
