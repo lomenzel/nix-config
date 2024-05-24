@@ -43,6 +43,7 @@
       nh
       #nodejs_21
       gimp
+      picard
       kdePackages.elisa
       kdePackages.kmail
       kdePackages.kontact

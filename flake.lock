@@ -100,11 +100,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1716463454,
-        "narHash": "sha256-qCFYvArRbtY+x2DJzumhdNSa6FdrhFr32eV6O1Fiv6Y=",
+        "lastModified": 1716493982,
+        "narHash": "sha256-KSdPjenUqX8wt8hV+1p1O5vkkVo6Ae1+seG6HLsEhos=",
         "owner": "lilyinstarlight",
         "repo": "nixos-cosmic",
-        "rev": "1480a6189f5b30ee51cab30d3abcdae3df966bf9",
+        "rev": "89d75599135c90ab3c0270fa272bf85860bf847c",
         "type": "github"
       },
       "original": {
@@ -218,11 +218,11 @@
       },
       "locked": {
         "host": "git.mylab.th-luebeck.de",
-        "lastModified": 1716492420,
-        "narHash": "sha256-gL4xbHvJglhGQvgqmcFil9nhenRbrIF0A50WDzBfp4U=",
+        "lastModified": 1716548544,
+        "narHash": "sha256-mnUxJ9SPjJOnp6aiG+4jmVxFQ/KKnJWEst+Di9JufE8=",
         "owner": "ux-cookie-banner",
         "repo": "uex-cookie-banner-website",
-        "rev": "b359cde08308a1e92ffb92bd559196e4d9b6f524",
+        "rev": "8b1c065de14b183bfd5ab7b72f21979dde5c6f65",
         "type": "gitlab"
       },
       "original": {
