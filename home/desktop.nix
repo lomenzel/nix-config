@@ -21,6 +21,12 @@
     })
   ];
 
+
+
+  stylix.image = ./baum-dark.png;
+
+
+
   specialisation = {
     cosmic.configuration = {
       #services.desktopManager.cosmic.enable = true;

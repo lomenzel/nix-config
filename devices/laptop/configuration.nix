@@ -1,5 +1,5 @@
 { config, pkgs, ... }: {
-  imports = [ ./hardware-configuration.nix ../laptop.nix ./spacemash.nix ];
+  imports = [ ./hardware-configuration.nix ../laptop.nix ];
 
   nix = {
     package = pkgs.nixFlakes;

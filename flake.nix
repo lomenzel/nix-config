@@ -24,15 +24,20 @@
       host = "git.mylab.th-luebeck.de";
       ref = "main";
     };
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
 
-  outputs = { self, nixpkgs,uex, nixos-cosmic, wsh, home-manager }@inputs: {
+  outputs = { self, nixpkgs,uex, nixos-cosmic, wsh, home-manager, ... }@inputs: {
     nixosConfigurations = {
       laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
+          inputs.stylix.nixosModules.stylix
 
           {
             nix.settings = {
@@ -69,6 +74,7 @@
           wsh.nixosModules."x86_64-linux".default
           ./devices/desktop/configuration.nix
           ./devices/desktop.nix
+          inputs.stylix.nixosModules.stylix
           inputs.home-manager.nixosModules.default
 
         ];
