@@ -26,11 +26,37 @@
   stylix = {
     image = ./baum-dark.png;
     polarity = "dark";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
     opacity = {
-      applications = 0.7;
-      desktop = 0.7;
-      popups = 0.7;
-      terminal = 0.7;
+      applications = 0.3;
+      desktop = 0.3;
+      popups = 0.3;
+      terminal = 0.3;
+    };
+    cursor = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Classic";
+      size = 24;
+    };
+
+    fonts = {
+      monospace ={
+        package =pkgs.nerdfonts.override {
+          fonts = ["JetBrainsMono"];
+        };
+        name = "JetBrainsMono Nerd Font Mono";
+      };
+
+    };
+    targets = {
+      plymouth = {
+        enable = true;
+        logo = pkgs.fetchurl {
+          url = "https://www.pdh.eu/wp-content/uploads/PdH-Bird-Favicon-512-transparenter-Grund.png";
+          hash = "sha256-TYf6MZMUzryQuGwPcxH8rGkCKd0RIOQNAPl69ADW6T8=";
+        };
+        logoAnimated = false;
+      };
     };
   };
 

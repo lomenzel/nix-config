@@ -6,7 +6,7 @@
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = { "leonard" = import ../home-manager/home.nix; };
-    backupFileExtension = "backup";
+    backupFileExtension = "backup-6";
   };
 
   services.xserver.enable = true;
@@ -18,7 +18,6 @@
 
   boot.plymouth = {
     enable = true;
-    logo = ./pdh_128.png;
   };
 
   #programs.adb.enable = true;

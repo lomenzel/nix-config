@@ -1,5 +1,5 @@
 { config, pkgs, ... }: {
-  imports = [ ./programs/firefox.nix ./programs/git.nix ];
+  imports = [ ./programs/firefox.nix ./programs/git.nix ./plasma.nix ];
 
   home.username = "leonard";
   home.homeDirectory = "/home/leonard";
