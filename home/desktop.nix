@@ -22,7 +22,6 @@
   ];
 
 
-
   stylix = {
     image = ./baum-dark.png;
     polarity = "dark";
@@ -59,8 +58,6 @@
       };
     };
   };
-
-
 
   specialisation = {
     cosmic.configuration = {

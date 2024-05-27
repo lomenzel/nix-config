@@ -6,7 +6,7 @@
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = { "leonard" = import ../home-manager/home.nix; };
-    backupFileExtension = "backup-6";
+    backupFileExtension = "backup-7";
   };
 
   services.xserver.enable = true;
