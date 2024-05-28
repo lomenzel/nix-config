@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, lib, ... }:
 
 {
   imports = [ ./shell.nix ./desktop.nix ];
@@ -6,7 +6,7 @@
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = { "leonard" = import ../home-manager/home.nix; };
-    backupFileExtension = "backup-9";
+    backupFileExtension = "backup-13";
   };
 
   services.xserver.enable = true;

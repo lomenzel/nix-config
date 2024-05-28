@@ -1,10 +1,5 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, colors, ... }:
 let
-
-  accentColor = "#744A8A";
-  inactiveAccentColor = "#2E2A39";
-  inactiveSelected = "#463054";
-
   toBase64 = text:
     let
       inherit (lib) sublist mod stringToCharacters concatMapStrings;
@@ -40,11 +35,11 @@ let
       tail = convertLastSlice (tripletAt nFullSlices);
 
     in join (head ++ [ tail ]);
-  css-colors = ''
+  css-colors = with  config.lib.stylix.colors; ''
     :root {
-              --config-accent-color: ${accentColor};
-              --config-dimmed-accent-color: ${inactiveSelected};
-              --config-tinted-background: ${inactiveAccentColor};
+              --config-accent-color: #${base0D};
+              --config-dimmed-accent-color: #${base03};
+              --config-tinted-background: #${base01};
             }
   '';
 
@@ -150,11 +145,7 @@ in {
 
             __ConfigsMigration__userValeusSameToDefaultAreCleared = true;
             chunkedUserStyleRules0 = toBase64 ''
-              :root {
-                --config-accent-color: ${accentColor};
-                --config-dimmed-accent-color: ${inactiveSelected};
-                --config-tinted-background: ${inactiveAccentColor};
-              }
+              ${css-colors}
               ${builtins.readFile ./tst.css}
             '';
 
