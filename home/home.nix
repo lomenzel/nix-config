@@ -27,6 +27,7 @@
   #systemd.extraConfig = "DefaultTimeoutStopSec=5s";
 
   services.openssh.enable = true;
+  services.fwupd.enable = true;
 
   #services.fwupd.enable = true;
 
@@ -52,14 +53,13 @@
       jetbrains.webstorm
       libsForQt5.polonium
       minetest
-      #glxinfo
-      #clinfo
-      #wayland-utils
+      glxinfo
+      clinfo
+      wayland-utils
       less
-      #fwupd
-      #pciutils
-      #vulkan-tools
-      #firefox
+      pciutils
+      vulkan-tools
+
       kate
       htop
       curl

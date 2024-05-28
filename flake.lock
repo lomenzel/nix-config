@@ -242,11 +242,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1716457508,
-        "narHash": "sha256-ZxzffLuWRyuMrkVVq7wastNUqeO0HJL9xqfY1QsYaqo=",
+        "lastModified": 1716847642,
+        "narHash": "sha256-rjEswRV0o23eBBils8lJXyIGha+l/VjV73IPg+ztxgk=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "850cb322046ef1a268449cf1ceda5fd24d930b05",
+        "rev": "10c7c219b7dae5795fb67f465a0d86cbe29f25fa",
         "type": "github"
       },
       "original": {
@@ -284,11 +284,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1716493982,
-        "narHash": "sha256-KSdPjenUqX8wt8hV+1p1O5vkkVo6Ae1+seG6HLsEhos=",
+        "lastModified": 1716853176,
+        "narHash": "sha256-9gUu2VJu5bL+jjNS3mWG/h7T+vIsYhKYyQAunvZtBT4=",
         "owner": "lilyinstarlight",
         "repo": "nixos-cosmic",
-        "rev": "89d75599135c90ab3c0270fa272bf85860bf847c",
+        "rev": "996ad8af9bfe04587c0457fcf72f5167e481fe5a",
         "type": "github"
       },
       "original": {
@@ -458,11 +458,11 @@
       },
       "locked": {
         "host": "git.mylab.th-luebeck.de",
-        "lastModified": 1716548544,
-        "narHash": "sha256-mnUxJ9SPjJOnp6aiG+4jmVxFQ/KKnJWEst+Di9JufE8=",
+        "lastModified": 1716817596,
+        "narHash": "sha256-YckhGMGbk6ExQAbCpTVdu3pvetOmkAJcIJwOQIQ32gE=",
         "owner": "ux-cookie-banner",
         "repo": "uex-cookie-banner-website",
-        "rev": "8b1c065de14b183bfd5ab7b72f21979dde5c6f65",
+        "rev": "62b0ab79387ef840482d193308540ca1fc3f8550",
         "type": "gitlab"
       },
       "original": {
