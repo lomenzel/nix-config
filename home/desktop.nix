@@ -23,7 +23,10 @@
 
 
   stylix = {
-    image = ./baum-dark.png;
+    image = pkgs.fetchurl {
+      url = "https://github.com/AngelJumbo/gruvbox-wallpapers/blob/main/wallpapers/irl/sunforest.jpg?raw=true";
+      hash = "sha256-BjGNIJIq2sg9nwk5itLY3Bz7C1jYVEVEgU3Y8KbDRNU=";
+    };
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
     opacity = {
