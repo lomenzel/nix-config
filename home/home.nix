@@ -6,7 +6,7 @@
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = { "leonard" = import ../home-manager/home.nix; };
-    backupFileExtension = "backup-7";
+    backupFileExtension = "backup-8";
   };
 
   services.xserver.enable = true;
@@ -74,7 +74,6 @@
       #kdePackages.angelfish
       signal-desktop
       libreoffice
-      vscode
       killall
     ];
     shell = pkgs.zsh;

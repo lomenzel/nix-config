@@ -28,8 +28,8 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
     opacity = {
       applications = 0.3;
-      desktop = 0.3;
-      popups = 0.3;
+      desktop = 0.1;
+      popups = 0.1;
       terminal = 0.3;
     };
     cursor = {
