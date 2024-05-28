@@ -5,6 +5,7 @@
         userSettings = {
             "files.autoSave" = "afterDelay";
             "git.enableSmartCommit"= true;
+            "git.confirmSync" =  false;
         };
     };
     
