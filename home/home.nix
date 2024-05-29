@@ -51,17 +51,14 @@
     "x86_64-windows"
   ];
 
-  #programs.adb.enable = true;
+  programs.adb.enable = true;
   programs.partition-manager.enable = true;
-  #programs.steam.enable = true;
+  programs.steam.enable = true;
 
   #systemd.extraConfig = "DefaultTimeoutStopSec=5s";
 
   services.openssh.enable = true;
   services.fwupd.enable = true;
-
-  #services.fwupd.enable = true;
-
   environment.sessionVariables = {
     FLAKE = "/home/leonard/.config/nix-config";
   };
@@ -71,6 +68,7 @@
     description = "Leonard Menzel";
     extraGroups = [ "networkmanager" "wheel" "libvirtd" "docker" "adbusers" ];
     packages = with pkgs; [
+      wineWowPackages.full
       nh
       #nodejs_21
       gimp
