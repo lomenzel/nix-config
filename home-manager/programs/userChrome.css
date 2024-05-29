@@ -5,24 +5,12 @@
     height: 27px !important;
 }
 #nav-bar {
-    margin-top: -34px;
+    margin-top: -35px;
     margin-right: 0px;
     box-shadow: none !important;
     background-color: var(--config-accent-color) !important;
 }
 
-tab-item.active {
-  background-color: #744A8A !important;
-}
-
-tab-item-substance .background{
-  outline: none !important;
-  border-radius: 0 !important;
-  width: 100%;
-  background-color: transparent !important;
-  padding: 0;
-  margin: 0;
-}
 
 #sidebar-box {
   
@@ -86,9 +74,6 @@ tab-item-substance .background{
 
 #sidebar-box #sidebar-header {
     display: none !important;
-}
-.tab-close-button {
-  display: none !important;
 }
 
 

@@ -1,5 +1,4 @@
-@-moz-document url(about:blank),
-               url(about:newtab)
+@-moz-document url(about:blank)
 {
   #newtab-window,
   html, body
