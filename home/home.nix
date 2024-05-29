@@ -55,7 +55,7 @@
 
   programs.adb.enable = true;
   programs.partition-manager.enable = true;
-  programs.steam.enable = true;
+  #programs.steam.enable = true;
 
   services.openssh.enable = true;
   services.fwupd.enable = true;
