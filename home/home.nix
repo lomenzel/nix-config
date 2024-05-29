@@ -20,6 +20,7 @@
     enable = true;
   };
 
+
   boot.binfmt.emulatedSystems = [
     "aarch64-linux"
     "aarch64_be-linux"
@@ -51,11 +52,10 @@
     "x86_64-windows"
   ];
 
+
   programs.adb.enable = true;
   programs.partition-manager.enable = true;
   programs.steam.enable = true;
-
-  #systemd.extraConfig = "DefaultTimeoutStopSec=5s";
 
   services.openssh.enable = true;
   services.fwupd.enable = true;
