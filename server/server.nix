@@ -18,6 +18,7 @@ in {
     #./matrix.nix
     ./jitsi.nix
     ./comfy.nix
+    ./searx.nix
 
     ./cookie/cookie.nix
   ];
