@@ -6,6 +6,11 @@
     configFile = pkgs.writeText "wsh-config.toml" ''
       prefix = "."
 
+
+      [[sites]]
+      name = "searxng"
+      key = "lol"
+      url = "https://search.menzel.lol/search?q={{s}}"
       [[sites]]
       name = "startpage"
       key = "s"
