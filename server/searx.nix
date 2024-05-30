@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:{
+{ config, pkgs, secrets, ... }:{
 
   services.searx = {
     enable = true;
@@ -6,6 +6,7 @@
     settings = {
       server = {
         port = 8100;
+        secret_key = secrets.searx.secret;
       };
     };
   };
