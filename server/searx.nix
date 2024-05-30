@@ -14,7 +14,7 @@
   services.nginx.virtualHosts."search.menzel.lol" = {
     forceSSL = true;
     useACMEHost = "wildcard";
-    locations."/" = { proxyPass = "http://192.168.178.61:8100"; };
+    locations."/" = { proxyPass = "http://localhost:8100"; };
   };
 
 
