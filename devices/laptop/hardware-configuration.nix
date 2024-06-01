@@ -64,7 +64,7 @@
   };
 
   # Set your time zone.
-  time.timeZone = "Europe/Berlin";
+  time.timeZone = "UTC";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "de_DE.UTF-8";

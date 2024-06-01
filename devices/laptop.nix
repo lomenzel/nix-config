@@ -25,8 +25,8 @@
 
   nix.distributedBuilds = true;
 
-  hardware.tuxedo-rs.enable = true;
-  hardware.tuxedo-rs.tailor-gui.enable = true;
+  #hardware.tuxedo-rs.enable = true;
+  #hardware.tuxedo-rs.tailor-gui.enable = true;
 
   nixpkgs.config.nativeOptimization = "native";
   virtualisation.docker.enable = true;

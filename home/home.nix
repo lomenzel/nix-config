@@ -70,6 +70,7 @@
     packages = with pkgs; [
       wineWowPackages.full
       nh
+      mpv
       #nodejs_21
       gimp
       picard

@@ -13,6 +13,8 @@
       allowUnfreePredicate = (_: true);
     };
   };
+
+  #services.activitywatch.enable = true;
   
   home.username = "leonard";
   home.homeDirectory = "/home/leonard";
