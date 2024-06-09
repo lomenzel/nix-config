@@ -86,6 +86,27 @@
 
         ];
       };
+      pi = nixpkgs.lib.nixosSystem {
+        
+      };
+      pp = nixpkgs.lib.nixosSystem {
+        
+      };
+      fajita = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        specialArgs = {
+          inherit inputs;
+          mobileNixos = inputs.mobile-nixos;
+        };
+        modules = [
+          ({ config, pkgs, ... }: {
+            imports = [
+              (import "${inputs.mobile-nixos}/lib/configuration.nix" { device = "oneplus-fajita"; })
+              "./devices/fajita/configuration.nix"
+            ];
+          })
+        ];
+      };
     };
   };
 }

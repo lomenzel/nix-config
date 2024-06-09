@@ -71,6 +71,8 @@
       wineWowPackages.full
       nh
       mpv
+      ghc
+      haskell-language-server
       #nodejs_21
       gimp
       picard
