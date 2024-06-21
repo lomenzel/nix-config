@@ -4,10 +4,7 @@
 
   inputs = {
     nixpkgs = { url = "github:NixOS/nixpkgs/nixos-unstable"; };
-    nixos-cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+ 
 
     wsh = {
       url = "github:lomenzel/web-command";
@@ -28,12 +25,6 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    plasma-manager = {
-      url = "github:pjones/plasma-manager/trunk";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
-
 
   };
 
@@ -46,15 +37,7 @@
         modules = [
           inputs.stylix.nixosModules.stylix
 
-          {
-            nix.settings = {
-              substituters = [ "https://cosmic.cachix.org/" ];
-              trusted-public-keys = [
-                "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
-              ];
-            };
-          }
-          nixos-cosmic.nixosModules.default
+          
           wsh.nixosModules."x86_64-linux".default
           ./devices/laptop/configuration.nix
           inputs.home-manager.nixosModules.default
@@ -68,15 +51,7 @@
           secrets = import /home/leonard/.config/secrets/secrets.nix;
         };
         modules = [
-          {
-            nix.settings = {
-              substituters = [ "https://cosmic.cachix.org/" ];
-              trusted-public-keys = [
-                "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
-              ];
-            };
-          }
-          nixos-cosmic.nixosModules.default
+         
 
           wsh.nixosModules."x86_64-linux".default
           ./devices/desktop/configuration.nix

@@ -1,11 +1,10 @@
 { config, pkgs, inputs, lib, ... }: {
 
-  imports = [
+  imports = [];
 
-    ({ config, pkgs, lib, ... }: {
-      config = lib.mkIf (config.specialisation != { }) {
-        # Config that should only apply to the default system, not the specialised ones
-        services.displayManager.sddm.enable = true;
+
+
+   services.displayManager.sddm.enable = true;
         services.desktopManager.plasma6.enable = true;
         programs.kdeconnect.enable = true;
 
@@ -17,10 +16,6 @@
           kdePackages.kaccounts-integration
           kdePackages.kcmutils
         ];
-      };
-    })
-  ];
-
 
   stylix = {
     image = pkgs.fetchurl {
@@ -63,10 +58,4 @@
     };
   };
 
-  specialisation = {
-    cosmic.configuration = {
-      services.desktopManager.cosmic.enable = true;
-      services.displayManager.cosmic-greeter.enable = true;
-    };
-  };
 }
