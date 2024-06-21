@@ -29,7 +29,7 @@
   };
 
 
-  outputs = { self, nixpkgs,uex, nixos-cosmic, wsh, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs,uex, wsh, home-manager, ... }@inputs: {
     nixosConfigurations = {
       laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
