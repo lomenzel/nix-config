@@ -2,8 +2,8 @@
   imports = [ 
     ./programs/firefox.nix 
     ./programs/git.nix 
-    ./plasma.nix 
-    inputs.plasma-manager.homeManagerModules.plasma-manager 
+    #./plasma.nix 
+    #inputs.plasma-manager.homeManagerModules.plasma-manager 
     ./programs/vscode.nix
     ];
 

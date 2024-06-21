@@ -38,6 +38,10 @@
     lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+  hardware.bluetooth.powerOnBoot = true; 
+
+  
   hardware.opengl.enable = true;
 
   # Configure keymap in X11
@@ -97,7 +101,7 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  services.blueman.enable = true;
+
 
   security.sudo.package = pkgs.sudo.override { withInsults = true; };
 

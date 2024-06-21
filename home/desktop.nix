@@ -29,6 +29,7 @@
     };
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+    /*
     opacity = {
       applications = 0.3;
       desktop = 0.1;
@@ -40,7 +41,7 @@
       name = "Bibata-Modern-Classic";
       size = 24;
     };
-
+*/
     fonts = {
       monospace ={
         package =pkgs.nerdfonts.override {

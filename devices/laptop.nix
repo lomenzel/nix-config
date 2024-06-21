@@ -10,6 +10,8 @@
     #../../kde2nix/nixos.nix
   ];
 
+
+/*
   nix.buildMachines = [{
     hostName = "ssh.menzel.lol";
     system = "x86_64-linux";
@@ -20,6 +22,7 @@
     mandatoryFeatures = [ ];
     sshUser = "leonard";
   }];
+  */
 
   systemd.services.NetworkManager-wait-online.enable = false;
 
@@ -30,7 +33,7 @@
 
   nixpkgs.config.nativeOptimization = "native";
   virtualisation.docker.enable = true;
-  boot.kernelPackages = pkgs.linuxPackages_testing;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   services.openssh.settings.PermitRootLogin = "yes";
 

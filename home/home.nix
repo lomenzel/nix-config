@@ -12,6 +12,8 @@
   services.xserver.enable = true;
 
   nix.settings.trusted-users = [ "root" "leonard" ];
+  
+  #programs.steam.enable = true;
 
   nix.sshServe.write = true;
   nix.sshServe.enable = true;
@@ -20,7 +22,7 @@
     enable = true;
   };
 
-
+/*
   boot.binfmt.emulatedSystems = [
     "aarch64-linux"
     "aarch64_be-linux"
@@ -51,7 +53,7 @@
     #"x86_64-linux"
     "x86_64-windows"
   ];
-
+*/
 
   programs.adb.enable = true;
   programs.partition-manager.enable = true;
@@ -80,6 +82,7 @@
       kdePackages.elisa
       kdePackages.kmail
       kdePackages.kontact
+      kdePackages.marknote
       kdePackages.kmail-account-wizard
       kdePackages.akonadi-import-wizard
       jetbrains.webstorm
