@@ -1,5 +1,9 @@
-{ config, pkgs, ... }: {
-  imports = [ ./hardware-configuration.nix ../laptop.nix ];
+{ config, pkgs, ... }:
+{
+  imports = [
+    ./hardware-configuration.nix
+    ../laptop.nix
+  ];
 
   nix = {
     package = pkgs.nixFlakes;

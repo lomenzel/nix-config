@@ -10,7 +10,8 @@ let
     add_header Access-Control-Allow-Origin *;
     return 200 '${builtins.toJSON data}';
   '';
-in {
+in
+{
 
   services.postgresql.enable = true;
   services.postgresql.initialScript = pkgs.writeText "synapse-init.sql" ''
@@ -64,8 +65,10 @@ in {
   };
 
   services.matrix-synapse = with config.services.coturn; {
-    settings.turn_uris =
-      [ "turn:${realm}:3478?transport=udp" "turn:${realm}:3478?transport=tcp" ];
+    settings.turn_uris = [
+      "turn:${realm}:3478?transport=udp"
+      "turn:${realm}:3478?transport=tcp"
+    ];
     settings.turn_shared_secret = static-auth-secret;
     settings.turn_user_lifetime = "1h";
 
@@ -73,17 +76,24 @@ in {
     #sliding-sync.enable = true;
     settings.server_name = fqdn;
     settings.public_baseurs = baseUrl;
-    settings.listeners = [{
-      port = 8008;
-      bind_addresses = [ "::1" ];
-      type = "http";
-      tls = false;
-      x_forwarded = true;
-      resources = [{
-        names = [ "client" "federation" ];
-        compress = true;
-      }];
-    }];
+    settings.listeners = [
+      {
+        port = 8008;
+        bind_addresses = [ "::1" ];
+        type = "http";
+        tls = false;
+        x_forwarded = true;
+        resources = [
+          {
+            names = [
+              "client"
+              "federation"
+            ];
+            compress = true;
+          }
+        ];
+      }
+    ];
     settings.registration_shared_secret = config.secrets.matrix.sharedSecret;
   };
 
@@ -104,8 +114,7 @@ in {
 
     root = pkgs.element-web.override {
       conf = {
-        default_server_config =
-          clientConfig; # see `clientConfig` from the snippet above.
+        default_server_config = clientConfig; # see `clientConfig` from the snippet above.
       };
     };
   };

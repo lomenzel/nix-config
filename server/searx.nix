@@ -1,4 +1,10 @@
-{ config, pkgs, secrets, ... }:{
+{
+  config,
+  pkgs,
+  secrets,
+  ...
+}:
+{
 
   services.searx = {
     enable = true;
@@ -14,8 +20,9 @@
   services.nginx.virtualHosts."search.menzel.lol" = {
     forceSSL = true;
     useACMEHost = "wildcard";
-    locations."/" = { proxyPass = "http://localhost:8100"; };
+    locations."/" = {
+      proxyPass = "http://localhost:8100";
+    };
   };
-
 
 }

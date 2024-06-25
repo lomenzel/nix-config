@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -12,12 +17,19 @@
   virtualisation.oci-containers.containers = {
     piHole = {
       image = "pihole/pihole:latest";
-      ports = [ "53:53/tcp" "53:53/udp" "80:80/tcp" ];
+      ports = [
+        "53:53/tcp"
+        "53:53/udp"
+        "80:80/tcp"
+      ];
       environment = {
         TZ = "Europe/Berlin";
         WEBPASSWORD = config.secrets.piHole.webPassword;
       };
-      volumes = [ "/etc-pihole:/etc/pihole" "/etc-dnsmasq.d:/etc/dnsmasq.d" ];
+      volumes = [
+        "/etc-pihole:/etc/pihole"
+        "/etc-dnsmasq.d:/etc/dnsmasq.d"
+      ];
     };
 
   };
@@ -26,7 +38,9 @@
   time.timeZone = "Europe/Berlin";
 
   i18n.defaultLocale = "de_DE.UTF-8";
-  console = { enable = false; };
+  console = {
+    enable = false;
+  };
 
   services.printing.enable = true;
 
@@ -54,8 +68,7 @@
     enable = true;
     shellAliases = {
       up = "sudo nix-channel --update && sudo nixos-rebuild switch";
-      ur =
-        "sudo nix-channel --update && sudo nixos-rebuild boot && sudo reboot";
+      ur = "sudo nix-channel --update && sudo nixos-rebuild boot && sudo reboot";
       conf = "sudo vim /etc/nixos/configuration.nix";
     };
     ohMyZsh = {
@@ -78,7 +91,11 @@
       API = {
         HTTPHeaders = {
           Access-Control-Allow-Origin = [ "*" ];
-          Access-Control-Allow-Methods = [ "GET" "POST" "PUT" ];
+          Access-Control-Allow-Methods = [
+            "GET"
+            "POST"
+            "PUT"
+          ];
         };
       };
       Addresses.API = "/ip4/0.0.0.0/tcp/5001";

@@ -1,4 +1,10 @@
-{ config, pkgs, secrets, ... }: {
+{
+  config,
+  pkgs,
+  secrets,
+  ...
+}:
+{
 
   services.nginx.virtualHosts."comfyui.menzel.lol" = {
     forceSSL = true;

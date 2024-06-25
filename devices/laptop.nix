@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   imports = [
     ../home/home.nix
     ../home/vm.nix
@@ -10,18 +11,17 @@
     #../../kde2nix/nixos.nix
   ];
 
-
-/*
-  nix.buildMachines = [{
-    hostName = "ssh.menzel.lol";
-    system = "x86_64-linux";
-    protocol = "ssh-ng";
-    maxJobs = 32;
-    speedFactor = 2;
-    supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
-    mandatoryFeatures = [ ];
-    sshUser = "leonard";
-  }];
+  /*
+    nix.buildMachines = [{
+      hostName = "ssh.menzel.lol";
+      system = "x86_64-linux";
+      protocol = "ssh-ng";
+      maxJobs = 32;
+      speedFactor = 2;
+      supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
+      mandatoryFeatures = [ ];
+      sshUser = "leonard";
+    }];
   */
 
   systemd.services.NetworkManager-wait-online.enable = false;

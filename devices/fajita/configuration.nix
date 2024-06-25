@@ -1,7 +1,12 @@
-{ config, pkgs, mobileNixos, ... }:
+{
+  config,
+  pkgs,
+  mobileNixos,
+  ...
+}:
 
 {
-  imports = [];
+  imports = [ ];
 
   # Basic system settings
   system.stateVersion = "23.05"; # Adjust to your nixpkgs version

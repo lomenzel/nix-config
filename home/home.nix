@@ -1,18 +1,34 @@
-{ config, pkgs, inputs, lib, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  lib,
+  ...
+}:
 
 {
-  imports = [ ./shell.nix ./desktop.nix ];
+  imports = [
+    ./shell.nix
+    ./desktop.nix
+  ];
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = { "leonard" = import ../home-manager/home.nix; };
+    extraSpecialArgs = {
+      inherit inputs;
+    };
+    users = {
+      "leonard" = import ../home-manager/home.nix;
+    };
     backupFileExtension = "bak";
   };
 
   services.xserver.enable = true;
 
-  nix.settings.trusted-users = [ "root" "leonard" ];
-  
+  nix.settings.trusted-users = [
+    "root"
+    "leonard"
+  ];
+
   #programs.steam.enable = true;
 
   nix.sshServe.write = true;
@@ -22,38 +38,38 @@
     enable = true;
   };
 
-/*
-  boot.binfmt.emulatedSystems = [
-    "aarch64-linux"
-    "aarch64_be-linux"
-    "alpha-linux"
-    "armv6l-linux"
-    "armv7l-linux"
-    "i386-linux"
-    "i486-linux"
-    "i586-linux"
-    "i686-linux"
-    "i686-windows"
-    "loongarch64-linux"
-    "mips-linux"
-    "mips64-linux"
-    "mips64-linuxabin32"
-    "mips64el-linux"
-    "mips64el-linuxabin32"
-    "mipsel-linux"
-    "powerpc-linux"
-    "powerpc64-linux"
-    "powerpc64le-linux"
-    "riscv32-linux"
-    "riscv64-linux"
-    "sparc-linux"
-    "sparc64-linux"
-    "wasm32-wasi"
-    "wasm64-wasi"
-    #"x86_64-linux"
-    "x86_64-windows"
-  ];
-*/
+  /*
+    boot.binfmt.emulatedSystems = [
+      "aarch64-linux"
+      "aarch64_be-linux"
+      "alpha-linux"
+      "armv6l-linux"
+      "armv7l-linux"
+      "i386-linux"
+      "i486-linux"
+      "i586-linux"
+      "i686-linux"
+      "i686-windows"
+      "loongarch64-linux"
+      "mips-linux"
+      "mips64-linux"
+      "mips64-linuxabin32"
+      "mips64el-linux"
+      "mips64el-linuxabin32"
+      "mipsel-linux"
+      "powerpc-linux"
+      "powerpc64-linux"
+      "powerpc64le-linux"
+      "riscv32-linux"
+      "riscv64-linux"
+      "sparc-linux"
+      "sparc64-linux"
+      "wasm32-wasi"
+      "wasm64-wasi"
+      #"x86_64-linux"
+      "x86_64-windows"
+    ];
+  */
 
   programs.adb.enable = true;
   programs.partition-manager.enable = true;
@@ -68,7 +84,13 @@
   users.users.leonard = {
     isNormalUser = true;
     description = "Leonard Menzel";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" "docker" "adbusers" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "libvirtd"
+      "docker"
+      "adbusers"
+    ];
     packages = with pkgs; [
       wineWowPackages.full
       nh

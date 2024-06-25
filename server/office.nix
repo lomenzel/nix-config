@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
 
   virtualisation.docker.enable = true;
   virtualisation.oci-containers = {
@@ -7,8 +8,7 @@
       image = "collabora/code";
       imageFile = pkgs.dockerTools.pullImage {
         imageName = "collabora/code";
-        imageDigest =
-          "sha256:aab41379baf5652832e9237fcc06a768096a5a7fccc66cf8bd4fdb06d2cbba7f";
+        imageDigest = "sha256:aab41379baf5652832e9237fcc06a768096a5a7fccc66cf8bd4fdb06d2cbba7f";
         sha256 = "sha256-M66lynhzaOEFnE15Sy1N6lBbGDxwNw6ap+IUJAvoCLs=";
       };
       ports = [ "9980:9980" ];
@@ -16,7 +16,10 @@
         domain = "cloud.menzel.lol";
         extra_params = "--o:ssl.enable=false --o:ssl.termination=true";
       };
-      extraOptions = [ "--cap-add" "MKNOD" ];
+      extraOptions = [
+        "--cap-add"
+        "MKNOD"
+      ];
     };
   };
 

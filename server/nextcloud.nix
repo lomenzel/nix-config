@@ -1,4 +1,10 @@
-{ config, pkgs, secrets, ... }: {
+{
+  config,
+  pkgs,
+  secrets,
+  ...
+}:
+{
 
   imports = [ ./office.nix ];
 

@@ -31,7 +31,9 @@
   zramSwap.enable = true;
 
   # Auto-login for Plasma Mobile
-  services.xserver.displayManager.autoLogin = { user = "leonard"; };
+  services.xserver.displayManager.autoLogin = {
+    user = "leonard";
+  };
 
   #
   # User configuration
@@ -47,7 +49,13 @@
     isNormalUser = true;
     description = "Leonard";
     hashedPassword = secrets.pp.password;
-    extraGroups = [ "dialout" "feedbackd" "networkmanager" "video" "wheel" ];
+    extraGroups = [
+      "dialout"
+      "feedbackd"
+      "networkmanager"
+      "video"
+      "wheel"
+    ];
   };
 
   services.openssh.enable = true;

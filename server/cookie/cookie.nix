@@ -1,8 +1,14 @@
-{ config, pkgs, secrets, inputs, ... }:
+{
+  config,
+  pkgs,
+  secrets,
+  inputs,
+  ...
+}:
 
 {
 
-imports = [ ./update.nix ];
+  imports = [ ./update.nix ];
   systemd.timers.cookieBackup = {
     wantedBy = [ "timers.target" ];
     partOf = [ "cookieBackup.service" ];
@@ -30,25 +36,26 @@ imports = [ ./update.nix ];
     wantedBy = [ "multi-user.target" ];
     after = [ "network.target" ];
     serviceConfig = {
-      ExecStart =
-        "${pkgs.nodePackages.json-server}/bin/json-server /home/leonard/Projekte/CookieDB/db.json -p 3002";
+      ExecStart = "${pkgs.nodePackages.json-server}/bin/json-server /home/leonard/Projekte/CookieDB/db.json -p 3002";
       Environment = [
 
       ];
     };
   };
 
-  services.nginx.virtualHosts."jsondb.menzel.lol" = {
-    forceSSL = true;
-    useACMEHost = "wildcard";
-    locations."/" = { proxyPass = "http://192.168.178.61:3002"; };
-  };
+  /*
+    services.nginx.virtualHosts."jsondb.menzel.lol" = {
+      forceSSL = true;
+      useACMEHost = "wildcard";
+      locations."/" = { proxyPass = "http://192.168.178.61:3002"; };
+    };
 
-  services.nginx.virtualHosts."uex.menzel.lol" = {
-    forceSSL = true;
-    useACMEHost = "wildcard";
-    basicAuth = secrets.cookie.basicAuth;
-    root = "${inputs.uex.packages.x86_64-linux.default}/public";
-  };
+    services.nginx.virtualHosts."uex.menzel.lol" = {
+      forceSSL = true;
+      useACMEHost = "wildcard";
+      basicAuth = secrets.cookie.basicAuth;
+      root = "${inputs.uex.packages.x86_64-linux.default}/public";
+    };
+  */
 
 }

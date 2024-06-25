@@ -5,7 +5,8 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ # Include the results of the hardware scan.
+  imports = [
+    # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
   ];
@@ -109,7 +110,10 @@
   users.users.leonard = {
     isNormalUser = true;
     description = "Leonard Menzel";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
   };
 
   # Allow unfree packages
