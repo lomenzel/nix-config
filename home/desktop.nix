@@ -25,11 +25,11 @@
   stylix = {
     enable = true;
     image = pkgs.fetchurl {
-      url = "https://github.com/AngelJumbo/gruvbox-wallpapers/blob/main/wallpapers/irl/sunforest.jpg?raw=true";
-      hash = "sha256-BjGNIJIq2sg9nwk5itLY3Bz7C1jYVEVEgU3Y8KbDRNU=";
+      url = "https://wallpaperaccess.com/full/632832.png";
+      hash = "sha256-79fPkuP9lmwlVsSE2AAt1mTlOdxTa5xgEPVzfvIcIas=";
     };
-    polarity = "dark";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+    polarity = "light";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-dawn.yaml";
     /*
       opacity = {
         applications = 0.3;
@@ -37,12 +37,13 @@
         popups = 0.1;
         terminal = 0.3;
       };
-      cursor = {
-        package = pkgs.bibata-cursors;
-        name = "Bibata-Modern-Classic";
-        size = 24;
-      };
     */
+    cursor = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Classic";
+      size = 24;
+    };
+
     fonts = {
       monospace = {
         package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };

@@ -8,24 +8,23 @@
     margin-top: -35px;
     margin-right: 0px;
     box-shadow: none !important;
-    background-color: var(--config-accent-color) !important;
+    background-color: var(--accent-color) !important;
 }
 
 
 #sidebar-box {
-  
   width: 10cm
 }
 
 #urlbar #urlbar-background {
-  background-color: var(--config-dimmed-accent-color) !important;
+  background-color: var(--inactive-window-accent-color) !important;
 }
 #urlbar #urlbar-background:-moz-window-inactive {
-    background-color: var(--config-tinted-background) !important;
+    background-color: var(--inactive-window-accent-color) !important;
   }
 
 #urlbar[focused] #urlbar-background {
-  background-color: var(--config-dimmed-accent-color) !important;
+  background-color: var(--inactive-window-accent-color) !important;
 }
 
 #navigator-toolbox {
@@ -33,12 +32,12 @@
 }
 
 #TabsToolbar {
-  background-color:var(--config-accent-color) !important;
+  background-color:var(--accent-color) !important;
 }
 
 #TabsToolbar:-moz-window-inactive,
 #nav-bar:-moz-window-inactive {
-  background-color: var(--config-tinted-background) !important;
+  background-color: var(--inactive-window-accent-color) !important;
 }
 
 #sidebar-box + splitter {
@@ -47,7 +46,7 @@
   display: none !important;
 }
 #tabbar {
-  background-color: var(--config-accent-color) !important;
+  background-color: var(--accent-color) !important;
 }
 
 [uidensity="compact"]:root .titlebar-button {
@@ -79,18 +78,11 @@
 
 menupopup {
   --panel-color: whitesmoke !important;
-  --panel-background: var(--config-tinted-background) !important;
+  --panel-background: var(--background-color) !important;
+  color: var(--default-foreground)
 }
 
 menu:not([disabled="true"])[_moz-menuactive="true"], menuitem:not([disabled="true"])[_moz-menuactive="true"] {
-  background-color: var(--config-accent-color) !important;
-  color: whitesmoke !important;
-}
-
-@-moz-document url(chrome://browser/content/browser.xul)
-{
-  browser[type="content-primary"], tabbrowser tabpanels, #appcontent > #content
-  {
-    background: greenyellow !important;
-  }
+  background-color: var(--accent-color) !important;
+  color: var(--default-foreground) !important;
 }

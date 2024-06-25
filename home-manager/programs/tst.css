@@ -1,22 +1,26 @@
 #tabbar {
-    background-color: var(--config-tinted-background);
+    background-color: var(--background-color);
 }
-
-
 
 tab-item.active tab-item-substance .background {
     height: auto;
     outline: none !important;
-
-    background-color: var(--config-accent-color) !important;
+    background-color: var(--accent-color) !important;
     padding: 0;
     margin-left: 3px;
     box-shadow: none;
 }
 
-
 tab-item.active tab-item-substance .background:-moz-window-inactive {
-    background-color: var(--config-dimmed-accent-color) !important;
+    background-color: var(--inactive-window-accent-color) !important;
+}
+
+tab-item tab-item-substance .label {
+    color: var(--default-foreground);
+}
+
+tab-item.active tab-item-substance .label-content {
+    color: var(--base07);
 }
 
 .newtab-button-box {

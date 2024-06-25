@@ -64,13 +64,95 @@ let
 
     in
     join (head ++ [ tail ]);
-  css-colors = with config.lib.stylix.colors; ''
-    :root {
-              --config-accent-color: #${base0D};
-              --config-dimmed-accent-color: #${base03};
-              --config-tinted-background: #${base01};
-            }
-  '';
+  css-colors =
+    with config.lib.stylix.colors; # css
+    ''
+      :root {
+        --background-color: #${base00};
+        --base00: #${base00};
+
+        --lighter-background: #${base01};
+        --base01: #${base01};
+
+        --selection-background: #${base02};
+        --base02: #${base02};
+
+        --comments-line-highlight: #${base03};
+        --base03: #${base03};
+
+        --dark-foreground: #${base04};
+        --base04: #${base04};
+
+        --default-foreground: #${base05};
+        --base05: #${base05};
+
+        --light-foreground: #${base06};
+        --base06: #${base06};
+
+        --light-background-text: #${base07};
+        --base07: #${base07};
+
+        --variables-tags-error: #${base08};
+        --base08: #${base08};
+
+        --integers-constants-attributes: #${base09};
+        --base09: #${base09};
+
+        --classes-keywords-storage: #${base0A};
+        --base0A: #${base0A};
+
+        --strings-markup-code: #${base0B};
+        --base0B: #${base0B};
+
+        --support-regular-expressions: #${base0C};
+        --base0C: #${base0C};
+
+        --functions-methods: #${base0D};
+        --base0D: #${base0D};
+
+        --keywords-selectors: #${base0E};
+        --base0E: #${base0E};
+
+        --deprecated-debugging: #${base0F};
+        --base0F: #${base0F};
+
+        /* Typical use cases */
+        --link-color: var(--integers-constants-attributes); /* Using base09 */
+        --visited-link-color: var(--functions-methods); /* Using base0D */
+        --active-link-color: var(--variables-tags-error); /* Using base08 */
+        --hover-link-color: var(--classes-keywords-storage); /* Using base0A */
+
+        --accent-color: var(--base0D); /* Using base0D */
+        --accent-color-light: var(--strings-markup-code); /* Using base0B */
+        --accent-color-dark: var(--support-regular-expressions); /* Using base0C */
+        --inactive-window-accent-color: var(--comments-line-highlight); /* Using base03 */
+
+
+        --border-color: var(--comments-line-highlight); /* Using base03 */
+        --input-border-color: var(--dark-foreground); /* Using base04 */
+        --button-border-color: var(--default-foreground); /* Using base05 */
+
+        --text-color: var(--default-foreground); /* Using base05 */
+        --muted-text-color: var(--comments-line-highlight); /* Using base03 */
+        --heading-text-color: var(--dark-foreground); /* Using base04 */
+
+        --button-background-color: var(--selection-background); /* Using base02 */
+        --button-text-color: var(--light-foreground); /* Using base06 */
+
+        --navbar-background-color: var(--background-color); /* Using base00 */
+        --navbar-text-color: var(--light-foreground); /* Using base06 */
+
+        --sidebar-background-color: var(--lighter-background); /* Using base01 */
+        --sidebar-text-color: var(--light-foreground); /* Using base06 */
+
+        --toolbar-background-color: var(--background-color); /* Using base00 */
+        --toolbar-text-color: var(--light-foreground); /* Using base06 */
+
+        --tooltip-background-color: var(--dark-foreground); /* Using base04 */
+        --tooltip-text-color: var(--light-foreground); /* Using base06 */
+      }
+
+    '';
 
 in
 {
@@ -258,59 +340,59 @@ in
             #Toolbar
             "browser.uiCustomization.state" = {
               Value = /*json*/ ''
-                {
-                  "placements": {
-                    "widget-overflow-fixed-list":[],
-                    "nav-bar":[
-                      "treestyletab_piro_sakura_ne_jp-browser-action",
-                      "back-button",
-                      "forward-button",
-                      "stop-reload-button",
-                      "customizableui-special-spring1",
-                      "urlbar-container",
-                      "customizableui-special-spring2",
-                      "save-to-pocket-button",
-                      "downloads-button",
-                      "fxa-toolbar-menu-button",
-                      "unified-extensions-button",
-                      "_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action"
-                    ],
-                    "toolbar-menubar":["menubar-items"],
-                    "TabsToolbar":[
-                      "tabbrowser-tabs",
-                      "new-tab-button",
-                      "alltabs-button"
-                    ],
-                    "PersonalToolbar":["personal-bookmarks"],
-                    "unified-extensions-area":[
-                     
+                  {
+                    "placements": {
+                      "widget-overflow-fixed-list":[],
+                      "nav-bar":[
+                        "treestyletab_piro_sakura_ne_jp-browser-action",
+                        "back-button",
+                        "forward-button",
+                        "stop-reload-button",
+                        "customizableui-special-spring1",
+                        "urlbar-container",
+                        "customizableui-special-spring2",
+                        "save-to-pocket-button",
+                        "downloads-button",
+                        "fxa-toolbar-menu-button",
+                        "unified-extensions-button",
+                        "_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action"
+                      ],
+                      "toolbar-menubar":["menubar-items"],
+                      "TabsToolbar":[
+                        "tabbrowser-tabs",
+                        "new-tab-button",
+                        "alltabs-button"
+                      ],
+                      "PersonalToolbar":["personal-bookmarks"],
+                      "unified-extensions-area":[
+                       
+                        "idcac-pub_guus_ninja-browser-action",
+                        "ipfs-firefox-addon_lidel_org-browser-action",
+                        "plasma-browser-integration_kde_org-browser-action",
+                        "ublock0_raymondhill_net-browser-action",
+                        "_2ea2bfef-af69-4427-909c-34e1f3f5a418_-browser-action"
+                      ]
+                    },
+                    "seen":[
+                      
                       "idcac-pub_guus_ninja-browser-action",
                       "ipfs-firefox-addon_lidel_org-browser-action",
                       "plasma-browser-integration_kde_org-browser-action",
+                      "treestyletab_piro_sakura_ne_jp-browser-action",
                       "ublock0_raymondhill_net-browser-action",
-                      "_2ea2bfef-af69-4427-909c-34e1f3f5a418_-browser-action"
-                    ]
-                  },
-                  "seen":[
-                    
-                    "idcac-pub_guus_ninja-browser-action",
-                    "ipfs-firefox-addon_lidel_org-browser-action",
-                    "plasma-browser-integration_kde_org-browser-action",
-                    "treestyletab_piro_sakura_ne_jp-browser-action",
-                    "ublock0_raymondhill_net-browser-action",
-                    "_2ea2bfef-af69-4427-909c-34e1f3f5a418_-browser-action",
-                    "_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action",
-                    "developer-button"
-                  ],
-                  "dirtyAreaCache":[
-                    "unified-extensions-area",
-                    "TabsToolbar",
-                    "nav-bar"
-                  ],
-                  "currentVersion":19,
-                  "newElementCount":4
-                }
-              '';
+                      "_2ea2bfef-af69-4427-909c-34e1f3f5a418_-browser-action",
+                      "_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action",
+                      "developer-button"
+                    ],
+                    "dirtyAreaCache":[
+                      "unified-extensions-area",
+                      "TabsToolbar",
+                      "nav-bar"
+                    ],
+                    "currentVersion":19,
+                    "newElementCount":4
+                  }
+                '';
               Status = "locked";
             };
           };
