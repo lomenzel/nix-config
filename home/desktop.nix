@@ -20,6 +20,7 @@
     kdePackages.kaccounts-providers
     kdePackages.kaccounts-integration
     kdePackages.kcmutils
+    maliit-keyboard
   ];
 
   stylix = {
