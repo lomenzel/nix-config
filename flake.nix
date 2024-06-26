@@ -54,6 +54,20 @@
           ];
 
         };
+	
+	tablet = nixpkgs.lib.nixosSystem rec {
+	  system = "x86_64-linux";
+	  specialArgs =  {
+	    inherit inputs;
+	  };
+ 	  modules = [
+		inputs.stylix.nixosModules.stylix
+		wsh.nixosModules.${system}.default
+		inputs.home-manager.nixosModules.default
+		./devices/tablet/configuration.nix	
+	  ];	
+	};
+	
         desktop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = {
