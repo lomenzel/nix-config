@@ -12,6 +12,8 @@
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
   programs.kdeconnect.enable = true;
+  programs.ausweisapp.enable = true;
+  programs.ausweisapp.openFirewall = true;
 
   users.users.leonard.packages = with pkgs; [
     kdePackages.yakuake
