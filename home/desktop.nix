@@ -19,6 +19,8 @@
     kdePackages.yakuake
     kdePackages.kio-gdrive
     kde-rounded-corners
+    kdePackages.krfb
+    kdePackages.krdc
     kdePackages.kaccounts-providers
     kdePackages.kaccounts-integration
     kdePackages.kcmutils

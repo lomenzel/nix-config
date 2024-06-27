@@ -97,6 +97,8 @@
       mpv
       ghc
       haskell-language-server
+      xournalpp
+      krita
       #nodejs_21
       gimp
       picard
