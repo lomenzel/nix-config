@@ -76,12 +76,6 @@
 }
 
 
-menupopup {
-  --panel-color: whitesmoke !important;
-  --panel-background: var(--background-color) !important;
-  color: var(--default-foreground)
-}
-
 menu:not([disabled="true"])[_moz-menuactive="true"], menuitem:not([disabled="true"])[_moz-menuactive="true"] {
   background-color: var(--accent-color) !important;
   color: var(--default-foreground) !important;

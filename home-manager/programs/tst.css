@@ -1,3 +1,18 @@
+tab-item {
+    --tab-text: var(--default-foreground) !important;
+}
+
+tab-item.active {
+    --tab-text: var(--base07) !important;
+}
+
+.closebox {
+    display:none !important;
+}
+.sound-button{
+    margin: .5em;
+}
+
 #tabbar {
     background-color: var(--background-color);
 }
@@ -19,9 +34,14 @@ tab-item tab-item-substance .label {
     color: var(--default-foreground);
 }
 
+tab-item tab-item-substance {
+    color: var(--default-foreground);
+}
+
 tab-item.active tab-item-substance .label-content {
     color: var(--base07);
 }
+
 
 .newtab-button-box {
     display: none !important;
