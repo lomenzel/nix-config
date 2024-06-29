@@ -26,6 +26,7 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
   };
 
@@ -45,12 +46,12 @@
           specialArgs = {
             inherit inputs;
           };
-          modules = [
-            inputs.stylix.nixosModules.stylix
-
+          modules = with inputs; [
+            stylix.nixosModules.stylix
+            nixos-hardware.nixosModules.tuxedo-pulse-15-gen2
             wsh.nixosModules."x86_64-linux".default
             ./devices/laptop/configuration.nix
-            inputs.home-manager.nixosModules.default
+            home-manager.nixosModules.default
           ];
 
         };
@@ -74,13 +75,12 @@
             inherit inputs;
             secrets = import /home/leonard/.config/secrets/secrets.nix;
           };
-          modules = [
-
+          modules = with inputs; [
             wsh.nixosModules."x86_64-linux".default
             ./devices/desktop/configuration.nix
             ./devices/desktop.nix
-            inputs.stylix.nixosModules.stylix
-            inputs.home-manager.nixosModules.default
+            stylix.nixosModules.stylix
+            home-manager.nixosModules.default
 
           ];
         };

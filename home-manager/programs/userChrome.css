@@ -78,5 +78,20 @@
 
 menu:not([disabled="true"])[_moz-menuactive="true"], menuitem:not([disabled="true"])[_moz-menuactive="true"] {
   background-color: var(--accent-color) !important;
+  color: var(--base07) !important;
+}
+
+menu:not([disabled="true"]):not([_moz-menuactive="true"]),
+menuitem:not([disabled="true"]):not([_moz-menuactive="true"]) {
+  background-color: var(--background-color) !important;
   color: var(--default-foreground) !important;
+}
+
+menugroup {
+  background-color: aqua !important;
+  --panel-background: var(--background-color) !important;
+}
+
+#contentAreaContextMenu {
+  background-color: red !important;
 }
