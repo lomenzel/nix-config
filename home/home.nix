@@ -19,7 +19,7 @@
     users = {
       "leonard" = import ../home-manager/home.nix;
     };
-    backupFileExtension = "bak";
+    backupFileExtension = "homemanager-backup";
   };
 
   services.xserver.enable = true;
@@ -29,7 +29,6 @@
     "leonard"
   ];
 
-  #programs.steam.enable = true;
 
   nix.sshServe.write = true;
   nix.sshServe.enable = true;
@@ -75,7 +74,7 @@
   programs.partition-manager.enable = true;
 
   programs.steam = {
-    enable = true;
+    enable = false;
     gamescopeSession.enable = true;
   };
 
