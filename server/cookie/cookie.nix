@@ -43,7 +43,7 @@
     };
   };
 
-  /*
+  
     services.nginx.virtualHosts."jsondb.menzel.lol" = {
       forceSSL = true;
       useACMEHost = "wildcard";
@@ -56,6 +56,6 @@
       basicAuth = secrets.cookie.basicAuth;
       root = "${inputs.uex.packages.x86_64-linux.default}/public";
     };
-  */
+  
 
 }
