@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: let
+{ config, pkgs, secrest, ... }: let
   ollama-path = "/mnt/snd/ai/ollama";
 
 in {
