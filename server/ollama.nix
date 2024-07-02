@@ -10,6 +10,16 @@ in {
       host = "0.0.0.0";
       home = ollama-path;
       models = "${ollama-path}/models";
+      loadModels = [
+        "llama3:8b"
+        "llama3:70b"
+        "deepseek-coder-v2:16b"
+        "codestral:22b"
+        "starcoder:15b"
+        "gemma2:9b"
+        "gemma2:27b"
+        "wizard-vicuna-uncensored:30b"
+      ];
       writablePaths = [
         ollama-path
       ];
