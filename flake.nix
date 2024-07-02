@@ -73,8 +73,10 @@
 	  ];	
 	};
 	
-        desktop = nixpkgs.lib.nixosSystem {
+        desktop = nixpkgs.lib.nixosSystem let
           system = "x86_64-linux";
+        in {
+          inherit system;
           specialArgs = {
             nix-ai-stuff = import inputs.nix-ai-stuff { inherit system; };
             secrets = import /home/leonard/.config/secrets/secrets.nix;
