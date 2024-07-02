@@ -104,7 +104,7 @@
       haskell-language-server
       xournalpp
       krita
-      #nodejs_21
+      tutanota-desktop
       gimp
       picard
       parabolic
