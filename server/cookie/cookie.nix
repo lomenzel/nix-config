@@ -2,8 +2,8 @@
   config,
   pkgs,
   secrets,
-  inputs,
-  ...
+  uex,
+  
 }:
 
 {
@@ -55,7 +55,7 @@
     forceSSL = true;
     useACMEHost = "wildcard";
     basicAuth = secrets.cookie.basicAuth;
-    root = "${inputs.uex.packages.x86_64-linux.default}/public";
+    root = "${uex.packages.x86_64-linux.default}/public";
   };
 
 }

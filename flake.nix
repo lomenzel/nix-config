@@ -80,6 +80,7 @@
           (nixpkgs.lib.nixosSystem {
             inherit system;
             specialArgs = {
+              uex = inputs.uex;
               nix-ai-stuff = inputs.nix-ai-stuff.packages.${system};
               secrets = import /home/leonard/.config/secrets/secrets.nix;
             };
