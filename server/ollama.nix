@@ -26,7 +26,7 @@ in {
       useACMEHost = "ai-wildcard";
       basicAuth = secrets.basicAuth;
       locations."/" = {
-        proxyPass = "http://192.168.178.61:3501";
+        proxyPass = "http://127.0.0.1:3501";
       };
     };
 
