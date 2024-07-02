@@ -75,7 +75,7 @@
 	
         desktop =let
           system = "x86_64-linux";
-        in  nixpkgs.lib.nixosSystem {
+        in  (nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
             nix-ai-stuff = import inputs.nix-ai-stuff { inherit system; };
@@ -89,7 +89,7 @@
             home-manager.nixosModules.default
 
           ];
-        };
+        });
         pi = nixpkgs.lib.nixosSystem {
 
         };
