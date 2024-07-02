@@ -3,7 +3,7 @@
   pkgs,
   secrets,
   uex,
-  
+  ...
 }:
 
 {
