@@ -37,7 +37,7 @@ in
       };
       "ai-wildcard" = {
         domain = "*.ai.menzel.lol";
-        dnsProvider = "inwx
+        dnsProvider = "inwx";
         credentialsFile = inwxCredentials;
       };
       /*
