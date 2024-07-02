@@ -39,7 +39,7 @@ in
         domain = "*.ai.menzel.lol";
         dnsProvider = "inwx
         credentialsFile = inwxCredentials;
-      }
+      };
       /*
         "turn.menzel.lol" = {
           # TODO
