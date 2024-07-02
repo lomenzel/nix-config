@@ -26,6 +26,10 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-ai-stuff = {
+      url = "github:BatteredBunny/nix-ai-stuff";
+    };
+
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
   };
@@ -72,7 +76,7 @@
         desktop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = {
-            inherit inputs;
+            nix-ai-stuff = import inputs.nix-ai-stuff { inherit system; };
             secrets = import /home/leonard/.config/secrets/secrets.nix;
           };
           modules = with inputs; [

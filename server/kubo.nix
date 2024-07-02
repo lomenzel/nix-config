@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, secrets, ... }:
 {
   services.kubo = {
     enable = true;
@@ -33,7 +33,7 @@
     forceSSL = true;
     useACMEHost = "wildcard";
 
-    locations."/" = {
+    locations ~ "^/(ipfs|ipns)/" = {
       proxyPass = "http://192.168.178.61:8081";
     };
   };
@@ -51,6 +51,15 @@
 
     locations."/" = {
       proxyPass = "http://192.168.178.61:8081";
+    };
+  };
+
+  services.nginx.virtualHosts."ipfs.menzel.lol" = {
+    forceSSL = true;
+    useACMEHost = "wildcard";
+    basicAuth = secrets.basicAuth;
+    locations."/" = {
+      proxyPass = "http://localhost:5000";
     };
   };
 }

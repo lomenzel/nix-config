@@ -28,7 +28,7 @@ in {
     nextjs-ollama-llm-ui = {
       enable = true;
       port = 3501;
-      ollamaUrl = "http://127.0.0.1:3500";
+      ollamaUrl = "https://chat.ai.menzel.lol";
     };
 
     nginx.virtualHosts."chat.ai.menzel.lol" = {
@@ -37,6 +37,9 @@ in {
       basicAuth = secrets.basicAuth;
       locations."/" = {
         proxyPass = "http://127.0.0.1:3501";
+      };
+      locations."/api" = {
+        proxyPass = "http://localhost:3500";
       };
     };
 

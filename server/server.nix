@@ -19,14 +19,15 @@ in
     ./kubo.nix
     ./mastodon.nix
     ./minecraft.nix
-    ./nextcloud.nix
+  
 
     #testing
     #./matrix.nix
     ./jitsi.nix
     ./comfy.nix
     ./searx.nix
-    ./ollama.nix
+    ./ollama.nix  
+    #./nextcloud.nix
 
     ./cookie/cookie.nix
   ];
