@@ -26,6 +26,7 @@ in
     ./jitsi.nix
     ./comfy.nix
     ./searx.nix
+    ./ollama.nix
 
     ./cookie/cookie.nix
   ];

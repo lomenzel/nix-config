@@ -35,6 +35,11 @@ in
         dnsProvider = "inwx";
         credentialsFile = inwxCredentials;
       };
+      "ai-wildcard" = {
+        domain = "*.ai.menzel.lol";
+        dnsProvider = "inwx
+        credentialsFile = inwxCredentials;
+      }
       /*
         "turn.menzel.lol" = {
           # TODO

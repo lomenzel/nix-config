@@ -114,6 +114,17 @@
       kdePackages.marknote
       kdePackages.kmail-account-wizard
       kdePackages.akonadi-import-wizard
+      kdePackages.neochat
+      kdePackages.itinerary
+      kdePackages.tokodon
+      kdePackages.alpaka
+      kdePackages.kdenlive
+      kdePackages.kwallet
+      kdePackages.kwalletmanager
+      kdePackages.kcalc
+      kdePackages.kfind
+      kdePackages.minuet
+      kdePackages.keysmith
       jetbrains.webstorm
       libsForQt5.polonium
       minetest
