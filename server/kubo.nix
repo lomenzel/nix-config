@@ -1,4 +1,9 @@
-{ config, pkgs, secrets, ... }:
+{
+  config,
+  pkgs,
+  secrets,
+  ...
+}:
 {
   services.kubo = {
     enable = true;

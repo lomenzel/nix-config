@@ -29,7 +29,6 @@
     "leonard"
   ];
 
-
   nix.sshServe.write = true;
   nix.sshServe.enable = true;
 

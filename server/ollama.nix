@@ -1,7 +1,14 @@
-{ config, pkgs, secrets, ... }: let
+{
+  config,
+  pkgs,
+  secrets,
+  ...
+}:
+let
   ollama-path = "/mnt/snd/ai/ollama";
 
-in {
+in
+{
 
   services = {
     ollama = {
@@ -20,9 +27,7 @@ in {
         "gemma2:27b"
         "wizard-vicuna-uncensored:30b"
       ];
-      writablePaths = [
-        ollama-path
-      ];
+      writablePaths = [ ollama-path ];
       acceleration = "cuda";
     };
     nextjs-ollama-llm-ui = {

@@ -59,37 +59,39 @@
           ];
 
         };
-	
-	tablet = nixpkgs.lib.nixosSystem rec {
-	  system = "x86_64-linux";
-	  specialArgs =  {
-	    inherit inputs;
-	  };
- 	  modules = [
-		inputs.stylix.nixosModules.stylix
-		wsh.nixosModules.${system}.default
-		inputs.home-manager.nixosModules.default
-		./devices/tablet/configuration.nix	
-	  ];	
-	};
-	
-        desktop =let
-          system = "x86_64-linux";
-        in  (nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            nix-ai-stuff = import inputs.nix-ai-stuff { inherit system; };
-            secrets = import /home/leonard/.config/secrets/secrets.nix;
-          };
-          modules = with inputs; [
-            wsh.nixosModules."x86_64-linux".default
-            ./devices/desktop/configuration.nix
-            ./devices/desktop.nix
-            stylix.nixosModules.stylix
-            home-manager.nixosModules.default
 
+        tablet = nixpkgs.lib.nixosSystem rec {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = [
+            inputs.stylix.nixosModules.stylix
+            wsh.nixosModules.${system}.default
+            inputs.home-manager.nixosModules.default
+            ./devices/tablet/configuration.nix
           ];
-        });
+        };
+
+        desktop =
+          let
+            system = "x86_64-linux";
+          in
+          (nixpkgs.lib.nixosSystem {
+            inherit system;
+            specialArgs = {
+              nix-ai-stuff = inputs.nix-ai-stuff.legacyPackages.${system};
+              secrets = import /home/leonard/.config/secrets/secrets.nix;
+            };
+            modules = with inputs; [
+              wsh.nixosModules."x86_64-linux".default
+              ./devices/desktop/configuration.nix
+              ./devices/desktop.nix
+              stylix.nixosModules.stylix
+              home-manager.nixosModules.default
+
+            ];
+          });
         pi = nixpkgs.lib.nixosSystem {
 
         };

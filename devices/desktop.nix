@@ -17,7 +17,7 @@
   };
 
   /*
-      systemd.timers.sysflake = {
+    systemd.timers.sysflake = {
       wantedBy = [ "timers.target" ];
       partOf = [ "sysflake.service" ];
       timerConfig.OnCalendar = "minutely";

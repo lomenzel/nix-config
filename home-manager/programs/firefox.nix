@@ -339,7 +339,8 @@ in
 
             #Toolbar
             "browser.uiCustomization.state" = {
-              Value = /*json*/ ''
+              Value = # json
+                ''
                   {
                     "placements": {
                       "widget-overflow-fixed-list":[],

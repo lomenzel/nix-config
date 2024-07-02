@@ -43,19 +43,19 @@
     };
   };
 
-  
-    services.nginx.virtualHosts."jsondb.menzel.lol" = {
-      forceSSL = true;
-      useACMEHost = "wildcard";
-      locations."/" = { proxyPass = "http://192.168.178.61:3002"; };
+  services.nginx.virtualHosts."jsondb.menzel.lol" = {
+    forceSSL = true;
+    useACMEHost = "wildcard";
+    locations."/" = {
+      proxyPass = "http://192.168.178.61:3002";
     };
+  };
 
-    services.nginx.virtualHosts."uex.menzel.lol" = {
-      forceSSL = true;
-      useACMEHost = "wildcard";
-      basicAuth = secrets.cookie.basicAuth;
-      root = "${inputs.uex.packages.x86_64-linux.default}/public";
-    };
-  
+  services.nginx.virtualHosts."uex.menzel.lol" = {
+    forceSSL = true;
+    useACMEHost = "wildcard";
+    basicAuth = secrets.cookie.basicAuth;
+    root = "${inputs.uex.packages.x86_64-linux.default}/public";
+  };
 
 }
