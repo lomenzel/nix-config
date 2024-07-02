@@ -33,7 +33,7 @@
     forceSSL = true;
     useACMEHost = "wildcard";
 
-    locations "^/(ipfs|ipns)/" = {
+    locations."~^/(ipfs|ipns)/" = {
       proxyPass = "http://192.168.178.61:8081";
     };
   };
