@@ -12,6 +12,18 @@
     '';
   };
 
+  services.kubo = {
+    enable = true;
+    autoMount = true;
+    localDiscovery = true;
+    enableGC = true;
+    settings = {
+      Datastore.StorageMax = "200GB";
+      Datastore.GCPeriod = "2h";
+      Addresses.API = "/ip4/127.0.0.1/tcp/8082";
+    };
+  };
+
   system.stateVersion = "23.11";
 
 }
