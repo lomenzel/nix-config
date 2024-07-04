@@ -15,9 +15,9 @@
         "POST"
         "PUT"
       ];
-      Addresses.API = "/ip4/0.0.0.0/tcp/5001";
+      Addresses.API = "/ip4/127.0.0.1/tcp/8082";
       Addresses.Gateway = "/ip4/0.0.0.0/tcp/8081";
-      Datastore.StorageMax = "20000GB";
+      Datastore.StorageMax = "10000GB";
       Gateway = {
         PublicGateways = {
           "gateway.menzel.lol" = {
@@ -64,7 +64,7 @@
     useACMEHost = "wildcard";
     basicAuth = secrets.basicAuth;
     locations."/" = {
-      proxyPass = "http://localhost:5000";
+      proxyPass = "http://127.0.0.1:8082";
     };
   };
 }

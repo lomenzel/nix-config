@@ -17,7 +17,6 @@
     config.adminpassFile = "/etc/nextcloud-admin-pass";
     home = "/mnt/snd/nextcloud";
     appstoreEnable = true;
-    settings.logLevel = 0;
   };
 
   services.nginx.virtualHosts.${config.services.nextcloud.hostName} = {

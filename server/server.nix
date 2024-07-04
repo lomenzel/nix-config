@@ -26,7 +26,7 @@ in
     ./comfy.nix
     ./searx.nix
     ./ollama.nix
-    #./nextcloud.nix
+    ./nextcloud.nix
 
     ./cookie/cookie.nix
   ];
