@@ -119,6 +119,12 @@
 
   # List services that you want to enable:
 
+
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+
+
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
