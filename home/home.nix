@@ -107,7 +107,7 @@
       krita
       tutanota-desktop
       gimp
-      picard
+      #picard
       parabolic
       kdePackages.elisa
       kdePackages.kmail
