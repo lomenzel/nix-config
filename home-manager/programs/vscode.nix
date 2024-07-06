@@ -6,6 +6,11 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium-fhs;
+    haskell = {
+      enable = true;
+      hie.enable = true;
+    };
+    enableUpdateCheck = false;
     extensions = with pkgs.vscode-extensions; [
       bbenoist.nix
       jnoortheen.nix-ide

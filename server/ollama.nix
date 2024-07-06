@@ -25,6 +25,8 @@ in
         "starcoder:15b"
         "gemma2:9b"
         "gemma2:27b"
+        "codegemma:2b"
+        "codegemma:7b"
         "wizard-vicuna-uncensored:30b"
       ];
       writablePaths = [ ollama-path ];
