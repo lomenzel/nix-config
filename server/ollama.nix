@@ -48,9 +48,9 @@ in
       locations."/api" = {
         proxyPass = "http://localhost:3500";
         extraConfig = ''
-          proxy_read_timeout 300s;
-          proxy_send_timeout 300s;
-          proxy_connect_timeout 300s;
+          proxy_read_timeout 3000s;
+          proxy_send_timeout 3000s;
+          proxy_connect_timeout 3000s;
         '';
       };
     };
