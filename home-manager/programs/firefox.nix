@@ -5,7 +5,8 @@
   colors,
   helper-functions,
   ...
-}: with (helper-functions {inherit lib;});
+}:
+with (helper-functions { inherit lib; });
 let
   css-colors =
     with config.lib.stylix.colors; # css

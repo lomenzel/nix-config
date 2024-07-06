@@ -1,4 +1,12 @@
-{ config, lib, pkgs, helper-functions, secrets, ... }: with (helper-functions {inherit lib;});
+{
+  config,
+  lib,
+  pkgs,
+  helper-functions,
+  secrets,
+  ...
+}:
+with (helper-functions { inherit lib; });
 {
 
   home.packages = [ pkgs.nixfmt-rfc-style ];
@@ -40,10 +48,10 @@
 
   home.file =
     let
-      desktop = {
+      desktop = model: {
         title = "Desktop";
         provider = "ollama";
-        model = "llama3:8b";
+        model = model;
         apiBase = "https://chat.ai.menzel.lol/";
         requestOptions = {
           headers = {
@@ -54,8 +62,8 @@
     in
     {
       ".continue/config.json".text = builtins.toJSON {
-        models = [ desktop ];
-        tabAutocompleteModel = desktop;
+        models = [ (desktop "llama3:8b") ];
+        tabAutocompleteModel = desktop "codegemma:2b";
       };
     };
 

@@ -51,7 +51,7 @@
             inherit inputs;
             secrets = import /home/leonard/.config/secrets/secrets.nix;
             helper-functions = import ./helper-functions.nix;
-        
+
           };
           modules = with inputs; [
             stylix.nixosModules.stylix

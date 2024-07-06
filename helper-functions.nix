@@ -1,5 +1,6 @@
- {lib, ...}: {
-    toBase64 =
+{ lib, ... }:
+{
+  toBase64 =
     text:
     let
       inherit (lib)
@@ -57,4 +58,4 @@
 
     in
     join (head ++ [ tail ]);
-  }
+}
