@@ -3,6 +3,8 @@
   pkgs,
   inputs,
   lib,
+  secrets,
+  helper-functions,
   ...
 }:
 
@@ -14,7 +16,7 @@
 
   home-manager = {
     extraSpecialArgs = {
-      inherit inputs;
+      inherit inputs secrets helper-functions;
     };
     users = {
       "leonard" = import ../home-manager/home.nix;
@@ -133,7 +135,7 @@
       less
       pciutils
       vulkan-tools
-
+      nixfmt-rfc-style
       kate
       htop
       curl

@@ -49,6 +49,9 @@
           system = "x86_64-linux";
           specialArgs = {
             inherit inputs;
+            secrets = import /home/leonard/.config/secrets/secrets.nix;
+            helper-functions = import ./helper-functions.nix;
+        
           };
           modules = with inputs; [
             stylix.nixosModules.stylix
@@ -64,6 +67,8 @@
           system = "x86_64-linux";
           specialArgs = {
             inherit inputs;
+            secrets = import /home/leonard/.config/secrets/secrets.nix;
+            helper-functions = import ./helper-functions.nix;
           };
           modules = [
             inputs.stylix.nixosModules.stylix
@@ -83,6 +88,8 @@
               uex = inputs.uex;
               nix-ai-stuff = inputs.nix-ai-stuff.packages.${system};
               secrets = import /home/leonard/.config/secrets/secrets.nix;
+              helper-functions = import ./helper-functions.nix;
+
             };
             modules = with inputs; [
               wsh.nixosModules."x86_64-linux".default
