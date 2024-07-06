@@ -7,7 +7,7 @@
     enable = true;
     package = pkgs.vscodium-fhs;
     haskell = {
-      enable = true;
+      #enable = true;
       #hie.enable = true;
     };
     enableUpdateCheck = false;
