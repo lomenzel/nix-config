@@ -28,6 +28,7 @@
     };
     nix-ai-stuff = {
       url = "github:BatteredBunny/nix-ai-stuff";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
