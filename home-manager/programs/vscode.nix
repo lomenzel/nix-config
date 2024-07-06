@@ -49,7 +49,7 @@ with (helper-functions { inherit lib; });
   home.file =
     let
       desktop = model: {
-        title = "Desktop";
+        title = "${model}@desktop";
         provider = "ollama";
         model = model;
         apiBase = "https://chat.ai.menzel.lol/";
@@ -62,7 +62,7 @@ with (helper-functions { inherit lib; });
     in
     {
       ".continue/config.json".text = builtins.toJSON {
-        models = [ (desktop "llama3:8b") ];
+        models = [ (desktop "llama3:8b") (desktop "codegemma:2b") ];
         tabAutocompleteModel = desktop "codegemma:2b";
       };
     };
