@@ -23,7 +23,7 @@ in
     #testing
     #./matrix.nix
     ./jitsi.nix
-    #./comfy.nix
+    ./comfy.nix
     ./searx.nix
     ./ollama.nix
     ./nextcloud.nix

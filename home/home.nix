@@ -108,8 +108,7 @@
       tutanota-desktop
       gimp
       kmymoney
-      aqbanking
-      #picard
+      picard
       parabolic
       kdePackages.elisa
       kdePackages.kmail
@@ -144,12 +143,10 @@
       tor-browser-bundle-bin
       vlc
       anki
-      #git
       discord
       thunderbird
       prismlauncher
       arianna
-      #kdePackages.angelfish
       signal-desktop
       libreoffice
       killall
