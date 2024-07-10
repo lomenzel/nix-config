@@ -107,6 +107,7 @@
       krita
       tutanota-desktop
       gimp
+      kmymoney
       #picard
       parabolic
       kdePackages.elisa
