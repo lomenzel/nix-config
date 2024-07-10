@@ -108,6 +108,7 @@
       tutanota-desktop
       gimp
       kmymoney
+      aqbanking
       #picard
       parabolic
       kdePackages.elisa
