@@ -104,7 +104,6 @@ in
   programs = with pkgs; {
     firefox = {
       enable = true;
-      #package = firefox-esr;
       nativeMessagingHosts = with pkgs.kdePackages; [ plasma-browser-integration ];
 
       profiles.default = {
@@ -127,7 +126,6 @@ in
 
       };
 
-      # Check about:policies#documentation for options.
       policies = {
 
         DisableTelemetry = true;
@@ -153,46 +151,26 @@ in
         ExtensionSettings =
           let
             nameToURL = name: "https://addons.mozilla.org/firefox/downloads/latest/${name}/latest.xpi";
+            extension = name: {
+              install_url = nameToURL name;
+              installation_mode = "force_installed";
+            };
           in
           {
             "*".installation_mode = "blocked"; # blocks all addons except the ones specified below
-            "uBlock0@raymondhill.net" = {
-              install_url = nameToURL "ublock-origin";
-              installation_mode = "force_installed";
-            };
-            "{4e507435-d65f-4467-a2c0-16dbae24f288}" = {
-              install_url = nameToURL "breezedarktheme";
-              installation_mode = "force_installed";
-            };
-            "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
-              install_url = nameToURL "bitwarden-password-manager";
-              installation_mode = "force_installed";
-            };
-            "ipfs-firefox-addon@lidel.org" = {
-              install_url = nameToURL "ipfs-companion";
-              installation_mode = "force_installed";
-            };
-            "{2ea2bfef-af69-4427-909c-34e1f3f5a418}" = {
-              install_url = nameToURL "live-stream-downloader";
-              installation_mode = "force_installed";
-            };
-            "plasma-browser-integration@kde.org" = {
-              install_url = nameToURL "plasma-integration";
-              installation_mode = "force_installed";
-            };
-            "idcac-pub@guus.ninja" = {
-              install_url = nameToURL "istilldontcareaboutcookies";
-              installation_mode = "force_installed";
-            };
-            "treestyletab@piro.sakura.ne.jp" = {
-              install_url = nameToURL "tree-style-tab";
-              installation_mode = "force_installed";
-            };
-            "{762f9885-5a13-4abd-9c77-433dcd38b8fd}" = {
-              install_url = nameToURL "return-youtube-dislikes";
-              installation_mode = "force_installed";
-            };
-
+            "uBlock0@raymondhill.net" = extension "ublock-origin";
+            "{4e507435-d65f-4467-a2c0-16dbae24f288}" = extension "breezedarktheme";
+            "{446900e4-71c2-419f-a6a7-df9c091e268b}" = extension "bitwarden-password-manager";
+            "ipfs-firefox-addon@lidel.org" = extension "ipfs-companion";
+            "{2ea2bfef-af69-4427-909c-34e1f3f5a418}" = extension "live-stream-downloader";
+            "plasma-browser-integration@kde.org" = extension "plasma-integration";
+            "idcac-pub@guus.ninja" = extension "istilldontcareaboutcookies";
+            "treestyletab@piro.sakura.ne.jp" = extension "tree-style-tab";
+            "{762f9885-5a13-4abd-9c77-433dcd38b8fd}" = extension "return-youtube-dislikes";
+            "sponsorBlocker@ajay.app" = extension "sponsorblock";
+            "{34daeb50-c2d2-4f14-886a-7160b24d66a4}" = extension "youtube-shorts-block";
+            "{88ebde3a-4581-4c6b-8019-2a05a9e3e938}" = extension "hide-youtube-shorts";
+            "deArrow@ajay.app" = extension "dearrow";
           };
 
         "3rdparty".Extensions = {
@@ -259,11 +237,11 @@ in
             };
             "browser.download.useDownloadDir" = lock-false;
             "browser.startup.homepage" = {
-              Value = "about:blank";
+              Value = "about:newtab";
               Status = "locked";
             };
             "browser.newtab.url" = {
-              Value = "about:blank";
+              Value = "about:newtab";
               Status = "locked";
             };
             "browser.contentblocking.category" = {
@@ -283,61 +261,67 @@ in
 
             #Toolbar
             "browser.uiCustomization.state" = {
-              Value = # json
-                ''
-                  {
-                    "placements": {
-                      "widget-overflow-fixed-list":[],
-                      "nav-bar":[
-                        "treestyletab_piro_sakura_ne_jp-browser-action",
-                        "back-button",
-                        "forward-button",
-                        "stop-reload-button",
-                        "customizableui-special-spring1",
-                        "urlbar-container",
-                        "customizableui-special-spring2",
-                        "save-to-pocket-button",
-                        "downloads-button",
-                        "fxa-toolbar-menu-button",
-                        "unified-extensions-button",
-                        "_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action"
-                      ],
-                      "toolbar-menubar":["menubar-items"],
-                      "TabsToolbar":[
-                        "tabbrowser-tabs",
-                        "new-tab-button",
-                        "alltabs-button"
-                      ],
-                      "PersonalToolbar":["personal-bookmarks"],
-                      "unified-extensions-area":[
-                       
-                        "idcac-pub_guus_ninja-browser-action",
-                        "ipfs-firefox-addon_lidel_org-browser-action",
-                        "plasma-browser-integration_kde_org-browser-action",
-                        "ublock0_raymondhill_net-browser-action",
-                        "_2ea2bfef-af69-4427-909c-34e1f3f5a418_-browser-action"
-                      ]
-                    },
-                    "seen":[
-                      
-                      "idcac-pub_guus_ninja-browser-action",
-                      "ipfs-firefox-addon_lidel_org-browser-action",
-                      "plasma-browser-integration_kde_org-browser-action",
-                      "treestyletab_piro_sakura_ne_jp-browser-action",
-                      "ublock0_raymondhill_net-browser-action",
-                      "_2ea2bfef-af69-4427-909c-34e1f3f5a418_-browser-action",
-                      "_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action",
-                      "developer-button"
-                    ],
-                    "dirtyAreaCache":[
-                      "unified-extensions-area",
-                      "TabsToolbar",
-                      "nav-bar"
-                    ],
-                    "currentVersion":19,
-                    "newElementCount":4
-                  }
-                '';
+              Value = builtins.toJSON {
+                placements = {
+                  widget-overflow-fixed-list = [ ];
+                  nav-bar = [
+                    "treestyletab_piro_sakura_ne_jp-browser-action"
+                    "back-button"
+                    "forward-button"
+                    "stop-reload-button"
+                    "customizableui-special-spring1"
+                    "urlbar-container"
+                    "customizableui-special-spring2"
+                    "downloads-button"
+                    "fxa-toolbar-menu-button"
+                    "unified-extensions-button"
+                    "_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action"
+                  ];
+                  toolbar-menubar = [ "menubar-items" ];
+                  TabsToolbar = [
+                    "tabbrowser-tabs"
+                    "new-tab-button"
+                    "alltabs-button"
+                  ];
+                  PersonalToolbar = [ "personal-bookmarks" ];
+                  unified-extensions-area = [
+                    "dearrow_ajay_app-browser-action"
+                    "sponsorblocker_ajay_app-browser-action"
+                    "idcac-pub_guus_ninja-browser-action"
+                    "ipfs-firefox-addon_lidel_org-browser-action"
+                    "plasma-browser-integration_kde_org-browser-action"
+                    "ublock0_raymondhill_net-browser-action"
+                    "_2ea2bfef-af69-4427-909c-34e1f3f5a418_-browser-action"
+                    "_34daeb50-c2d2-4f14-886a-7160b24d66a4_-browser-action"
+                    "_762f9885-5a13-4abd-9c77-433dcd38b8fd_-browser-action"
+                    "_88ebde3a-4581-4c6b-8019-2a05a9e3e938_-browser-action"
+                  ];
+                };
+                seen = [
+                  "idcac-pub_guus_ninja-browser-action"
+                  "ipfs-firefox-addon_lidel_org-browser-action"
+                  "plasma-browser-integration_kde_org-browser-action"
+                  "treestyletab_piro_sakura_ne_jp-browser-action"
+                  "ublock0_raymondhill_net-browser-action"
+                  "_2ea2bfef-af69-4427-909c-34e1f3f5a418_-browser-action"
+                  "_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action"
+                  "developer-button"
+                  "_34daeb50-c2d2-4f14-886a-7160b24d66a4_-browser-action"
+                  "_762f9885-5a13-4abd-9c77-433dcd38b8fd_-browser-action"
+                  "_88ebde3a-4581-4c6b-8019-2a05a9e3e938_-browser-action"
+                  "sponsorblocker_ajay_app-browser-action"
+                  "dearrow_ajay_app-browser-action"
+                ];
+                dirtyAreaCache = [
+                  "unified-extensions-area"
+                  "TabsToolbar"
+                  "nav-bar"
+                  "toolbar-menubar"
+                  "PersonalToolbar"
+                ];
+                currentVersion = 20;
+                newElementCount = 4;
+              };
               Status = "locked";
             };
           };

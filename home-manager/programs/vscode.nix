@@ -43,6 +43,7 @@ with (helper-functions { inherit lib; });
       "haskell.hlint.executablePath" = "${pkgs.hlint}/bin/hlint";
       "explorer.confirmDragAndDrop" = false;
       "git.autofetch" = true;
+      "redhat.telemetry.enabled" = false;
     };
   };
 
@@ -62,7 +63,10 @@ with (helper-functions { inherit lib; });
     in
     {
       ".continue/config.json".text = builtins.toJSON {
-        models = [ (desktop "llama3:8b") (desktop "codegemma:2b") ];
+        models = [
+          (desktop "llama3:8b")
+          (desktop "codegemma:2b")
+        ];
         tabAutocompleteModel = desktop "codegemma:2b";
       };
     };
