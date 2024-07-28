@@ -1,4 +1,4 @@
-{ config, pkgs ...}: {
+{ config, pkgs, ...}: {
   services = {
     samba = {
       enable = true;
@@ -12,13 +12,13 @@
           "create mask" = "0644";
           "directory mask" = "0755";
           "force user" = "leonard";
-        }
+        };
       };
     };
     samba-wsdd = {
       enable = true;
       openFirewall = true;
-    }
+    };
   };
   networking.firewall.allowPing = true;
 }
