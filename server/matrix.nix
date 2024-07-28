@@ -1,4 +1,9 @@
-{ config, pkgs, secrets, ... }:
+{
+  config,
+  pkgs,
+  secrets,
+  ...
+}:
 let
   domain = "menzel.lol";
   baseUrl = "https://${fqdn}";
@@ -30,17 +35,22 @@ in
       listeners = [
         {
           port = 8008;
-          bind_addresses = ["::1"];
+          bind_addresses = [ "::1" ];
           type = "http";
           tls = false;
           x_forwarded = true;
-          resources = [ {
-            names = [ "client" "federation"];
-            compress = true;
-          }];
+          resources = [
+            {
+              names = [
+                "client"
+                "federation"
+              ];
+              compress = true;
+            }
+          ];
         }
       ];
-    }
+    };
   };
 
   services.nginx = {
@@ -51,7 +61,7 @@ in
         locations = {
           "= /.well-known/matrix/server".extraConfig = mkWellKnown serverConfig;
           "= /.well-known/matrix/client".extraConfig = mkWellKnown clientConfig;
-        }
+        };
       };
       "${fqdn}" = {
         enableACME = true;
