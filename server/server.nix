@@ -21,7 +21,7 @@ in
     ./minecraft.nix
 
     #testing
-    #./matrix.nix
+    ./matrix.nix
     ./jitsi.nix
     ./comfy.nix
     ./searx.nix
