@@ -32,6 +32,7 @@ in
     settings = {
       server_name = domain;
       public_baseurl = baseUrl;
+      registration_shared_secret = secrets.synapse-postgresql-role;
       listeners = [
         {
           port = 8008;
