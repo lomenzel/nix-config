@@ -4,6 +4,9 @@
   secrets,
   ...
 }:
+let
+  timeout = "120000s";
+in
 {
   services.kubo = {
     enable = true;
@@ -40,6 +43,11 @@
 
     locations."~^/(ipfs|ipns)/" = {
       proxyPass = "http://192.168.178.61:8081";
+      extraConfig = ''
+        proxy_read_timeout ${timeout};
+        proxy_send_timeout ${timeout};
+        proxy_connect_timeout ${timeout};
+      '';
     };
   };
   services.nginx.virtualHosts."*.ipfs.gateway.menzel.lol" = {
@@ -48,6 +56,11 @@
 
     locations."/" = {
       proxyPass = "http://192.168.178.61:8081";
+      extraConfig = ''
+        proxy_read_timeout ${timeout};
+        proxy_send_timeout ${timeout};
+        proxy_connect_timeout ${timeout};
+      '';
     };
   };
   services.nginx.virtualHosts."*.ipns.gateway.menzel.lol" = {
@@ -56,6 +69,11 @@
 
     locations."/" = {
       proxyPass = "http://192.168.178.61:8081";
+      extraConfig = ''
+        proxy_read_timeout ${timeout};
+        proxy_send_timeout ${timeout};
+        proxy_connect_timeout ${timeout};
+      '';
     };
   };
 
@@ -65,6 +83,11 @@
     basicAuth = secrets.basicAuth;
     locations."/" = {
       proxyPass = "http://127.0.0.1:8082";
+      extraConfig = ''
+        proxy_read_timeout ${timeout};
+        proxy_send_timeout ${timeout};
+        proxy_connect_timeout ${timeout};
+      '';
     };
   };
 }
