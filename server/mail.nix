@@ -26,7 +26,7 @@
 
   services.roundcube = {
     enable = true;
-    hostname = "webmail.menzel.lol";
+    hostName = "webmail.menzel.lol";
     configureNginx = true;
   };
 }
