@@ -27,6 +27,7 @@ in
     ./searx.nix
     ./ollama.nix
     ./nextcloud.nix
+    ./mail.nix
 
     #./cookie/cookie.nix
   ];

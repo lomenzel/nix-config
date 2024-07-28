@@ -30,8 +30,8 @@
       url = "github:BatteredBunny/nix-ai-stuff";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    simple-nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver/master";
 
   };
 
@@ -98,6 +98,7 @@
               ./devices/desktop.nix
               stylix.nixosModules.stylix
               home-manager.nixosModules.default
+              inputs.simple-nixos-mailserver.nixosModule
 
             ];
           });
