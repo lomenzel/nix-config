@@ -29,7 +29,6 @@ in
         "codegemma:7b"
         "wizard-vicuna-uncensored:30b"
       ];
-      writablePaths = [ ollama-path ];
       acceleration = "cuda";
     };
     nextjs-ollama-llm-ui = {

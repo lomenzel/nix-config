@@ -28,7 +28,7 @@ in
     ./ollama.nix
     ./nextcloud.nix
 
-    ./cookie/cookie.nix
+    #./cookie/cookie.nix
   ];
 
   #Security
