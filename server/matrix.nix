@@ -35,7 +35,7 @@ in
           tls = false;
           x_forwarded = true;
           resources = [ {
-            names = [ "client" "federation"]
+            names = [ "client" "federation"];
             compress = true;
           }];
         }
