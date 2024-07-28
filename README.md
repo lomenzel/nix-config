@@ -25,7 +25,7 @@ Configuration for normal Desktop use
 
 ### Desktop
 
-Configuration for normal Desktop use as well as a view Server components
+Configuration for normal Desktop use as well as a few Server components
 
 ### Fajita
 
