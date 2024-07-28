@@ -35,12 +35,6 @@
 
   };
 
-  nixConfig.extra-substituters = [
-    "https://nix-ai-stuff.cachix.org"
-    "https://cuda-maintainers.cachix.org"
-    "https://ai.cachix.org"
-  ];
-
   outputs =
     {
       self,
