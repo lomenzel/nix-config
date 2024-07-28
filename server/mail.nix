@@ -23,4 +23,10 @@
     # down nginx and opens port 80.
     certificateScheme = "acme-nginx";
   };
+
+  services.roundcube = {
+    enable = true;
+    hostname = "webmail.menzel.lol";
+    configureNginx = true;
+  };
 }
