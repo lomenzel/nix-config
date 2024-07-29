@@ -19,12 +19,15 @@
         http-relative-path = "/cloak";
         http-port = 38080;
         proxy = "passthrough";
-        http-enabled = true;
+        #http-enabled = true;
       };
     };
     nginx.virtualHosts."menzel.lol" = {
       forceSSL = true;
       enableACME = true;
+      extraConfig = ''
+       add_header Content-Security-Policy "frame-src 'self' https://menzel.lol;";
+      '';
       locations."/cloak/" = {
         proxyPass = "http://localhost:${toString config.services.keycloak.settings.http-port}/cloak/";
       };
