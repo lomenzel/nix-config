@@ -24,6 +24,13 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking = {
+    # Add custom entries to /etc/hosts
+    extraHosts = ''
+      127.0.0.1 menzel.lol
+      127.0.0.1 *.menzel.lol
+    '';
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
