@@ -15,7 +15,7 @@
         passwordFile = "${pkgs.writeText "keycloak-passwd" secrets.synapse-postgresql-role}";
       };
       settings = {
-        hostname = "menzel.lol";
+        hostname = "keycloak.menzel.lol";
         http-relative-path = "/";
         http-port = 38080;
         proxy = "edge";
