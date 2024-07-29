@@ -22,8 +22,12 @@
         http-enabled = true;
       };
     };
-    nginx.virtualHosts."menzel.lol".locations."/cloak/" = {
-      proxyPass = "http://localhost:${toString config.services.keycloak.settings.http-port}/cloak/";
+    nginx.virtualHosts."menzel.lol" = {
+      forceSSL = true;
+      enableACME = true;
+      locations."/cloak/" = {
+        proxyPass = "http://localhost:${toString config.services.keycloak.settings.http-port}/cloak/";
+      };
     };
   };
 }

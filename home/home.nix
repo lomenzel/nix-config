@@ -75,7 +75,7 @@
   programs.partition-manager.enable = true;
 
   programs.steam = {
-    enable = false;
+    enable = true;
     gamescopeSession.enable = true;
   };
 
