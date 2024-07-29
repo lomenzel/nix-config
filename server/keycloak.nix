@@ -1,4 +1,10 @@
-{ secrets, pkgs, config, ...}: {
+{
+  secrets,
+  pkgs,
+  config,
+  ...
+}:
+{
   services = {
     keycloak = {
       enable = true;
@@ -17,7 +23,7 @@
       };
     };
     nginx.virtualHosts."menzel.lol".locations."/cloak/" = {
-      proxyPass = "http://localhost:${toString config.services.keycloak.settings.http-port}/cloak/"
-    }
-  }
+      proxyPass = "http://localhost:${toString config.services.keycloak.settings.http-port}/cloak/";
+    };
+  };
 }
