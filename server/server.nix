@@ -14,20 +14,21 @@ in
     ./acme.nix
 
     #working
-    #./gitlab.nix
+    ./gitlab.nix
     ./jellyfin.nix
     ./kubo.nix
     ./mastodon.nix
     ./minecraft.nix
+    ./searx.nix
 
     #testing
     ./matrix.nix
     ./jitsi.nix
     ./comfy.nix
-    ./searx.nix
     ./ollama.nix
     ./nextcloud.nix
     ./mail.nix
+    ./keycloak.nix
 
     #./cookie/cookie.nix
   ];
