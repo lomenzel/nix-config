@@ -2,9 +2,9 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
-
-{
+{ config, pkgs, ... }: let
+  toHostList = virtualHosts: builtins.concatStringsSep "\n" (builtins.map (hostname: "127.0.0.1 ${hostname}") (builtins.attrNames virtualHosts));
+in {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -23,13 +23,9 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
   networking = {
-    # Add custom entries to /etc/hosts
-    extraHosts = ''
-      127.0.0.1 menzel.lol
-      127.0.0.1 *.menzel.lol
-    '';
+    networkmanager.enable = true;
+    extraHosts = toHostList config.services.nginx.virtualHosts;
   };
 
   # Set your time zone.
