@@ -18,7 +18,7 @@
         hostname = "menzel.lol";
         http-relative-path = "/cloak";
         http-port = 38080;
-        proxy = "passthrough";
+        proxy = "edge";
         http-enabled = true;
       };
     };
