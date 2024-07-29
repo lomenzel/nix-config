@@ -12,7 +12,7 @@
         type = "postgresql";
         createLocally = true;
         username = "keycloak";
-        passwordFile = pkgs.writeText "keycloak-passwd" secrets.synapse-postgresql-role;
+        passwordFile = "${pkgs.writeText "keycloak-passwd" secrets.synapse-postgresql-role}";
       };
       settings = {
         hostname = "menzel.lol";
