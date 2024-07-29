@@ -19,7 +19,7 @@
         http-relative-path = "/cloak";
         http-port = 38080;
         proxy = "passthrough";
-        #http-enabled = true;
+        http-enabled = true;
       };
     };
     nginx.virtualHosts."menzel.lol" = {
