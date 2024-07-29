@@ -28,7 +28,7 @@
       locations."/cloak/" = {
         proxyPass = "http://localhost:${toString config.services.keycloak.settings.http-port}/cloak/";
         extraConfig = ''
-          add_header Content-Security-Policy "frame-src 'self' https://menzel.lol;
+          add_header Content-Security-Policy "frame-src 'self' https://menzel.lol;";
         '';
       };
     };
