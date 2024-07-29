@@ -16,17 +16,17 @@
       };
       settings = {
         hostname = "menzel.lol";
-        http-relative-path = "/cloak";
+        http-relative-path = "/";
         http-port = 38080;
         proxy = "edge";
         http-enabled = true;
       };
     };
-    nginx.virtualHosts."menzel.lol" = {
+    nginx.virtualHosts."keycloak.menzel.lol" = {
       forceSSL = true;
       enableACME = true;
-      locations."/cloak/" = {
-        proxyPass = "http://localhost:${toString config.services.keycloak.settings.http-port}/cloak/";
+      locations."/" = {
+        proxyPass = "http://localhost:${toString config.services.keycloak.settings.http-port}/";
         extraConfig = ''
           add_header Content-Security-Policy "frame-src 'self' https://menzel.lol;";
         '';
