@@ -32,7 +32,7 @@
       [[sites]]
       name = "nix options"
       key = "no"
-      url = "https://search.nixos.org/options?channel=23.11&from=0&size=50&sort=relevance&type=packages&query={{s}}"
+      url = "https://search.nixos.org/options?channel=unstable&from=0&size=50&sort=relevance&type=packages&query={{s}}"
       [[sites]]
       name = "wikipedia"
       key = "w"
