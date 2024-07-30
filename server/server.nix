@@ -29,6 +29,7 @@ in
     ./nextcloud.nix
     ./mail.nix
     ./keycloak.nix
+    ./hedgedoc.nix
 
     #./cookie/cookie.nix
   ];
