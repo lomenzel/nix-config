@@ -6,6 +6,7 @@
         domain = "md.menzel.lol";
         port = 8010;
         host = "0.0.0.0";
+        protocolUseSSL = true;
         allowOrigin = [
           "localhost"
           "md.menzel.lol"
