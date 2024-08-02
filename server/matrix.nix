@@ -54,6 +54,11 @@ in
     };
   };
 
+  services.matrix-sliding-sync = {
+    enable = true;
+    settings.SYNCV3_BINDADDR = "127.0.0.1:8181";
+  };
+
   services.nginx = {
     virtualHosts = {
       "${domain}" = {
