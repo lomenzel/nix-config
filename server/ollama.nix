@@ -20,8 +20,6 @@ in
       loadModels = [
         "llama3:8b"
         "llama3.1:8b"
-        "llama3:70b"
-        "llama3.1:70b"
         "deepseek-coder-v2:16b"
         "codestral:22b"
         "starcoder:15b"
@@ -47,6 +45,19 @@ in
         proxyPass = "http://127.0.0.1:3501";
       };
       locations."/api" = {
+        proxyPass = "http://localhost:3500";
+        extraConfig = ''
+          proxy_read_timeout 3000s;
+          proxy_send_timeout 3000s;
+          proxy_connect_timeout 3000s;
+        '';
+      };
+    };
+    nginx.virtualHosts."ollama.menzel.lol" = {
+      forceSSL = true;
+      useACMEHost = "wildcard";
+      basicAuth = secrets.basicAuth;
+      locations."/" = {
         proxyPass = "http://localhost:3500";
         extraConfig = ''
           proxy_read_timeout 3000s;
