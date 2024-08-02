@@ -31,7 +31,8 @@ in
   # Enable networking
   networking = {
     networkmanager.enable = true;
-    extraHosts = toHostList config.services.nginx.virtualHosts;
+    nameservers = [ "192.168.178.21" ];
+    #extraHosts = toHostList config.services.nginx.virtualHosts;
   };
 
   # Set your time zone.

@@ -19,7 +19,9 @@ in
       models = "${ollama-path}/models";
       loadModels = [
         "llama3:8b"
+        "llama3.1:8b"
         "llama3:70b"
+        "llama3.1:70b"
         "deepseek-coder-v2:16b"
         "codestral:22b"
         "starcoder:15b"
