@@ -13,7 +13,7 @@
     experimental-features = nix-command flakes
   '';
 
-  time.timmeZone = "UTC";
+  time.timeZone = "UTC";
 
   home-manager = {
     config = ./home.nix;
