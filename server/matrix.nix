@@ -54,6 +54,7 @@ in
     };
   };
 
+/*
   services.matrix-sliding-sync = {
     enable = true;
     settings = {
@@ -68,6 +69,7 @@ in
     ''}";
   };
 
+*/
   services.nginx = {
     virtualHosts = {
       "${domain}" = {
