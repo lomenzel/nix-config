@@ -26,4 +26,5 @@
     termux-open-url.enable = true;
     termux-setup-storage.enable = true;
   };
+  system.stateVersion = "24.05";
 }
