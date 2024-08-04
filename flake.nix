@@ -32,7 +32,7 @@
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     simple-nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver/master";
-
+    nix-on-droid.url = "github:nix-community/nix-on-droid/master";
   };
 
   outputs =
@@ -105,6 +105,7 @@
         pi = nixpkgs.lib.nixosSystem {
 
         };
+
         pp = nixpkgs.lib.nixosSystem {
 
         };
@@ -126,6 +127,14 @@
             )
           ];
         };
+      };
+      nixOnDroidConfigurations.default = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
+        pkgs = import nixpkgs {
+          system = "aarch64-linux";
+          overlays = [ inputs.nix-on-droid.overlays.default ];
+        };
+        modules = [ ./devices/pixel/nix-on-droid.nix ];
+        homme-manager-path = home-manager.outPath;
       };
     };
 }
