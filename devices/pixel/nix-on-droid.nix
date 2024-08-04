@@ -6,7 +6,7 @@
 }:
 {
 
-  imports = [ ../../home/shell.nix ];
+  #imports = [ ../../home/shell.nix ];
   environment.packages = with pkgs; [ ];
   environment.etcBackupExtension = ".bak";
   nix.extraOptions = ''
