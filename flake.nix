@@ -134,7 +134,7 @@
           overlays = [ inputs.nix-on-droid.overlays.default ];
         };
         modules = [ ./devices/pixel/nix-on-droid.nix ];
-        homme-manager-path = home-manager.outPath;
+        home-manager-path = home-manager.outPath;
       };
     };
 }
