@@ -23,6 +23,7 @@
   boot.kernel.sysctl."net.ipv4.ip_forward" = true; # 1
   virtualisation.docker.enable = true;
   services.gitlab-runner.enable = true;
+  /*
   services.gitlab-runner.services = {
     default0 = {
       # File should contain at least these two variables:
@@ -73,6 +74,7 @@
       runUntagged = true;
     };
   };
+  */
 
   systemd.services.gitlab-backup.environment.BACKUP = "dump";
 
