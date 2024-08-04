@@ -60,7 +60,7 @@ in
     environmentFile = "${pkgs.writeText "matrix-sliding-sync.env" ''
       SYNCV3_BINDADDR=127.0.0.1:8181
       # Add any additional environment variables needed for matrix-sliding-sync here
-    ''}"
+    ''}";
   };
 
   services.nginx = {
