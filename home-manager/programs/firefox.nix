@@ -104,6 +104,7 @@ in
   programs = with pkgs; {
     firefox = {
       enable = true;
+      #package = pkgs.librewolf;
       nativeMessagingHosts = with pkgs.kdePackages; [ plasma-browser-integration ];
 
       profiles.default = {

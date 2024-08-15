@@ -12,6 +12,9 @@
   services.nextcloud = {
     enable = true;
     package = pkgs.nextcloud29;
+    extraApps = {
+      inherit (config.services.nextcloud.package.packages.apps) calendar contacts tasks;
+    };
     hostName = "cloud.menzel.lol";
     https = true;
     config.adminpassFile = "/etc/nextcloud-admin-pass";

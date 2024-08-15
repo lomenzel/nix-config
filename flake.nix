@@ -15,20 +15,20 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    uex = {
-      type = "gitlab";
-      owner = "ux-cookie-banner";
-      repo = "uex-cookie-banner-website";
-      host = "git.mylab.th-luebeck.de";
-      ref = "main";
-    };
+    # uex = {
+    #   type = "gitlab";
+    #   owner = "ux-cookie-banner";
+    #   repo = "uex-cookie-banner-website";
+    #   host = "git.mylab.th-luebeck.de";
+    #   ref = "main";
+    # };
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-ai-stuff = {
+    nix-ai-stuff =  {
       url = "github:BatteredBunny/nix-ai-stuff";
-      inputs.nixpkgs.follows = "nixpkgs";
+    inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     simple-nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver/master";
@@ -39,7 +39,7 @@
     {
       self,
       nixpkgs,
-      uex,
+      #uex,
       wsh,
       home-manager,
       ...

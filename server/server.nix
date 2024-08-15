@@ -30,6 +30,7 @@ in
     ./mail.nix
     ./keycloak.nix
     ./hedgedoc.nix
+    ./anki.nix
 
     #./cookie/cookie.nix
   ];

@@ -128,7 +128,7 @@
       kdePackages.minuet
       kdePackages.keysmith
       jetbrains.webstorm
-      libsForQt5.polonium
+      polonium
       minetest
       glxinfo
       clinfo

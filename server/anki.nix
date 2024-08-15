@@ -6,13 +6,15 @@
   ...
 }:
 {
-  systemd.services.anki-sync-server.environment.PASSWORDS_HASHED = "1";
+  #systemd.services.anki-sync-server.environment.PASSWORDS_HASHED = "1";
   services.anki-sync-server = {
     enable = true;
-    users.leonard = {
-      username = "leonard";
-      password = secrets.anki;
-    };
+    users = [
+      {
+        username = "leonard";
+        password = secrets.anki;
+      }
+    ];
     port = 27701;
   };
   services.nginx.virtualHosts."anki.menzel.lol" = {
