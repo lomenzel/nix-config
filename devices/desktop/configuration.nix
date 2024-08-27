@@ -35,6 +35,8 @@ in
     #extraHosts = toHostList config.services.nginx.virtualHosts;
   };
 
+  services.blueman.enable = true;
+
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 

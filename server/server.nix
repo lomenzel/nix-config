@@ -14,23 +14,26 @@ in
     ./acme.nix
 
     #working
-    ./gitlab.nix
+    #./gitlab.nix
     ./jellyfin.nix
     ./kubo.nix
     ./mastodon.nix
-    ./minecraft.nix
+    #./minecraft.nix
     ./searx.nix
 
     #testing
     ./matrix.nix
-    ./jitsi.nix
-    ./comfy.nix
+    #./jitsi.nix
+    #./comfy.nix
     ./ollama.nix
     ./nextcloud.nix
-    ./mail.nix
-    ./keycloak.nix
-    ./hedgedoc.nix
+    #./mail.nix
+    #./keycloak.nix
+    #./hedgedoc.nix
     ./anki.nix
+    ./home.nix
+    ./habitica.nix
+    ./adguard.nix
 
     #./cookie/cookie.nix
   ];
@@ -56,6 +59,7 @@ in
       allowedTCPPorts = [
         22
         25
+        53
         80
         143
         443
@@ -67,6 +71,7 @@ in
       ];
       allowedTCPPortRanges = [ kdeConnectPorts ];
       allowedUDPPorts = [
+        53
         80
         8080
         443

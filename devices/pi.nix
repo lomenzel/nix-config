@@ -7,35 +7,17 @@
 
 {
   imports = [
-
+    ../server/pihole.nix
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "pi"; # Define your hostname.
 
-  virtualisation.oci-containers.containers = {
-    piHole = {
-      image = "pihole/pihole:latest";
-      ports = [
-        "53:53/tcp"
-        "53:53/udp"
-        "80:80/tcp"
-      ];
-      environment = {
-        TZ = "Europe/Berlin";
-        WEBPASSWORD = config.secrets.piHole.webPassword;
-      };
-      volumes = [
-        "/etc-pihole:/etc/pihole"
-        "/etc-dnsmasq.d:/etc/dnsmasq.d"
-      ];
-    };
 
-  };
 
   # Set your time zone.
-  time.timeZone = "Europe/Berlin";
+  time.timeZone = "UTC";
 
   i18n.defaultLocale = "de_DE.UTF-8";
   console = {

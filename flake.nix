@@ -26,13 +26,18 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-ai-stuff =  {
-      url = "github:BatteredBunny/nix-ai-stuff";
-    inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # nix-ai-stuff = {
+    #   url = "github:BatteredBunny/nix-ai-stuff";
+    #   #inputs.nixpkgs.follows = "nixpkgs";
+    # };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixos-hardware.inputs.nixpkgs.follows = "nixpkgs";
+
     simple-nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver/master";
+    simple-nixos-mailserver.inputs.nixpkgs.follows = "nixpkgs";
     nix-on-droid.url = "github:nix-community/nix-on-droid/master";
+    shabitica.url = "github:lomenzel/shabitica";
+
   };
 
   outputs =
@@ -86,6 +91,7 @@
           (nixpkgs.lib.nixosSystem {
             inherit system;
             specialArgs = {
+              inherit inputs;
               uex = inputs.uex;
               nix-ai-stuff = inputs.nix-ai-stuff.packages.${system};
               secrets = import /home/leonard/.config/secrets/secrets.nix;

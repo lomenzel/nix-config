@@ -96,7 +96,6 @@ in
     registerToSynapse = true;
   };
 
-
   services.mx-puppet-discord = {
     enable = true;
     settings = {
@@ -110,7 +109,6 @@ in
       relay.whitelist = [ "@.*:menzel.lol" ];
     };
   };
-
 
   services.mautrix-whatsapp = {
     enable = true;
