@@ -12,10 +12,11 @@
     };
     serverProperties = {
       difficulty = "peaceful";
-      white-list = true;
+      white-list = false;
       simulation-distance = 32;
       view-distance = 32;
       enforce-whitelist = true;
+      onlline-mode = false;
     };
   };
 }
