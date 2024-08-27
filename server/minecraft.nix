@@ -10,6 +10,7 @@
       "_Eemes_" = "5748fa13-f93a-4795-adde-86c01d63e458";
       "Leni4603" = "5aa7fdbc-d116-4f44-9043-38a8b1c9c00b";
     };
+    jvmOpts = "-Xms8000M -Xmx8000";
     serverProperties = {
       difficulty = "peaceful";
       white-list = false;
