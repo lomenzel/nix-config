@@ -16,7 +16,7 @@
       simulation-distance = 32;
       view-distance = 32;
       enforce-whitelist = true;
-      onlline-mode = false;
+      online-mode = false;
     };
   };
 }
