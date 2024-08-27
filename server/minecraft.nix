@@ -11,7 +11,7 @@
       "Leni4603" = "5aa7fdbc-d116-4f44-9043-38a8b1c9c00b";
     };
     serverProperties = {
-      difficulty = "easy";
+      difficulty = "peacefull";
       white-list = true;
       simulation-distance = 32;
       view-distance = 32;
