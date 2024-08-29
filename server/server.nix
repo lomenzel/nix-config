@@ -18,7 +18,7 @@ in
     ./jellyfin.nix
     ./kubo.nix
     ./mastodon.nix
-    ./minecraft.nix
+    #./minecraft.nix
     ./searx.nix
 
     #testing
