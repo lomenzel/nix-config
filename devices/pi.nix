@@ -14,8 +14,6 @@
 
   networking.hostName = "pi"; # Define your hostname.
 
-
-
   # Set your time zone.
   time.timeZone = "UTC";
 

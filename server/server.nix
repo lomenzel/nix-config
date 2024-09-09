@@ -14,7 +14,7 @@ in
     ./acme.nix
 
     #working
-    #./gitlab.nix
+    ./gitlab.nix
     ./jellyfin.nix
     ./kubo.nix
     ./mastodon.nix
@@ -27,15 +27,14 @@ in
     #./comfy.nix
     ./ollama.nix
     ./nextcloud.nix
-    #./mail.nix
-    #./keycloak.nix
-    #./hedgedoc.nix
+    ./mail.nix
+    ./keycloak.nix
+    ./hedgedoc.nix
     ./anki.nix
     ./home.nix
     ./habitica.nix
     ./adguard.nix
 
-    #./cookie/cookie.nix
   ];
 
   #Security

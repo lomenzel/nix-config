@@ -49,11 +49,20 @@
         domain = "dirigera_platform";
         version = "1.7.12";
 
-        src = pkgs.fetchFromGitHub {
-          inherit owner;
-          repo = "dirigera_platform";
-          rev = version;
-          hash = "sha256-fi7QNgFpg1hghT7ce890OUu+VnzZodytk7vGaUmuiXg=";
+        src = pkgs.stdenv.mkDerivation {
+          pname = "patched-dirigera-platform";
+          version = "1.7.12";
+          patches = [ ./dirigera_manifest.patch ];
+          src = pkgs.fetchFromGitHub {
+            inherit owner;
+            repo = "dirigera_platform";
+            rev = version;
+            hash = "sha256-fi7QNgFpg1hghT7ce890OUu+VnzZodytk7vGaUmuiXg=";
+          };
+          installPhase = ''
+            mkdir -p $out
+            cp -r ./* $out
+          '';
         };
 
         propagatedBuildInputs = [ pkgs.python312Packages.dirigera ];

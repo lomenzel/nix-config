@@ -98,7 +98,7 @@
       "adbusers"
     ];
     packages = with pkgs; [
-      wineWowPackages.full
+      #wineWowPackages.full
       nh
       mpv
       ghc

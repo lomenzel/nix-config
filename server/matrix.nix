@@ -34,6 +34,7 @@ in
       public_baseurl = baseUrl;
       registration_shared_secret = secrets.synapse-postgresql-role;
       use_appservice_legacy_authorization = true;
+      enableRegistrationScript = false;
       listeners = [
         {
           port = 8008;
@@ -54,7 +55,6 @@ in
       ];
       app_service_config_files = [
         "/var/lib/matrix-synapse/telegram-registration.yaml"
-        #"/var/lib/matrix-synapse/whatsapp-registration.yaml"
         "/var/lib/matrix-synapse/discord-registration.yaml"
       ];
     };
