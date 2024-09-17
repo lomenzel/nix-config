@@ -91,6 +91,7 @@ in
       encryption = {
           allow = true;
           default = true;
+          pickle_key = secrets.mautrix-signal.key;
       };
     };
     registerToSynapse = true;
