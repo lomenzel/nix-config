@@ -27,13 +27,13 @@ in
     #./comfy.nix
     ./ollama.nix
     ./nextcloud.nix
-    ./mail.nix
-    ./keycloak.nix
-    ./hedgedoc.nix
+    #./mail.nix
+    #./keycloak.nix
+    #./hedgedoc.nix
     ./anki.nix
     ./home.nix
     ./habitica.nix
-    ./adguard.nix
+    #./adguard.nix
 
   ];
 

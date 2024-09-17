@@ -88,13 +88,13 @@ in
         permissions."menzel.lol" = "user";
         private_chat_portal_meta = true;
       };
-      /*
+      
       encryption = {
           allow = true;
           default = true;
           pickle_key = secrets.mautrix-signal.key;
       };
-      
+      /*
       appservice = {
         as_token = secrets.mautrix-signal.as_token;
         hs_token = secrets.mautrix-signal.hs_token;
@@ -105,7 +105,7 @@ in
   };
 
   services.mx-puppet-discord = {
-    enable = true;
+    enable = false;
     settings = {
       bridge = {
         bindAddress = "0.0.0.0";
