@@ -110,23 +110,6 @@
       kmymoney
       picard
       parabolic
-      kdePackages.elisa
-      kdePackages.kmail
-      kdePackages.kontact
-      kdePackages.marknote
-      kdePackages.kmail-account-wizard
-      kdePackages.akonadi-import-wizard
-      kdePackages.neochat
-      kdePackages.itinerary
-      kdePackages.tokodon
-      kdePackages.alpaka
-      kdePackages.kdenlive
-      kdePackages.kwallet
-      kdePackages.kwalletmanager
-      kdePackages.kcalc
-      kdePackages.kfind
-      kdePackages.minuet
-      kdePackages.keysmith
       jetbrains.webstorm
       polonium
       minetest
@@ -150,6 +133,25 @@
       signal-desktop
       libreoffice
       killall
+    ] ++ with pkgs.kdePackages [
+      elisa
+      kmail
+      kontact
+      marknote
+      kmail-account-wizard
+      akonadi-import-wizard
+      neochat
+      itinerary
+      tokodon
+      alpaka
+      kdenlive
+      kwallet
+      kwalletmanager
+      kcalc
+      kfind
+      minuet
+      merkuro
+      keysmith
     ];
     shell = pkgs.zsh;
   };

@@ -83,14 +83,14 @@ in
     settings = {
       homeserver.address = "http://localhost:8008";
       bridge = {
-        encryption = {
-          allow = true;
-          default = true;
-        };
         history_sync.request_full_sync = true;
         mute_bridging = true;
         permissions."menzel.lol" = "user";
         private_chat_portal_meta = true;
+      };
+      encryption = {
+          allow = true;
+          default = true;
       };
     };
     registerToSynapse = true;
