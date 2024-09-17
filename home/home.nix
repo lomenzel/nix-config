@@ -97,7 +97,7 @@
       "docker"
       "adbusers"
     ];
-    packages = with pkgs; [
+    packages = with pkgs; with kdePackages; [
       #wineWowPackages.full
       nh
       mpv
@@ -133,7 +133,6 @@
       signal-desktop
       libreoffice
       killall
-    ] ++ with pkgs.kdePackages [
       elisa
       kmail
       kontact
