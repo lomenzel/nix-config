@@ -49,7 +49,7 @@
   services.blueman.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
