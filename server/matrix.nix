@@ -93,6 +93,10 @@ in
           default = true;
           pickle_key = secrets.mautrix-signal.key;
       };
+      appservice = {
+        as_token = secrets.mautrix-signal.as_token;
+        hs_token = secrets.mautrix-signal.hs_token;
+      };
     };
     registerToSynapse = true;
   };
