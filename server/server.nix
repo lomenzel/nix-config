@@ -33,6 +33,7 @@ in
     ./anki.nix
     ./home.nix
     ./habitica.nix
+    ./immich.nix
     #./adguard.nix
 
   ];
