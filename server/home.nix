@@ -57,7 +57,7 @@
             inherit owner;
             repo = "dirigera_platform";
             rev = version;
-            hash = "";
+            hash = "sha256-Tx7YHB3BGjR/mc+jSsjCkYP0vILbAL+By3dZmKRHskI=";
           };
           installPhase = ''
             mkdir -p $out
