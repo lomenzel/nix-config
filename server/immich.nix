@@ -2,7 +2,7 @@
   services.immich = {
     enable = true;
     host = "photos.menzel.lol";
-    port = "8097";
+    port = 8097;
   };
   services.nginx.virtualHosts."photos.menzel.lol" = {
     forceSSL = true;
