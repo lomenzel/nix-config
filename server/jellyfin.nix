@@ -3,7 +3,7 @@
 
   services.jellyfin = {
     enable = true;
-    dataDir = "/mnt/snd/Jellyfin/serverdata/jellyfin"
+    dataDir = "/mnt/snd/Jellyfin/serverdata/jellyfin";
   };
 
   services.nginx.virtualHosts."media.menzel.lol" = {
