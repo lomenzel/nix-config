@@ -1,7 +1,10 @@
 { config, pkgs, ... }:
 {
 
-  services.jellyfin.enable = true;
+  services.jellyfin = {
+    enable = true;
+    dataDir = "/mnt/snd/Jellyfin/serverdata/jellyfin"
+  };
 
   services.nginx.virtualHosts."media.menzel.lol" = {
     forceSSL = true;
