@@ -134,6 +134,7 @@
       libreoffice
       killall
       elisa
+      finamp
       kmail
       kontact
       marknote

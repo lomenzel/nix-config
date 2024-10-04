@@ -16,6 +16,18 @@
     "olm-3.2.16"
     "jitsi-meet-1.0.8043"
   ];
+  networking.firewall.enable = false;
+
+  fileSystems."/mnt/snd" = {
+    device = "leonard@menzel.lol:/mnt/snd";
+    fsType = "sshfs";
+    options = [
+      "allow_other"
+      "nodev"
+      "noatime"
+      "IdentityFile=/home/leonard/.ssh/id_rsa"
+    ];
+  };
 
   services.kubo = {
     enable = true;
