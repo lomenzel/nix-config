@@ -6,6 +6,26 @@
     dataDir = "/mnt/snd/Jellyfin/serverdata/jellyfin";
   };
 
+    systemd.timers."epg" = {
+    wantedBy  = [ "timers.target"];
+    timerConfig = {
+      OnBootSec = "5m";
+      OnUnitActivateSec = "5m";
+      Unit = "epg.service";
+    };
+  };
+  systemd.services."epg" = {
+    script = ''
+      cd /mnt/snd/Jellyfin/serverdata/epg
+      ${pkgs.nodejs}/bin/npm run grab -- --site=plex.tv
+    '';
+    serviceConfig = {
+      Type = "oneshot";
+      User = "leonard";
+    };
+  };
+
+
   services.nginx.virtualHosts."media.menzel.lol" = {
     forceSSL = true;
     useACMEHost = "wildcard";
