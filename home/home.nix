@@ -101,16 +101,14 @@
       #wineWowPackages.full
       nh
       mpv
-      ghc
-      haskell-language-server
-      xournalpp
-      krita
-      tutanota-desktop
-      gimp
-      kmymoney
+      #ghc
+      #haskell-language-server
+      #krita
+      #tutanota-desktop
+      #gimp
+      #kmymoney
       picard
       parabolic
-      jetbrains.webstorm
       polonium
       minetest
       glxinfo
@@ -128,28 +126,28 @@
       anki
       discord
       thunderbird
-      prismlauncher
-      arianna
+      #prismlauncher
+      #arianna
       signal-desktop
       libreoffice
       killall
-      elisa
+      #elisa
       finamp
-      kmail
+      #kmail
       kontact
-      marknote
+      #marknote
       kmail-account-wizard
       akonadi-import-wizard
-      neochat
+      #neochat
       itinerary
-      tokodon
+      #tokodon
       alpaka
-      kdenlive
+      #kdenlive
       kwallet
       kwalletmanager
       kcalc
-      kfind
-      minuet
+      #kfind
+      #minuet
       merkuro
       keysmith
     ];

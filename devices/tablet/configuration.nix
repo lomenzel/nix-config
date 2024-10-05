@@ -95,7 +95,7 @@
       "wheel"
     ];
     packages = with pkgs; [
-      #  thunderbird
+      xournalpp
     ];
   };
 
