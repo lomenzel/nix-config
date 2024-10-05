@@ -141,5 +141,40 @@
         modules = [ ./devices/pixel/nix-on-droid.nix ];
         home-manager-path = home-manager.outPath;
       };
+
+      # not working and i dont want to deal with it anymore
+      packages.epg =
+        let
+          pkgs = import nixpkgs { system = "x86_64-linux"; };
+          pname = "epg";
+          version = "2023.12.1";
+          src = pkgs.fetchFromGitHub {
+            owner = "iptv-org";
+            repo = pname;
+            rev = version;
+            hash = "sha256-4YS7ZscNPPMK0V2U1uDgBKfQa0qSpa3LG0yl1zYkjDA=";
+          };
+        in
+        pkgs.stdenv.mkDerivation rec {
+
+          inherit src version pname;
+          buildInputs = [pkgs.nodejs];
+          installPhase = ''
+            mkdir -p $out/.npm
+            cp -r $src/* $out/
+            cp -r ${
+              pkgs.fetchNpmDeps {
+                inherit src;
+                hash = "sha256-D3poXVVq7VfOF9GhDyC9k5MOhsBSVffCokA0HSC5WCU=";
+              }
+            }/_cacache $out/.npm/
+            export npm_config_cache=$out/.npm/_cacache
+            npm config get cache
+            find $out/.npm/_cacache -name "*yocto-queue*"
+            exit 1
+            npm install --offline --no-audit --no-fund
+            cp -r ./node_modules $out/
+          '';
+        };
     };
 }

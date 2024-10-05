@@ -15,19 +15,22 @@
   programs.ausweisapp.enable = true;
   programs.ausweisapp.openFirewall = true;
 
-  users.users.leonard.packages = with pkgs; with kdePackages; [
-    yakuake
-    kio-gdrive
-    kde-rounded-corners
-    krfb
-    krdc
-    kaccounts-providers
-    kaccounts-integration
-    kcmutils
-    maliit-keyboard
-    kdepim-addons
-    pimcommon
-  ];
+  users.users.leonard.packages =
+    with pkgs;
+    with kdePackages;
+    [
+      yakuake
+      kio-gdrive
+      kde-rounded-corners
+      krfb
+      krdc
+      kaccounts-providers
+      kaccounts-integration
+      kcmutils
+      maliit-keyboard
+      kdepim-addons
+      pimcommon
+    ];
 
   stylix = {
     enable = true;

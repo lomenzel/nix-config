@@ -97,60 +97,63 @@
       "docker"
       "adbusers"
     ];
-    packages = with pkgs; with kdePackages; [
-      #wineWowPackages.full
-      nh
-      mpv
-      #ghc
-      #haskell-language-server
-      #krita
-      #tutanota-desktop
-      #gimp
-      #kmymoney
-      picard
-      parabolic
-      polonium
-      minetest
-      glxinfo
-      clinfo
-      wayland-utils
-      less
-      pciutils
-      vulkan-tools
-      nixfmt-rfc-style
-      kate
-      htop
-      curl
-      tor-browser-bundle-bin
-      vlc
-      anki
-      discord
-      thunderbird
-      #prismlauncher
-      #arianna
-      signal-desktop
-      libreoffice
-      killall
-      #elisa
-      finamp
-      #kmail
-      kontact
-      #marknote
-      kmail-account-wizard
-      akonadi-import-wizard
-      #neochat
-      itinerary
-      #tokodon
-      alpaka
-      #kdenlive
-      kwallet
-      kwalletmanager
-      kcalc
-      #kfind
-      #minuet
-      merkuro
-      keysmith
-    ];
+    packages =
+      with pkgs;
+      with kdePackages;
+      [
+        #wineWowPackages.full
+        nh
+        mpv
+        #ghc
+        #haskell-language-server
+        #krita
+        #tutanota-desktop
+        #gimp
+        #kmymoney
+        picard
+        parabolic
+        polonium
+        minetest
+        glxinfo
+        clinfo
+        wayland-utils
+        less
+        pciutils
+        vulkan-tools
+        nixfmt-rfc-style
+        kate
+        htop
+        curl
+        tor-browser-bundle-bin
+        vlc
+        anki
+        discord
+        thunderbird
+        #prismlauncher
+        #arianna
+        signal-desktop
+        libreoffice
+        killall
+        #elisa
+        finamp
+        #kmail
+        kontact
+        #marknote
+        kmail-account-wizard
+        akonadi-import-wizard
+        #neochat
+        itinerary
+        #tokodon
+        alpaka
+        #kdenlive
+        kwallet
+        kwalletmanager
+        kcalc
+        #kfind
+        #minuet
+        merkuro
+        keysmith
+      ];
     shell = pkgs.zsh;
   };
 

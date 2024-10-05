@@ -1,4 +1,5 @@
-{ config, pkgs, ...}: {
+{ config, pkgs, ... }:
+{
   services.immich = {
     enable = true;
     host = "localhost";
