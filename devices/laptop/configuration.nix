@@ -3,7 +3,7 @@
   imports = [
     ./hardware-configuration.nix
     ../laptop.nix
-    ../test.nix
+    ./test.nix
   ];
 
   nix = {
