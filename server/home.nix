@@ -24,6 +24,7 @@
       "jellyfin"
       "ollama"
       "habitica"
+      "thermopro"
       #"matrix"
       "pi_hole"
       "matter"
