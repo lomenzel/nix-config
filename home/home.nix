@@ -126,7 +126,10 @@
         curl
         tor-browser-bundle-bin
         vlc
+
         anki
+        texliveFull # needed by anki
+
         discord
         thunderbird
         #prismlauncher
