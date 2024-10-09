@@ -100,7 +100,8 @@
     packages =
       with pkgs;
       with kdePackages;
-      [
+    [
+      nixpkgs-fmt
         #wineWowPackages.full
         nh
         mpv
@@ -110,8 +111,8 @@
         #tutanota-desktop
         #gimp
         #kmymoney
-        picard
-        parabolic
+        #picard
+        #parabolic
         polonium
         minetest
         glxinfo
@@ -135,7 +136,7 @@
         #prismlauncher
         #arianna
         signal-desktop
-        libreoffice
+        #libreoffice
         killall
         #elisa
         finamp
@@ -155,7 +156,7 @@
         #kfind
         #minuet
         merkuro
-        keysmith
+        #keysmith
       ];
     shell = pkgs.zsh;
   };
