@@ -30,19 +30,19 @@
       dockerImage = "alpine";
     };
     default-1 = {
-      authenticationTokenConfigFile = pkgs.writeText "auth-file" secrets.gitlab.authenticationFile;
+      authenticationTokenConfigFile = pkgs.writeText "auth-file" secrets.gitlab.authenticationFile1;
       dockerImage = "alpine";
     };
       default-2 = {
-      authenticationTokenConfigFile = pkgs.writeText "auth-file" secrets.gitlab.authenticationFile;
+      authenticationTokenConfigFile = pkgs.writeText "auth-file" secrets.gitlab.authenticationFile2;
       dockerImage = "alpine";
     };
       default-3 = {
-      authenticationTokenConfigFile = pkgs.writeText "auth-file" secrets.gitlab.authenticationFile;
+      authenticationTokenConfigFile = pkgs.writeText "auth-file" secrets.gitlab.authenticationFile3;
       dockerImage = "alpine";
     };
     nix = with lib;{
-      authenticationTokenConfigFile = pkgs.writeText "auth-file" secrets.gitlab.authenticationFile;
+      authenticationTokenConfigFile = pkgs.writeText "auth-file" secrets.gitlab.authenticationFileNix;
       dockerImage = "alpine";
       dockerVolumes = [
         "/nix/store:/nix/store:ro"
