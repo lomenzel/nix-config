@@ -27,28 +27,17 @@
 
   services.gitlab-runner = {
     settings = {
-      concurrent = 100;
+      concurrent = 20;
      };
     services = {
       default = {
         authenticationTokenConfigFile = pkgs.writeText "auth-file" secrets.gitlab.authenticationFile;
         dockerImage = "alpine";
       };
-      default-1 = {
-        authenticationTokenConfigFile = pkgs.writeText "auth-file" secrets.gitlab.authenticationFile1;
-        dockerImage = "alpine";
-      };
-      default-2 = {
-        authenticationTokenConfigFile = pkgs.writeText "auth-file" secrets.gitlab.authenticationFile2;
-        dockerImage = "alpine";
-      };
-      default-3 = {
-        authenticationTokenConfigFile = pkgs.writeText "auth-file" secrets.gitlab.authenticationFile3;
-        dockerImage = "alpine";
-      };
       nix = with lib;{
         authenticationTokenConfigFile = pkgs.writeText "auth-file" secrets.gitlab.authenticationFileNix;
         dockerImage = "alpine";
+        limit = 1;
         dockerVolumes = [
           "/nix/store:/nix/store:ro"
           "/nix/var/nix/db:/nix/var/nix/db:ro"
