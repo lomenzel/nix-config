@@ -37,7 +37,6 @@
       nix = with lib;{
         authenticationTokenConfigFile = pkgs.writeText "auth-file" secrets.gitlab.authenticationFileNix;
         dockerImage = "alpine";
-        limit = 1;
         dockerVolumes = [
           "/nix/store:/nix/store:ro"
           "/nix/var/nix/db:/nix/var/nix/db:ro"
