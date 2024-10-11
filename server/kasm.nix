@@ -8,7 +8,7 @@
     forceSSL = true;
     useACMEHost = "wildcard";
     locations."/" = {
-      proxyPass = "http://localhost:9238";
+      proxyPass = "https://localhost:9238";
       proxyWebsockets = true;
     };
   };
