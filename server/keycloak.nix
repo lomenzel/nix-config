@@ -18,7 +18,7 @@
         hostname = "accounts.menzel.lol";
         http-relative-path = "/";
         http-port = 38080;
-        proxy = "edge";
+        proxy-headers = "forwarded";
         http-enabled = true;
       };
     };
