@@ -1,9 +1,9 @@
-{ config, secrets, pkgs }: {
+{ config, secrets, pkgs, ... }: {
   services.kasmweb = {
     enable = true;
     listenPort = 9238;
   };
-  
+
   services.nginx.virtualHosts."workspaces.menzel.lol" = {
     forceSSL = true;
     useACMEHost = "wildcard";
