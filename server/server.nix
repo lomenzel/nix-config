@@ -10,6 +10,7 @@ in
   imports = [
     #helpers
     ./nginx.nix
+    ./docker.nix
     ./acme.nix
 
     #working
