@@ -47,7 +47,6 @@ in
               names = [
                 "client"
                 "federation"
-                "sliding_sync"
               ];
               compress = true;
             }
