@@ -25,18 +25,16 @@ in
     ./ollama.nix
     ./nextcloud.nix
     ./matrix.nix
-
-    #testing
-    ./matrix.nix
-    #./jitsi.nix
-    #./comfy.nix
-
-    #./mail.nix
-    #./keycloak.nix
-    #./hedgedoc.nix
     ./anki.nix
     ./home.nix
+    ./matrix.nix
 
+    #testing
+    #./jitsi.nix
+    #./comfy.nix
+    #./mail.nix
+    ./keycloak.nix
+    #./hedgedoc.nix
     #./adguard.nix
     ./kasm.nix
 

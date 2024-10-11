@@ -47,6 +47,7 @@ in
               names = [
                 "client"
                 "federation"
+                "sliding_sync"
               ];
               compress = true;
             }
@@ -59,22 +60,6 @@ in
       ];
     };
   };
-
-  /*
-    services.matrix-sliding-sync = {
-      enable = true;
-      settings = {
-        SYNCV3_BINDADDR = "127.0.0.1:8181";
-        SYNCV3_SERVER = "http://127.0.0.1:8008";
-        SYNCV3_DB = "postgres://matrix-synapse:${secrets.synapse-postgresql-role}@localhost/matrix-synapse";
-        SYNCV3_SECRET = secrets.syncv3-secret;
-      };
-      environmentFile = "${pkgs.writeText "matrix-sliding-sync.env" ''
-        # SYNCV3_BINDADDR=127.0.0.1:8181
-        # Add any additional environment variables needed for matrix-sliding-sync here
-      ''}";
-    };
-  */
 
   # bridges
 
@@ -204,6 +189,7 @@ in
         locations."/_matrix".proxyPass = "http://[::1]:8008";
         # Forward requests for e.g. SSO and password-resets.
         locations."/_synapse/client".proxyPass = "http://[::1]:8008";
+        locations."/sync".proxyPass = "http://[::1]:8008";
       };
     };
   };
