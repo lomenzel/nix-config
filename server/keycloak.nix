@@ -15,14 +15,14 @@
         passwordFile = "${pkgs.writeText "keycloak-passwd" secrets.synapse-postgresql-role}";
       };
       settings = {
-        hostname = "keycloak.menzel.lol";
+        hostname = "accounts.menzel.lol";
         http-relative-path = "/";
         http-port = 38080;
         proxy = "edge";
         http-enabled = true;
       };
     };
-    nginx.virtualHosts."keycloak.menzel.lol" = {
+    nginx.virtualHosts."accounts.menzel.lol" = {
       forceSSL = true;
       enableACME = true;
       locations."/" = {

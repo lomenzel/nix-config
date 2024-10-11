@@ -1,8 +1,7 @@
-{
-  config,
-  pkgs,
-  secrets,
-  ...
+{ config
+, pkgs
+, secrets
+, ...
 }:
 let
   sshKey = secrets.ssh.keys.laptop;
@@ -20,21 +19,25 @@ in
     ./mastodon.nix
     #./minecraft.nix
     ./searx.nix
+    ./habitica.nix
+    ./immich.nix
+    ./ollama.nix
+    ./nextcloud.nix
+    ./matrix.nix
 
     #testing
     ./matrix.nix
     #./jitsi.nix
     #./comfy.nix
-    ./ollama.nix
-    ./nextcloud.nix
+
     #./mail.nix
     #./keycloak.nix
     #./hedgedoc.nix
     ./anki.nix
     ./home.nix
-    ./habitica.nix
-    ./immich.nix
+
     #./adguard.nix
+    ./kasm.nix
 
   ];
 
