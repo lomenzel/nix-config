@@ -1,7 +1,7 @@
 { pkgs, config, ...}: {
   virtualistion.docker = {
     enable = true;
-    daemon.settings {
+    daemon.settings = {
       data-root = "/mnt/snd/Docker";
     };
   };
