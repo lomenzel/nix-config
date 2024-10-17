@@ -28,14 +28,14 @@
   services.gitlab-runner = {
     settings = {
       concurrent = 20;
-     };
+    };
     services = {
       default = {
         authenticationTokenConfigFile = pkgs.writeText "auth-file" secrets.gitlab.authenticationFile;
         dockerImage = "alpine";
       };
       nixTH = with lib;{
-        authenticationTokenConfigFile = pkgs.writeText "auth-file" secrets.gitlab.authenticationFileNix;
+        authenticationTokenConfigFile = pkgs.writeText "auth-file" secrets.gitlab.authenticationFileNixTH;
         dockerImage = "alpine";
         dockerVolumes = [
           "/nix/store:/nix/store:ro"
@@ -67,8 +67,8 @@
         };
         tagList = [ "nix" ];
       };
-       nix = with lib;{
-        authenticationTokenConfigFile = pkgs.writeText "auth-file" secrets.gitlab.authenticationFileNixTH;
+      nix = with lib;{
+        authenticationTokenConfigFile = pkgs.writeText "auth-file" secrets.gitlab.authenticationFileNix;
         dockerImage = "alpine";
         dockerVolumes = [
           "/nix/store:/nix/store:ro"
