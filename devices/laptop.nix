@@ -2,11 +2,11 @@
 {
   imports = [
     ../home/home.nix
-    ../home/vm.nix
+    #../home/vm.nix
 
     ../services/wsh.nix
     #../home/ipfs.nix 
-    #../home/vm.nix 
+
     #../server/mysql.nix
     #../../kde2nix/nixos.nix
   ];

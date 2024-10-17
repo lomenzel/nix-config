@@ -259,6 +259,8 @@ in
             "browser.urlbar.showSearchSuggestionsFirst" = lock-false;
             "browser.translations.automaticallyPopup" = lock-false;
             "toolkit.legacyUserProfileCustomizations.stylesheets" = lock-true;
+            "widget.gtk.global-menu.enabled" = lock-true;
+            "widget.gtk.global-menu.wayland.enabled" = lock-true;
 
             #Toolbar
             "browser.uiCustomization.state" = {
