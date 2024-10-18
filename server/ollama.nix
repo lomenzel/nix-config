@@ -20,6 +20,8 @@ in
       loadModels = [
         "llama3:8b"
         "llama3.1:8b"
+        "llama3.2:1b"
+        "llama3.2:3b"
         "deepseek-coder-v2:16b"
         "codestral:22b"
         "starcoder:15b"
