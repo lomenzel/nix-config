@@ -104,7 +104,7 @@
   };
 
   systemd.services.gitlab-backup.environment.BACKUP = "dump";
-
+  services.nginx.clientMaxBodySize = "3000m";
   services.nginx.virtualHosts."git.menzel.lol" = {
     useACMEHost = "wildcard";
     forceSSL = true;

@@ -65,9 +65,9 @@ with (helper-functions { inherit lib; });
       ".continue/config.json".text = builtins.toJSON {
         models = [
           (desktop "llama3.1:8b")
-          (desktop "codegemma:2b")
+          (desktop "llama3.2:1b")
         ];
-        tabAutocompleteModel = desktop "codegemma:2b";
+        tabAutocompleteModel = desktop "llama3.2:1b";
       };
     };
 
