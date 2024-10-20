@@ -24,7 +24,7 @@
       inherit inputs secrets helper-functions;
     };
     users = {
-      "leonard" = import ../../home-manager/home.nix;
+      "leonard" = import ../../home-manager/pi-home.nix;
     };
     backupFileExtension = "homemanager-backup";
   };
