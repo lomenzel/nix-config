@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, inputs, secrets, ... }:
+{ config, lib, pkgs, inputs, secrets, helper-functions, ... }:
 
 {
   imports =
