@@ -108,6 +108,18 @@
             ];
           });
         pi = nixpkgs.lib.nixosSystem {
+          system = "aarch64-linux";
+          specialArgs = {
+            inherit inputs;
+            secrets = import /home/leonard/.config/secrets/secrets.nix;
+            helper-functions = import ./helper-functions.nix;
+          };
+          modules = with inputs; [
+            stylix.nixosModules.stylix
+            nixos-hardware.nixosModules.raspberry-pi.4
+            ./devices/pi/configuration.nix
+            home-manager.nixosModules.default
+          ];
 
         };
 
