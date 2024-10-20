@@ -115,7 +115,7 @@
             helper-functions = import ./helper-functions.nix;
           };
           modules = with inputs; [
-            stylix.nixosModules.stylix
+            #stylix.nixosModules.stylix
             nixos-hardware.nixosModules.raspberry-pi-4
             ./devices/pi/configuration.nix
             home-manager.nixosModules.default
