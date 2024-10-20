@@ -116,7 +116,7 @@
           };
           modules = with inputs; [
             stylix.nixosModules.stylix
-            nixos-hardware.nixosModules.raspberry-pi.4
+            nixos-hardware.nixosModules.raspberry-pi-4
             ./devices/pi/configuration.nix
             home-manager.nixosModules.default
           ];
