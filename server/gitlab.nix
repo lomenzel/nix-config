@@ -20,7 +20,7 @@
     };
   };
 
-  boot.kernel.sysctl."net.ipv4.ip_forward" = true; # 1
+ # boot.kernel.sysctl."net.ipv4.ip_forward" = true; # 1
   virtualisation.docker.enable = true;
   services.gitlab-runner.enable = true;
 
