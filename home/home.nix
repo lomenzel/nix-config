@@ -83,9 +83,7 @@
 
   services.openssh.enable = true;
   services.fwupd.enable = true;
-  environment.sessionVariables = {
-    FLAKE = "/home/leonard/.config/nix-config";
-  };
+
 
   users.users.leonard = {
     isNormalUser = true;
@@ -103,7 +101,7 @@
     [
       nixpkgs-fmt
         #wineWowPackages.full
-        nh
+
         mpv
         #ghc
         #haskell-language-server
@@ -118,13 +116,10 @@
         glxinfo
         clinfo
         wayland-utils
-        less
         pciutils
         vulkan-tools
-        nixfmt-rfc-style
         kate
-        htop
-        curl
+
         tor-browser-bundle-bin
         vlc
 
@@ -137,7 +132,7 @@
         #arianna
         signal-desktop
         #libreoffice
-        killall
+        
         #elisa
         finamp
         #kmail
@@ -158,7 +153,6 @@
         merkuro
         #keysmith
       ];
-    shell = pkgs.zsh;
   };
 
 }

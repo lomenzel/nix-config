@@ -1,5 +1,11 @@
 { config, pkgs, ... }:
 {
+
+  environment.sessionVariables = {
+    FLAKE = "/home/leonard/.config/nix-config";
+  };
+  users.users.leonard.packages = with pkgs; [nh htop curl killall nixfmt-rfc-style less];
+  users.users.leonard.shell = pkgs.zsh;
   programs.zsh = {
     enable = true;
     shellAliases = {

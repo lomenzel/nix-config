@@ -18,6 +18,16 @@
 		};
 	};
 
+  home-manager = {
+    extraSpecialArgs = {
+      inherit inputs secrets helper-functions;
+    };
+    users = {
+      "leonard" = import ../home-manager/home.nix;
+    };
+    backupFileExtension = "homemanager-backup";
+  };
+
   # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
   boot.loader.grub.enable = false;
   # Enables the generation of /boot/extlinux/extlinux.conf
