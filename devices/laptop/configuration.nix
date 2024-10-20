@@ -6,13 +6,6 @@
     #./test.nix
   ];
 
-  nix = {
-    package = pkgs.nixFlakes;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-  };
-
   nixpkgs.config.permittedInsecurePackages = [
     "olm-3.2.16"
     "jitsi-meet-1.0.8043"
