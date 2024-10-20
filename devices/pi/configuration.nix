@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../home/shell.nix
+      ./kubernetes.nix
     ];
 	
 	hardware = {
