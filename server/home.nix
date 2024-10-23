@@ -16,6 +16,10 @@
   services.home-assistant = {
     enable = true;
     extraComponents = [
+      "default_config"
+      "bluetooth_tracker"
+      "bluetooth_le_tracker"
+      "bluetooth"
       "esphome"
       "met"
       "radio_browser"

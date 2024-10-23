@@ -36,7 +36,7 @@ in
     ./keycloak.nix
     #./hedgedoc.nix
     #./adguard.nix
-    ./kasm.nix
+    #./kasm.nix
     #./kubernetes.nix
 
   ];
