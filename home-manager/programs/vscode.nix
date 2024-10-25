@@ -27,11 +27,11 @@ with (helper-functions { inherit lib; });
       haskell.haskell
       justusadam.language-haskell
       ms-vscode.live-server
-      ms-python.python
-      ms-python.debugpy
-      ms-pyright.pyright
-      ms-python.vscode-pylance
-      ms-python.black-formatter
+      #ms-python.python
+      #ms-python.debugpy
+      #ms-pyright.pyright
+      #ms-python.vscode-pylance
+      #ms-python.black-formatter
       tomoki1207.pdf
       redhat.vscode-yaml
     ];
