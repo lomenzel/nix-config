@@ -2,6 +2,7 @@
   config,
   pkgs,
   secrets,
+  lib,
   ...
 }:
 let
@@ -14,6 +15,20 @@ let
     default_type application/json;
     add_header Access-Control-Allow-Origin *;
     return 200 '${builtins.toJSON data}';
+  '';
+  ZulipBridgeRegistrationFile = pkgs.writeText "zulip-registration.yaml" ''
+    id: zulipbridge
+    url: http://127.0.0.1:28464
+    as_token: ${secrets.zulip-bridge.as_token}
+    hs_token: ${secrets.zulip-bridge.hs_token}
+    rate_limited: false
+    sender_localpart: zulipbridge
+    namespaces:
+      users:
+      - regex: '@zulip_.*'
+        exclusive: true
+      aliases: []
+      rooms: []
   '';
 in
 {
@@ -56,6 +71,7 @@ in
       app_service_config_files = [
         "/var/lib/matrix-synapse/telegram-registration.yaml"
         "/var/lib/matrix-synapse/discord-registration.yaml"
+        ZulipBridgeRegistrationFile
       ];
     };
   };
@@ -165,6 +181,43 @@ in
     };
   };
   systemd.services.mautrix-telegram.path = [ pkgs.ffmpeg ]; # converting stickers
+
+
+  systemd.services.matrix-zulip-bridge = let
+  
+  yaml = pkgs.formats.yaml { };
+  settingsFile = yaml.generate "matrix-zulip-bridge.yaml" settings;
+  settings = {
+
+  };
+
+  secretsFile = pkgs.writeText "" ''
+  '';
+
+  in {
+      description = "matrix-zulip-bridge - a puppeteering Matrix<->Zulip bridge";
+      wantedBy = [ "multi-user.target" ];
+      after = [ "network.target" ];
+
+      preStart = ''
+        umask 0077
+        ${lib.getExe pkgs.envsubst} -i ${settingsFile} -o ''${RUNTIME_DIRECTORY}/config.yml
+      '';
+
+      serviceConfig =
+      let
+        extraArgs = ["-o @leonard:menzel.lol"];
+      in
+      {
+        EnvironmentFile = [ secretsFile ];
+        ExecStart = "${pkgs.matrix-zulip-bridge}/bin/matrix-zulip-bridge -c ${ZulipBridgeRegistrationFile} ${lib.concatStringsSep " " extraArgs} ${baseUrl}";
+        DynamicUser = true;
+        StateDirectory = "matrix-zulip-bridge";
+        RuntimeDirectory = "matrix-zulip-bridge";
+        Restart = "on-failure";
+        RestartSec = "30s";
+      };
+  };
 
   services.nginx = {
     virtualHosts = {
