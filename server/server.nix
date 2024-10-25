@@ -31,7 +31,7 @@ in
 
     #testing
     #./jitsi.nix
-    #./comfy.nix
+    ./comfy.nix
     #./mail.nix
     ./keycloak.nix
     #./hedgedoc.nix
