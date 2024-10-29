@@ -23,6 +23,11 @@
     ];
   };
 
+  virtualisation.vmware.host = {
+    enable = true;
+    extraPackages = [ pkgs.ntfs3g ];
+  };
+
   services.kubo = {
     enable = true;
     autoMount = false;
