@@ -395,8 +395,8 @@
         ]
       },
       "locked": {
-        "lastModified": 1730893219,
-        "narHash": "sha256-09R9tY6BfWRzt07+12UuLKnyD5unkAb21ipjq8GIwBQ=",
+        "lastModified": 1730905157,
+        "narHash": "sha256-RcJztiJpAcqDjOGHazHHRcsDUv8PIA+Sz+0KNRTJdeM=",
         "path": "/home/leonard/Projekte/nix-minetest",
         "type": "path"
       },
