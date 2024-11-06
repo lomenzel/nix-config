@@ -36,6 +36,11 @@
     simple-nixos-mailserver.inputs.nixpkgs.follows = "nixpkgs";
     nix-on-droid.url = "github:nix-community/nix-on-droid/master";
     shabitica.url = "github:lomenzel/shabitica";
+    nix-luanti = {
+      url = "github:lomenzel/nix-luanti";
+      inputs.nixpkgs.follows = "nixpkgs";
+      #inputs.flake-utils.follows = "flake-utils";
+    };
 
   };
 
@@ -44,6 +49,7 @@
       self,
       nixpkgs,
       #uex,
+      
       wsh,
       home-manager,
       ...
@@ -56,12 +62,14 @@
             inherit inputs;
             secrets = import /home/leonard/.config/secrets/secrets.nix;
             helper-functions = import ./helper-functions.nix;
+            nix-luanti = inputs.nix-luanti.packages."x86_64-linux";
 
           };
           modules = with inputs; [
             stylix.nixosModules.stylix
             nixos-hardware.nixosModules.tuxedo-pulse-15-gen2
             wsh.nixosModules."x86_64-linux".default
+            inputs.nix-luanti.nixosModules."x86_64-linux".default
             ./devices/laptop/configuration.nix
             home-manager.nixosModules.default
           ];

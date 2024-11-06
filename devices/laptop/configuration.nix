@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nix-luanti, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -11,6 +11,26 @@
     "jitsi-meet-1.0.8043"
   ];
   networking.firewall.enable = false;
+
+  services.luanti = {
+     enable = true;
+       servers = with nix-luanti; {
+         cool-server = {
+           game = games.minetest-game;
+           mods = with mods; [
+             animalia
+           ];
+           port = 30000;
+         };
+         other-cool-server = {
+           game = games.mineclone2;
+           mods = with mods; [
+             # Add mods here
+           ];
+           port = 30001;
+         };
+       };
+  };
 
   fileSystems."/mnt/snd" = {
     device = "leonard@menzel.lol:/mnt/snd";
