@@ -37,7 +37,7 @@
     nix-on-droid.url = "github:nix-community/nix-on-droid/master";
     shabitica.url = "github:lomenzel/shabitica";
     nix-luanti = {
-      url = "github:lomenzel/nix-luanti";
+      url = "path:/home/leonard/Projekte/nix-minetest";
       inputs.nixpkgs.follows = "nixpkgs";
       #inputs.flake-utils.follows = "flake-utils";
     };

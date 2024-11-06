@@ -395,17 +395,14 @@
         ]
       },
       "locked": {
-        "lastModified": 1730823493,
-        "narHash": "sha256-j11Gh2ekk/oGohQnrvx+QkJB4vEJJvtSCnZmpydPD94=",
-        "owner": "lomenzel",
-        "repo": "nix-luanti",
-        "rev": "427baaa2bb9f9ef5a01c01fc258a61ddd8a9c2af",
-        "type": "github"
+        "lastModified": 1730893219,
+        "narHash": "sha256-09R9tY6BfWRzt07+12UuLKnyD5unkAb21ipjq8GIwBQ=",
+        "path": "/home/leonard/Projekte/nix-minetest",
+        "type": "path"
       },
       "original": {
-        "owner": "lomenzel",
-        "repo": "nix-luanti",
-        "type": "github"
+        "path": "/home/leonard/Projekte/nix-minetest",
+        "type": "path"
       }
     },
     "nix-on-droid": {
@@ -434,11 +431,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1730874081,
-        "narHash": "sha256-VK7LkfdcpUi8tqcgMIYY2jejDh4O3MNw9An0FcKveRQ=",
+        "lastModified": 1730886862,
+        "narHash": "sha256-wCZtRGM1NGxq6VG4+TMzfsa4cuG2VJVtowtYuWW5W3g=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "12ad8c1bf13ff15ffa6afe82c59b4af0b9226035",
+        "rev": "90642a0deae927fa911d49d4f7c5616257105141",
         "type": "github"
       },
       "original": {
