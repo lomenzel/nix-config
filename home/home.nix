@@ -101,7 +101,7 @@
     [
       nixpkgs-fmt
         #wineWowPackages.full
-
+  qtwebsockets
         mpv
         #ghc
         #haskell-language-server
