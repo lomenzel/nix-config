@@ -14,15 +14,15 @@ in
     ./acme.nix
 
     #working
-    ./gitlab.nix
+    #./gitlab.nix
     ./jellyfin.nix
-    ./kubo.nix
+    #./kubo.nix
     ./mastodon.nix
     #./minecraft.nix
     ./searx.nix
     ./habitica.nix
     ./immich.nix
-    ./ollama.nix
+    #./ollama.nix
     ./nextcloud.nix
     ./matrix.nix
     ./anki.nix

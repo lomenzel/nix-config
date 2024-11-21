@@ -63,7 +63,7 @@ in
 
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia-container-toolkit.enable = true;
+  #hardware.nvidia-container-toolkit.enable = true;
   hardware.nvidia = {
 
     # Modesetting is required.
@@ -75,7 +75,7 @@ in
 
     nvidiaSettings = true;
 
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
   boot.kernelParams = [ "module_blacklist=i915" ];
 

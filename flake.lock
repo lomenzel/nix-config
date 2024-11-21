@@ -395,14 +395,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1731973354,
-        "narHash": "sha256-enoQGYTSd8uS/hcPXTaljSvctEzXzfQmPlTeXgdmcNY=",
-        "path": "/home/leonard/Projekte/nix-minetest",
-        "type": "path"
+        "lastModified": 1731868691,
+        "narHash": "sha256-FoRdLPTF7TC7S708bNCSI1if1t2ebxDF5GV/61rxUqQ=",
+        "owner": "lomenzel",
+        "repo": "nix-luanti",
+        "rev": "2bf46c5d853a44bc31350585d68b9865ed8644af",
+        "type": "github"
       },
       "original": {
-        "path": "/home/leonard/Projekte/nix-minetest",
-        "type": "path"
+        "owner": "lomenzel",
+        "repo": "nix-luanti",
+        "type": "github"
       }
     },
     "nix-on-droid": {

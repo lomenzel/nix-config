@@ -18,7 +18,7 @@
     hostName = "cloud.menzel.lol";
     https = true;
     config.adminpassFile = "/etc/nextcloud-admin-pass";
-    home = "/mnt/snd/nextcloud";
+    home = "/var/lib/nextcloud";
     appstoreEnable = true;
   };
 
