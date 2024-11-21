@@ -1,8 +1,7 @@
-{
-  config,
-  pkgs,
-  inputs,
-  ...
+{ config
+, pkgs
+, inputs
+, ...
 }:
 {
   imports = [
@@ -20,6 +19,9 @@
       allowUnfreePredicate = (_: true);
     };
   };
+  home.packages = [
+    pkgs.libreoffice
+  ];
 
   #services.activitywatch.enable = true;
 

@@ -1,0 +1,618 @@
+{
+    "abuse": {
+        "byGUID": {},
+        "loading": false
+    },
+    "addons": {
+        "byID": {
+            "2645798": {
+                "authors": [
+                    {
+                        "id": 15962423,
+                        "name": "fzramos",
+                        "url": "https:\u002F\u002Faddons.mozilla.org\u002Fde\u002Ffirefox\u002Fuser\u002F15962423\u002F",
+                        "username": "anonymous-468ff165ca9030370b32b079b7f94ae6",
+                        "picture_url": "https:\u002F\u002Faddons.mozilla.org\u002Fuser-media\u002Fuserpics\u002F23\u002F2423\u002F15962423\u002F15962423.png?modified=1591245022"
+                    }
+                ],
+                "average_daily_users": 2901,
+                "categories": [
+                    "appearance",
+                    "games-entertainment"
+                ],
+                "contributions_url": "",
+                "created": "2020-06-03T16:22:56Z",
+                "default_locale": "en-US",
+                "description": "This add-on applies a Nyan Cat theme to YouTube videos, replacing the standard red scrubber and progress bar with an animated Nyan Cat followed by a Rainbow Streak.\n\nEnhance your YouTube experience with this light-weight add-on.\n\nThis extension was built as an educational exercise but will be periodically improved. If you run into any issues with the add-on, please e-mail the creator at framos6@outlook.com.\n\nBuilt from the ground-up by Fred Ramos and inspired by the Chrome extension \"Nyan Cat Progress Bar for YouTube™\" by Daniel.",
+                "developer_comments": null,
+                "edit_url": "https:\u002F\u002Faddons.mozilla.org\u002Fde\u002Fdevelopers\u002Faddon\u002Fnyan-cat-youtube-enhancement\u002Fedit",
+                "guid": "{c3348e96-6d84-47dc-8252-4b8493299efc}",
+                "has_eula": false,
+                "has_privacy_policy": false,
+                "homepage": {
+                    "url": "https:\u002F\u002Fgithub.com\u002Ffzramos",
+                    "outgoing": "https:\u002F\u002Fprod.outgoing.prod.webservices.mozgcp.net\u002Fv1\u002Fb1d59d5b4ccdf0df1bbce4be1d4831d393a082cf93dd95d9afc0cb52f2034d32\u002Fhttps%3A\u002F\u002Fgithub.com\u002Ffzramos"
+                },
+                "icon_url": "https:\u002F\u002Faddons.mozilla.org\u002Fuser-media\u002Faddon_icons\u002F2645\u002F2645798-64.png?modified=82f09d67",
+                "icons": {
+                    "32": "https:\u002F\u002Faddons.mozilla.org\u002Fuser-media\u002Faddon_icons\u002F2645\u002F2645798-32.png?modified=82f09d67",
+                    "64": "https:\u002F\u002Faddons.mozilla.org\u002Fuser-media\u002Faddon_icons\u002F2645\u002F2645798-64.png?modified=82f09d67",
+                    "128": "https:\u002F\u002Faddons.mozilla.org\u002Fuser-media\u002Faddon_icons\u002F2645\u002F2645798-128.png?modified=82f09d67"
+                },
+                "id": 2645798,
+                "is_disabled": false,
+                "is_experimental": false,
+                "last_updated": "2024-10-24T01:30:24Z",
+                "name": "Nyan Cat YouTube Enhancement",
+                "previews": [
+                    {
+                        "h": 268,
+                        "src": "https:\u002F\u002Faddons.mozilla.org\u002Fuser-media\u002Fpreviews\u002Ffull\u002F271\u002F271368.png?modified=1657741679",
+                        "thumbnail_h": 268,
+                        "thumbnail_src": "https:\u002F\u002Faddons.mozilla.org\u002Fuser-media\u002Fpreviews\u002Fthumbs\u002F271\u002F271368.jpg?modified=1657741679",
+                        "thumbnail_w": 457,
+                        "title": "New, animated theme for the progress bar for all YouTube videos.",
+                        "w": 457
+                    },
+                    {
+                        "h": 577,
+                        "src": "https:\u002F\u002Faddons.mozilla.org\u002Fuser-media\u002Fpreviews\u002Ffull\u002F271\u002F271369.png?modified=1657741681",
+                        "thumbnail_h": 284,
+                        "thumbnail_src": "https:\u002F\u002Faddons.mozilla.org\u002Fuser-media\u002Fpreviews\u002Fthumbs\u002F271\u002F271369.jpg?modified=1657741681",
+                        "thumbnail_w": 533,
+                        "title": null,
+                        "w": 1084
+                    }
+                ],
+                "promoted": null,
+                "ratings": {
+                    "average": 4.9796,
+                    "bayesian_average": 4.83979589406834,
+                    "count": 49,
+                    "text_count": 26,
+                    "grouped_counts": {
+                        "1": 0,
+                        "2": 0,
+                        "3": 0,
+                        "4": 1,
+                        "5": 48
+                    }
+                },
+                "requires_payment": false,
+                "review_url": "https:\u002F\u002Faddons.mozilla.org\u002Fde\u002Freviewers\u002Freview\u002F2645798",
+                "slug": "nyan-cat-youtube-enhancement",
+                "status": "public",
+                "summary": "Adds a running Nyan Cat and Rainbow Streak to YouTube video progress bars.",
+                "support_email": "framos6@outlook.com",
+                "support_url": {
+                    "url": "https:\u002F\u002Fgithub.com\u002Ffzramos",
+                    "outgoing": "https:\u002F\u002Fprod.outgoing.prod.webservices.mozgcp.net\u002Fv1\u002Fb1d59d5b4ccdf0df1bbce4be1d4831d393a082cf93dd95d9afc0cb52f2034d32\u002Fhttps%3A\u002F\u002Fgithub.com\u002Ffzramos"
+                },
+                "tags": [],
+                "type": "extension",
+                "url": "https:\u002F\u002Faddons.mozilla.org\u002Fde\u002Ffirefox\u002Faddon\u002Fnyan-cat-youtube-enhancement\u002F",
+                "weekly_downloads": 73,
+                "currentVersionId": 5831030,
+                "isMozillaSignedExtension": false,
+                "isAndroidCompatible": false
+            }
+        },
+        "byIdInURL": {
+            "nyan-cat-youtube-enhancement": 2645798
+        },
+        "byGUID": {
+            "{c3348e96-6d84-47dc-8252-4b8493299efc}": 2645798
+        },
+        "bySlug": {
+            "nyan-cat-youtube-enhancement": 2645798
+        },
+        "infoBySlug": {},
+        "lang": "de",
+        "loadingByIdInURL": {
+            "nyan-cat-youtube-enhancement": false
+        }
+    },
+    "addonsByAuthors": {
+        "byAddonId": {},
+        "byAddonSlug": {},
+        "byAuthorId": {},
+        "countFor": {},
+        "lang": "de",
+        "loadingFor": {}
+    },
+    "api": {
+        "clientApp": "firefox",
+        "lang": "de",
+        "regionCode": "DE",
+        "requestId": "db967fa2-3807-4cd4-b0d6-e84a8ad35233",
+        "token": null,
+        "userAgent": "Mozilla\u002F5.0 (X11; Linux x86_64; rv:132.0) Gecko\u002F20100101 Firefox\u002F132.0",
+        "userAgentInfo": {
+            "browser": {
+                "name": "Firefox",
+                "version": "132.0",
+                "major": "132"
+            },
+            "device": {},
+            "os": {
+                "name": "Linux",
+                "version": "x86_64"
+            }
+        }
+    },
+    "autocomplete": {
+        "lang": "de",
+        "loading": false,
+        "suggestions": []
+    },
+    "blocks": {
+        "blocks": {},
+        "lang": "de"
+    },
+    "categories": {
+        "categories": {
+            "dictionary": {
+                "general": {
+                    "id": 95,
+                    "name": "Allgemein",
+                    "slug": "general",
+                    "misc": false,
+                    "type": "dictionary",
+                    "weight": 0,
+                    "description": null
+                }
+            },
+            "extension": {
+                "appearance": {
+                    "id": 14,
+                    "name": "Anzeige",
+                    "slug": "appearance",
+                    "misc": false,
+                    "type": "extension",
+                    "weight": 0,
+                    "description": "Laden Sie Erweiterungen herunter, die das Erscheinungsbild von Websites und des Firefox-Browsers verändern. Diese Kategorie umfasst Erweiterungen für dunkle Themes, Tab-Verwaltung und mehr."
+                },
+                "privacy-security": {
+                    "id": 12,
+                    "name": "Datenschutz & Sicherheit",
+                    "slug": "privacy-security",
+                    "misc": false,
+                    "type": "extension",
+                    "weight": 0,
+                    "description": "Laden Sie Firefox-Erweiterungen herunter, um privat und sicher zu surfen. Diese Kategorie umfasst Erweiterungen, die störende Anzeigen blockieren, Tracking zu verhindern, Weiterleitungen verwalten und vieles mehr."
+                },
+                "download-management": {
+                    "id": 5,
+                    "name": "Download-Verwaltung",
+                    "slug": "download-management",
+                    "misc": false,
+                    "type": "extension",
+                    "weight": 0,
+                    "description": "Laden Sie Firefox-Erweiterungen herunter, mit denen Sie Web-, Musik- und Videoinhalte herunterladen können. Sie finden hier auch Erweiterungen zum Verwalten von Downloads, zum Freigeben von Dateien usw."
+                },
+                "shopping": {
+                    "id": 141,
+                    "name": "Einkaufen",
+                    "slug": "shopping",
+                    "misc": false,
+                    "type": "extension",
+                    "weight": 0,
+                    "description": "Laden Sie Firefox-Erweiterungen herunter, die Ihr Online-Einkaufserlebnis mit Gutscheinfindern, Angebotsfindern, Bewertungsanalyse und mehr verbessern können."
+                },
+                "photos-music-videos": {
+                    "id": 38,
+                    "name": "Fotos, Musik und Videos",
+                    "slug": "photos-music-videos",
+                    "misc": false,
+                    "type": "extension",
+                    "weight": 0,
+                    "description": "Laden Sie Firefox-Erweiterungen herunter, die das Foto-, Musik- und Videoerlebnis verbessern. Erweiterungen in dieser Kategorie ändern Audio und Video, die umgekehrte Bildersuche und mehr."
+                },
+                "alerts-updates": {
+                    "id": 72,
+                    "name": "Hinweise und Benachrichtigungen",
+                    "slug": "alerts-updates",
+                    "misc": false,
+                    "type": "extension",
+                    "weight": 0,
+                    "description": "Laden Sie Firefox-Erweiterungen herunter, mit denen Sie auf dem neuesten Stand bleiben, Aufgaben verfolgen und die Effizienz steigern können. Finden Sie Erweiterungen, die Tabs neu laden, die Produktivität verwalten und vieles mehr."
+                },
+                "bookmarks": {
+                    "id": 22,
+                    "name": "Lesezeichen",
+                    "slug": "bookmarks",
+                    "misc": false,
+                    "type": "extension",
+                    "weight": 0,
+                    "description": "Laden Sie Erweiterungen herunter, die Lesezeichen verbessern, indem Sie diese mit einem Passwort schützen, nach Duplikaten suchen, defekte Lesezeichen finden und vieles mehr."
+                },
+                "feeds-news-blogging": {
+                    "id": 1,
+                    "name": "RSS-Feeds, Nachrichten & Bloggen",
+                    "slug": "feeds-news-blogging",
+                    "misc": false,
+                    "type": "extension",
+                    "weight": 0,
+                    "description": "Laden Sie die Firefox-Erweiterungen herunter, mit denen Sie störende Inhalte entfernen können, sodass Sie in den sozialen Medien auf dem neuesten Stand bleiben, Blogs und RSS-Feeds lesen und die Augenbelastung reduzieren können."
+                },
+                "other": {
+                    "id": 73,
+                    "name": "Sonstiges",
+                    "slug": "other",
+                    "misc": true,
+                    "type": "extension",
+                    "weight": 333,
+                    "description": "Laden Sie Firefox-Erweiterungen herunter, die unvorhersehbar und kreativ sein können, aber für diese ungewöhnlichen Aufgaben nützlich sind."
+                },
+                "games-entertainment": {
+                    "id": 142,
+                    "name": "Spiele und Unterhaltung",
+                    "slug": "games-entertainment",
+                    "misc": false,
+                    "type": "extension",
+                    "weight": 0,
+                    "description": "Laden Sie Firefox-Erweiterungen herunter, um Ihr Unterhaltungserlebnis zu verbessern. Diese Kategorie enthält Erweiterungen, die das Spielen verbessern, die Videowiedergabe steuern und vieles mehr."
+                },
+                "language-support": {
+                    "id": 37,
+                    "name": "Sprachwerkzeuge",
+                    "slug": "language-support",
+                    "misc": false,
+                    "type": "extension",
+                    "weight": 0,
+                    "description": "Laden Sie Firefox-Erweiterungen herunter, die Sprachunterstützung leisten, z.&thinsp;B. Grammatikprüfung, Wörter nachschlagen, Text übersetzen, Sprachausgabe bieten und vieles mehr."
+                },
+                "search-tools": {
+                    "id": 13,
+                    "name": "Suchwerkzeuge",
+                    "slug": "search-tools",
+                    "misc": false,
+                    "type": "extension",
+                    "weight": 0,
+                    "description": "Laden Sie die Firefox-Erweiterungen zum Suchen und Nachschlagen herunter. Diese Kategorie enthält Erweiterungen, die Text hervorheben und durchsuchen, IP-Adressen\u002FDomains suchen und mehr."
+                },
+                "tabs": {
+                    "id": 93,
+                    "name": "Tabs",
+                    "slug": "tabs",
+                    "misc": false,
+                    "type": "extension",
+                    "weight": 0,
+                    "description": "Laden Sie Firefox-Erweiterungen herunter, um Tabs und die Neuer-Tab-Seite anzupassen. Entdecken Sie Erweiterungen, die Tabs steuern, die Art und Weise ändern können, wie Sie mit ihnen interagieren, und vieles mehr."
+                },
+                "social-communication": {
+                    "id": 71,
+                    "name": "Tauschen und Veröffentlichen",
+                    "slug": "social-communication",
+                    "misc": false,
+                    "type": "extension",
+                    "weight": 0,
+                    "description": "Laden Sie Firefox-Erweiterungen herunter, um Social Media und Instant Messaging zu verbessern. Diese Kategorie umfasst verbesserte Tab-Benachrichtigungen, Video-Downloader und mehr."
+                },
+                "web-development": {
+                    "id": 4,
+                    "name": "Webentwicklung",
+                    "slug": "web-development",
+                    "misc": false,
+                    "type": "extension",
+                    "weight": 0,
+                    "description": "Laden Sie Firefox-Erweiterungen mit Web-Entwicklungswerkzeugen herunter. Diese Kategorie enthält Erweiterungen für GitHub, User-Agent-Wechsel, Cookie-Verwaltung und mehr."
+                }
+            },
+            "language": {
+                "general": {
+                    "id": 98,
+                    "name": "Allgemein",
+                    "slug": "general",
+                    "misc": false,
+                    "type": "language",
+                    "weight": 0,
+                    "description": null
+                }
+            },
+            "statictheme": {
+                "abstract": {
+                    "id": 300,
+                    "name": "Abstrakt",
+                    "slug": "abstract",
+                    "misc": false,
+                    "type": "statictheme",
+                    "weight": 0,
+                    "description": "Laden Sie die künstlerischen und konzeptionellen Themes von Firefox herunter. Diese Kategorie umfasst bunte Paletten und Formen, Fantasielandschaften, verspielte Katzen und psychedelische Blumen."
+                },
+                "causes": {
+                    "id": 320,
+                    "name": "Anlässe",
+                    "slug": "causes",
+                    "misc": false,
+                    "type": "statictheme",
+                    "weight": 0,
+                    "description": "Laden Sie Firefox-Themes für Nischeninteressen und Themen herunter. Diese Kategorie umfasst Sport-Themes, Feiertage, philanthropische Ursachen, Nationalitäten und vieles mehr."
+                },
+                "solid": {
+                    "id": 318,
+                    "name": "Ausgefüllte Themen",
+                    "slug": "solid",
+                    "misc": false,
+                    "type": "statictheme",
+                    "weight": 0,
+                    "description": "Laden Sie Firefox-Themes mit Farben und Farbverläufen herunter, um Ihren Browser zu personalisieren. Diese Kategorie umfasst kräftige Rottöne, Pastelle, weiche Grautöne und vieles mehr."
+                },
+                "film-and-tv": {
+                    "id": 326,
+                    "name": "Film und Fernsehen",
+                    "slug": "film-and-tv",
+                    "misc": false,
+                    "type": "statictheme",
+                    "weight": 0,
+                    "description": "Laden Sie Firefox-Themes mit Film und Fernsehen herunter. Diese Kategorie umfasst Anime wie Uchiha Madara, Filme wie The Matrix, Shows (Game of Thrones) und mehr."
+                },
+                "firefox": {
+                    "id": 308,
+                    "name": "Firefox",
+                    "slug": "firefox",
+                    "misc": false,
+                    "type": "statictheme",
+                    "weight": 0,
+                    "description": "Laden Sie Firefox-Designs mit dem Firefox-Browser-Design herunter. Diese Kategorie umfasst farbenfrohe, vielfältige Darstellungen des Firefox-Logos, einschließlich allgemeiner Fuchs-Themes."
+                },
+                "foxkeh": {
+                    "id": 310,
+                    "name": "Foxkeh",
+                    "slug": "foxkeh",
+                    "misc": false,
+                    "type": "statictheme",
+                    "weight": 0,
+                    "description": "Laden Sie Firefox-Themes mit dem japanischen Firefox herunter. Diese Kategorie enthält Themes, die das niedliche Foxkeh-Maskottchen in verschiedenen Posen auf verschiedenen Landschaften darstellen."
+                },
+                "seasonal": {
+                    "id": 312,
+                    "name": "Jahreszeiten",
+                    "slug": "seasonal",
+                    "misc": false,
+                    "type": "statictheme",
+                    "weight": 0,
+                    "description": "Laden Sie Firefox-Themes für alle vier Jahreszeiten herunter: Herbst, Winter, Frühling und Sommer. Herbstlaub, schneebedeckte Bergspitzen, sonnige Sommertage und Frühlingsblumen."
+                },
+                "scenery": {
+                    "id": 306,
+                    "name": "Landschaft",
+                    "slug": "scenery",
+                    "misc": false,
+                    "type": "statictheme",
+                    "weight": 0,
+                    "description": "Laden Sie Firefox-Themes herunter, die sich auf die Umwelt und die Natur beziehen. Diese Kategorie umfasst Sonnenuntergänge, Strände, Illustrationen, Skylines der Stadt und vieles mehr."
+                },
+                "fashion": {
+                    "id": 324,
+                    "name": "Mode",
+                    "slug": "fashion",
+                    "misc": false,
+                    "type": "statictheme",
+                    "weight": 0,
+                    "description": "Laden Sie Firefox-Themes herunter, die den Stil aller Formen – Muster, Blumenmuster, Texturen, Modelle usw. – feiern."
+                },
+                "music": {
+                    "id": 322,
+                    "name": "Musik",
+                    "slug": "music",
+                    "misc": false,
+                    "type": "statictheme",
+                    "weight": 0,
+                    "description": "Laden Sie Firefox-Themes für Musikinteressierte und Künstler herunter. Diese Kategorie umfasst beliebte Bands wie Nirvana und BTS, Instrumente, Musikvideos und vieles mehr."
+                },
+                "nature": {
+                    "id": 302,
+                    "name": "Natur",
+                    "slug": "nature",
+                    "misc": false,
+                    "type": "statictheme",
+                    "weight": 0,
+                    "description": "Laden Sie Firefox-Themes mit Tieren und Naturlandschaften herunter. Diese Kategorie umfasst Blumen, Sonnenuntergänge, Füchse, Jahreszeiten, Planeten, Kätzchen, Vögel und mehr."
+                },
+                "other": {
+                    "id": 314,
+                    "name": "Sonstiges",
+                    "slug": "other",
+                    "misc": true,
+                    "type": "statictheme",
+                    "weight": 333,
+                    "description": "Laden Sie Firefox-Themes herunter, die interessant, kreativ und einzigartig sind."
+                },
+                "sports": {
+                    "id": 304,
+                    "name": "Sport",
+                    "slug": "sports",
+                    "misc": false,
+                    "type": "statictheme",
+                    "weight": 0,
+                    "description": "Laden Sie Firefox-Themes herunter, die verschiedene Sportarten darstellen. Diese Kategorie umfasst Länderflaggen, Sportmannschaften, Fußball, Hockey und mehr."
+                },
+                "holiday": {
+                    "id": 328,
+                    "name": "Urlaub",
+                    "slug": "holiday",
+                    "misc": false,
+                    "type": "statictheme",
+                    "weight": 0,
+                    "description": "Laden Sie Firefox-Themes mit Feiertagen herunter. Diese Kategorie umfasst Weihnachten, Halloween, Thanksgiving, St. Patrick’s Day, Ostern, den 4. Juli und mehr."
+                },
+                "websites": {
+                    "id": 316,
+                    "name": "Webseiten",
+                    "slug": "websites",
+                    "misc": false,
+                    "type": "statictheme",
+                    "weight": 0,
+                    "description": "Laden Sie Firefox-Themes herunter, die die Essenz des Webs einfangen – fesselnd, ungewöhnlich und unverwechselbar."
+                }
+            }
+        },
+        "loading": false
+    },
+    "collections": {
+        "byId": {},
+        "bySlug": {},
+        "current": {
+            "id": null,
+            "loading": false
+        },
+        "userCollections": {},
+        "addonInCollections": {},
+        "isCollectionBeingModified": false,
+        "hasAddonBeenAdded": false,
+        "hasAddonBeenRemoved": false,
+        "editingCollectionDetails": false,
+        "lang": "de"
+    },
+    "collectionAbuseReports": {
+        "byCollectionId": {}
+    },
+    "errors": {
+        "src\u002Famo\u002Fpages\u002FAddon\u002Findex.js-nyan-cat-youtube-enhancement": null
+    },
+    "errorPage": {
+        "clearOnNext": true,
+        "error": null,
+        "hasError": false,
+        "statusCode": null
+    },
+    "experiments": {},
+    "home": {
+        "homeShelves": null,
+        "isLoading": false,
+        "lang": "de",
+        "resetStateOnNextChange": false,
+        "resultsLoaded": false,
+        "shelves": {}
+    },
+    "installations": {},
+    "landing": {
+        "addonType": null,
+        "category": null,
+        "recommended": {
+            "count": 0,
+            "results": []
+        },
+        "highlyRated": {
+            "count": 0,
+            "results": []
+        },
+        "lang": "de",
+        "loading": false,
+        "trending": {
+            "count": 0,
+            "results": []
+        },
+        "resultsLoaded": false
+    },
+    "languageTools": {
+        "byID": {},
+        "lang": "de"
+    },
+    "recommendations": {
+        "byGuid": {},
+        "lang": "de"
+    },
+    "redirectTo": {
+        "url": null,
+        "status": null
+    },
+    "reviews": {
+        "lang": "de",
+        "permissions": {},
+        "byAddon": {},
+        "byId": {},
+        "byUserId": {},
+        "latestUserReview": {},
+        "view": {},
+        "loadingForSlug": {}
+    },
+    "search": {
+        "count": 0,
+        "filters": null,
+        "lang": "de",
+        "loading": false,
+        "pageSize": null,
+        "results": [],
+        "pageCount": 0
+    },
+    "site": {
+        "readOnly": false,
+        "notice": null,
+        "loadedPageIsAnonymous": false
+    },
+    "suggestions": {
+        "forCollection": {},
+        "lang": "de",
+        "loading": false
+    },
+    "uiState": {},
+    "userAbuseReports": {
+        "byUserId": {}
+    },
+    "users": {
+        "currentUserID": null,
+        "byID": {},
+        "byUsername": {},
+        "isUpdating": false,
+        "userPageBeingViewed": {
+            "loading": false,
+            "userId": null
+        },
+        "isUnsubscribedFor": {},
+        "currentUserWasLoggedOut": false,
+        "resetStateOnNextChange": false
+    },
+    "versions": {
+        "byId": {
+            "5831030": {
+                "compatibility": {
+                    "firefox": {
+                        "min": "58.0",
+                        "max": "*"
+                    }
+                },
+                "id": 5831030,
+                "isStrictCompatibilityEnabled": false,
+                "license": {
+                    "isCustom": false,
+                    "name": "Mozilla Public License 2.0",
+                    "url": "https:\u002F\u002Fwww.mozilla.org\u002FMPL\u002F2.0\u002F"
+                },
+                "file": {
+                    "id": 4375320,
+                    "created": "2024-10-24T01:29:20Z",
+                    "hash": "sha256:5afc3552cb05ee20adb7ec40f1ae852e5e0d254f73032eb499034c664889b4c4",
+                    "is_mozilla_signed_extension": false,
+                    "size": 38931,
+                    "status": "public",
+                    "url": "https:\u002F\u002Faddons.mozilla.org\u002Ffirefox\u002Fdownloads\u002Ffile\u002F4375320\u002Fnyan_cat_youtube_enhancement-3.1.xpi",
+                    "permissions": [
+                        "tabs",
+                        "*:\u002F\u002F*.youtube.com\u002F*"
+                    ],
+                    "optional_permissions": [],
+                    "host_permissions": []
+                },
+                "releaseNotes": "Light add-on update to account for YouTube styling change which caused the rainbow progress bar to not render.",
+                "version": "3.1"
+            }
+        },
+        "bySlug": {},
+        "lang": "de"
+    },
+    "viewContext": {
+        "context": "VIEW_CONTEXT_HOME"
+    },
+    "router": {
+        "location": {
+            "pathname": "\u002Fde\u002Ffirefox\u002Faddon\u002Fnyan-cat-youtube-enhancement\u002F",
+            "search": "",
+            "hash": "",
+            "key": "v8eye7",
+            "query": {}
+        },
+        "action": "POP"
+    }
+}

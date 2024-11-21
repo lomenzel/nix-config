@@ -11,25 +11,26 @@
     "jitsi-meet-1.0.8043"
   ];
   networking.firewall.enable = false;
+  services.gpsd.enable = true;
 
   services.luanti = {
-     enable = true;
-       servers = with nix-luanti; {
-         cool-server = {
-           game = games.minetest-game;
-           mods = with mods; [
-             animalia
-           ];
-           port = 30000;
-         };
-         other-cool-server = {
-           game = games.mineclone2;
-           mods = with mods; [
-             # Add mods here
-           ];
-           port = 30001;
-         };
-       };
+    enable = true;
+    servers = with nix-luanti; {
+      default4 = {
+        game = games.mineclonia;
+        port = 30007;
+      };
+      testing = with nix-luanti; {
+        mods = with mods; [
+          animalia
+          i3
+        ];
+        port = 30001;
+      };
+      vanilla = {
+        port = 30005;
+      };
+    };
   };
 
   fileSystems."/mnt/snd" = {
