@@ -80,7 +80,7 @@ in
 
     nvidiaSettings = true;
 
-    package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
+    package = config.boot.kernelPackages.nvidiaPackages.production;
   };
   boot.kernelParams = [ "module_blacklist=i915" ];
 
