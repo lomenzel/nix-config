@@ -82,7 +82,7 @@ in
 
     package = config.boot.kernelPackages.nvidiaPackages.production;
   };
-  boot.kernelParams = [ "module_blacklist=i915" ];
+  #boot.kernelParams = [ "module_blacklist=i915" ];
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
