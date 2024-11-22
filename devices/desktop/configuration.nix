@@ -72,8 +72,8 @@ in
   hardware.nvidia = {
 
     # Modesetting is required.
-    modesetting.enable = true;
-    powerManagement.enable = true;
+    modesetting.enable = false;
+    powerManagement.enable = false;
     powerManagement.finegrained = false;
 
     open = false;
