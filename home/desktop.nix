@@ -9,8 +9,8 @@
 
   imports = [ ];
 
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
   programs.kdeconnect.enable = true;
 
 
