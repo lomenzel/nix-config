@@ -80,7 +80,7 @@ in
 
     nvidiaSettings = true;
 
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
   #boot.kernelParams = [ "module_blacklist=i915" ];
   boot.initrd.kernelModules = [ "nvidia" ];
