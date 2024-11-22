@@ -80,11 +80,11 @@ in
 
     nvidiaSettings = true;
 
-    package = config.boot.kernelPackages.nvidiaPackages.production;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
   #boot.kernelParams = [ "module_blacklist=i915" ];
   boot.initrd.kernelModules = [ "nvidia" ];
-  boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
+  #boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
