@@ -14,6 +14,7 @@
     ./desktop.nix
   ];
 
+/*
   home-manager = {
     extraSpecialArgs = {
       inherit inputs secrets helper-functions;
@@ -21,9 +22,10 @@
     users = {
       "leonard" = import ../home-manager/home.nix;
     };
-    backupFileExtension = "homemanager-backup";
+    backupFileExtension = "homemanager-back";
   };
 
+*/
   services.xserver.enable = true;
 
   nix.settings.trusted-users = [
@@ -35,7 +37,7 @@
   nix.sshServe.enable = true;
 
   boot.plymouth = {
-    enable = true;
+    #enable = true;
   };
 
   /*
@@ -75,11 +77,11 @@
   programs.partition-manager.enable = true;
 
   programs.steam = {
-    enable = true;
-    gamescopeSession.enable = true;
+  #  enable = true;
+   # gamescopeSession.enable = true;
   };
 
-  programs.gamemode.enable = true;
+ # programs.gamemode.enable = true;
 
   programs.ausweisapp.enable = true;
   programs.ausweisapp.openFirewall = true;

@@ -12,11 +12,11 @@
     #../server/server.nix
   ];
 
+  /*
   fileSystems."/mnt/snd" = {
     device = "/dev/disk/by-uuid/cdce8e60-0b76-4128-a50e-9f3c3861562e";
   };
 
-  /*
     systemd.timers.sysflake = {
       wantedBy = [ "timers.target" ];
       partOf = [ "sysflake.service" ];
@@ -33,7 +33,7 @@
     };
   */
 
-  boot.kernelPackages = pkgs.linuxPackages_lts;
+  boot.kernelPackages = pkgs.linuxPackages_testing;
 
   environment.systemPackages = with pkgs; [
     helix
