@@ -9,7 +9,7 @@
 
     ../services/wsh.nix
     ../home/home.nix
-    ../server/server.nix
+    #../server/server.nix
   ];
 
   fileSystems."/mnt/snd" = {
@@ -33,7 +33,7 @@
     };
   */
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_lts;
 
   environment.systemPackages = with pkgs; [
     helix

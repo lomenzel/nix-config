@@ -81,6 +81,9 @@
 
   programs.gamemode.enable = true;
 
+  programs.ausweisapp.enable = true;
+  programs.ausweisapp.openFirewall = true;
+
   services.openssh.enable = true;
   services.fwupd.enable = true;
 

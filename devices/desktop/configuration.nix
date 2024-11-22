@@ -14,7 +14,7 @@ in
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../../services/samba.nix
+    #../../services/samba.nix
   ];
 
   # Bootloader.

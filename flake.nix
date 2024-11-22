@@ -9,7 +9,7 @@
 
     wsh = {
       url = "github:lomenzel/web-command";
-      inputs.nixpkgs.follows = "nixpkgs";
+      #inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -28,7 +28,7 @@
     };
     nix-ai-stuff = {
       url = "github:lomenzel/nix-ai-stuff";
-      inputs.nixpkgs.follows = "nixpkgs";
+      #inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
