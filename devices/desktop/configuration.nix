@@ -17,6 +17,10 @@ in
     #../../services/samba.nix
   ];
 
+  hardware.bluetooth.enable = true;
+  #services.blueman.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+
   nixpkgs.config.permittedInsecurePackages = [
     "olm-3.2.16"
     "jitsi-meet-1.0.8043"
@@ -136,7 +140,7 @@ in
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.cudaSupport = true;
+  #nixpkgs.config.cudaSupport = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -163,8 +167,6 @@ in
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
-
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

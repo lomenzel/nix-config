@@ -2,23 +2,31 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, inputs, secrets, helper-functions, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  secrets,
+  helper-functions,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../../home/shell.nix
-      ./kubernetes.nix
-    ];
-	
-	hardware = {
-		raspberry-pi."4".apply-overlays-dtmerge.enable = true;
-		deviceTree = {
-			enable = true;
-			filter = "*rpi-4-*.dtb";
-		};
-	};
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ../../home/shell.nix
+    ./kubernetes.nix
+  ];
+
+  hardware = {
+    raspberry-pi."4".apply-overlays-dtmerge.enable = true;
+    deviceTree = {
+      enable = true;
+      filter = "*rpi-4-*.dtb";
+    };
+  };
 
   home-manager = {
     extraSpecialArgs = {
@@ -38,7 +46,7 @@
   networking.hostName = "pi"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   # time.timeZone = "Europe/Amsterdam";
@@ -58,9 +66,6 @@
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
-
-  
-
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
@@ -73,7 +78,7 @@
   # OR
   # services.pipewire = {
   #   enable = true;
-	  #   pulse.enable = true;
+  #   pulse.enable = true;
   # };
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -81,14 +86,15 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.leonard = {
-     isNormalUser = true;
-     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-     packages = with pkgs; [
-  #     firefox
-vim git  
-#     tree
-     ];
-   };
+    isNormalUser = true;
+    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    packages = with pkgs; [
+      #     firefox
+      vim
+      git
+      #     tree
+    ];
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -108,7 +114,7 @@ vim git
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-   services.openssh.enable = true;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -141,4 +147,3 @@ vim git
   system.stateVersion = "24.11"; # Did you read the comment?
 
 }
-

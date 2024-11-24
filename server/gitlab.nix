@@ -1,8 +1,9 @@
-{ config
-, pkgs
-, secrets
-, lib
-, ...
+{
+  config,
+  pkgs,
+  secrets,
+  lib,
+  ...
 }:
 {
   services.gitlab = {
@@ -24,7 +25,6 @@
   virtualisation.docker.enable = true;
   services.gitlab-runner.enable = true;
 
-
   services.gitlab-runner = {
     settings = {
       concurrent = 20;
@@ -34,7 +34,7 @@
         authenticationTokenConfigFile = pkgs.writeText "auth-file" secrets.gitlab.authenticationFile;
         dockerImage = "alpine";
       };
-      nixTH = with lib;{
+      nixTH = with lib; {
         authenticationTokenConfigFile = pkgs.writeText "auth-file" secrets.gitlab.authenticationFileNixTH;
         dockerImage = "alpine";
         dockerVolumes = [
@@ -56,7 +56,17 @@
           . ${pkgs.nix}/etc/profile.d/nix-daemon.sh
           ${pkgs.nix}/bin/nix-channel --add https://nixos.org/channels/nixos-unstable nixpkgs # 3
           ${pkgs.nix}/bin/nix-channel --update nixpkgs
-          ${pkgs.nix}/bin/nix-env -i ${concatStringsSep " " (with pkgs; [ nix cacert git openssh ])}
+          ${pkgs.nix}/bin/nix-env -i ${
+            concatStringsSep " " (
+              with pkgs;
+              [
+                nix
+                cacert
+                git
+                openssh
+              ]
+            )
+          }
         '';
         environmentVariables = {
           ENV = "/etc/profile";
@@ -67,7 +77,7 @@
         };
         tagList = [ "nix" ];
       };
-      nix = with lib;{
+      nix = with lib; {
         authenticationTokenConfigFile = pkgs.writeText "auth-file" secrets.gitlab.authenticationFileNix;
         dockerImage = "alpine";
         dockerVolumes = [
@@ -89,7 +99,17 @@
           . ${pkgs.nix}/etc/profile.d/nix-daemon.sh
           ${pkgs.nix}/bin/nix-channel --add https://nixos.org/channels/nixos-unstable nixpkgs # 3
           ${pkgs.nix}/bin/nix-channel --update nixpkgs
-          ${pkgs.nix}/bin/nix-env -i ${concatStringsSep " " (with pkgs; [ nix cacert git openssh ])}
+          ${pkgs.nix}/bin/nix-env -i ${
+            concatStringsSep " " (
+              with pkgs;
+              [
+                nix
+                cacert
+                git
+                openssh
+              ]
+            )
+          }
         '';
         environmentVariables = {
           ENV = "/etc/profile";

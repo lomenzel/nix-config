@@ -1,7 +1,8 @@
-{ config
-, pkgs
-, secrets
-, ...
+{
+  config,
+  pkgs,
+  secrets,
+  ...
 }:
 let
   sshKey = secrets.ssh.keys.laptop;
@@ -15,7 +16,7 @@ in
 
     #working
     #./gitlab.nix
-    ./jellyfin.nix
+    #./jellyfin.nix
     #./kubo.nix
     ./mastodon.nix
     #./minecraft.nix
@@ -33,7 +34,7 @@ in
     #./jitsi.nix
     #./comfy.nix
     #./mail.nix
-    ./keycloak.nix
+    #./keycloak.nix
     #./hedgedoc.nix
     #./adguard.nix
     #./kasm.nix

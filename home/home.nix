@@ -14,18 +14,17 @@
     ./desktop.nix
   ];
 
-/*
-  home-manager = {
-    extraSpecialArgs = {
-      inherit inputs secrets helper-functions;
-    };
-    users = {
-      "leonard" = import ../home-manager/home.nix;
-    };
-    backupFileExtension = "homemanager-back";
-  };
 
-*/
+    home-manager = {
+      extraSpecialArgs = {
+        inherit inputs secrets helper-functions;
+      };
+      users = {
+        "leonard" = import ../home-manager/home.nix;
+      };
+      backupFileExtension = "homemanager-backup";
+    };
+
   services.xserver.enable = true;
 
   nix.settings.trusted-users = [
@@ -77,18 +76,17 @@
   programs.partition-manager.enable = true;
 
   programs.steam = {
-  #  enable = true;
-   # gamescopeSession.enable = true;
+    #  enable = true;
+    # gamescopeSession.enable = true;
   };
 
- # programs.gamemode.enable = true;
+  # programs.gamemode.enable = true;
 
   programs.ausweisapp.enable = true;
   programs.ausweisapp.openFirewall = true;
 
   services.openssh.enable = true;
   services.fwupd.enable = true;
-
 
   users.users.leonard = {
     isNormalUser = true;
@@ -103,10 +101,10 @@
     packages =
       with pkgs;
       with kdePackages;
-    [
-      nixpkgs-fmt
+      [
+        nixpkgs-fmt
         #wineWowPackages.full
-  qtwebsockets
+        qtwebsockets
         mpv
         #ghc
         #haskell-language-server
@@ -137,7 +135,7 @@
         #arianna
         signal-desktop
         #libreoffice
-        
+
         #elisa
         finamp
         #kmail

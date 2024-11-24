@@ -15,7 +15,7 @@ in
   ];
 
   services.kubernetes = {
-    roles = ["node"];
+    roles = [ "node" ];
     masterAddress = kubeMasterHostname;
     apiserverAddress = "https://${kubeMasterHostname}:${toString kubeMasterAPIServerPort}";
     easyCerts = true;

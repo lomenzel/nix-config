@@ -50,7 +50,7 @@
       self,
       nixpkgs,
       #uex,
-      
+
       wsh,
       home-manager,
       ...

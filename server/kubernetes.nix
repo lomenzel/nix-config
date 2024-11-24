@@ -16,7 +16,10 @@ in
   ];
 
   services.kubernetes = {
-    roles = ["master" "node"]; # Desktop will be both master and worker
+    roles = [
+      "master"
+      "node"
+    ]; # Desktop will be both master and worker
     masterAddress = kubeMasterHostname;
     apiserverAddress = "https://${kubeMasterHostname}:${toString kubeMasterAPIServerPort}";
     easyCerts = true; # Use simple certificates

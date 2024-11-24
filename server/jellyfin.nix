@@ -6,8 +6,8 @@
     dataDir = "/mnt/snd/Jellyfin/serverdata/jellyfin";
   };
 
-    systemd.timers."epg" = {
-    wantedBy  = [ "timers.target"];
+  systemd.timers."epg" = {
+    wantedBy = [ "timers.target" ];
     timerConfig = {
       OnCalendar = "daily";
     };
@@ -22,7 +22,6 @@
       User = "leonard";
     };
   };
-
 
   services.nginx.virtualHosts."media.menzel.lol" = {
     forceSSL = true;

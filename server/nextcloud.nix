@@ -18,8 +18,8 @@
     hostName = "cloud.menzel.lol";
     https = true;
     config.adminpassFile = "/etc/nextcloud-admin-pass";
-    home = "/var/lib/nextcloud";
-    appstoreEnable = true;
+    home = "/var/lib/nextcloud2";
+    appstoreEnable = false;
   };
 
   services.nginx.virtualHosts.${config.services.nextcloud.hostName} = {

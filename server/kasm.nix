@@ -1,4 +1,10 @@
-{ config, secrets, pkgs, ... }: {
+{
+  config,
+  secrets,
+  pkgs,
+  ...
+}:
+{
 
   services.kasmweb = {
     enable = true;

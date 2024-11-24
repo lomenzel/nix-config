@@ -182,19 +182,19 @@ in
   };
   systemd.services.mautrix-telegram.path = [ pkgs.ffmpeg ]; # converting stickers
 
+  systemd.services.matrix-zulip-bridge =
+    let
 
-  systemd.services.matrix-zulip-bridge = let
-  
-  yaml = pkgs.formats.yaml { };
-  settingsFile = yaml.generate "matrix-zulip-bridge.yaml" settings;
-  settings = {
+      yaml = pkgs.formats.yaml { };
+      settingsFile = yaml.generate "matrix-zulip-bridge.yaml" settings;
+      settings = {
 
-  };
+      };
 
-  secretsFile = pkgs.writeText "" ''
-  '';
+      secretsFile = pkgs.writeText "" '''';
 
-  in {
+    in
+    {
       description = "matrix-zulip-bridge - a puppeteering Matrix<->Zulip bridge";
       wantedBy = [ "multi-user.target" ];
       after = [ "network.target" ];
@@ -205,19 +205,19 @@ in
       '';
 
       serviceConfig =
-      let
-        extraArgs = ["-o @leonard:menzel.lol"];
-      in
-      {
-        EnvironmentFile = [ secretsFile ];
-        ExecStart = "${pkgs.matrix-zulip-bridge}/bin/matrix-zulip-bridge -c ${ZulipBridgeRegistrationFile} ${lib.concatStringsSep " " extraArgs} ${baseUrl}";
-        DynamicUser = true;
-        StateDirectory = "matrix-zulip-bridge";
-        RuntimeDirectory = "matrix-zulip-bridge";
-        Restart = "on-failure";
-        RestartSec = "30s";
-      };
-  };
+        let
+          extraArgs = [ "-o @leonard:menzel.lol" ];
+        in
+        {
+          EnvironmentFile = [ secretsFile ];
+          ExecStart = "${pkgs.matrix-zulip-bridge}/bin/matrix-zulip-bridge -c ${ZulipBridgeRegistrationFile} ${lib.concatStringsSep " " extraArgs} ${baseUrl}";
+          DynamicUser = true;
+          StateDirectory = "matrix-zulip-bridge";
+          RuntimeDirectory = "matrix-zulip-bridge";
+          Restart = "on-failure";
+          RestartSec = "30s";
+        };
+    };
 
   services.nginx = {
     virtualHosts = {

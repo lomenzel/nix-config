@@ -1,4 +1,9 @@
-{ config, pkgs, nix-luanti, ... }:
+{
+  config,
+  pkgs,
+  nix-luanti,
+  ...
+}:
 {
   imports = [
     ./hardware-configuration.nix

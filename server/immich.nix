@@ -4,7 +4,7 @@
     enable = true;
     host = "localhost";
     port = 8097;
-    mediaLocation = "/var/lib/immich-data";
+    mediaLocation = "/var/lib/immich";
   };
   services.nginx.virtualHosts."photos.menzel.lol" = {
     forceSSL = true;

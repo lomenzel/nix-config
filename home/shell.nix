@@ -12,7 +12,14 @@
     '';
     distributedBuilds = true;
   };
-  users.users.leonard.packages = with pkgs; [nh htop curl killall nixfmt-rfc-style less];
+  users.users.leonard.packages = with pkgs; [
+    nh
+    htop
+    curl
+    killall
+    nixfmt-rfc-style
+    less
+  ];
   users.users.leonard.shell = pkgs.zsh;
   programs.zsh = {
     enable = true;
