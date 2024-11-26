@@ -1,8 +1,9 @@
-{ config, pkgs, ... }:
+{ config, pkgs, secrets, ... }:
 {
 
   environment.sessionVariables = {
     FLAKE = "/home/leonard/.config/nix-config";
+    KUBECONFIG = secrets.k3s.kubeconfig;
   };
 
   nix = {

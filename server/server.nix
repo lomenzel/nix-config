@@ -42,6 +42,14 @@ in
 
   ];
 
+  services.k3s = {
+    #enable = true;
+    role = "agent";
+    token = secrets.k3s.token;
+    serverAddr = "https://192.168.178.169:6443";
+  };
+
+
   #Security
   services.openssh = {
     enable = true;

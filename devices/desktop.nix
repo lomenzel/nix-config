@@ -11,6 +11,15 @@
     ../server/server.nix
   ];
 
+
+  fileSystems = {
+    "/mnt/nfs-test" = {
+      device= "192.168.178.200:/speichergruft/k3s";
+      fsType= "nfs";
+    };
+  };
+/*
+
   fileSystems = {
     "/mnt/snd".device = "/dev/disk/by-uuid/cdce8e60-0b76-4128-a50e-9f3c3861562e";
     "/mnt/a".device = "/dev/disk/by-uuid/3B141A01-9EFF-4832-877B-E34B4BEAA6D0";
