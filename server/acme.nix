@@ -40,6 +40,11 @@ in
         dnsProvider = "inwx";
         credentialsFile = inwxCredentials;
       };
+      "beta-wildcard" = {
+        domain = "*.beta.menzel.lol";
+        dnsProvider = "inwx";
+        credentialsFile = inwxCredentials;
+      };
       /*
         "turn.menzel.lol" = {
           # TODO

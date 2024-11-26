@@ -140,6 +140,9 @@
         finamp
         #kmail
         kontact
+        kubectl
+        kubernetes-helm
+        seabird
         #marknote
         kmail-account-wizard
         akonadi-import-wizard
