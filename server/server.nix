@@ -1,8 +1,7 @@
-{
-  config,
-  pkgs,
-  secrets,
-  ...
+{ config
+, pkgs
+, secrets
+, ...
 }:
 let
   sshKey = secrets.ssh.keys.laptop;
@@ -43,11 +42,16 @@ in
   ];
 
   services.k3s = {
-    #enable = true;
+    enable = true;
     role = "agent";
     token = secrets.k3s.token;
+    extraFlags = [
+      "--no-deploy traefik" # Disable Traefik
+    ];
     serverAddr = "https://192.168.178.169:6443";
   };
+
+
 
 
   #Security
