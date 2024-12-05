@@ -76,11 +76,11 @@
   programs.partition-manager.enable = true;
 
   programs.steam = {
-    #  enable = true;
-    # gamescopeSession.enable = true;
+     enable = true;
+     gamescopeSession.enable = true;
   };
 
-  # programs.gamemode.enable = true;
+programs.gamemode.enable = true;
 
   programs.ausweisapp.enable = true;
   programs.ausweisapp.openFirewall = true;
@@ -113,6 +113,8 @@
         #gimp
         #kmymoney
         #picard
+        exfat
+        exfatprogs
         #parabolic
         polonium
         minetest
@@ -158,6 +160,11 @@
         #minuet
         merkuro
         #keysmith
+
+        libbdplus
+        libaacs
+        libdvdcss
+        libbluray
       ];
   };
 

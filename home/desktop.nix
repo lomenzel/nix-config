@@ -45,16 +45,16 @@
         popups = 0.1;
         terminal = 0.3;
       };
-    */
+
     cursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Classic";
       size = 24;
     };
-
+    */
     fonts = {
       monospace = {
-        package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
+        package = pkgs.nerd-fonts.jetbrains-mono;
         name = "JetBrainsMono Nerd Font Mono";
       };
 

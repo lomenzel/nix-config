@@ -20,7 +20,7 @@ in
     ./mastodon.nix
     #./minecraft.nix
     ./searx.nix
-    ./habitica.nix
+    #./habitica.nix
     ./immich.nix
     #./ollama.nix
     ./nextcloud.nix
@@ -42,11 +42,11 @@ in
   ];
 
   services.k3s = {
-    enable = true;
+    #enable = true;
     role = "agent";
     token = secrets.k3s.token;
     extraFlags = [
-      "--no-deploy traefik" # Disable Traefik
+      #"--no-deploy traefik" # Disable Traefik
     ];
     serverAddr = "https://192.168.178.169:6443";
   };
@@ -84,6 +84,11 @@ in
         993
         8080
         25565
+        8123
+        8008
+        8281
+        8100
+        55001
       ];
       allowedTCPPortRanges = [ kdeConnectPorts ];
       allowedUDPPorts = [

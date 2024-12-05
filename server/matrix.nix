@@ -53,7 +53,7 @@ in
       listeners = [
         {
           port = 8008;
-          bind_addresses = [ "::1" ];
+          bind_addresses = [ "0.0.0.0" ];
           type = "http";
           tls = false;
           x_forwarded = true;
@@ -110,7 +110,7 @@ in
       bridge = {
         bindAddress = "0.0.0.0";
         domain = "menzel.lol";
-        homeserverUrl = "http://localhost:8008";
+        homeserverUrl = "http://127.0.0.1:8008";
       };
       logging.console = "silly";
       provisioning.whitelist = [ "@leonard:menzel.lol" ];
@@ -144,7 +144,7 @@ in
 
     settings = {
       homeserver = {
-        address = "http://[::1]:8008";
+        address = "http://localhost:8008";
         domain = "menzel.lol";
       };
       appservice = {
@@ -238,10 +238,10 @@ in
         locations."/".extraConfig = ''
           return 404;
         '';
-        locations."/_matrix".proxyPass = "http://[::1]:8008";
+        locations."/_matrix".proxyPass = "http://localhost:8008";
         # Forward requests for e.g. SSO and password-resets.
-        locations."/_synapse/client".proxyPass = "http://[::1]:8008";
-        locations."/sync".proxyPass = "http://[::1]:8008";
+        locations."/_synapse/client".proxyPass = "http://localhost:8008";
+        locations."/sync".proxyPass = "http://localhost:8008";
       };
     };
   };

@@ -12,6 +12,7 @@
     settings = {
       server = {
         port = 8100;
+        bind_address = "0.0.0.0";
         secret_key = secrets.searx.secret;
       };
     };

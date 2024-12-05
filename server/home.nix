@@ -83,8 +83,8 @@
     config = {
       default_config = { };
       http = {
-        server_host = "::1";
-        trusted_proxies = [ "::1" ];
+        server_host = "0.0.0.0";
+        trusted_proxies = [ "::1" "127.0.0.1" "192.168.178.188" ];
         use_x_forwarded_for = true;
       };
       "automation ui" = "!include automations.yaml";
@@ -93,13 +93,13 @@
   };
 
   services.nginx.virtualHosts."home.menzel.lol" = {
-    forceSSL = true;
-    enableACME = true;
+    #forceSSL = true;
+    #enableACME = true;
     extraConfig = ''
       proxy_buffering off;
     '';
     locations."/" = {
-      proxyPass = "http://[::1]:8123";
+      proxyPass = "http://localhost:8123";
       proxyWebsockets = true;
     };
   };
