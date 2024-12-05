@@ -57,7 +57,7 @@
           repo = domain;
           rev = "v${version}";
           hash = "";
-        }
+        };
       })
       (pkgs.buildHomeAssistantComponent rec {
 
