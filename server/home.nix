@@ -49,6 +49,17 @@
     ];
     customComponents = [
       (pkgs.buildHomeAssistantComponent rec {
+        owner = "sudoxnym";
+        domain = "saas";
+        version = "0.1.0";
+        src = pkgs.fetchFromGitHub {
+          inherit owner;
+          repo = domain;
+          rev = "v${version}";
+          hash = "";
+        }
+      })
+      (pkgs.buildHomeAssistantComponent rec {
 
         owner = "sanjoyg";
         domain = "dirigera_platform";
