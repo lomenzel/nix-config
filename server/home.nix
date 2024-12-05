@@ -55,7 +55,7 @@
         src = pkgs.fetchFromGitHub {
           inherit owner;
           repo = domain;
-          rev = "v${version}";
+          rev = version;
           hash = "";
         };
       })
