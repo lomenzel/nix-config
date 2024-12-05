@@ -56,7 +56,7 @@
           inherit owner;
           repo = domain;
           rev = version;
-          hash = "";
+          hash = "sha256-eFagGzVekRIEGPdONEBVbiYufjelkpoUiepbqMTZV84=";
         };
       })
       (pkgs.buildHomeAssistantComponent rec {
