@@ -39,7 +39,7 @@
   };
 
   fileSystems."/mnt/snd" = {
-    device = "leonard@menzel.lol:/mnt/snd";
+    device = "leonard@menzel.lol:/";
     fsType = "sshfs";
     options = [
       "allow_other"
@@ -50,7 +50,7 @@
   };
 
   virtualisation.vmware.host = {
-    enable = true;
+    #enable = true;
     extraPackages = [ pkgs.ntfs3g ];
   };
 

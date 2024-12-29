@@ -87,6 +87,8 @@ programs.gamemode.enable = true;
 
   services.openssh.enable = true;
   services.fwupd.enable = true;
+  services.flatpak.enable = true;
+  xdg.portal.enable = true;
 
   users.users.leonard = {
     isNormalUser = true;
