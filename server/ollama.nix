@@ -59,9 +59,9 @@ in
         '';
       };
     };
-
-  };
 */
+  };
+
 
   systemd.services.ollama.serviceConfig = {
     TimeoutStartSec = "0";
