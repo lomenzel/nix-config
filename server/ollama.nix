@@ -20,6 +20,7 @@ in
       loadModels = [
         "llama3.2:3b"
         "llama3.2-vision:11b"
+        "llama3.3"
       ];
       acceleration = "cuda";
     };
