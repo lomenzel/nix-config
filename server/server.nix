@@ -21,9 +21,9 @@ in
     #./minecraft.nix
     ./searx.nix
     #./habitica.nix
-    ./immich.nix
+    #./immich.nix
     ./ollama.nix
-    ./nextcloud.nix
+    #./nextcloud.nix
     ./matrix.nix
     ./anki.nix
     ./home.nix
