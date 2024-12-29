@@ -68,7 +68,7 @@
         src = pkgs.stdenv.mkDerivation {
           pname = "patched-dirigera-platform";
           version = "2.6.4";
-          patches = [ ./dirigera_manifest.patch ];
+          #patches = [ ./dirigera_manifest.patch ];
           src = pkgs.fetchFromGitHub {
             inherit owner;
             repo = "dirigera_platform";
