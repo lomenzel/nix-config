@@ -51,7 +51,7 @@
       name = "Bibata-Modern-Classic";
       size = 24;
     };
-    */
+    
     fonts = {
       monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;
@@ -59,6 +59,7 @@
       };
 
     };
+    */
     targets = {
       plymouth = {
         enable = true;
