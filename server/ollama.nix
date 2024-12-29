@@ -26,6 +26,7 @@ in
     nextjs-ollama-llm-ui = {
       enable = true;
       port = 3501;
+      hostname = "0.0.0.0";
       ollamaUrl = "https://chat.ai.menzel.lol";
     };
 
