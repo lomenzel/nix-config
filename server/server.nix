@@ -20,7 +20,6 @@ in
     ./mastodon.nix
     #./minecraft.nix
     ./searx.nix
-    #./habitica.nix
     #./immich.nix
     ./ollama.nix
     #./nextcloud.nix
@@ -29,7 +28,8 @@ in
     ./home.nix
     ./matrix.nix
 
-    #testing
+    #testing    
+    #./habitica.nix
     #./jitsi.nix
     #./comfy.nix
     #./mail.nix

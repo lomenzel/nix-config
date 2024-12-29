@@ -63,17 +63,17 @@
 
         owner = "sanjoyg";
         domain = "dirigera_platform";
-        version = "1.7.22";
+        version = "2.6.4";
 
         src = pkgs.stdenv.mkDerivation {
           pname = "patched-dirigera-platform";
-          version = "1.7.12";
-          patches = [ ./dirigera_manifest.patch ];
+          version = "2.6.4";
+          #patches = [ ./dirigera_manifest.patch ];
           src = pkgs.fetchFromGitHub {
             inherit owner;
             repo = "dirigera_platform";
             rev = version;
-            hash = "sha256-Tx7YHB3BGjR/mc+jSsjCkYP0vILbAL+By3dZmKRHskI=";
+            hash = "";
           };
           installPhase = ''
             mkdir -p $out
