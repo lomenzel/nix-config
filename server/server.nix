@@ -22,7 +22,7 @@ in
     ./searx.nix
     #./habitica.nix
     ./immich.nix
-    #./ollama.nix
+    ./ollama.nix
     ./nextcloud.nix
     ./matrix.nix
     ./anki.nix
