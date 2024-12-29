@@ -105,7 +105,7 @@ in
   };
 
   services.mx-puppet-discord = {
-    enable = true;
+    #enable = true;
     settings = {
       bridge = {
         bindAddress = "0.0.0.0";
