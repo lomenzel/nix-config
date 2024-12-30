@@ -26,7 +26,7 @@ let
       #WAKEUP_TIME=07:00  # 24 hour format
     '';
   in
-   pkgs.mkDerivation {
+   pkgs.stdenv.mkDerivation {
     pname = "jellyfin-music";
     version = "1.0";
     src = ./.;
@@ -50,12 +50,12 @@ in
   };
   systemd.services."daily-mix" = {
     script = ''
+      cd ${jellyfin-music}
       ${music-py}/bin/python ./jellyfin_music.py
     '';
     serviceConfig = {
       Type = "oneshot";
       User = "leonard";
     };
-    WorkingDirectory = "${jellyfin-music}";
   };
 }

@@ -8,8 +8,6 @@
   imports = [
     ./hardware-configuration.nix
     ../laptop.nix
-    ../../server/dailyMix/dailyMix.nix
-    #./test.nix
   ];
 
   nixpkgs.config.permittedInsecurePackages = [

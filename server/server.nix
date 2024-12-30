@@ -29,6 +29,7 @@ in
     ./matrix.nix
 
     #testing    
+    ./dailyMix/dailyMix.nix
     #./habitica.nix
     #./jitsi.nix
     #./comfy.nix
