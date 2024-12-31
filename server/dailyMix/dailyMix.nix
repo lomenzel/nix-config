@@ -13,17 +13,11 @@ let
   jellyfin-music =
   let
     env_file = pkgs.writeText ".env" ''
-      # needed for all scripts
       API_KEY=${secrets.jellyfin.api-key}
       JELLYFIN_IP=https://media.menzel.lol
-
-      # needed for jellyfin_music.py
       USER_NAME=leonard
-      PLAYLIST_LENGTH=3  # Length of the playlist in hours
+      PLAYLIST_LENGTH=5  # Length of the playlist in hours
       PLAYLIST_NAME=Leonard Daily Mix
-
-      # needed for jellyfin_based_shutdown.py
-      #WAKEUP_TIME=07:00  # 24 hour format
     '';
   in
    pkgs.stdenv.mkDerivation {
