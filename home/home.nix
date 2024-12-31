@@ -107,6 +107,7 @@ programs.gamemode.enable = true;
         nixpkgs-fmt
         #wineWowPackages.full
         qtwebsockets
+        brave
         mpv
         #ghc
         #haskell-language-server
