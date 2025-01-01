@@ -24,7 +24,7 @@
     '';
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_testing;
+  #boot.kernelPackages = pkgs.linuxPackages_testing;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
