@@ -91,6 +91,7 @@ in
         8008
         8281
         8100
+        27701
         55001
       ];
       allowedTCPPortRanges = [ kdeConnectPorts ];
@@ -99,6 +100,7 @@ in
         80
         8080
         443
+        27701
         25565
       ];
       allowedUDPPortRanges = [ kdeConnectPorts ];
