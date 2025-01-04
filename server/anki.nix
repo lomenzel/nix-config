@@ -16,6 +16,7 @@
       }
     ];
     port = 27701;
+    address = "0.0.0.0";
   };
   services.nginx.virtualHosts."anki.menzel.lol" = {
     enableACME = true;

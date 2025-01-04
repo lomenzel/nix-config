@@ -108,6 +108,7 @@ programs.gamemode.enable = true;
         #wineWowPackages.full
         qtwebsockets
         brave
+        picard
         mpv
         #ghc
         #haskell-language-server
