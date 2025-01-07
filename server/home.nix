@@ -46,6 +46,8 @@
       "fritzbox_callmonitor"
       "fritz"
       "adguard"
+      "whisper"
+      "piper"
     ];
     customComponents = [
       (pkgs.buildHomeAssistantComponent rec {
