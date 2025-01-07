@@ -56,7 +56,7 @@ with (helper-functions { inherit lib; });
         apiBase = "https://chat.ai.menzel.lol/";
         requestOptions = {
           headers = {
-            Authorization = "Basic ${toBase64 "alpaka:${secrets.basicAuth.alpaka}"}";
+            Authorization = "Basic ${toBase64 "menzel:${secrets.basicAuth.menzel}"}";
           };
         };
       };
@@ -64,7 +64,7 @@ with (helper-functions { inherit lib; });
     {
       ".continue/config.json".text = builtins.toJSON {
         models = [
-          (desktop "llama3.1:8b")
+          (desktop "llama3.2:3b")
           (desktop "llama3.2:1b")
         ];
         tabAutocompleteModel = desktop "llama3.2:1b";

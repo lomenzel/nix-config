@@ -30,14 +30,14 @@ in
 
     #testing    
     ./dailyMix/dailyMix.nix
-    #./habitica.nix
+    ./habitica.nix
     #./jitsi.nix
     #./comfy.nix
     #./mail.nix
     #./keycloak.nix
     #./hedgedoc.nix
     #./adguard.nix
-    #./kasm.nix
+    ./kasm.nix
     #./kubernetes.nix
 
   ];
