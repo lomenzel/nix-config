@@ -415,15 +415,15 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1730217359,
-        "narHash": "sha256-XfneTj/z52Z/AJHxjQPH5l3wjOV7qkhC2ynUEB+PrD4=",
-        "owner": "lomenzel",
+        "lastModified": 1736020887,
+        "narHash": "sha256-9VsCyr5xtaYnRUvyUAOMdGqUL4RTpDPeBptunYBkozs=",
+        "owner": "BatteredBunny",
         "repo": "nix-ai-stuff",
-        "rev": "b388a342e5312145d71e23685664f895671f2fb0",
+        "rev": "7bb9a75bb57fc26e1013edcf08777ecfe06d1c30",
         "type": "github"
       },
       "original": {
-        "owner": "lomenzel",
+        "owner": "BatteredBunny",
         "repo": "nix-ai-stuff",
         "type": "github"
       }
@@ -679,6 +679,22 @@
         "type": "gitlab"
       }
     },
+    "pkgs-unstable": {
+      "locked": {
+        "lastModified": 1736012469,
+        "narHash": "sha256-/qlNWm/IEVVH7GfgAIyP6EsVZI6zjAx1cV5zNyrs+rI=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "8f3e1f807051e32d8c95cd12b9b421623850a34d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
@@ -687,6 +703,7 @@
         "nix-on-droid": "nix-on-droid",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_3",
+        "pkgs-unstable": "pkgs-unstable",
         "shabitica": "shabitica",
         "simple-nixos-mailserver": "simple-nixos-mailserver",
         "stylix": "stylix",

@@ -32,12 +32,12 @@ in
     ./dailyMix/dailyMix.nix
     ./habitica.nix
     #./jitsi.nix
-    #./comfy.nix
+    ./comfy.nix
     #./mail.nix
     #./keycloak.nix
     #./hedgedoc.nix
     #./adguard.nix
-    ./kasm.nix
+    #./kasm.nix
     #./kubernetes.nix
 
   ];
@@ -91,6 +91,7 @@ in
         8008
         8281
         8100
+        8188
         9238
         27701
         55001
@@ -101,6 +102,7 @@ in
         80
         8080
         443
+        8188
         9238
         27701
         25565

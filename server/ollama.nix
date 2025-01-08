@@ -2,6 +2,7 @@
   config,
   pkgs,
   secrets,
+  inputs,
   ...
 }:
 let
@@ -10,6 +11,8 @@ let
 in
 {
 
+
+  nixpkgs.config.allowUnfree = true;
   services = {
     ollama = {
       enable = true;
@@ -18,11 +21,14 @@ in
       #home = ollama-path;
       #models = "${ollama-path}/models";
       loadModels = [
+        "llama3.2:1b"
         "llama3.2:3b"
+        "llama3.1:8b"
         "llama3.2-vision:11b"
         "llama3.3"
       ];
       acceleration = "cuda";
+      package = (import inputs.pkgs-unstable { allowUnfree = true; system = "x86_64-linux"; }).ollama;
     };
     nextjs-ollama-llm-ui = {
       enable = true;

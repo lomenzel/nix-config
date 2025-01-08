@@ -6,6 +6,7 @@
     nixpkgs = {
       url = "github:NixOS/nixpkgs/nixos-24.11";
     };
+    pkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     wsh = {
       url = "github:lomenzel/web-command";
@@ -27,7 +28,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-ai-stuff = {
-      url = "github:lomenzel/nix-ai-stuff";
+      url = "github:BatteredBunny/nix-ai-stuff";
       #inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";

@@ -176,4 +176,18 @@ in
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
 
+  services.wyoming.satellite = {
+    area = "Stübele";
+    enable = true;
+    sounds = {
+      awake = ./marimba-bloop-2-188149.wav;
+      done = ./marimba-bloop-3-188151.wav;
+    };
+    user = "leonard";
+  };
+  services.wyoming.openwakeword = {
+    preloadModels = [ "hey_jarvis" ];
+    enable = true;
+  };
+
 }

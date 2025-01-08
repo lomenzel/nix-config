@@ -17,10 +17,7 @@
     };
   };
 
-  services.nginx.virtualHosts."comfyui.ai.menzel.lol" = {
-    forceSSL = true;
-    useACMEHost = "ai-wildcard";
-    basicAuth = secrets.basicAuth;
+  services.nginx.virtualHosts."image.ai.menzel.lol" = {
     locations."/" = {
       proxyPass = "http://localhost:8188";
       proxyWebsockets = true;

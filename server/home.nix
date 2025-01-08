@@ -48,6 +48,7 @@
       "adguard"
       "whisper"
       "piper"
+      "wyoming"
     ];
     customComponents = [
       (pkgs.buildHomeAssistantComponent rec {
@@ -116,4 +117,26 @@
       proxyWebsockets = true;
     };
   };
+
+  services.wyoming =  {
+    faster-whisper.servers.test = {
+      enable = true;
+      device = "cuda";
+      language = "de";
+      uri = "tcp://0.0.0.0:10300";
+    };
+    piper.servers.test = {
+      enable = true;
+      uri = "tcp://0.0.0.0:10200";
+      voice = "de_DE-thorsten-high";
+    };
+  };
+  nixpkgs.config.cudaSupport = true;
+  nix.settings.substituters = [
+    "https://nix-community.cachix.org"
+  ];
+  nix.settings.trusted-public-keys = [
+    # Compare to the key published at https://nix-community.org/cache
+    "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+  ];
 }
