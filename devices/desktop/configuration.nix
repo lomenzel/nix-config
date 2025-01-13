@@ -183,7 +183,9 @@ in
       awake = ./marimba-bloop-2-188149.wav;
       done = ./marimba-bloop-3-188151.wav;
     };
+    vad.enable = false;
     user = "leonard";
+    microphone.command = "${pkgs.pulseaudio}/bin/parec -d alsa_input.usb-C-Media_Electronics_Inc._USB_PnP_Sound_Device-00.mono-fallback --raw --rate=16000 --format=s16le --channels=1";
   };
   services.wyoming.openwakeword = {
     preloadModels = [ "hey_jarvis" ];
