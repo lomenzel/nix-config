@@ -131,6 +131,10 @@
       voice = "de_DE-thorsten-high";
     };
   };
+
+
+  services.esphome.enable = true;
+
   nixpkgs.config.cudaSupport = true;
   nix.settings.substituters = [
     "https://nix-community.cachix.org"

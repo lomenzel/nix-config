@@ -1,8 +1,7 @@
-{
-  config,
-  pkgs,
-  nix-luanti,
-  ...
+{ config
+, pkgs
+, nix-luanti
+, ...
 }:
 {
   imports = [
@@ -16,6 +15,23 @@
   ];
   networking.firewall.enable = false;
   services.gpsd.enable = true;
+
+
+
+  services.udev.extraRules = ''
+    # STMicroelectronics STLink V2
+    SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3748", MODE="0666", GROUP="plugdev"
+
+    # STMicroelectronics STLink V2-1
+    SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374b", MODE="0666", GROUP="plugdev"
+
+    # STMicroelectronics STLink V3
+    SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374f", MODE="0666", GROUP="plugdev"
+  '';
+
+  # Optional: Paket, das ST-Link und OpenOCD enthält
+  # services.udev.packages = [ pkgs.openocd pkgs.stlink ];
+
 
   services.luanti = {
     enable = true;

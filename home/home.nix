@@ -99,6 +99,7 @@ programs.gamemode.enable = true;
       "libvirtd"
       "docker"
       "adbusers"
+      "dialout"
     ];
     packages =
       with pkgs;
