@@ -21,6 +21,8 @@
     useGlobalPkgs = true;
   };
 
+  user.shell = pkgs.zsh;
+
   android-integration = {
     termux-open.enable = true;
     termux-open-url.enable = true;
