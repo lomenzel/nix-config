@@ -27,6 +27,8 @@
 
     # STMicroelectronics STLink V3
     SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374f", MODE="0666", GROUP="plugdev"
+
+    SUBSYSTEM=="tty", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374b", MODE="0666", GROUP="dialout", SYMLINK+="stm32_nucleo"
   '';
 
   # Optional: Paket, das ST-Link und OpenOCD enthält

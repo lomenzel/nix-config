@@ -6,7 +6,7 @@
 }:
 {
 
-  #imports = [ ../../home/shell.nix ];
+  imports = [ ./ssh.nix ];
   environment.packages = with pkgs; [ ];
   environment.etcBackupExtension = ".bak";
   nix.extraOptions = ''
@@ -17,7 +17,7 @@
 
   home-manager = {
     config = ./home.nix;
-    backupFileExtension = "hm-bak";
+    backupFileExtension = ".hm-bak";
     useGlobalPkgs = true;
   };
 

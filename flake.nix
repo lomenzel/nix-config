@@ -14,7 +14,7 @@
     };
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+      #inputs.nixpkgs.follows = "nixpkgs";
     };
     # uex = {
     #   type = "gitlab";
@@ -38,9 +38,9 @@
     nix-on-droid.url = "github:nix-community/nix-on-droid/master";
     shabitica.url = "github:lomenzel/shabitica";
     nix-luanti = {
-      url = "github:lomenzel/nix-luanti";
-      #url = "path:/home/leonard/Projekte/nix-minetest";
-      inputs.nixpkgs.follows = "nixpkgs";
+      #url = "github:lomenzel/nix-luanti";
+      url = "path:/home/leonard/Projekte/nix-minetest";
+      #inputs.nixpkgs.follows = "nixpkgs";
       #inputs.flake-utils.follows = "flake-utils";
     };
 

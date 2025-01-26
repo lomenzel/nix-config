@@ -134,6 +134,7 @@
 
 
   services.esphome.enable = true;
+  services.esphome.openFirewall = true;
 
   nixpkgs.config.cudaSupport = true;
   nix.settings.substituters = [

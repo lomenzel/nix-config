@@ -100,6 +100,7 @@ programs.gamemode.enable = true;
       "docker"
       "adbusers"
       "dialout"
+      "plugdev"
     ];
     packages =
       with pkgs;
