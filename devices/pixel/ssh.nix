@@ -28,7 +28,7 @@ in
       #!${pkgs.runtimeShell}
 
       echo "Starting sshd in non-daemonized way on port ${toString port}"
-      ${pkgs.openssh}/bin/sshd -f "${sshdDirectory}/sshd_config" -D -o IdentitiesOnly=yes
+      ${pkgs.openssh}/bin/sshd -f "${sshdDirectory}/sshd_config" -D
     '')
   ];
 }
