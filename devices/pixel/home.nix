@@ -16,7 +16,7 @@
       up = "cd /home/leonard/.config/nix-config && git pull && nix flake update && sudo nixos-rebuild switch --flake . --impure && cd";
       ipa = "ip a | grep inet";
     };
-    ohMyZsh = {
+    oh-my-zsh = {
       enable = true;
       plugins = [ "git" ];
       theme = "jispwoso";
