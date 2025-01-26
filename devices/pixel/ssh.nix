@@ -1,7 +1,7 @@
  {config, pkgs, ...}: let
   sshdTmpDirectory = "${config.user.home}/sshd-tmp";
   sshdDirectory = "${config.user.home}/sshd";
-  pathToPubKey = "...";
+  pathToPubKey = "/data/data/com.termux.nix/files/home/secrets/laptop_nix_on_droid_key.pub";
   port = 8022;
 in
 {
