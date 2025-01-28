@@ -36,7 +36,7 @@
 
 
   services.luanti = {
-    enable = true;
+    #enable = true;
     servers = with nix-luanti; {
       default4 = {
         game = games.mineclonia;
