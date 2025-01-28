@@ -80,11 +80,11 @@ in
     powerManagement.enable = false;
     powerManagement.finegrained = false;
 
-    open = false;
+    open = true;
 
     nvidiaSettings = true;
 
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    #package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
   #boot.kernelParams = [ "module_blacklist=i915" ];
   boot.initrd.kernelModules = [ "nvidia" ];
