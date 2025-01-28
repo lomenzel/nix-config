@@ -73,19 +73,19 @@ in
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = [ "nvidia" ];
   #hardware.nvidia-container-toolkit.enable = true;
-  hardware.nvidia = {
+  # hardware.nvidia = {
 
-    # Modesetting is required.
-    modesetting.enable = false;
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
+  #   # Modesetting is required.
+  #   modesetting.enable = false;
+  #   powerManagement.enable = false;
+  #   powerManagement.finegrained = false;
 
-    open = true;
+  #   open = true;
 
-    nvidiaSettings = true;
+  #   nvidiaSettings = true;
 
-    #package = config.boot.kernelPackages.nvidiaPackages.stable;
-  };
+  #   #package = config.boot.kernelPackages.nvidiaPackages.stable;
+  # };
   #boot.kernelParams = [ "module_blacklist=i915" ];
   boot.initrd.kernelModules = [ "nvidia" ];
   #boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
