@@ -14,7 +14,7 @@
 
   services.nginx.virtualHosts."workspaces.menzel.lol" = {
     forceSSL = true;
-    useACMEHost = "wildcard";
+    enableACME = true;
     locations."/" = {
       proxyPass = "https://localhost:9238";
       proxyWebsockets = true;

@@ -19,7 +19,7 @@ in
     #./kubo.nix
     ./mastodon.nix
     #./minecraft.nix
-    ./searx.nix
+    #./searx.nix
     #./immich.nix
     ./ollama.nix
     #./nextcloud.nix
