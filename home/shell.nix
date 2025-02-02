@@ -22,7 +22,8 @@
     less
   ];
   users.users.leonard.shell = pkgs.zsh;
-  networking.nameservers = [ "192.168.178.188" "192.168.178.1" "8.8.8.8" "8.8.4.4" ];
+  networking.nameservers = [ "192.168.178.188" "8.8.8.8" ];
+  networking.resolvconf.enable = false;
 
   programs.zsh = {
     enable = true;

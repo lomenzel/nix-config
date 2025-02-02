@@ -40,7 +40,7 @@ in
   # Enable networking
   networking = {
     networkmanager.enable = true;
-    nameservers = [ "192.168.178.21" ];
+    #nameservers = [ "192.168.178.21" ];
     #extraHosts = toHostList config.services.nginx.virtualHosts;
   };
 
