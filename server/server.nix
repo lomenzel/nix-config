@@ -63,7 +63,10 @@ in
     };
   };
 
-  users.users."leonard".openssh.authorizedKeys.keys = [ "ssh-ed25519 ${sshKey} leonard" ];
+  users.users."leonard".openssh.authorizedKeys.keys = [ 
+    "ssh-ed25519 ${sshKey} leonard"
+    "ssh-ed25519 ${sshKey} root"
+  ];
 
   networking.firewall =
     let

@@ -55,14 +55,14 @@
     };
   };
 
-  fileSystems."/mnt/snd" = {
+  fileSystems."/mnt/desktop" = {
     device = "leonard@menzel.lol:/";
     fsType = "sshfs";
     options = [
       "allow_other"
       "nodev"
       "noatime"
-      "IdentityFile=/home/leonard/.ssh/id_rsa"
+      "IdentityFile=/home/leonard/.ssh/desktop"
     ];
   };
 

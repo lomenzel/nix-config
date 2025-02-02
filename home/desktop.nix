@@ -28,6 +28,7 @@
       maliit-keyboard
       kdepim-addons
       pimcommon
+      krohnkite
     ];
 
   stylix = {

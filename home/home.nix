@@ -122,7 +122,7 @@ programs.gamemode.enable = true;
         exfat
         exfatprogs
         #parabolic
-        polonium
+        
         minetest
         glxinfo
         clinfo
