@@ -16,7 +16,9 @@ in
     defaults.email = "leonard.menzel@tutanota.com";
     defaults.dnsPropagationCheck = false;
 
+
     certs = {
+      /*
       "wildcard" = {
         domain = "*.menzel.lol";
         #listenHTTP = ":80";
@@ -45,7 +47,7 @@ in
         dnsProvider = "inwx";
         credentialsFile = inwxCredentials;
       };
-      /*
+      
         "turn.menzel.lol" = {
           # TODO
           dnsProvider = "inwx";
