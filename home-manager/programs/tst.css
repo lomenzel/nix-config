@@ -1,50 +1,54 @@
 tab-item {
-    --tab-text: var(--default-foreground) !important;
+  --tab-text: var(--default-foreground) !important;
+  --tab-text-inverted: var(--background-color) !important;
 }
 
 tab-item.active {
-    --tab-text: var(--base07) !important;
+  --tab-text: var(--background-color) !important;
+  --tab-text-inverted: var(--default-foreground) !important;
 }
 
 /*
 .closebox {
     display:none !important;
 }
+
 .sound-button{
-    margin: .5em;
+    background: red;
 }
 */
 
+
 #tabbar {
-    background-color: var(--background-color);
+  background-color: var(--background-color);
 }
 
 tab-item.active tab-item-substance .background {
-    height: auto;
-    outline: none !important;
-    background-color: var(--accent-color) !important;
-    padding: 0;
-    margin-left: 3px;
-    box-shadow: none;
+  height: auto;
+  outline: none !important;
+  background-color: var(--accent-color) !important;
+  padding: 0;
+  margin-left: 3px;
+  box-shadow: none;
 }
 
 tab-item.active tab-item-substance .background:-moz-window-inactive {
-    background-color: var(--inactive-window-accent-color) !important;
+  background-color: var(--inactive-window-accent-color) !important;
 }
 
 tab-item tab-item-substance .label {
-    color: var(--default-foreground);
+  color: var(--default-foreground);
 }
 
 tab-item tab-item-substance {
-    color: var(--default-foreground);
+  color: var(--default-foreground);
 }
 
 tab-item.active tab-item-substance .label-content {
-    color: var(--base07);
+  color: var(--base07);
 }
 
 
 .newtab-button-box {
-    display: none !important;
+  display: none !important;
 }

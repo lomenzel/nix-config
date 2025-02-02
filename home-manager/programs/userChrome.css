@@ -1,14 +1,16 @@
 .tabbrowser-tab {
-    visibility: collapse;
+  visibility: collapse;
 }
+
 .titlebar-button {
-    height: 27px !important;
+  height: 27px !important;
 }
+
 #nav-bar {
-    margin-top: -35px;
-    margin-right: 0px;
-    box-shadow: none !important;
-    background-color: var(--accent-color) !important;
+  margin-top: -44px;
+  margin-right: 0px;
+  box-shadow: none !important;
+  background-color: var(--accent-color) !important;
 }
 
 
@@ -19,12 +21,14 @@
 #urlbar #urlbar-background {
   background-color: var(--inactive-window-accent-color) !important;
 }
+
 #urlbar #urlbar-background:-moz-window-inactive {
-    background-color: var(--inactive-window-accent-color) !important;
-  }
+  background-color: var(--inactive-window-accent-color) !important;
+}
 
 #urlbar[focused] #urlbar-background {
   background-color: var(--inactive-window-accent-color) !important;
+  box-shadow: none !important;
 }
 
 #navigator-toolbox {
@@ -32,7 +36,7 @@
 }
 
 #TabsToolbar {
-  background-color:var(--accent-color) !important;
+  background-color: var(--accent-color) !important;
 }
 
 #TabsToolbar:-moz-window-inactive,
@@ -40,43 +44,48 @@
   background-color: var(--inactive-window-accent-color) !important;
 }
 
-#sidebar-box + splitter {
+#sidebar-box+splitter {
   width: 0px;
   visibility: collapse;
   display: none !important;
 }
+
 #tabbar {
   background-color: var(--accent-color) !important;
 }
 
 [uidensity="compact"]:root .titlebar-button {
-    height: 32px !important;
+  height: 32px !important;
 }
+
 [uidensity="compact"]:root #nav-bar {
-    margin-top: -32px;
+  margin-top: -32px;
 }
 
 #titlebar-spacer {
-    background-color: var(--chrome-secondary-background-color);
+  background-color: var(--chrome-secondary-background-color);
 }
+
 #titlebar-buttonbox-container {
-    background-color: var(--chrome-secondary-background-color);
+  background-color: var(--chrome-secondary-background-color);
 }
+
 .titlebar-color {
-    background-color: var(--toolbar-bgcolor);
+  background-color: var(--toolbar-bgcolor);
 }
 
 #main-window[inFullscreen="true"] #sidebar-box,
-#main-window[inFullscreen="true"] #sidebar-box + splitter {
-    visibility: collapse;
+#main-window[inFullscreen="true"] #sidebar-box+splitter {
+  visibility: collapse;
 }
 
 #sidebar-box #sidebar-header {
-    display: none !important;
+  display: none !important;
 }
 
 
-menu:not([disabled="true"])[_moz-menuactive="true"], menuitem:not([disabled="true"])[_moz-menuactive="true"] {
+menu:not([disabled="true"])[_moz-menuactive="true"],
+menuitem:not([disabled="true"])[_moz-menuactive="true"] {
   background-color: var(--accent-color) !important;
   color: var(--base07) !important;
 }
