@@ -126,7 +126,7 @@
   systemd.services.gitlab-backup.environment.BACKUP = "dump";
   services.nginx.clientMaxBodySize = "3000m";
   services.nginx.virtualHosts."git.menzel.lol" = {
-    useACMEHost = "wildcard";
+    #useACMEHost = "wildcard";
     forceSSL = true;
     locations."/" = {
       proxyPass = "http://unix:/run/gitlab/gitlab-workhorse.socket";

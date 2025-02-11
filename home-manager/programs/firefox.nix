@@ -173,6 +173,7 @@ in
             "{88ebde3a-4581-4c6b-8019-2a05a9e3e938}" = extension "hide-youtube-shorts";
             "deArrow@ajay.app" = extension "dearrow";
             "{c3348e96-6d84-47dc-8252-4b8493299efc}" = extension "nyan-cat-youtube-enhancement";
+            "{f0bb47a1-a5b1-4a4c-80fb-556d6a60e45c}" = extension "no-gender";
           };
 
         "3rdparty".Extensions = {
