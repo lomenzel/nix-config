@@ -9,11 +9,13 @@
   services.gitlab = {
     enable = true;
     extraGitlabRb = ''
+      gitlab_workhorse['listen_network'] = "tcp"
+      gitlab_workhorse['listen_addr'] = "0.0.0.0:4444"
       Rails.application.config.feature_flags["activity_pub"] = true
       Rails.application.config.feature_flags["activity_pub_project"] = true
     '';
     host = "git.menzel.lol";
-    port = 4444;
+    port = 443;
     https = true;
     databasePasswordFile = pkgs.writeText "password" secrets.gitlab.rootPassword;
     initialRootPasswordFile = pkgs.writeText "password" secrets.gitlab.rootPassword;
