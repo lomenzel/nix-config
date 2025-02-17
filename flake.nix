@@ -36,7 +36,7 @@
     simple-nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver/master";
     simple-nixos-mailserver.inputs.nixpkgs.follows = "nixpkgs";
     nix-on-droid.url = "github:nix-community/nix-on-droid/master";
-    shabitica.url = "github:lomenzel/shabitica";
+    shabitica.url = "github:lomenzel/shabitica/rev/ce63bafcde6d7fddc50430aa14e9c7f6839826df";
     nix-luanti = {
       url = "github:lomenzel/nix-luanti";
       #url = "path:/home/leonard/Projekte/nix-minetest";
