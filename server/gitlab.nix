@@ -8,10 +8,10 @@
 {
   services.gitlab = {
     enable = true;
-    extraGitlabRb = ''
-      Rails.application.config.feature_flags["activity_pub"] = true
-      Rails.application.config.feature_flags["activity_pub_project"] = true
-    '';
+  #  extraGitlabRb = ''
+  #    Rails.application.config.feature_flags["activity_pub"] = true
+  #    Rails.application.config.feature_flags["activity_pub_project"] = true
+  #  '';
     host = "git.menzel.lol";
     port = 443;
     https = true;
