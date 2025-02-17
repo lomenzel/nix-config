@@ -1,6 +1,6 @@
 { pkgs, inputs, ... }:
 {
-  imports = [ inputs.shabitica.nixosModules."x86_64-linux".default ];
+  imports = [ inputs.shabitica.nixosModules.default ];
 
   shabitica = {
     hostName = "deinniveau.rip";
