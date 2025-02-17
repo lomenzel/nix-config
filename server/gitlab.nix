@@ -9,8 +9,6 @@
   services.gitlab = {
     enable = true;
     extraGitlabRb = ''
-      gitlab_workhorse['listen_network'] = "tcp"
-      gitlab_workhorse['listen_addr'] = "0.0.0.0:4444"
       Rails.application.config.feature_flags["activity_pub"] = true
       Rails.application.config.feature_flags["activity_pub_project"] = true
     '';
@@ -86,12 +84,11 @@
   };
 
   systemd.services.gitlab-backup.environment.BACKUP = "dump";
-  # services.nginx.clientMaxBodySize = "3000m";
-  # services.nginx.virtualHosts."git.menzel.lol" = {
-  #   enableACME = true;
-  #   locations."/" = {
-  #     proxyPass = "http://unix:/run/gitlab/gitlab-workhorse.socket";
-  #   };
-  # };
+  services.nginx.clientMaxBodySize = "3000m";
+  services.nginx.virtualHosts."git.menzel.lol" = {
+    locations."/" = {
+      proxyPass = "http://unix:/run/gitlab/gitlab-workhorse.socket";
+    };
+  };
 
 }
