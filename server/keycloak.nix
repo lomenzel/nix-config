@@ -24,7 +24,7 @@
     };
     nginx.virtualHosts."accounts.menzel.lol" = {
       forceSSL = true;
-      enableACME = true;
+      useACMEHost = "wildcard";
       locations."/" = {
         proxyPass = "http://localhost:${toString config.services.keycloak.settings.http-port}/";
         extraConfig = ''

@@ -87,7 +87,6 @@
   services.nginx.clientMaxBodySize = "3000m";
   services.nginx.virtualHosts."git.menzel.lol" = {
     locations."/" = {
-
       proxyPass = "http://unix:/run/gitlab/gitlab-workhorse.socket";
       proxyWebsockets = true;
     };

@@ -233,7 +233,7 @@ in
         };
       };
       "${fqdn}" = {
-        enableACME = true;
+        useACMEHost = "wildcard";
         forceSSL = true;
         locations."/".extraConfig = ''
           return 404;
@@ -247,7 +247,7 @@ in
   };
 
   services.nginx.virtualHosts."chat.menzel.lol" = {
-    enableACME = true;
+    useACMEHost = "wildcard";
     forceSSL = true;
 
     root = pkgs.element-web.override {

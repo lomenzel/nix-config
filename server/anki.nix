@@ -19,7 +19,7 @@
     address = "0.0.0.0";
   };
   services.nginx.virtualHosts."anki.menzel.lol" = {
-    enableACME = true;
+    useACMEHost = "wildcard";
     forceSSL = true;
     locations."/" = {
       proxyPass = "http://localhost:27701";

@@ -16,7 +16,7 @@
     };
     nginx.virtualHosts."md.menzel.lol" = {
       forceSSL = true;
-      enableACME = true;
+      useACMEHost = "wildcard";
       locations."/" = {
         proxyPass = "http://localhost:8010";
         proxyWebsockets = true;
