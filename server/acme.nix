@@ -18,13 +18,14 @@ in
 
 
     certs = {
-      /*
+      
       "wildcard" = {
         domain = "*.menzel.lol";
         #listenHTTP = ":80";
         dnsProvider = "inwx";
         credentialsFile = inwxCredentials;
       };
+      /*
       "wildcardIPFS" = {
         domain = "*.ipfs.gateway.menzel.lol";
         #listenHTTP = ":80";
