@@ -87,11 +87,12 @@
   services.nginx.clientMaxBodySize = "3000m";
   services.nginx.virtualHosts."git.menzel.lol" = {
     locations."/" = {
-      forceSSL = true;
-      useACMEHost = "wildcard";
+
       proxyPass = "http://unix:/run/gitlab/gitlab-workhorse.socket";
       proxyWebsockets = true;
     };
+    forceSSL = true;
+    useACMEHost = "wildcard";
     extraConfig = ''
       proxy_set_header Host $host;
     '';
