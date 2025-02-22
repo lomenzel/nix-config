@@ -390,15 +390,15 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1740219819,
-        "narHash": "sha256-R3SVqCpNqm91foDvF2GLN6rHHl3UdisOeF+oX9pFlFQ=",
-        "owner": "Importantus",
+        "lastModified": 1740221761,
+        "narHash": "sha256-P+wVvGA3saHjmDD5ZfzTmUqyyrIJVzWGm22Y9rrGAww=",
+        "owner": "lomenzel",
         "repo": "location-share-backend",
-        "rev": "8b0514cf4d22916e320bd2a77f16d2f4054c2b29",
+        "rev": "43bba65ae8365d44db022b6334b0f7f0d1627d10",
         "type": "github"
       },
       "original": {
-        "owner": "Importantus",
+        "owner": "lomenzel",
         "repo": "location-share-backend",
         "type": "github"
       }
