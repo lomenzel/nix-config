@@ -38,7 +38,7 @@
     nix-on-droid.url = "github:nix-community/nix-on-droid/master";
     shabitica.url = "github:lomenzel/shabitica/ce63bafcde6d7fddc50430aa14e9c7f6839826df";
     #locationshare.url = "path:/home/leonard/Projekte/location-share-backend";
-    locationshare.url = "github:lomenzel/location-share-backend";
+    locationshare.url = "github:Importantus/location-share-backend";
     nix-luanti = {
       #url = "github:lomenzel/nix-luanti";
       url = "path:/home/leonard/Projekte/nix-minetest";
