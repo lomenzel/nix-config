@@ -1,6 +1,8 @@
 { config
 , pkgs
 , nix-luanti
+, inputs
+, secrets
 , ...
 }:
 {
@@ -14,9 +16,6 @@
     "jitsi-meet-1.0.8043"
   ];
   networking.firewall.enable = false;
-  services.gpsd.enable = true;
-
-
 
   services.udev.extraRules = ''
     # STMicroelectronics STLink V2
@@ -34,26 +33,24 @@
   # Optional: Paket, das ST-Link und OpenOCD enthält
   # services.udev.packages = [ pkgs.openocd pkgs.stlink ];
 
+  services.location-share = {
+    enable = true;
+    port = 3457;
+    googleApplicationCredentials = secrets.locationshare.credentials;
+  };
 
   services.luanti = {
-    #enable = true;
+    enable = true;
+    package = inputs.pkgs-unstable.legacyPackages."x86_64-linux".luanti-server;
+    whitelist = ["leonard"];
     servers = with nix-luanti; {
-      default4 = {
+      test = {
         game = games.mineclonia;
-        port = 30007;
-      };
-      testing = with nix-luanti; {
-        mods = with mods; [
-          animalia
-          i3
-        ];
-        port = 30001;
-      };
-      vanilla = {
-        port = 30005;
+        port = 30000;
       };
     };
   };
+  #services.minetest-server.enable = true;
 
   fileSystems."/mnt/desktop" = {
     device = "leonard@menzel.lol:/";
@@ -73,8 +70,10 @@
 
   services.kubo = {
     enable = true;
-    autoMount = false;
+    autoMount = true;
     localDiscovery = true;
+    #extraFlags = [ "--revert-ok" ];
+    package = inputs.pkgs-unstable.legacyPackages."x86_64-linux".kubo;
     enableGC = true;
     settings = {
       API.HTTPHeaders.Access-Control-Allow-Origin = [ "*" ];

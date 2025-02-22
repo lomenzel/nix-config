@@ -33,11 +33,7 @@
 
   nixpkgs.config.nativeOptimization = "native";
   virtualisation.docker.enable = true;
-  boot.kernelPackages = pkgs.linuxPackages_testing;
+  #boot.kernelPackages = pkgs.linuxPackages_testing;
 
   services.openssh.settings.PermitRootLogin = "yes";
-
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [];
-
 }

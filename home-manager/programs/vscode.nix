@@ -66,8 +66,9 @@ with (helper-functions { inherit lib; });
         models = [
           (desktop "llama3.2:3b")
           (desktop "llama3.2:1b")
+          (desktop "deepseek-r1:14b")
         ];
-        tabAutocompleteModel = desktop "llama3.2:1b";
+        tabAutocompleteModel = desktop "llama3.2:3b";
       };
     };
 

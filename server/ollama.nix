@@ -26,6 +26,7 @@ in
         "llama3.1:8b"
         "llama3.2-vision:11b"
         "llama3.3"
+        "deepseek-r1:14b"
       ];
       acceleration = "cuda";
       package = (import inputs.pkgs-unstable { allowUnfree = true; system = "x86_64-linux"; }).ollama;

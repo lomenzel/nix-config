@@ -37,9 +37,10 @@
       url = "https://wallpaperaccess.com/full/632832.png";
       hash = "sha256-yA0wijeakH6zLrUe4dhsqWKvZiRv3AJTnZW2QcCdTE4=";
     };
+    targets.qt.platform = "advaita";
     polarity = "light";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-dawn.yaml";
-    /*
+    
       opacity = {
         applications = 0.3;
         desktop = 0.1;
@@ -55,12 +56,12 @@
     
     fonts = {
       monospace = {
-        package = pkgs.nerd-fonts.jetbrains-mono;
+        package = inputs.pkgs-unstable.legacyPackages."x86_64-linux".nerd-fonts.jetbrains-mono;
         name = "JetBrainsMono Nerd Font Mono";
       };
 
     };
-    */
+
     targets = {
       plymouth = {
         enable = true;

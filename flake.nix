@@ -37,12 +37,23 @@
     simple-nixos-mailserver.inputs.nixpkgs.follows = "nixpkgs";
     nix-on-droid.url = "github:nix-community/nix-on-droid/master";
     shabitica.url = "github:lomenzel/shabitica/ce63bafcde6d7fddc50430aa14e9c7f6839826df";
+    #locationshare.url = "path:/home/leonard/Projekte/location-share-backend";
+    locationshare.url = "github:lomenzel/location-share-backend";
     nix-luanti = {
-      url = "github:lomenzel/nix-luanti";
-      #url = "path:/home/leonard/Projekte/nix-minetest";
+      #url = "github:lomenzel/nix-luanti";
+      url = "path:/home/leonard/Projekte/nix-minetest";
       #inputs.nixpkgs.follows = "nixpkgs";
       #inputs.flake-utils.follows = "flake-utils";
     };
+    /*
+    nix-luanti = {
+      type = "gitlab";
+      owner = "leonard";
+      repo = "nix-luanti";
+      host = "git.menzel.lol";
+      ref = "main";
+    };
+    */
 
   };
 
@@ -71,7 +82,8 @@
             stylix.nixosModules.stylix
             nixos-hardware.nixosModules.tuxedo-pulse-15-gen2
             wsh.nixosModules."x86_64-linux".default
-            inputs.nix-luanti.nixosModules."x86_64-linux".default
+            nix-luanti.nixosModules."x86_64-linux".default
+            locationshare.nixosModules.default
             ./devices/laptop/configuration.nix
             home-manager.nixosModules.default
           ];
