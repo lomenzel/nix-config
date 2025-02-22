@@ -390,14 +390,17 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1740215719,
-        "narHash": "sha256-cPbRjUtN18trcMHYGxgvwD5DHVBETeCb9DHLoX4j/Lw=",
-        "path": "/home/leonard/Projekte/location-share-backend",
-        "type": "path"
+        "lastModified": 1740219819,
+        "narHash": "sha256-R3SVqCpNqm91foDvF2GLN6rHHl3UdisOeF+oX9pFlFQ=",
+        "owner": "Importantus",
+        "repo": "location-share-backend",
+        "rev": "8b0514cf4d22916e320bd2a77f16d2f4054c2b29",
+        "type": "github"
       },
       "original": {
-        "path": "/home/leonard/Projekte/location-share-backend",
-        "type": "path"
+        "owner": "Importantus",
+        "repo": "location-share-backend",
+        "type": "github"
       }
     },
     "nix-ai-stuff": {
