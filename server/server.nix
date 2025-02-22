@@ -26,7 +26,6 @@ in
     ./matrix.nix
     ./anki.nix
     ./home.nix
-    ./matrix.nix
 
     #testing    
     ./dailyMix/dailyMix.nix
