@@ -126,7 +126,7 @@
               stylix.nixosModules.stylix
               home-manager.nixosModules.default
               inputs.simple-nixos-mailserver.nixosModule
-
+              locationshare.nixosModules.default
             ];
           });
         pi = nixpkgs.lib.nixosSystem {
