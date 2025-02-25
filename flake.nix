@@ -73,6 +73,7 @@
           system = "x86_64-linux";
           specialArgs = {
             inherit inputs;
+            pkgs-unstable = import inputs.pkgs-unstable {  system = "x86_64-linux"; };
             secrets = import /home/leonard/.config/secrets/secrets.nix;
             helper-functions = import ./helper-functions.nix;
             nix-luanti = inputs.nix-luanti.packages."x86_64-linux";
@@ -82,7 +83,7 @@
             stylix.nixosModules.stylix
             nixos-hardware.nixosModules.tuxedo-pulse-15-gen2
             wsh.nixosModules."x86_64-linux".default
-            nix-luanti.nixosModules."x86_64-linux".default
+            nix-luanti.nixosModules.default
             locationshare.nixosModules.default
             ./devices/laptop/configuration.nix
             home-manager.nixosModules.default

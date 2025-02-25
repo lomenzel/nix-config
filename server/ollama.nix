@@ -3,6 +3,7 @@
   pkgs,
   secrets,
   inputs,
+  pkgs-unstable,
   ...
 }:
 let
@@ -29,12 +30,13 @@ in
         "deepseek-r1:14b"
       ];
       acceleration = "cuda";
-      package = (import inputs.pkgs-unstable { allowUnfree = true; system = "x86_64-linux"; }).ollama;
+      package = pkgs-unstable.ollama;
     };
     nextjs-ollama-llm-ui = {
       enable = true;
       port = 3501;
       hostname = "0.0.0.0";
+      package = pkgs-unstable.nextjs-ollama-llm-ui;
       ollamaUrl = "https://chat.ai.menzel.lol";
     };
 
