@@ -120,7 +120,7 @@
               nix-ai-stuff = inputs.nix-ai-stuff.packages.${system};
               secrets = import /home/leonard/.config/secrets/secrets.nix;
               helper-functions = import ./helper-functions.nix;
-
+              pkgs-unstable = import inputs.pkgs-unstable {  system = "x86_64-linux"; };
             };
             modules = with inputs; [
               wsh.nixosModules."x86_64-linux".default
