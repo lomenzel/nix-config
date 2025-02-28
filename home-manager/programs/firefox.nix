@@ -102,11 +102,10 @@ in
 {
 
   programs = with pkgs; {
-    firefox = {
+    librewolf = {
       enable = true;
       #package = pkgs.librewolf;
       nativeMessagingHosts = with pkgs.kdePackages; [ plasma-browser-integration ];
-
       profiles.default = {
         userChrome = ''
           ${css-colors}
@@ -126,7 +125,6 @@ in
         };
 
       };
-
       policies = {
 
         DisableTelemetry = true;
