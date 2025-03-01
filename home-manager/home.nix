@@ -1,8 +1,7 @@
-{
-  config,
-  pkgs,
-  inputs,
-  ...
+{ config
+, pkgs
+, inputs
+, ...
 }:
 {
   imports = [
@@ -23,6 +22,13 @@
   home.packages = [
     pkgs.libreoffice
   ];
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+  programs.starship = {
+    enable = true;
+  };
 
   #services.activitywatch.enable = true;
 

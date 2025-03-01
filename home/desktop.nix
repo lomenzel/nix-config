@@ -13,6 +13,8 @@
   services.desktopManager.plasma6.enable = true;
   programs.kdeconnect.enable = true;
 
+
+  users.users.leonard.extraGroups = [ config.services.kubo.group ];
   users.users.leonard.packages =
     with pkgs;
     with kdePackages;
