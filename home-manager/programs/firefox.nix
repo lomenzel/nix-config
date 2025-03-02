@@ -4,6 +4,7 @@
   lib,
   colors,
   helper-functions,
+  pkgs-unstable,
   ...
 }:
 with (helper-functions { inherit lib; });
@@ -104,7 +105,7 @@ in
   programs = with pkgs; {
     librewolf = {
       enable = true;
-      #package = pkgs.librewolf;
+      package = pkgs-unstable.librewolf;
       nativeMessagingHosts = with pkgs.kdePackages; [ plasma-browser-integration ];
       profiles.default = {
         userChrome = ''

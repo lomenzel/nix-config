@@ -1,10 +1,9 @@
-{
-  config,
-  lib,
-  pkgs,
-  helper-functions,
-  secrets,
-  ...
+{ config
+, lib
+, pkgs
+, helper-functions
+, secrets
+, ...
 }:
 with (helper-functions { inherit lib; });
 {
@@ -18,8 +17,8 @@ with (helper-functions { inherit lib; });
       #enable = true;
       #hie.enable = true;
     };
-    enableUpdateCheck = false;
-    extensions = with pkgs.vscode-extensions; [
+    profiles.default.enableUpdateCheck = false;
+    profiles.default.extensions = with pkgs.vscode-extensions; [
       bbenoist.nix
       jnoortheen.nix-ide
       continue.continue
@@ -36,7 +35,7 @@ with (helper-functions { inherit lib; });
       redhat.vscode-yaml
     ];
 
-    userSettings = {
+    profiles.default.userSettings = {
       "files.autoSave" = "afterDelay";
       "git.enableSmartCommit" = true;
       "git.confirmSync" = false;

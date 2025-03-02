@@ -1,11 +1,11 @@
-{
-  config,
-  pkgs,
-  inputs,
-  lib,
-  secrets,
-  helper-functions,
-  ...
+{ config
+, pkgs
+, inputs
+, lib
+, secrets
+, helper-functions
+, pkgs-unstable
+, ...
 }:
 
 {
@@ -15,15 +15,15 @@
   ];
 
 
-    home-manager = {
-      extraSpecialArgs = {
-        inherit inputs secrets helper-functions;
-      };
-      users = {
-        "leonard" = import ../home-manager/home.nix;
-      };
-      backupFileExtension = "homemanager-backup";
+  home-manager = {
+    extraSpecialArgs = {
+      inherit inputs secrets helper-functions pkgs-unstable;
     };
+    users = {
+      "leonard" = import ../home-manager/home.nix;
+    };
+    backupFileExtension = "homemanager-backup";
+  };
 
   services.xserver.enable = true;
 
@@ -76,11 +76,11 @@
   programs.partition-manager.enable = true;
 
   programs.steam = {
-     enable = true;
-     gamescopeSession.enable = true;
+    enable = true;
+    gamescopeSession.enable = true;
   };
 
-programs.gamemode.enable = true;
+  programs.gamemode.enable = true;
 
   programs.ausweisapp.enable = true;
   programs.ausweisapp.openFirewall = true;
@@ -106,67 +106,19 @@ programs.gamemode.enable = true;
       with pkgs;
       with kdePackages;
       [
-        nixpkgs-fmt
-        #wineWowPackages.full
-        qtwebsockets
-        brave
-        picard
-        mpv
-        #ghc
-        #haskell-language-server
-        #krita
-        #tutanota-desktop
-        #gimp
-        #kmymoney
-        #picard
         exfat
         exfatprogs
         #parabolic
-        
-        minetest
         glxinfo
         clinfo
         wayland-utils
         pciutils
         vulkan-tools
-        kate
-
-        tor-browser-bundle-bin
-        vlc
-
-        anki
-        texliveFull # needed by anki
-
-        discord
-        thunderbird
-        #prismlauncher
-        #arianna
-        signal-desktop
-        #libreoffice
-
-        #elisa
-        finamp
         #kmail
         kontact
-        kubectl
-        kubernetes-helm
-        seabird
-        #marknote
         kmail-account-wizard
         akonadi-import-wizard
         #neochat
-        itinerary
-        #tokodon
-        alpaka
-        #kdenlive
-        kwallet
-        kwalletmanager
-        kcalc
-        #kfind
-        #minuet
-        merkuro
-        #keysmith
-
         libbdplus
         libaacs
         libdvdcss
