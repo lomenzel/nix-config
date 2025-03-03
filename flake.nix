@@ -21,7 +21,7 @@
     
     #locationshare.url = "path:/home/leonard/Projekte/location-share-backend";
     locationshare.url = "github:Importantus/location-share-backend";
-    
+      /*
     nix-luanti = {
       #url = "github:lomenzel/nix-luanti";
       url = "path:/home/leonard/Projekte/nix-minetest";
@@ -29,7 +29,7 @@
       #inputs.flake-utils.follows = "flake-utils";
     };
     
-   /*
+    */
     nix-luanti = {
       type = "gitlab";
       owner = "leonard";
@@ -37,7 +37,7 @@
       host = "git.menzel.lol";
       ref = "main";
     };
-     */
+  
 
   };
 
