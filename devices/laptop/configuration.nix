@@ -40,7 +40,7 @@
   };
 
   services.luanti = {
-    enable = true;
+    #enable = true;
     package = inputs.pkgs-unstable.legacyPackages."x86_64-linux".luanti-server;
     whitelist = ["leonard"];
     servers = with nix-luanti; {

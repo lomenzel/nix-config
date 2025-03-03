@@ -3,43 +3,25 @@
   description = "flake for laptop";
 
   inputs = {
-    nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-24.11";
-    };
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     pkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-
-    wsh = {
-      url = "github:lomenzel/web-command";
-      #inputs.nixpkgs.follows = "nixpkgs";
-    };
+    wsh.url = "github:lomenzel/web-command";
     home-manager = {
       url = "github:nix-community/home-manager";
-      #inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "pkgs-unstable";
     };
-    # uex = {
-    #   type = "gitlab";
-    #   owner = "ux-cookie-banner";
-    #   repo = "uex-cookie-banner-website";
-    #   host = "git.mylab.th-luebeck.de";
-    #   ref = "main";
-    # };
     stylix = {
       url = "github:danth/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "pkgs-unstable";
     };
-    nix-ai-stuff = {
-      url = "github:BatteredBunny/nix-ai-stuff";
-      #inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nix-ai-stuff.url = "github:BatteredBunny/nix-ai-stuff";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
-    simple-nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver/master";
-    simple-nixos-mailserver.inputs.nixpkgs.follows = "nixpkgs";
     nix-on-droid.url = "github:nix-community/nix-on-droid/master";
     shabitica.url = "github:lomenzel/shabitica/ce63bafcde6d7fddc50430aa14e9c7f6839826df";
+    
     #locationshare.url = "path:/home/leonard/Projekte/location-share-backend";
     locationshare.url = "github:Importantus/location-share-backend";
-    /*
+    
     nix-luanti = {
       #url = "github:lomenzel/nix-luanti";
       url = "path:/home/leonard/Projekte/nix-minetest";
@@ -47,7 +29,7 @@
       #inputs.flake-utils.follows = "flake-utils";
     };
     
-    */
+   /*
     nix-luanti = {
       type = "gitlab";
       owner = "leonard";
@@ -55,7 +37,7 @@
       host = "git.menzel.lol";
       ref = "main";
     };
-    
+     */
 
   };
 
@@ -177,6 +159,13 @@
         };
         modules = [ ./devices/pixel/nix-on-droid.nix ];
         home-manager-path = home-manager.outPath;
+      };
+      homeConfigurations."droid" = home-manager.lib.homeManagerConfiguration {
+        pkgs = import pkgs-unstable { system = "aarch64-linux";};
+        modules = [
+          ./experiments/pixel-home.nix
+          nix-luanti.homeManagerModules.default
+        ]
       };
     };
 }

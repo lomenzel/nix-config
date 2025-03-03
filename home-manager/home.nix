@@ -9,10 +9,17 @@
     ./programs/firefox.nix
     ./programs/git.nix
     ./programs/vim.nix
+    inputs.nix-luanti.homeManagerModules.default
     #./plasma.nix 
     #inputs.plasma-manager.homeManagerModules.plasma-manager 
     ./programs/vscode.nix
   ];
+
+  services.luanti = {
+    enable = true;
+    package = inputs.pkgs-unstable.legacyPackages."x86_64-linux".luanti-server;
+    servers.default.port = 30003;
+  };
 
   nixpkgs = {
     config = {
@@ -41,10 +48,8 @@
     thunderbird
     arianna
     signal-desktop
-    neochat
     elisa
     finamp
-    itinerary
     alpaka
     kwallet
     kwalletmanager
