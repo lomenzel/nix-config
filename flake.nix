@@ -164,7 +164,7 @@
         pkgs = import pkgs-unstable { system = "aarch64-linux";};
         modules = [
           ./experiments/pixel-home.nix
-          nix-luanti.homeManagerModules.default
+          inputs.nix-luanti.homeManagerModules.default
         ];
       };
     };
