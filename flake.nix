@@ -161,7 +161,7 @@
         home-manager-path = home-manager.outPath;
       };
       homeConfigurations."droid" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import pkgs-unstable { system = "aarch64-linux";};
+        pkgs = import inputs.pkgs-unstable { system = "aarch64-linux";};
         modules = [
           ./experiments/pixel-home.nix
           inputs.nix-luanti.homeManagerModules.default
