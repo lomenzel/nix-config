@@ -165,7 +165,7 @@
         modules = [
           ./experiments/pixel-home.nix
           nix-luanti.homeManagerModules.default
-        ]
+        ];
       };
     };
 }
