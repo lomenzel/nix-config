@@ -53,7 +53,7 @@
     }@inputs:
     {
       nixosConfigurations = {
-        laptop = nixpkgs.lib.nixosSystem {
+        laptop = inputs.pkgs-unstable.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = {
             inherit inputs;
