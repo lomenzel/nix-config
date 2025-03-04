@@ -115,7 +115,7 @@ in
         27701
         25565
       ];
-      allowedUDPPortRanges = [ kdeConnectPorts ];
+      allowedUDPPortRanges = [ kdeConnectPorts {from = 30000; to = 30200;} ];
     };
   services.fail2ban.enable = true;
 
