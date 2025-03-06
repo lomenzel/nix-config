@@ -15,6 +15,10 @@ in
     acceptTerms = true;
     defaults.email = "leonard.menzel@tutanota.com";
     defaults.dnsPropagationCheck = false;
+    defaults = {
+      dnsProvider = "inwx";
+      credentialsFile = inwxCredentials;
+    };
 
 
     certs = {

@@ -427,11 +427,11 @@
       },
       "locked": {
         "host": "git.menzel.lol",
-        "lastModified": 1741081743,
-        "narHash": "sha256-k5fvFUgyT9HfcMU7YdTWEdrcP5QaicGm7vZFFo3+OUQ=",
+        "lastModified": 1741115538,
+        "narHash": "sha256-ZQ5GAEkh6t4uhVIkUX55hgo0n7yd2VfyC+BH9S1/0rA=",
         "owner": "leonard",
         "repo": "nix-luanti",
-        "rev": "950157946231f4d1cdefe73f29e913ba98fab760",
+        "rev": "6c39b63b9101e0803f4bbd1ee8ba6ca7d88ae427",
         "type": "gitlab"
       },
       "original": {
@@ -765,18 +765,14 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "lastModified": 1739366468,
-        "narHash": "sha256-9A6t+IXJpzGtXriIkh7tAB1vc8vrfoLCqExjhc1ZDCU=",
-        "owner": "lomenzel",
-        "repo": "shabitica",
-        "rev": "ce63bafcde6d7fddc50430aa14e9c7f6839826df",
-        "type": "github"
+        "lastModified": 1741111479,
+        "narHash": "sha256-DKNN7wYJ8qaRtkU0LsCynqeaHarPn3HpQjNzmW7wlms=",
+        "path": "/home/leonard/Projekte/shabitica",
+        "type": "path"
       },
       "original": {
-        "owner": "lomenzel",
-        "repo": "shabitica",
-        "rev": "ce63bafcde6d7fddc50430aa14e9c7f6839826df",
-        "type": "github"
+        "path": "/home/leonard/Projekte/shabitica",
+        "type": "path"
       }
     },
     "stylix": {
@@ -803,11 +799,11 @@
         "tinted-zed": "tinted-zed"
       },
       "locked": {
-        "lastModified": 1741095125,
-        "narHash": "sha256-ols/7lAXc2qH8K9w+Bt64bW+a6rLXAk3O2JGoWdAK1g=",
+        "lastModified": 1741112087,
+        "narHash": "sha256-dBGwN4aHmX2QUXolZDhV+p06+WM5ZykL4wd9BD6bT7k=",
         "owner": "danth",
         "repo": "stylix",
-        "rev": "65c42633d4d0ebc49e8f077c289786b13a145509",
+        "rev": "11780517948f214b9f93d1bf5a2d29bc181d3a33",
         "type": "github"
       },
       "original": {

@@ -17,8 +17,9 @@
     nix-ai-stuff.url = "github:BatteredBunny/nix-ai-stuff";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nix-on-droid.url = "github:nix-community/nix-on-droid/master";
-    shabitica.url = "github:lomenzel/shabitica/ce63bafcde6d7fddc50430aa14e9c7f6839826df";
-    
+    #shabitica.url = "github:lomenzel/shabitica/ce63bafcde6d7fddc50430aa14e9c7f6839826df";
+    shabitica.url = "path:/home/leonard/Projekte/shabitica";
+
     #locationshare.url = "path:/home/leonard/Projekte/location-share-backend";
     locationshare.url = "github:Importantus/location-share-backend";
       /*
@@ -94,7 +95,7 @@
           let
             system = "x86_64-linux";
           in
-          (nixpkgs.lib.nixosSystem {
+          (inputs.nixpkgs.lib.nixosSystem {
             inherit system;
             specialArgs = {
               inherit inputs;
@@ -110,7 +111,6 @@
               ./devices/desktop.nix
               stylix.nixosModules.stylix
               home-manager.nixosModules.default
-              inputs.simple-nixos-mailserver.nixosModule
               locationshare.nixosModules.default
             ];
           });

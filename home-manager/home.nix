@@ -1,6 +1,7 @@
 { config
 , pkgs
 , inputs
+, lib
 , pkgs-unstable
 , ...
 }:
@@ -31,6 +32,10 @@
       allowUnfreePredicate = (_: true);
     };
   };
+
+  #home.file."${config.home.homeDirectory}/.gtkrc-2.0".force = lib.mkForce true;
+  #home.file."${config.home.homeDirectory}/.librewolf/default/search.json.mozlz4".force = lib.mkForce true;
+
   home.packages = with pkgs-unstable; with pkgs-unstable.kdePackages; [
     libreoffice
     luanti

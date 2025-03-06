@@ -4,6 +4,7 @@
   environment.sessionVariables = {
     FLAKE = lib.mkDefault "/home/leonard/.config/nix-config";
     KUBECONFIG = secrets.k3s.kubeconfig;
+    NIXPKGS_ALLOW_UNFREE = 1;
   };
 
   nix = {
