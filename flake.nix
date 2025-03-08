@@ -170,7 +170,16 @@
       homeConfigurations."leonard" = home-manager.lib.homeManagerConfiguration {
         pkgs = import inputs.pkgs-unstable { system = "aarch64-linux";};
         modules = [
-          ./experiments/pixel-home.nix
+          ({pkgs, ...}: {
+            home.username = "leonard";
+            home.homeDirectory = "/home/droid";
+            home.stateVersion = "25.05"; # To figure this out you can comment out the line and see what version it expected.
+            programs.home-manager.enable = true;
+            services.luanti = {
+              enable = true;
+              servers.default.port = 30001;
+            };
+        })
           inputs.nix-luanti.homeManagerModules.default
         ];
       };
