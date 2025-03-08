@@ -62,7 +62,7 @@
             secrets = import /home/leonard/.config/secrets/secrets.nix;
             helper-functions = import ./helper-functions.nix;
             nix-luanti = inputs.nix-luanti.packages."x86_64-linux";
-
+            pkgs-stable = import inputs.nixpkgs {system = "x86_64-linux";};
           };
           modules = with inputs; [
             stylix.nixosModules.stylix
@@ -161,6 +161,13 @@
         home-manager-path = home-manager.outPath;
       };
       homeConfigurations."droid" = home-manager.lib.homeManagerConfiguration {
+        pkgs = import inputs.pkgs-unstable { system = "aarch64-linux";};
+        modules = [
+          ./experiments/pixel-home.nix
+          inputs.nix-luanti.homeManagerModules.default
+        ];
+      };
+      homeConfigurations."leonard" = home-manager.lib.homeManagerConfiguration {
         pkgs = import inputs.pkgs-unstable { system = "aarch64-linux";};
         modules = [
           ./experiments/pixel-home.nix

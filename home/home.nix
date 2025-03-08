@@ -5,6 +5,7 @@
 , secrets
 , helper-functions
 , pkgs-unstable
+, pkgs-stable
 , ...
 }:
 
@@ -17,7 +18,7 @@
 
   home-manager = {
     extraSpecialArgs = {
-      inherit inputs secrets helper-functions pkgs-unstable;
+      inherit inputs secrets helper-functions pkgs-unstable pkgs-stable;
     };
     users = {
       "leonard" = import ../home-manager/home.nix;

@@ -3,6 +3,7 @@
 , inputs
 , lib
 , pkgs-unstable
+, pkgs-stable
 , ...
 }:
 {
@@ -15,12 +16,6 @@
     #inputs.plasma-manager.homeManagerModules.plasma-manager 
     ./programs/vscode.nix
   ];
-
-  services.luanti = {
-    enable = true;
-    package = inputs.pkgs-unstable.legacyPackages."x86_64-linux".luanti-server;
-    servers.default.port = 30003;
-  };
 
   nixpkgs = {
     config = {
