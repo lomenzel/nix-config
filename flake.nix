@@ -176,7 +176,7 @@
             home.stateVersion = "25.05"; # To figure this out you can comment out the line and see what version it expected.
             programs.home-manager.enable = true;
             services.luanti = {
-              enable = true;
+              enable = false;
               servers.default.port = 30001;
             };
         })
