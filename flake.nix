@@ -172,7 +172,7 @@
         modules = [
           ({pkgs, ...}: {
             home.username = "leonard";
-            home.homeDirectory = "/home/droid";
+            home.homeDirectory = "/home/leonard";
             home.stateVersion = "25.05"; # To figure this out you can comment out the line and see what version it expected.
             programs.home-manager.enable = true;
             services.luanti = {
