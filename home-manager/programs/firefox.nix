@@ -103,9 +103,9 @@ in
 {
 
   programs = with pkgs; {
-    librewolf = {
+    firefox = {
       enable = true;
-      package = pkgs-unstable.librewolf;
+      package = pkgs-unstable.firefox;
       nativeMessagingHosts = with pkgs.kdePackages; [ plasma-browser-integration ];
       profiles.default = {
         userChrome = ''
