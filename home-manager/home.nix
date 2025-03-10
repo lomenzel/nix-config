@@ -4,6 +4,7 @@
 , lib
 , pkgs-unstable
 , pkgs-stable
+, nix-luanti
 , ...
 }:
 {
@@ -16,6 +17,16 @@
     #inputs.plasma-manager.homeManagerModules.plasma-manager 
     ./programs/vscode.nix
   ];
+
+  services.luanti = {
+    enable = true;
+    package = inputs.pkgs-unstable.legacyPackages."x86_64-linux".luanti-server;
+    servers.test.port = 30000;
+    servers.test.mods = with inputs.nix-luanti.packages."x86_64-linux".mods; [
+      waypoints
+    ];
+    whitelist = [ "leonard" "eemes"];
+  };
 
   nixpkgs = {
     config = {
