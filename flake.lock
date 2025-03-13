@@ -783,8 +783,8 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1741610421,
-        "narHash": "sha256-DKNN7wYJ8qaRtkU0LsCynqeaHarPn3HpQjNzmW7wlms=",
+        "lastModified": 1739632265,
+        "narHash": "sha256-QY01VZSXN66udSv8uZn5qBjO4p4p+GvVqHhE2kedDfA=",
         "path": "/home/leonard/Projekte/shabitica",
         "type": "path"
       },

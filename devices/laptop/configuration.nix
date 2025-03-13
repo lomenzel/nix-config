@@ -9,6 +9,7 @@
   imports = [
     ./hardware-configuration.nix
     ../laptop.nix
+    ../../services/remotebuild-client.nix
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
