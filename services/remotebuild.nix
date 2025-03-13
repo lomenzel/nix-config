@@ -10,4 +10,5 @@
   };
   users.groups.remotebuild = {};
   nix.settings.trusted-users = [ "remotebuild" ];
+  boot.binfmt.emulatedSystems = [ "armv7l-linux" ];
 }
