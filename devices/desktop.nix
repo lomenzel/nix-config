@@ -9,6 +9,7 @@
     ../services/wsh.nix
     ../home/home.nix
     ../server/server.nix
+    ../services/remotebuild.nix
   ];
 
 
