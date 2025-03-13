@@ -1,4 +1,4 @@
-{}: {
+{...}: {
   users.users.remotebuild = {
     isNormalUser = true;
     createHome = false;
