@@ -221,6 +221,7 @@ in
 
   services.nginx = {
     virtualHosts = {
+      /*
       "${domain}" = {
         enableACME = true;
         forceSSL = true;
@@ -232,6 +233,7 @@ in
           };
         };
       };
+      */
       "${fqdn}" = {
         useACMEHost = "wildcard";
         forceSSL = true;
