@@ -5,6 +5,7 @@
     group = "remotebuild";
     openssh.authorizedKeys.keyFiles = [
       ./remotebuild.pub
+      ./remotebuild-minive.pub
     ];
   };
   users.groups.remotebuild = {};
