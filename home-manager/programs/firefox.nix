@@ -102,6 +102,8 @@ let
 in
 {
 
+  stylix.targets.firefox.profileNames = [ "default"];
+
   programs = with pkgs; {
     firefox = {
       enable = true;
