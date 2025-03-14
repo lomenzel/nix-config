@@ -168,17 +168,35 @@
         ];
       };
       homeConfigurations."leonard" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import inputs.pkgs-unstable { system = "aarch64-linux";};
+        pkgs = import inputs.pkgs-unstable { system = "armv7l-linux";};
         modules = [
           ({pkgs, ...}: {
             home.username = "leonard";
             home.homeDirectory = "/home/leonard";
             home.stateVersion = "25.05"; # To figure this out you can comment out the line and see what version it expected.
+            home.packages = with pkgs; with kdePackages; [
+              finamp
+              nh
+              anki
+              fluffychat
+              htop
+              curl
+              git
+            ];
+            services.kdeconnect.enable = true;
             programs.home-manager.enable = true;
-            services.luanti = {
-              enable = false;
-              servers.default.port = 30001;
+            programs.zsh = {
+              enable = true;
+              shellAliases = {
+                ipa = "ip a | grep inet";
+              };
+              ohMyZsh = {
+                enable = true;
+                plugins = [ "git" "direnv" ];
+                theme = "jispwoso";
+              };
             };
+            
         })
           inputs.nix-luanti.homeManagerModules.default
         ];
