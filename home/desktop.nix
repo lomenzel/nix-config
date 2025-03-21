@@ -44,10 +44,10 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-dawn.yaml";
     
       opacity = {
-        applications = 0.3;
-        desktop = 0.1;
-        popups = 0.1;
-        terminal = 0.3;
+        applications = 0.5;
+        desktop = 0.5;
+        popups = 0.5;
+        terminal = 0.5;
       };
 
     cursor = {

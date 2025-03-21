@@ -107,6 +107,7 @@
       with pkgs;
       with kdePackages;
       [
+        
         exfat
         exfatprogs
         #parabolic
