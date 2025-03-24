@@ -121,10 +121,6 @@
         kmail-account-wizard
         akonadi-import-wizard
         #neochat
-        libbdplus
-        libaacs
-        libdvdcss
-        libbluray
       ];
   };
 

@@ -13,6 +13,12 @@
   services.desktopManager.plasma6.enable = true;
   programs.kdeconnect.enable = true;
 
+  environment.systemPackages = with pkgs; [
+    libbdplus
+    libaacs
+    libdvdcss
+    libbluray
+  ];
 
   users.users.leonard.extraGroups = [ config.services.kubo.group ];
   users.users.leonard.packages =
