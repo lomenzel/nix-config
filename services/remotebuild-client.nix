@@ -15,6 +15,8 @@
       sshUser = "remotebuild";
       sshKey = "/root/.ssh/remotebuild";
       system = pkgs.stdenv.hostPlatform.system;
+      maxJobs = 31;
+      speedFactor = 2;
       supportedFeatures = [ "nixos-test" "big-parallel" "kvm" ];
     }
   ];
