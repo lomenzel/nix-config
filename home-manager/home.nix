@@ -52,7 +52,18 @@
     mpv
     kate
     tor-browser-bundle-bin
-    vlc
+    (vlc.override {
+      libbluray = libbluray.override {
+        withAACS = true;
+        withBDplus = true;
+      };
+    })
+    (handbrake.override {
+      libbluray = libbluray.override {
+        withAACS = true;
+        withBDplus = true;
+      };
+    })
     anki
     texliveFull
     discord
