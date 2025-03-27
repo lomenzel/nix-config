@@ -66,8 +66,7 @@ in
 
   hardware.graphics = {
     enable = true;
-    #driSupport = true;
-    #driSupport32Bit = true;
+    extraPackages = with pkgs; [nvidia-vaapi-driver];
   };
 
   # Load nvidia driver for Xorg and Wayland
@@ -84,7 +83,7 @@ in
 
   #   nvidiaSettings = true;
 
-  #   #package = config.boot.kernelPackages.nvidiaPackages.stable;
+ package = config.boot.kernelPackages.nvidiaPackages.beta;
    };
 
   services.xserver.enable = true;
