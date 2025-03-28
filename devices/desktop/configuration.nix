@@ -32,8 +32,15 @@ in
       };
       whitelist = [ "leonard" "airin" "jonas" "sophia" "stefan" "eddi" ];
     };
+    servers.airin = {
+    	port = 30002;
+	config.only_peaceful_mobs = true;
+	whitelist = [ "leonard" "airin" ];
+    };
     
   };
+
+
 
   hardware.bluetooth.enable = true;
   #services.blueman.enable = true;
