@@ -47,7 +47,6 @@
       self,
       nixpkgs,
       #uex,
-
       wsh,
       home-manager,
       ...
@@ -103,6 +102,7 @@
               nix-ai-stuff = inputs.nix-ai-stuff.packages.${system};
               secrets = import /home/leonard/.config/secrets/secrets.nix;
               helper-functions = import ./helper-functions.nix;
+               nix-luanti = inputs.nix-luanti.packages."x86_64-linux";
               pkgs-unstable = import inputs.pkgs-unstable {  system = "x86_64-linux"; };
             };
             modules = with inputs; [
@@ -112,6 +112,7 @@
               stylix.nixosModules.stylix
               home-manager.nixosModules.default
               locationshare.nixosModules.default
+              nix-luanti.nixosModules.default
             ];
           });
         pi = nixpkgs.lib.nixosSystem {

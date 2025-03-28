@@ -164,6 +164,7 @@ in
         relaybot.authless_portals = false;
         permissions = {
           "@leonard:menzel.lol" = "admin";
+          "*" = "relaybot";
         };
         animated_sticker = {
           target = "webm";

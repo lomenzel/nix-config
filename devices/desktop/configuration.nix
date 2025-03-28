@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, nix-luanti, ... }:
 let
   toHostList =
     virtualHosts:
@@ -16,6 +16,24 @@ in
     ./hardware-configuration.nix
     #../../services/samba.nix
   ];
+
+
+
+  services.luanti = {
+    enable = true;
+    package = inputs.pkgs-unstable.legacyPackages."x86_64-linux".luanti-server;
+    servers.kinder = { 
+      port = 30001;
+      mods = with nix-luanti.mods; [
+        waypoints
+      ];
+      config = {
+        only_peaceful_mobs = true;
+      };
+      whitelist = [ "leonard" "airin" "jonas" "sophia" "stefan" "eddi" ];
+    };
+    
+  };
 
   hardware.bluetooth.enable = true;
   #services.blueman.enable = true;
