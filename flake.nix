@@ -37,7 +37,7 @@
       host = "git.menzel.lol";
       ref = "main";
     };
-    immich-uploader.url = "path:/home/leonard/Projekte/immich_upload_daemon";
+    immich-uploader.url = "github:lomenzel/immich_upload_daemon";
 
   };
 
