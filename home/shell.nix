@@ -1,4 +1,10 @@
-{ config, pkgs, secrets, lib, ... }:
+{
+  config,
+  pkgs,
+  secrets,
+  lib,
+  ...
+}:
 {
 
   environment.sessionVariables = {
@@ -23,7 +29,10 @@
     less
   ];
   users.users.leonard.shell = pkgs.zsh;
-  networking.nameservers = [ "192.168.178.188" "8.8.8.8" ];
+  networking.nameservers = [
+    "192.168.178.188"
+    "8.8.8.8"
+  ];
   networking.resolvconf.enable = false;
 
   programs.zsh = {
@@ -34,7 +43,10 @@
     };
     ohMyZsh = {
       enable = true;
-      plugins = [ "git" "direnv" ];
+      plugins = [
+        "git"
+        "direnv"
+      ];
       theme = "jispwoso";
     };
   };

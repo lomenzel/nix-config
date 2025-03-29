@@ -12,7 +12,6 @@ let
 in
 {
 
-
   nixpkgs.config.allowUnfree = true;
   services = {
     ollama = {
@@ -36,43 +35,42 @@ in
       enable = true;
       port = 3501;
       hostname = "0.0.0.0";
-#      package = pkgs-unstable.nextjs-ollama-llm-ui;
+      #      package = pkgs-unstable.nextjs-ollama-llm-ui;
       ollamaUrl = "https://chat.ai.menzel.lol";
     };
 
-/*
-    nginx.virtualHosts."chat.ai.menzel.lol" = {
-      forceSSL = true;
-      useACMEHost = "ai-wildcard";
-      basicAuth = secrets.basicAuth;
-      locations."/" = {
-        proxyPass = "http://127.0.0.1:3501";
-      };
-      locations."/api" = {
-        proxyPass = "http://localhost:3500";
-        extraConfig = ''
-          proxy_read_timeout 3000s;
-          proxy_send_timeout 3000s;
-          proxy_connect_timeout 3000s;
-        '';
-      };
-    };
-    nginx.virtualHosts."ollama.menzel.lol" = {
-      forceSSL = true;
-      useACMEHost = "wildcard";
-      basicAuth = secrets.basicAuth;
-      locations."/" = {
-        proxyPass = "http://localhost:3500";
-        extraConfig = ''
-          proxy_read_timeout 3000s;
-          proxy_send_timeout 3000s;
-          proxy_connect_timeout 3000s;
-        '';
-      };
-    };
-*/
+    /*
+        nginx.virtualHosts."chat.ai.menzel.lol" = {
+          forceSSL = true;
+          useACMEHost = "ai-wildcard";
+          basicAuth = secrets.basicAuth;
+          locations."/" = {
+            proxyPass = "http://127.0.0.1:3501";
+          };
+          locations."/api" = {
+            proxyPass = "http://localhost:3500";
+            extraConfig = ''
+              proxy_read_timeout 3000s;
+              proxy_send_timeout 3000s;
+              proxy_connect_timeout 3000s;
+            '';
+          };
+        };
+        nginx.virtualHosts."ollama.menzel.lol" = {
+          forceSSL = true;
+          useACMEHost = "wildcard";
+          basicAuth = secrets.basicAuth;
+          locations."/" = {
+            proxyPass = "http://localhost:3500";
+            extraConfig = ''
+              proxy_read_timeout 3000s;
+              proxy_send_timeout 3000s;
+              proxy_connect_timeout 3000s;
+            '';
+          };
+        };
+    */
   };
-
 
   systemd.services.ollama.serviceConfig = {
     TimeoutStartSec = "0";

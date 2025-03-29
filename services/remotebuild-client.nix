@@ -1,12 +1,13 @@
-{pkgs,...}:{
+{ pkgs, ... }:
+{
   nix.distributedBuilds = true;
   nix.settings.builders-use-substitutes = true;
 
- nix.settings = {
+  nix.settings = {
     substituters = [
       "https://cache.menzel.lol"
     ];
-    trusted-public-keys = ["cache.menzel.lol:9HvL7GP4GKds1IiTJxRIRi63lOXixzcikeP9beSDrNk="];
+    trusted-public-keys = [ "cache.menzel.lol:9HvL7GP4GKds1IiTJxRIRi63lOXixzcikeP9beSDrNk=" ];
   };
 
   nix.buildMachines = [
@@ -17,7 +18,11 @@
       system = pkgs.stdenv.hostPlatform.system;
       maxJobs = 31;
       speedFactor = 2;
-      supportedFeatures = [ "nixos-test" "big-parallel" "kvm" ];
+      supportedFeatures = [
+        "nixos-test"
+        "big-parallel"
+        "kvm"
+      ];
     }
   ];
 }

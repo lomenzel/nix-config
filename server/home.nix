@@ -98,7 +98,11 @@
       default_config = { };
       http = {
         server_host = "0.0.0.0";
-        trusted_proxies = [ "::1" "127.0.0.1" "192.168.178.188" ];
+        trusted_proxies = [
+          "::1"
+          "127.0.0.1"
+          "192.168.178.188"
+        ];
         use_x_forwarded_for = true;
       };
       "automation ui" = "!include automations.yaml";
@@ -118,7 +122,7 @@
     };
   };
 
-  services.wyoming =  {
+  services.wyoming = {
     faster-whisper.servers.test = {
       enable = true;
       device = "cuda";
@@ -131,7 +135,6 @@
       voice = "de_DE-thorsten-high";
     };
   };
-
 
   services.esphome.enable = true;
   services.esphome.openFirewall = true;

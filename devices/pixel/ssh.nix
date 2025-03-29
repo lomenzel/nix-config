@@ -1,4 +1,5 @@
- {config, pkgs, ...}: let
+{ config, pkgs, ... }:
+let
   sshdTmpDirectory = "${config.user.home}/sshd-tmp";
   sshdDirectory = "${config.user.home}/sshd";
   pathToPubKey = "/data/data/com.termux.nix/files/home/.config/secrets/laptop_nix_on_droid_key.pub";

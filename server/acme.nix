@@ -20,9 +20,8 @@ in
       credentialsFile = inwxCredentials;
     };
 
-
     certs = {
-      
+
       "wildcard" = {
         domain = "*.menzel.lol";
         #listenHTTP = ":80";
@@ -30,37 +29,37 @@ in
         credentialsFile = inwxCredentials;
       };
       /*
-      "wildcardIPFS" = {
-        domain = "*.ipfs.gateway.menzel.lol";
-        #listenHTTP = ":80";
-        dnsProvider = "inwx";
-        credentialsFile = inwxCredentials;
-      };
-      "wildcardIPNS" = {
-        domain = "*.ipns.gateway.menzel.lol";
-        #listenHTTP = ":80";
-        dnsProvider = "inwx";
-        credentialsFile = inwxCredentials;
-      };
-      "ai-wildcard" = {
-        domain = "*.ai.menzel.lol";
-        dnsProvider = "inwx";
-        credentialsFile = inwxCredentials;
-      };
-      "beta-wildcard" = {
-        domain = "*.beta.menzel.lol";
-        dnsProvider = "inwx";
-        credentialsFile = inwxCredentials;
-      };
-      
-        "turn.menzel.lol" = {
-          # TODO
+        "wildcardIPFS" = {
+          domain = "*.ipfs.gateway.menzel.lol";
+          #listenHTTP = ":80";
           dnsProvider = "inwx";
           credentialsFile = inwxCredentials;
-
-          postRun = "systemctl restart coturn.service";
-          group = "turnserver";
         };
+        "wildcardIPNS" = {
+          domain = "*.ipns.gateway.menzel.lol";
+          #listenHTTP = ":80";
+          dnsProvider = "inwx";
+          credentialsFile = inwxCredentials;
+        };
+        "ai-wildcard" = {
+          domain = "*.ai.menzel.lol";
+          dnsProvider = "inwx";
+          credentialsFile = inwxCredentials;
+        };
+        "beta-wildcard" = {
+          domain = "*.beta.menzel.lol";
+          dnsProvider = "inwx";
+          credentialsFile = inwxCredentials;
+        };
+
+          "turn.menzel.lol" = {
+            # TODO
+            dnsProvider = "inwx";
+            credentialsFile = inwxCredentials;
+
+            postRun = "systemctl restart coturn.service";
+            group = "turnserver";
+          };
       */
     };
   };

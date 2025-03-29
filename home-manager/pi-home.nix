@@ -9,8 +9,8 @@
     #./programs/firefox.nix
     ./programs/git.nix
     ./programs/vim.nix
-    #./plasma.nix 
-    #inputs.plasma-manager.homeManagerModules.plasma-manager 
+    #./plasma.nix
+    #inputs.plasma-manager.homeManagerModules.plasma-manager
     #./programs/vscode.nix
   ];
 

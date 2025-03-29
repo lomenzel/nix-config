@@ -1,9 +1,10 @@
-{ config
-, pkgs
-, nix-luanti
-, inputs
-, secrets
-, ...
+{
+  config,
+  pkgs,
+  nix-luanti,
+  inputs,
+  secrets,
+  ...
 }:
 {
   imports = [

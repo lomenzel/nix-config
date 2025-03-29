@@ -22,14 +22,13 @@
 
     #locationshare.url = "path:/home/leonard/Projekte/location-share-backend";
     locationshare.url = "github:Importantus/location-share-backend";
-      /*
-    nix-luanti = {
-      #url = "github:lomenzel/nix-luanti";
-      url = "path:/home/leonard/Projekte/nix-minetest";
-      #inputs.nixpkgs.follows = "nixpkgs";
-      #inputs.flake-utils.follows = "flake-utils";
-    };
-    
+    /*
+      nix-luanti = {
+        #url = "github:lomenzel/nix-luanti";
+        url = "path:/home/leonard/Projekte/nix-minetest";
+        #inputs.nixpkgs.follows = "nixpkgs";
+        #inputs.flake-utils.follows = "flake-utils";
+      };
     */
     nix-luanti = {
       type = "gitlab";
@@ -38,7 +37,7 @@
       host = "git.menzel.lol";
       ref = "main";
     };
-  
+    immich-uploader.url = "path:/home/leonard/Projekte/immich_upload_daemon";
 
   };
 
@@ -57,11 +56,11 @@
           system = "x86_64-linux";
           specialArgs = {
             inherit inputs;
-            pkgs-unstable = import inputs.pkgs-unstable {  system = "x86_64-linux"; };
+            pkgs-unstable = import inputs.pkgs-unstable { system = "x86_64-linux"; };
             secrets = import /home/leonard/.config/secrets/secrets.nix;
             helper-functions = import ./helper-functions.nix;
             nix-luanti = inputs.nix-luanti.packages."x86_64-linux";
-            pkgs-stable = import inputs.nixpkgs {system = "x86_64-linux";};
+            pkgs-stable = import inputs.nixpkgs { system = "x86_64-linux"; };
           };
           modules = with inputs; [
             stylix.nixosModules.stylix
@@ -102,8 +101,8 @@
               nix-ai-stuff = inputs.nix-ai-stuff.packages.${system};
               secrets = import /home/leonard/.config/secrets/secrets.nix;
               helper-functions = import ./helper-functions.nix;
-               nix-luanti = inputs.nix-luanti.packages."x86_64-linux";
-              pkgs-unstable = import inputs.pkgs-unstable {  system = "x86_64-linux"; };
+              nix-luanti = inputs.nix-luanti.packages."x86_64-linux";
+              pkgs-unstable = import inputs.pkgs-unstable { system = "x86_64-linux"; };
             };
             modules = with inputs; [
               wsh.nixosModules."x86_64-linux".default
@@ -162,43 +161,52 @@
         home-manager-path = home-manager.outPath;
       };
       homeConfigurations."droid" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import inputs.pkgs-unstable { system = "aarch64-linux";};
+        pkgs = import inputs.pkgs-unstable { system = "aarch64-linux"; };
         modules = [
           ./experiments/pixel-home.nix
           inputs.nix-luanti.homeManagerModules.default
         ];
       };
       homeConfigurations."leonard" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import inputs.pkgs-unstable { system = "armv7l-linux";};
+        pkgs = import inputs.pkgs-unstable { system = "armv7l-linux"; };
         modules = [
-          ({pkgs, ...}: {
-            home.username = "leonard";
-            home.homeDirectory = "/home/leonard";
-            home.stateVersion = "25.05"; # To figure this out you can comment out the line and see what version it expected.
-            home.packages = with pkgs; with kdePackages; [
-              finamp
-              nh
-              anki
-              fluffychat
-              htop
-              curl
-              git
-            ];
-            services.kdeconnect.enable = true;
-            programs.home-manager.enable = true;
-            programs.zsh = {
-              enable = true;
-              shellAliases = {
-                ipa = "ip a | grep inet";
-              };
-              ohMyZsh = {
+          (
+            { pkgs, ... }:
+            {
+              home.username = "leonard";
+              home.homeDirectory = "/home/leonard";
+              home.stateVersion = "25.05"; # To figure this out you can comment out the line and see what version it expected.
+              home.packages =
+                with pkgs;
+                with kdePackages;
+                [
+                  finamp
+                  nh
+                  anki
+                  fluffychat
+                  htop
+                  curl
+                  git
+                ];
+              services.kdeconnect.enable = true;
+              programs.home-manager.enable = true;
+              programs.zsh = {
                 enable = true;
-                plugins = [ "git" "direnv" ];
-                theme = "jispwoso";
+                shellAliases = {
+                  ipa = "ip a | grep inet";
+                };
+                ohMyZsh = {
+                  enable = true;
+                  plugins = [
+                    "git"
+                    "direnv"
+                  ];
+                  theme = "jispwoso";
+                };
               };
-            };
-            
-        })
+
+            }
+          )
           inputs.nix-luanti.homeManagerModules.default
         ];
       };

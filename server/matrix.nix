@@ -223,17 +223,17 @@ in
   services.nginx = {
     virtualHosts = {
       /*
-      "${domain}" = {
-        enableACME = true;
-        forceSSL = true;
-        locations = {
-          "= /.well-known/matrix/server".extraConfig = mkWellKnown serverConfig;
-          "= /.well-known/matrix/client".extraConfig = mkWellKnown clientConfig;
-          "/public" = {
-            proxyPass = "http://localhost:8281/public";
+        "${domain}" = {
+          enableACME = true;
+          forceSSL = true;
+          locations = {
+            "= /.well-known/matrix/server".extraConfig = mkWellKnown serverConfig;
+            "= /.well-known/matrix/client".extraConfig = mkWellKnown clientConfig;
+            "/public" = {
+              proxyPass = "http://localhost:8281/public";
+            };
           };
         };
-      };
       */
       "${fqdn}" = {
         useACMEHost = "wildcard";

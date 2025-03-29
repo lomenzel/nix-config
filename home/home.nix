@@ -1,12 +1,13 @@
-{ config
-, pkgs
-, inputs
-, lib
-, secrets
-, helper-functions
-, pkgs-unstable
-, pkgs-stable
-, ...
+{
+  config,
+  pkgs,
+  inputs,
+  lib,
+  secrets,
+  helper-functions,
+  pkgs-unstable,
+  pkgs-stable,
+  ...
 }:
 
 {
@@ -15,10 +16,15 @@
     ./desktop.nix
   ];
 
-
   home-manager = {
     extraSpecialArgs = {
-      inherit inputs secrets helper-functions pkgs-unstable pkgs-stable;
+      inherit
+        inputs
+        secrets
+        helper-functions
+        pkgs-unstable
+        pkgs-stable
+        ;
     };
     users = {
       "leonard" = import ../home-manager/home.nix;
@@ -107,7 +113,7 @@
       with pkgs;
       with kdePackages;
       [
-        
+
         exfat
         exfatprogs
         #parabolic

@@ -5,7 +5,7 @@
     #../home/vm.nix
 
     ../services/wsh.nix
-    #../home/ipfs.nix 
+    #../home/ipfs.nix
 
     #../server/mysql.nix
     #../../kde2nix/nixos.nix

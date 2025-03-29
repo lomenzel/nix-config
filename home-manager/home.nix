@@ -1,11 +1,13 @@
-{ config
-, pkgs
-, inputs
-, lib
-, pkgs-unstable
-, pkgs-stable
-, nix-luanti
-, ...
+{
+  config,
+  pkgs,
+  inputs,
+  secrets,
+  lib,
+  pkgs-unstable,
+  pkgs-stable,
+  nix-luanti,
+  ...
 }:
 {
   imports = [
@@ -13,10 +15,18 @@
     ./programs/git.nix
     ./programs/vim.nix
     inputs.nix-luanti.homeManagerModules.default
-    #./plasma.nix 
-    #inputs.plasma-manager.homeManagerModules.plasma-manager 
+    inputs.immich-uploader.homeManagerModules.default
+    #./plasma.nix
+    #inputs.plasma-manager.homeManagerModules.plasma-manager
     ./programs/vscode.nix
   ];
+
+  services.immich-upload = {
+    enable = true;
+    baseUrl = "https://photos.menzel.lol/api";
+    apiKey = secrets.immich.apiKey;
+    mediaPaths = ["~/Bilder/Immich-Upload-Daemon-Test"];
+  };
 
   services.luanti = {
     enable = true;
@@ -25,7 +35,10 @@
     servers.test.mods = with inputs.nix-luanti.packages."x86_64-linux".mods; [
       waypoints
     ];
-    whitelist = [ "leonard" "eemes"];
+    whitelist = [
+      "leonard"
+      "eemes"
+    ];
   };
 
   nixpkgs = {
@@ -42,42 +55,45 @@
   #home.file."${config.home.homeDirectory}/.gtkrc-2.0".force = lib.mkForce true;
   #home.file."${config.home.homeDirectory}/.librewolf/default/search.json.mozlz4".force = lib.mkForce true;
 
-  home.packages = with pkgs-unstable; with pkgs-unstable.kdePackages; [
-    libreoffice
-    luanti
-    nixpkgs-fmt
-    qtwebsockets
-    brave
-    picard
-    mpv
-    kate
-    tor-browser-bundle-bin
-    (vlc.override {
-      libbluray = libbluray.override {
-        withAACS = true;
-        withBDplus = true;
-      };
-    })
-    (handbrake.override {
-      libbluray = libbluray.override {
-        withAACS = true;
-        withBDplus = true;
-      };
-    })
-    anki
-    texliveFull
-    discord
-    thunderbird
-    arianna
-    signal-desktop
-    elisa
-    finamp
-    alpaka
-    kwallet
-    kwalletmanager
-    kcalc
-    merkuro
-  ];
+  home.packages =
+    with pkgs-unstable;
+    with pkgs-unstable.kdePackages;
+    [
+      libreoffice
+      luanti
+      nixpkgs-fmt
+      qtwebsockets
+      brave
+      picard
+      mpv
+      kate
+      tor-browser-bundle-bin
+      (vlc.override {
+        libbluray = libbluray.override {
+          withAACS = true;
+          withBDplus = true;
+        };
+      })
+      (handbrake.override {
+        libbluray = libbluray.override {
+          withAACS = true;
+          withBDplus = true;
+        };
+      })
+      anki
+      texliveFull
+      discord
+      thunderbird
+      arianna
+      signal-desktop
+      elisa
+      finamp
+      alpaka
+      kwallet
+      kwalletmanager
+      kcalc
+      merkuro
+    ];
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;

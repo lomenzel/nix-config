@@ -1,7 +1,8 @@
-{ config
-, pkgs
-, secrets
-, ...
+{
+  config,
+  pkgs,
+  secrets,
+  ...
 }:
 let
   sshKey = secrets.ssh.keys.laptop;
@@ -27,7 +28,7 @@ in
     ./anki.nix
     ./home.nix
 
-    #testing    
+    #testing
     ./dailyMix/dailyMix.nix
     ./habitica.nix
     #./jitsi.nix
@@ -52,9 +53,6 @@ in
     serverAddr = "https://192.168.178.169:6443";
   };
 
-
-
-
   #Security
   services.openssh = {
     enable = true;
@@ -64,7 +62,7 @@ in
     };
   };
 
-  users.users."leonard".openssh.authorizedKeys.keys = [ 
+  users.users."leonard".openssh.authorizedKeys.keys = [
     "ssh-ed25519 ${sshKey} leonard"
     "ssh-ed25519 ${sshKey} root"
   ];
@@ -115,7 +113,13 @@ in
         27701
         25565
       ];
-      allowedUDPPortRanges = [ kdeConnectPorts {from = 30000; to = 30200;} ];
+      allowedUDPPortRanges = [
+        kdeConnectPorts
+        {
+          from = 30000;
+          to = 30200;
+        }
+      ];
     };
   services.fail2ban.enable = true;
 

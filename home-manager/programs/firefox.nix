@@ -102,7 +102,7 @@ let
 in
 {
 
-  stylix.targets.firefox.profileNames = [ "default"];
+  stylix.targets.firefox.profileNames = [ "default" ];
 
   programs = with pkgs; {
     firefox = {

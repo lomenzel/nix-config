@@ -48,20 +48,20 @@
     targets.qt.platform = "advaita";
     polarity = "light";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-dawn.yaml";
-    
-      opacity = {
-        applications = 0.5;
-        desktop = 0.5;
-        popups = 0.5;
-        terminal = 0.5;
-      };
+
+    opacity = {
+      applications = 0.5;
+      desktop = 0.5;
+      popups = 0.5;
+      terminal = 0.5;
+    };
 
     cursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Classic";
       size = 24;
     };
-    
+
     fonts = {
       monospace = {
         package = inputs.pkgs-unstable.legacyPackages."x86_64-linux".nerd-fonts.jetbrains-mono;

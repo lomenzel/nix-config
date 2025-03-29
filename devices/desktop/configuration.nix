@@ -2,7 +2,13 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, nix-luanti, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  nix-luanti,
+  ...
+}:
 let
   toHostList =
     virtualHosts:
@@ -17,12 +23,10 @@ in
     #../../services/samba.nix
   ];
 
-
-
   services.luanti = {
     enable = true;
     package = inputs.pkgs-unstable.legacyPackages."x86_64-linux".luanti-server;
-    servers.kinder = { 
+    servers.kinder = {
       port = 30001;
       mods = with nix-luanti.mods; [
         waypoints
@@ -30,17 +34,25 @@ in
       config = {
         only_peaceful_mobs = true;
       };
-      whitelist = [ "leonard" "airin" "jonas" "sophia" "stefan" "eddi" ];
+      whitelist = [
+        "leonard"
+        "airin"
+        "jonas"
+        "sophia"
+        "stefan"
+        "eddi"
+      ];
     };
     servers.airin = {
-    	port = 30002;
-	config.only_peaceful_mobs = true;
-	whitelist = [ "leonard" "airin" ];
+      port = 30002;
+      config.only_peaceful_mobs = true;
+      whitelist = [
+        "leonard"
+        "airin"
+      ];
     };
-    
+
   };
-
-
 
   hardware.bluetooth.enable = true;
   #services.blueman.enable = true;
@@ -91,25 +103,25 @@ in
 
   hardware.graphics = {
     enable = true;
-    extraPackages = with pkgs; [nvidia-vaapi-driver];
+    extraPackages = with pkgs; [ nvidia-vaapi-driver ];
   };
 
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = [ "nvidia" ];
   #hardware.nvidia-container-toolkit.enable = true;
-   hardware.nvidia = {
+  hardware.nvidia = {
 
-  #   # Modesetting is required.
-  #   modesetting.enable = false;
-  #   powerManagement.enable = false;
-  #   powerManagement.finegrained = false;
+    #   # Modesetting is required.
+    #   modesetting.enable = false;
+    #   powerManagement.enable = false;
+    #   powerManagement.finegrained = false;
 
-     open = false;
+    open = false;
 
-  #   nvidiaSettings = true;
+    #   nvidiaSettings = true;
 
- package = config.boot.kernelPackages.nvidiaPackages.beta;
-   };
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
+  };
 
   services.xserver.enable = true;
 
@@ -153,7 +165,6 @@ in
 
   services.openssh.enable = true;
 
-
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
@@ -165,21 +176,21 @@ in
   #services.teamviewer.enable = true;
 
   /*
-  services.wyoming.satellite = {
-    area = "Stübele";
-    enable = true;
-    sounds = {
-      awake = ./marimba-bloop-2-188149.wav;
-      done = ./marimba-bloop-3-188151.wav;
+    services.wyoming.satellite = {
+      area = "Stübele";
+      enable = true;
+      sounds = {
+        awake = ./marimba-bloop-2-188149.wav;
+        done = ./marimba-bloop-3-188151.wav;
+      };
+      vad.enable = false;
+      user = "leonard";
+      microphone.command = "${pkgs.pulseaudio}/bin/parec -d alsa_input.usb-C-Media_Electronics_Inc._USB_PnP_Sound_Device-00.mono-fallback --raw --rate=16000 --format=s16le --channels=1";
     };
-    vad.enable = false;
-    user = "leonard";
-    microphone.command = "${pkgs.pulseaudio}/bin/parec -d alsa_input.usb-C-Media_Electronics_Inc._USB_PnP_Sound_Device-00.mono-fallback --raw --rate=16000 --format=s16le --channels=1";
-  };
-  services.wyoming.openwakeword = {
-    preloadModels = [ "hey_jarvis" ];
-    enable = true;
-  };
+    services.wyoming.openwakeword = {
+      preloadModels = [ "hey_jarvis" ];
+      enable = true;
+    };
   */
 
 }

@@ -1,13 +1,14 @@
-{config,...}: {
+{ config, ... }:
+{
   users.users.remotebuild = {
     isNormalUser = true;
     createHome = false;
     group = "remotebuild";
     openssh.authorizedKeys.keyFiles = [
       ./remotebuild-minive.pub
-    ] ++ (if config.networking.hostName != "laptop" then [ ./remotebuild-laptop.pub ] else []);
+    ] ++ (if config.networking.hostName != "laptop" then [ ./remotebuild-laptop.pub ] else [ ]);
   };
-  users.groups.remotebuild = {};
+  users.groups.remotebuild = { };
   nix.settings = {
     trusted-users = [ "remotebuild" ];
     max-jobs = "auto";

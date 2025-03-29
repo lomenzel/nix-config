@@ -1,4 +1,9 @@
-{ config, pkgs, secrets, ... }:
+{
+  config,
+  pkgs,
+  secrets,
+  ...
+}:
 let
 
   music-py = pkgs.python312.withPackages (
@@ -11,27 +16,25 @@ let
   );
 
   jellyfin-music =
-  let
-    env_file = pkgs.writeText ".env" ''
-      API_KEY=${secrets.jellyfin.api-key}
-      JELLYFIN_IP=https://media.menzel.lol
-      USER_NAME=leonard
-      PLAYLIST_LENGTH=5  # Length of the playlist in hours
-      PLAYLIST_NAME=Leonard Daily Mix
-    '';
-  in
-   pkgs.stdenv.mkDerivation {
-    pname = "jellyfin-music";
-    version = "1.0";
-    src = ./.;
-    installPhase = ''
-      mkdir -p $out
-      cp $src/jellyfin_music.py $out/jellyfin_music.py
-      cp ${env_file} $out/.env
-    '';
-  };
-
-
+    let
+      env_file = pkgs.writeText ".env" ''
+        API_KEY=${secrets.jellyfin.api-key}
+        JELLYFIN_IP=https://media.menzel.lol
+        USER_NAME=leonard
+        PLAYLIST_LENGTH=5  # Length of the playlist in hours
+        PLAYLIST_NAME=Leonard Daily Mix
+      '';
+    in
+    pkgs.stdenv.mkDerivation {
+      pname = "jellyfin-music";
+      version = "1.0";
+      src = ./.;
+      installPhase = ''
+        mkdir -p $out
+        cp $src/jellyfin_music.py $out/jellyfin_music.py
+        cp ${env_file} $out/.env
+      '';
+    };
 
 in
 {
