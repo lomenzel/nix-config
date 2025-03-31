@@ -59,6 +59,7 @@
     with pkgs-unstable;
     with pkgs-unstable.kdePackages;
     [
+      
       libreoffice
       luanti
       nixpkgs-fmt

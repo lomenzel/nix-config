@@ -168,7 +168,7 @@
         ];
       };
       homeConfigurations."leonard" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import inputs.pkgs-unstable { system = "armv7l-linux"; };
+        pkgs = (import inputs.pkgs-unstable { system = "armv7l-linux"; }).pkgsCross.armv7l-hf-multiplatform;
         modules = [
           (
             { pkgs, ... }:
@@ -177,16 +177,13 @@
               home.homeDirectory = "/home/leonard";
               home.stateVersion = "25.05"; # To figure this out you can comment out the line and see what version it expected.
               home.packages =
-                with pkgs;
-                with kdePackages;
+                with nixpkgs.legacyPackages.x86_64-linux.pkgsCross.armv7l-hf-multiplatform;
                 [
-                  finamp
                   nh
-                  anki
-                  fluffychat
                   htop
-                  curl
+                  nix-output-monitor
                   git
+                  zsh
                 ];
               services.kdeconnect.enable = true;
               programs.home-manager.enable = true;
@@ -195,7 +192,7 @@
                 shellAliases = {
                   ipa = "ip a | grep inet";
                 };
-                ohMyZsh = {
+                oh-my-zsh = {
                   enable = true;
                   plugins = [
                     "git"

@@ -24,6 +24,7 @@
     nh
     htop
     curl
+    nix-output-monitor
     killall
     nixfmt-rfc-style
     less
