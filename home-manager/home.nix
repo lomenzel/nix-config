@@ -25,7 +25,7 @@
     enable = true;
     baseUrl = "https://photos.menzel.lol/api";
     apiKey = secrets.immich.apiKey;
-    mediaPaths = ["~/Bilder/Immich-Upload-Daemon-Test"];
+    mediaPaths = [ "~/Bilder/Immich-Upload-Daemon-Test" ];
   };
 
   services.luanti = {
@@ -59,7 +59,7 @@
     with pkgs-unstable;
     with pkgs-unstable.kdePackages;
     [
-      
+
       libreoffice
       luanti
       nixpkgs-fmt

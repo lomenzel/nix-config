@@ -168,23 +168,26 @@
         ];
       };
       homeConfigurations."leonard" = home-manager.lib.homeManagerConfiguration {
-        pkgs = (import inputs.pkgs-unstable { system = "x86_64-linux"; }).pkgsCross.armv7l-hf-multiplatform;
+        pkgs = import inputs.pkgs-unstable {
+          system = "x86_64-linux";
+          crossSystem = {
+            config = "armv7l-linux";
+          };
+        };
         modules = [
           (
             { pkgs, ... }:
             {
               home.username = "leonard";
               home.homeDirectory = "/home/leonard";
-              home.stateVersion = "25.05"; # To figure this out you can comment out the line and see what version it expected.
-              home.packages =
-                with pkgs;
-                [
-                  nh
-                  htop
-                  nix-output-monitor
-                  git
-                  zsh
-                ];
+              home.stateVersion = "25.05";
+              home.packages = with pkgs; [
+                nh
+                htop
+                nix-output-monitor
+                git
+                zsh
+              ];
               services.kdeconnect.enable = true;
               programs.home-manager.enable = true;
               programs.zsh = {
