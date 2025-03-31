@@ -168,7 +168,7 @@
         ];
       };
       homeConfigurations."leonard" = home-manager.lib.homeManagerConfiguration {
-        pkgs = (import inputs.pkgs-unstable { system = "armv7l-linux"; }).pkgsCross.armv7l-hf-multiplatform;
+        pkgs = (import inputs.pkgs-unstable { system = "x86_64-linux"; }).pkgsCross.armv7l-hf-multiplatform;
         modules = [
           (
             { pkgs, ... }:
@@ -177,7 +177,7 @@
               home.homeDirectory = "/home/leonard";
               home.stateVersion = "25.05"; # To figure this out you can comment out the line and see what version it expected.
               home.packages =
-                with nixpkgs.legacyPackages.x86_64-linux.pkgsCross.armv7l-hf-multiplatform;
+                with pkgs;
                 [
                   nh
                   htop
