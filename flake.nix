@@ -182,32 +182,11 @@
               home.homeDirectory = "/home/leonard";
               home.stateVersion = "25.05";
               home.packages = with pkgs; [
-                nh
-                htop
-                nix-output-monitor
-                git
-                zsh
               ];
-              services.kdeconnect.enable = true;
+              # services.kdeconnect.enable = true;
               programs.home-manager.enable = true;
-              programs.zsh = {
-                enable = true;
-                shellAliases = {
-                  ipa = "ip a | grep inet";
-                };
-                oh-my-zsh = {
-                  enable = true;
-                  plugins = [
-                    "git"
-                    "direnv"
-                  ];
-                  theme = "jispwoso";
-                };
-              };
-
             }
           )
-          inputs.nix-luanti.homeManagerModules.default
         ];
       };
     };
