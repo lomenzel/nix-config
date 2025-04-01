@@ -16,5 +16,5 @@
     # substituters = [ "https://cache.menzel.lol" ];
     # trusted-public-keys = ["cache.menzel.lol:9HvL7GP4GKds1IiTJxRIRi63lOXixzcikeP9beSDrNk="];
   };
-  boot.binfmt.emulatedSystems = [ "armv7l-linux" ];
+  #boot.binfmt.emulatedSystems = [ "armv7l-linux" ];
 }
