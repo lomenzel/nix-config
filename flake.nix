@@ -169,10 +169,8 @@
       };
       homeConfigurations."leonard" = home-manager.lib.homeManagerConfiguration {
         pkgs = import inputs.pkgs-unstable {
-          system = "x86_64-linux";
-          crossSystem = {
-            config = "armv7l-linux";
-          };
+          localSystem.system = "x86_64-linux";
+          crossSystem.system = "armv7l-linux";
         };
         modules = [
           (
