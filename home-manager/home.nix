@@ -94,6 +94,7 @@
       kwalletmanager
       kcalc
       merkuro
+      nextcloud-client
     ];
   programs.direnv = {
     enable = true;
