@@ -37,7 +37,7 @@
       host = "git.menzel.lol";
       ref = "main";
     };
-    immich-uploader.url = "github:lomenzel/immich_upload_daemon";
+    immich-uploader.url = "github:luigi311/immich_upload_daemon";
 
   };
 
@@ -169,8 +169,7 @@
       };
       homeConfigurations."leonard" = home-manager.lib.homeManagerConfiguration {
         pkgs = import inputs.pkgs-unstable {
-          localSystem.system = "x86_64-linux";
-          crossSystem.system = "armv7l-linux";
+          system = "aarch64";
         };
         modules = [
           (
