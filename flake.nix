@@ -175,6 +175,9 @@
           (
             { pkgs, ... }:
             {
+              imports = [
+                inputs.immich-uploader.homeManagerModules.default
+              ];
               home.username = "leonard";
               home.homeDirectory = "/home/leonard";
               home.stateVersion = "25.05";
@@ -184,6 +187,19 @@
                 finamp
 
               ];
+
+              services.immich-upload =
+                let
+
+                  secrets = import /home/leonard/.config/secrets/secrets.nix;
+
+                in
+                {
+                  enable = true;
+                  baseUrl = "https://photos.menzel.lol/api";
+                  apiKey = secrets.immich.apiKey;
+                  mediaPaths = [ "~/Pictures/Camera" ];
+                };
               services.kdeconnect.enable = true;
               programs.home-manager.enable = true;
             }

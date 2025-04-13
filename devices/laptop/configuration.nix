@@ -36,10 +36,7 @@
   # Optional: Paket, das ST-Link und OpenOCD enthält
   # services.udev.packages = [ pkgs.openocd pkgs.stlink ];
 
-
   services.jellyfin.enable = true;
-
-
 
   #services.minetest-server.enable = true;
 
