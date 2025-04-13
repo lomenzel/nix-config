@@ -169,7 +169,7 @@
       };
       homeConfigurations."leonard" = home-manager.lib.homeManagerConfiguration {
         pkgs = import inputs.pkgs-unstable {
-          system = "aarch64";
+          system = "aarch64-linux";
         };
         modules = [
           (
@@ -179,8 +179,12 @@
               home.homeDirectory = "/home/leonard";
               home.stateVersion = "25.05";
               home.packages = with pkgs; [
+                nix-output-monitor
+                nh
+                finamp
+
               ];
-              # services.kdeconnect.enable = true;
+              services.kdeconnect.enable = true;
               programs.home-manager.enable = true;
             }
           )
