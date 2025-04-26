@@ -1,17 +1,12 @@
-# /etc/nixos/flake.nix
-let
-  stable-version = "24.11";
-in
-
 {
-  description = "flake for laptop";
+  description = "flake for everything";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-${stable-version}";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     pkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     wsh.url = "github:lomenzel/web-command";
     home-manager = {
-      url = "github:nix-community/home-manager/release-${stable-version}";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager-unstable = {
