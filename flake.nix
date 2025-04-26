@@ -29,7 +29,7 @@
     shabitica.url = "path:/home/leonard/Projekte/shabitica";
 
     #locationshare.url = "path:/home/leonard/Projekte/location-share-backend";
-    locationshare.url = "github:Importantus/location-share-backend";
+    locationshare.url = "github:lomenzel/location-share-backend/patch-1";
     /*
       nix-luanti = {
         #url = "github:lomenzel/nix-luanti";
