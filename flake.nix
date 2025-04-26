@@ -1,12 +1,20 @@
 # /etc/nixos/flake.nix
+let
+  stable-version = "24.11";
+in
+
 {
   description = "flake for laptop";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-${stable-version}";
     pkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     wsh.url = "github:lomenzel/web-command";
     home-manager = {
+      url = "github:nix-community/home-manager/release-${stable-version}";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    home-manager-unstable = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "pkgs-unstable";
     };
@@ -74,7 +82,7 @@
             nix-luanti.nixosModules.default
             locationshare.nixosModules.default
             ./devices/laptop/configuration.nix
-            home-manager.nixosModules.default
+            home-manager-unstable.nixosModules.default
           ];
 
         };
