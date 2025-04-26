@@ -107,7 +107,7 @@ in
   programs = with pkgs; {
     firefox = {
       enable = true;
-      package = pkgs-unstable.firefox;
+      package = nixpkgs-unstable.firefox;
       nativeMessagingHosts = with pkgs.kdePackages; [ plasma-browser-integration ];
       profiles.default = {
         userChrome = ''
