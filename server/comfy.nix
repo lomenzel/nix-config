@@ -23,7 +23,7 @@
     host = "localhost";
     acceleration = "cuda";
     customNodes = pkgs.comfyui.pkgs;
-    models = builtins.attrValues pkgs.nixifiedd-ai.models;
+    models = builtins.attrValues nixifiedd-ai.models;
   };
 
   services.nginx.virtualHosts."image.ai.menzel.lol" = {
