@@ -22,8 +22,9 @@
     home = "/mnt/server/comfyui";
     host = "localhost";
     acceleration = "cuda";
-    customNodes = pkgs.comfyui.pkgs;
-    models = builtins.attrValues inputs.nixified-ai.models;
+    package = pkgs.comfyui-nvidia;
+    customNodes = pkgs.comfyui-nvidia.pkgs;
+    models = builtins.attrValues inputs.nixified-ai.packages."x86_64-linux".models;
   };
 
   services.nginx.virtualHosts."image.ai.menzel.lol" = {
