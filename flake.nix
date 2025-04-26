@@ -15,6 +15,7 @@
       inputs.nixpkgs.follows = "pkgs-unstable";
     };
     nix-ai-stuff.url = "github:BatteredBunny/nix-ai-stuff";
+    inputs.nixified-ai.url = "github:matthewcroughan/nixified-ai";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nix-on-droid.url = "github:nix-community/nix-on-droid/master";
     #shabitica.url = "github:lomenzel/shabitica/ce63bafcde6d7fddc50430aa14e9c7f6839826df";
@@ -112,6 +113,7 @@
               home-manager.nixosModules.default
               locationshare.nixosModules.default
               nix-luanti.nixosModules.default
+              inputs.nixified-ai.nixosModules.comfyui;
             ];
           });
         pi = nixpkgs.lib.nixosSystem {
