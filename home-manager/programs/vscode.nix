@@ -11,7 +11,7 @@ with (helper-functions { inherit lib; });
 
   home.packages = [ pkgs.nixfmt-rfc-style ];
 
-  stylix.targets.vscode.profileNames = [ "default" ];
+  #stylix.targets.vscode.profileNames = [ "default" ];
 
   programs.vscode = {
     enable = true;
