@@ -20,6 +20,8 @@ with (helper-functions { inherit lib; });
       #enable = true;
       #hie.enable = true;
     };
+
+    /*
     profiles.default.enableUpdateCheck = false;
     profiles.default.extensions = with pkgs.vscode-extensions; [
       bbenoist.nix
@@ -47,6 +49,7 @@ with (helper-functions { inherit lib; });
       "git.autofetch" = true;
       "redhat.telemetry.enabled" = false;
     };
+    */
   };
 
   home.file =
