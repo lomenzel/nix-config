@@ -51,7 +51,12 @@ in
         "airin"
       ];
     };
+  };
 
+  fileSystems."/mnt/server" = {
+    device = "192.168.178.188:/var/lib/nfs/desktop";
+    fsType = "nfs4";
+    options = ["defaults" "_netdev"];
   };
 
   hardware.bluetooth.enable = true;

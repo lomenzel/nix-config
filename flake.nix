@@ -185,6 +185,7 @@
                 nix-output-monitor
                 nh
                 finamp
+                git
 
               ];
 
