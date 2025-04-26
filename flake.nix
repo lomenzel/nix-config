@@ -113,7 +113,7 @@
               home-manager.nixosModules.default
               locationshare.nixosModules.default
               nix-luanti.nixosModules.default
-              inputs.nixified-ai.nixosModules.comfyui;
+              inputs.nixified-ai.nixosModules.comfyui
             ];
           });
         pi = nixpkgs.lib.nixosSystem {
