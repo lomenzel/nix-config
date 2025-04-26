@@ -2,7 +2,7 @@
   config,
   pkgs,
   secrets,
-  nix-ai-stuff,
+  inputs,
   ...
 }:
 {
@@ -23,7 +23,7 @@
     host = "localhost";
     acceleration = "cuda";
     customNodes = pkgs.comfyui.pkgs;
-    models = builtins.attrValues nixifiedd-ai.models;
+    models = builtins.attrValues inputs.nixified-ai.models;
   };
 
   services.nginx.virtualHosts."image.ai.menzel.lol" = {
