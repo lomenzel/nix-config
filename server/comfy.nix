@@ -24,7 +24,7 @@
     acceleration = "cuda";
     package = pkgs.comfyui;
     customNodes = pkgs.comfyui.pkgs;
-    models = builtins.attrValues inputs.nixified-ai.packages."x86_64-linux".models;
+    models = builtins.attrValues pkgs.nixified-ai.models;
   };
 
   services.nginx.virtualHosts."image.ai.menzel.lol" = {
