@@ -23,7 +23,6 @@
     home = "/mnt/server/comfyui";
     host = "localhost";
     acceleration = "cuda";
-    openFirewall = true;
   };
 
   services.nginx.virtualHosts."image.ai.menzel.lol" = {
