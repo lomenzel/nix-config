@@ -3,7 +3,7 @@
   pkgs,
   secrets,
   inputs,
-  pkgs-unstable,
+  nixpkgs-unstable,
   ...
 }:
 let
@@ -29,13 +29,13 @@ in
         "deepseek-r1:14b"
       ];
       acceleration = "cuda";
-      package = pkgs-unstable.ollama-cuda;
+      package = nixpkgs-unstable.ollama-cuda;
     };
     nextjs-ollama-llm-ui = {
       enable = true;
       port = 3501;
       hostname = "0.0.0.0";
-      package = pkgs-unstable.nextjs-ollama-llm-ui;
+      package = nixpkgs-unstable.nextjs-ollama-llm-ui;
       ollamaUrl = "https://chat.ai.menzel.lol";
     };
 

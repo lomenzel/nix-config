@@ -25,7 +25,7 @@ in
 
   services.luanti = {
     enable = true;
-    package = inputs.pkgs-unstable.legacyPackages."x86_64-linux".luanti-server;
+    package = inputs.nixpkgs-unstable.legacyPackages."x86_64-linux".luanti-server;
     servers.kinder = {
       port = 30001;
       mods = with nix-luanti.mods; [

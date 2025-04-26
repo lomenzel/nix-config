@@ -4,7 +4,7 @@
   inputs,
   secrets,
   lib,
-  pkgs-unstable,
+  nixpkgs-unstable,
   pkgs-stable,
   nix-luanti,
   ...
@@ -30,7 +30,7 @@
 
   services.luanti = {
     enable = true;
-    package = inputs.pkgs-unstable.legacyPackages."x86_64-linux".luanti-server;
+    package = inputs.nixpkgs-unstable.legacyPackages."x86_64-linux".luanti-server;
     servers.test.port = 30000;
     servers.test.mods = with inputs.nix-luanti.packages."x86_64-linux".mods; [
       waypoints
@@ -56,8 +56,8 @@
   #home.file."${config.home.homeDirectory}/.librewolf/default/search.json.mozlz4".force = lib.mkForce true;
 
   home.packages =
-    with pkgs-unstable;
-    with pkgs-unstable.kdePackages;
+    with nixpkgs-unstable;
+    with nixpkgs-unstable.kdePackages;
     [
 
       libreoffice

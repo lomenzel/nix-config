@@ -5,7 +5,7 @@
   lib,
   secrets,
   helper-functions,
-  pkgs-unstable,
+  nixpkgs-unstable,
   pkgs-stable,
   ...
 }:
@@ -22,7 +22,7 @@
         inputs
         secrets
         helper-functions
-        pkgs-unstable
+        nixpkgs-unstable
         pkgs-stable
         ;
     };

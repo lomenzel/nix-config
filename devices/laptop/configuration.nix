@@ -61,7 +61,7 @@
     autoMount = true;
     localDiscovery = true;
     #extraFlags = [ "--revert-ok" ];
-    package = inputs.pkgs-unstable.legacyPackages."x86_64-linux".kubo;
+    package = inputs.nixpkgs-unstable.legacyPackages."x86_64-linux".kubo;
     enableGC = true;
     settings = {
       API.HTTPHeaders.Access-Control-Allow-Origin = [ "*" ];

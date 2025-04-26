@@ -4,7 +4,7 @@
   lib,
   colors,
   helper-functions,
-  pkgs-unstable,
+  nixpkgs-unstable,
   ...
 }:
 with (helper-functions { inherit lib; });

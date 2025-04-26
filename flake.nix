@@ -54,11 +54,11 @@
     }@inputs:
     {
       nixosConfigurations = {
-        laptop = inputs.pkgs-unstable.lib.nixosSystem {
+        laptop = inputs.nixpkgs-unstable.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = {
             inherit inputs;
-            pkgs-unstable = import inputs.pkgs-unstable { system = "x86_64-linux"; };
+            nixpkgs-unstable = import inputs.nixpkgs-unstable { system = "x86_64-linux"; };
             secrets = import /home/leonard/.config/secrets/secrets.nix;
             helper-functions = import ./helper-functions.nix;
             nix-luanti = inputs.nix-luanti.packages."x86_64-linux";
@@ -104,7 +104,7 @@
               secrets = import /home/leonard/.config/secrets/secrets.nix;
               helper-functions = import ./helper-functions.nix;
               nix-luanti = inputs.nix-luanti.packages."x86_64-linux";
-              pkgs-unstable = import inputs.pkgs-unstable { system = "x86_64-linux"; };
+              nixpkgs-unstable = import inputs.nixpkgs-unstable { system = "x86_64-linux"; };
             };
             modules = with inputs; [
               wsh.nixosModules."x86_64-linux".default
@@ -164,14 +164,14 @@
         home-manager-path = home-manager.outPath;
       };
       homeConfigurations."droid" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import inputs.pkgs-unstable { system = "aarch64-linux"; };
+        pkgs = import inputs.nixpkgs-unstable { system = "aarch64-linux"; };
         modules = [
           ./experiments/pixel-home.nix
           inputs.nix-luanti.homeManagerModules.default
         ];
       };
       homeConfigurations."leonard" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import inputs.pkgs-unstable {
+        pkgs = import inputs.nixpkgs-unstable {
           system = "aarch64-linux";
         };
         modules = [

@@ -64,7 +64,7 @@
 
     fonts = {
       monospace = {
-        package = inputs.pkgs-unstable.legacyPackages."x86_64-linux".nerd-fonts.jetbrains-mono;
+        package = inputs.nixpkgs-unstable.legacyPackages."x86_64-linux".nerd-fonts.jetbrains-mono;
         name = "JetBrainsMono Nerd Font Mono";
       };
 
