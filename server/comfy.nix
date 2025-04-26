@@ -22,8 +22,8 @@
     home = "/mnt/server/comfyui";
     host = "localhost";
     acceleration = "cuda";
-    package = pkgs.comfyui-nvidia;
-    customNodes = pkgs.comfyui-nvidia.pkgs;
+    package = pkgs.comfyui;
+    customNodes = pkgs.comfyui.pkgs;
     models = builtins.attrValues inputs.nixified-ai.packages."x86_64-linux".models;
   };
 
