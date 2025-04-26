@@ -45,7 +45,7 @@
       url = "https://wallpaperaccess.com/full/632832.png";
       hash = "sha256-yA0wijeakH6zLrUe4dhsqWKvZiRv3AJTnZW2QcCdTE4=";
     };
-    #targets.qt.platform = "advaita";
+    targets.qt.platform = "kde6";
     polarity = "light";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-dawn.yaml";
 
