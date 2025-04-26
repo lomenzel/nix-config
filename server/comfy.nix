@@ -23,7 +23,10 @@
     host = "localhost";
     acceleration = "cuda";
     package = pkgs.comfyui;
-    customNodes = pkgs.comfyui.pkgs;
+    customNodes = with pkgs.comfyui.pkgs; [
+      comfyui-gguf
+      comfyui-impact-pack
+    ];
     models = builtins.attrValues pkgs.nixified-ai.models;
   };
 
