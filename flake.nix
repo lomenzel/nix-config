@@ -2,42 +2,35 @@
   description = "flake for everything";
 
   inputs = {
+
+    # Stable
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
-    pkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    wsh.url = "github:lomenzel/web-command";
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    home-manager-unstable = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "pkgs-unstable";
     };
     stylix = {
       url = "github:danth/stylix/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Unstable
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    home-manager-unstable = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "pkgs-unstable";
+    };
     stylix-unstable = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "pkgs-unstable";
     };
-    nix-ai-stuff.url = "github:BatteredBunny/nix-ai-stuff";
+
+    # Master
     nixified-ai.url = "github:nixified-ai/flake";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nix-on-droid.url = "github:nix-community/nix-on-droid/master";
-    #shabitica.url = "github:lomenzel/shabitica/ce63bafcde6d7fddc50430aa14e9c7f6839826df";
     shabitica.url = "path:/home/leonard/Projekte/shabitica";
-
-    #locationshare.url = "path:/home/leonard/Projekte/location-share-backend";
     locationshare.url = "github:lomenzel/location-share-backend/patch-1";
-    /*
-      nix-luanti = {
-        #url = "github:lomenzel/nix-luanti";
-        url = "path:/home/leonard/Projekte/nix-minetest";
-        #inputs.nixpkgs.follows = "nixpkgs";
-        #inputs.flake-utils.follows = "flake-utils";
-      };
-    */
     nix-luanti = {
       type = "gitlab";
       owner = "leonard";
@@ -46,6 +39,7 @@
       ref = "main";
     };
     immich-uploader.url = "github:luigi311/immich_upload_daemon";
+    wsh.url = "github:lomenzel/web-command";
 
   };
 

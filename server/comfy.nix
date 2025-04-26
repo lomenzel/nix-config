@@ -17,12 +17,13 @@
   #   };
   # };
 
-
   services.comfyui = {
     enable = true;
     home = "/mnt/server/comfyui";
     host = "localhost";
     acceleration = "cuda";
+    customNodes = comfyui.pkgs;
+    models = builtins.attrValues pkgs.nixifiedd-ai.models;
   };
 
   services.nginx.virtualHosts."image.ai.menzel.lol" = {
