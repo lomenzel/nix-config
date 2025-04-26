@@ -11,6 +11,10 @@
       inputs.nixpkgs.follows = "pkgs-unstable";
     };
     stylix = {
+      url = "github:danth/stylix/release-24.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    stylix-unstable = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "pkgs-unstable";
     };
@@ -64,7 +68,7 @@
             pkgs-stable = import inputs.nixpkgs { system = "x86_64-linux"; };
           };
           modules = with inputs; [
-            stylix.nixosModules.stylix
+            stylix-unstable.nixosModules.stylix
             nixos-hardware.nixosModules.tuxedo-pulse-15-gen2
             wsh.nixosModules."x86_64-linux".default
             nix-luanti.nixosModules.default
