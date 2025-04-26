@@ -18,11 +18,11 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager-unstable = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "pkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     stylix-unstable = {
       url = "github:danth/stylix";
-      inputs.nixpkgs.follows = "pkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     # Master
