@@ -22,7 +22,7 @@
     home = "/mnt/server/comfyui";
     host = "localhost";
     acceleration = "cuda";
-    customNodes = comfyui.pkgs;
+    customNodes = pkgs.comfyui.pkgs;
     models = builtins.attrValues pkgs.nixifiedd-ai.models;
   };
 
