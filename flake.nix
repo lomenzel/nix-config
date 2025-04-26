@@ -15,7 +15,7 @@
       inputs.nixpkgs.follows = "pkgs-unstable";
     };
     nix-ai-stuff.url = "github:BatteredBunny/nix-ai-stuff";
-    nixified-ai.url = "github:matthewcroughan/nixified-ai";
+    nixified-ai.url = "github:nixified-ai/flake";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nix-on-droid.url = "github:nix-community/nix-on-droid/master";
     #shabitica.url = "github:lomenzel/shabitica/ce63bafcde6d7fddc50430aa14e9c7f6839826df";
