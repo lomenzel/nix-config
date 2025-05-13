@@ -76,13 +76,13 @@
     settings = {
       download-dir = "/var/lib/transmission/Downloads";
       incomplete-dir-enabled = false;
-      rpc-bind-address = "127.0.0.1"; # Only allow local access
+      rpc-bind-address = "127.0.0.1";
       rpc-whitelist = "127.0.0.1";
       proxy = "socks5://127.0.0.1:9050";
-      peer-port-random-on-start = false; # No port forwarding (Tor can't handle it)
+      peer-port-random-on-start = false;
       port-forwarding-enabled = false;
-      ratio-limit = 0; # Disable seeding if desired
-      speed-limit-up = 1; # Minimize uploads (Tor is slow)
+      ratio-limit = 0;
+      speed-limit-up = 1;
     };
   };
 
@@ -92,7 +92,7 @@
       proxyPass = "http:/127.0.0.1:9091";
       proxyWebsockets = true;
 
-    }
+    };
   };
 
   networking.firewall = {
