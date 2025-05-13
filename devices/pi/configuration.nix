@@ -85,6 +85,15 @@
       speed-limit-up = 1;
     };
   };
+  systemd.services.transmission.serviceConfig = {
+    PrivateNetwork = true;
+    IPAddressDeny = "any";
+    IPAddressAllow = "127.0.0.1";
+    RestrictAddressFamilies = [ "AF_INET" ];
+    NoNewPrivileges = true;
+    PrivateTmp = true;
+    ProtectSystem = "strict";
+  };
 
 
   systemd.services.generate-selfsigned-cert = {
