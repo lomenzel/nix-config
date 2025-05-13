@@ -86,7 +86,7 @@
     };
   };
   systemd.services.transmission.serviceConfig = {
-    PrivateNetwork = true;
+    PrivateNetwork = false;
     IPAddressDeny = "any";
     IPAddressAllow = "127.0.0.1";
     RestrictAddressFamilies = [ "AF_INET" ];
