@@ -12,6 +12,7 @@
     ../laptop.nix
     ../../services/remotebuild-client.nix
     ../../services/remotebuild.nix
+    ../../home/vm.nix
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
