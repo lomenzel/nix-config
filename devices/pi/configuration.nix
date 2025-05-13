@@ -86,7 +86,7 @@
     };
   };
 
-  services.nginx.vitualHosts."192.168.178.21" = {
+  services.nginx.virtualHosts."192.168.178.21" = {
     forceSSL = true;
     locations."/" =  {
       proxyPass = "http:/127.0.0.1:9091";
