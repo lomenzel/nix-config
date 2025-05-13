@@ -85,8 +85,29 @@
     };
   };
 
+
+  systemd.services.generate-selfsigned-cert = {
+    description = "Generate self-signed TLS certificate for NGINX";
+    wantedBy = [ "nginx.service" ];
+    before = [ "nginx.service" ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = ''
+        mkdir -p /etc/ssl/certs /etc/ssl/private
+        openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+          -keyout /etc/ssl/private/selfsigned.key \
+          -out /etc/ssl/certs/selfsigned.crt \
+          -subj "/CN=192.168.178.21"
+      '';
+      RemainAfterExit = true;
+    };
+  };
+
+
   services.nginx.enable = true;
   services.nginx.virtualHosts."192.168.178.21" = {
+    sslCertificate = "/etc/ssl/certs/selfsigned.crt";
+    sslCertificateKey = "/etc/ssl/private/selfsigned.key";
     forceSSL = true;
     locations."/" = {
       proxyPass = "http:/127.0.0.1:9091";
