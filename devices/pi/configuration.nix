@@ -55,7 +55,8 @@
     enable = true;
     client.enable = true;
     settings = {
-      SOCKSPort = [ { port = 9050; } ];
+      #seems to be by default
+      #SOCKSPort = [ { port = 9050; } ];
       DNSPort = 9053;
       SOCKSPolicy = "accept 127.0.0.1:*";
       ClientUseIPv6 = false;
