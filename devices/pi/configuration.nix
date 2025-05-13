@@ -92,7 +92,16 @@
     before = [ "nginx.service" ];
     serviceConfig = {
       Type = "oneshot";
-      ExecStart = "${pkgs.bash}/bin/bash -c '${pkgs.coreutils}/bin/mkdir -p /etc/ssl/certs /etc/ssl/private && ${pkgs.openssl}/bin/openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/selfsigned.key -out /etc/ssl/certs/selfsigned.crt -subj \"/CN=192.168.178.21\"'";
+      ExecStart = "${pkgs.bash}/bin/bash -c '
+            ${pkgs.coreutils}/bin/mkdir -p /etc/ssl/certs /etc/ssl/private &&
+            ${pkgs.openssl}/bin/openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+              -keyout /etc/ssl/private/selfsigned.key \
+              -out /etc/ssl/certs/selfsigned.crt \
+              -subj \"/CN=192.168.178.21\" &&
+            ${pkgs.coreutils}/bin/chown nginx:nginx /etc/ssl/private/selfsigned.key /etc/ssl/certs/selfsigned.crt &&
+            ${pkgs.coreutils}/bin/chmod 600 /etc/ssl/private/selfsigned.key &&
+            ${pkgs.coreutils}/bin/chmod 644 /etc/ssl/certs/selfsigned.crt
+          '";
       RemainAfterExit = true;
     };
   };
