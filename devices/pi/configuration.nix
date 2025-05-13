@@ -85,6 +85,7 @@
     };
   };
 
+  services.nginx.enable = true;
   services.nginx.virtualHosts."192.168.178.21" = {
     forceSSL = true;
     locations."/" = {
