@@ -57,11 +57,14 @@
   };
 
   environment.systemPackages = with pkgs; [
- displaylink
-];
+    displaylink
+  ];
 
-services.xserver.videoDrivers = [ "displaylink" "modesetting" ];
-systemd.services.dlm.wantedBy = [ "multi-user.target" ];
+  services.xserver.videoDrivers = [
+    "displaylink"
+    "modesetting"
+  ];
+  systemd.services.dlm.wantedBy = [ "multi-user.target" ];
 
   services.kubo = {
     enable = true;

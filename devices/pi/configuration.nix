@@ -42,9 +42,8 @@
 
   networking.hostName = "pi";
 
-  networking.networkmanager.enable = true; 
+  networking.networkmanager.enable = true;
 
-  
   time.timeZone = "UTC";
 
   users.users.leonard = {
@@ -56,7 +55,7 @@
     enable = true;
     client.enable = true;
     settings = {
-      SOCKSPort = 9050;
+      SOCKSPort = [ { port = 9050; } ];
       DNSPort = 9053;
       SOCKSPolicy = "accept 127.0.0.1:*";
       ClientUseIPv6 = false;
@@ -88,7 +87,7 @@
 
   services.nginx.virtualHosts."192.168.178.21" = {
     forceSSL = true;
-    locations."/" =  {
+    locations."/" = {
       proxyPass = "http:/127.0.0.1:9091";
       proxyWebsockets = true;
 
@@ -97,7 +96,11 @@
 
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 80 443 22 ];
+    allowedTCPPorts = [
+      80
+      443
+      22
+    ];
     allowedUDPPorts = [ ];
   };
 
