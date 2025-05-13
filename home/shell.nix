@@ -30,6 +30,8 @@
     killall
     nixfmt-rfc-style
     less
+    git
+    vim
   ];
   users.users.leonard.shell = pkgs.zsh;
   networking.nameservers = [

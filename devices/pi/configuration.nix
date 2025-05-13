@@ -37,112 +37,72 @@
     backupFileExtension = "homemanager-backup";
   };
 
-  # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
   boot.loader.grub.enable = false;
-  # Enables the generation of /boot/extlinux/extlinux.conf
   boot.loader.generic-extlinux-compatible.enable = true;
 
-  networking.hostName = "pi"; # Define your hostname.
-  # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
+  networking.hostName = "pi";
 
-  # Set your time zone.
-  # time.timeZone = "Europe/Amsterdam";
+  networking.networkmanager.enable = true; 
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  
+  time.timeZone = "UTC";
 
-  # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkb.options in tty.
-  # };
-
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-
-  # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
-  # Enable sound.
-  # hardware.pulseaudio.enable = true;
-  # OR
-  # services.pipewire = {
-  #   enable = true;
-  #   pulse.enable = true;
-  # };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.leonard = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [
-      #     firefox
-      vim
-      git
-      #     tree
-    ];
+    extraGroups = [ "wheel" ];
   };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  # environment.systemPackages = with pkgs; [
-  #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #   wget
-  # ];
+  services.tor = {
+    enable = true;
+    client.enable = true;
+    settings = {
+      SOCKSPort = 9050;
+      DNSPort = 9053;
+      SOCKSPolicy = "accept 127.0.0.1:*";
+      ClientUseIPv6 = false;
+      EnforceDistinctSubnets = true;
+    };
+  };
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+  networking.nameservers = [ "127.0.0.1" ];
+  services.resolved = {
+    enable = true;
+    extraConfig = "DNS=127.0.0.1:9053";
+    fallbackDns = [ ];
+  };
 
-  # List services that you want to enable:
+  services.transmission = {
+    enable = true;
+    settings = {
+      download-dir = "/var/lib/transmission/Downloads";
+      incomplete-dir-enabled = false;
+      rpc-bind-address = "127.0.0.1"; # Only allow local access
+      rpc-whitelist = "127.0.0.1";
+      proxy = "socks5://127.0.0.1:9050";
+      peer-port-random-on-start = false; # No port forwarding (Tor can't handle it)
+      port-forwarding-enabled = false;
+      ratio-limit = 0; # Disable seeding if desired
+      speed-limit-up = 1; # Minimize uploads (Tor is slow)
+    };
+  };
 
-  # Enable the OpenSSH daemon.
+  services.nginx.vitualHosts."192.168.178.21" = {
+    forceSSL = true;
+    locations."/" =  {
+      proxyPass = "http:/127.0.0.1:9091";
+      proxyWebsockets = true;
+
+    }
+  };
+
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 80 443 22 ];
+    allowedUDPPorts = [ ];
+  };
+
   services.openssh.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
-  # system.copySystemConfiguration = true;
-
-  # This option defines the first version of NixOS you have installed on this particular machine,
-  # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
-  #
-  # Most users should NEVER change this value after the initial install, for any reason,
-  # even if you've upgraded your system to a new NixOS release.
-  #
-  # This value does NOT affect the Nixpkgs version your packages and OS are pulled from,
-  # so changing it will NOT upgrade your system - see https://nixos.org/manual/nixos/stable/#sec-upgrading for how
-  # to actually do that.
-  #
-  # This value being lower than the current NixOS release does NOT mean your system is
-  # out of date, out of support, or vulnerable.
-  #
-  # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
-  # and migrated your data accordingly.
-  #
-  # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "24.11";
 
 }
