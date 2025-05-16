@@ -27,7 +27,7 @@
       comfyui-gguf
       comfyui-impact-pack
     ];
-    models = builtins.attrValues pkgs.nixified-ai.models;
+    #models = builtins.attrValues pkgs.nixified-ai.models;
   };
 
   services.nginx.virtualHosts."image.ai.menzel.lol" = {
