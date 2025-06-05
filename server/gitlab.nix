@@ -33,6 +33,7 @@
       cd "$NEWDATA"
       sudo -u postgres "$NEWBIN/initdb" -D "$NEWDATA" ${lib.escapeShellArgs cfg.initdbArgs}
 
+      export PGOPTIONS='-c shared_preload_libraries=vectors'
       sudo -u postgres "$NEWBIN/pg_upgrade" \
         --old-datadir "$OLDDATA" --new-datadir "$NEWDATA" \
         --old-bindir "$OLDBIN" --new-bindir "$NEWBIN" \
