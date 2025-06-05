@@ -9,7 +9,7 @@
 
 
   # temporary update script
-  /*
+  
    environment.systemPackages = [
     (let
       # XXX specify the postgresql package you'd like to upgrade to.
@@ -39,10 +39,10 @@
         "$@"
     '')
   ];
-  */
+  
 
 
-  services.postgresql.package = pkgs.postgresql_16;
+  services.postgresql.package = pkgs.postgresql_15;
 
   services.gitlab = {
    # enable = true;
