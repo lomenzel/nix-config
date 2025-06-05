@@ -18,7 +18,7 @@
   # };
 
   services.comfyui = {
-    enable = true;
+    #enable = true;
     home = "/mnt/server/comfyui";
     host = "localhost";
     acceleration = "cuda";
