@@ -15,7 +15,7 @@
       # XXX specify the postgresql package you'd like to upgrade to.
       # Do not forget to list the extensions you need.
       newPostgres = pkgs.postgresql_16.withPackages (pp: [
-        # pp.plv8
+        pp.pgvector
       ]);
       cfg = config.services.postgresql;
     in pkgs.writeScriptBin "upgrade-pg-cluster" ''
