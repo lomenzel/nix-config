@@ -84,7 +84,7 @@
           '';
         };
 
-        propagatedBuildInputs = [ pkgs.python312Packages.dirigera ];
+        propagatedBuildInputs = [ pkgs.python313Packages.dirigera ];
 
         meta = {
           description = "HomeAssistant integration for derigera";
