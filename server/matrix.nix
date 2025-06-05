@@ -69,7 +69,6 @@ in
         }
       ];
       app_service_config_files = [
-        "/var/lib/matrix-synapse/telegram-registration.yaml"
         "/var/lib/matrix-synapse/discord-registration.yaml"
         ZulipBridgeRegistrationFile
       ];
