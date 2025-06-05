@@ -18,6 +18,9 @@
     databasePasswordFile = pkgs.writeText "password" secrets.gitlab.rootPassword;
     initialRootPasswordFile = pkgs.writeText "password" secrets.gitlab.rootPassword;
     secrets = {
+      activeRecordSaltFile = "/var/lib/gitlab-secrets/active_record_salt";
+      activeRecordPrimaryKeyFile = "/var/lib/gitlab-secrets/active_record_primary_key";
+      activeRecordDeterministicKeyFile = "/var/lib/gitlab-secrets/active_record_deterministic_key";
       secretFile = pkgs.writeText "password" secrets.gitlab.rootPassword;
       otpFile = pkgs.writeText "password" secrets.gitlab.rootPassword;
       dbFile = pkgs.writeText "password" secrets.gitlab.rootPassword;
