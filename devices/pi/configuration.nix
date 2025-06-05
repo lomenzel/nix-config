@@ -95,7 +95,6 @@
     ProtectSystem = "strict";
   };
 
-
   systemd.services.generate-selfsigned-cert = {
     description = "Generate self-signed TLS certificate for NGINX";
     wantedBy = [ "nginx.service" ];
@@ -106,7 +105,6 @@
       RemainAfterExit = true;
     };
   };
-
 
   services.nginx.enable = true;
   services.nginx.virtualHosts."192.168.178.21" = {
