@@ -43,7 +43,7 @@
   #services.postgresql.package = pkgs.postgresql_16;
 
   services.gitlab = {
-    enable = true;
+   # enable = true;
     #  extraGitlabRb = ''
     #    Rails.application.config.feature_flags["activity_pub"] = true
     #    Rails.application.config.feature_flags["activity_pub_project"] = true
