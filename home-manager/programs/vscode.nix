@@ -11,7 +11,7 @@ with (helper-functions { inherit lib; });
 
   home.packages = [ pkgs.nixfmt-rfc-style ];
 
-  #stylix.targets.vscode.profileNames = [ "default" ];
+  stylix.targets.vscode.profileNames = [ "default" ];
 
   programs.vscode = {
     enable = true;
@@ -21,35 +21,29 @@ with (helper-functions { inherit lib; });
       #hie.enable = true;
     };
 
-    /*
-      profiles.default.enableUpdateCheck = false;
-      profiles.default.extensions = with pkgs.vscode-extensions; [
-        bbenoist.nix
-        jnoortheen.nix-ide
-        continue.continue
-        ms-vscode-remote.remote-containers
-        haskell.haskell
-        justusadam.language-haskell
-        ms-vscode.live-server
-        #ms-python.python
-        #ms-python.debugpy
-        #ms-pyright.pyright
-        #ms-python.vscode-pylance
-        #ms-python.black-formatter
-        tomoki1207.pdf
-        redhat.vscode-yaml
-      ];
+    profiles.default.enableUpdateCheck = false;
+    profiles.default.extensions = with pkgs.vscode-extensions; [
+      bbenoist.nix
+      jnoortheen.nix-ide
+      continue.continue
+      ms-vscode-remote.remote-containers
+      haskell.haskell
+      justusadam.language-haskell
+      ms-vscode.live-server
+      tomoki1207.pdf
+      redhat.vscode-yaml
+    ];
 
-      profiles.default.userSettings = {
-        "files.autoSave" = "afterDelay";
-        "git.enableSmartCommit" = true;
-        "git.confirmSync" = false;
-        "haskell.hlint.executablePath" = "${pkgs.hlint}/bin/hlint";
-        "explorer.confirmDragAndDrop" = false;
-        "git.autofetch" = true;
-        "redhat.telemetry.enabled" = false;
-      };
-    */
+    profiles.default.userSettings = {
+      "files.autoSave" = "afterDelay";
+      "git.enableSmartCommit" = true;
+      "git.confirmSync" = false;
+      "haskell.hlint.executablePath" = "${pkgs.hlint}/bin/hlint";
+      "explorer.confirmDragAndDrop" = false;
+      "git.autofetch" = true;
+      "redhat.telemetry.enabled" = false;
+    };
+
   };
 
   home.file =

@@ -1,4 +1,9 @@
-{ config, pkgs, secrets, ... }:
+{
+  config,
+  pkgs,
+  secrets,
+  ...
+}:
 {
   services.mastodon = {
     enable = true;
@@ -8,7 +13,7 @@
     smtp.fromAddress = "admin@social.menzel.lol"; # Email address used by Mastodon to send emails, replace with your own
     extraConfig = {
       SINGLE_USER_MODE = "false";
-      ALTERNATE_DOMAINS="menzel.lol";
+      ALTERNATE_DOMAINS = "menzel.lol";
 
       # OIDC
 

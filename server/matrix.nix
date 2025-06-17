@@ -49,7 +49,7 @@ in
       public_baseurl = baseUrl;
       registration_shared_secret = secrets.synapse-postgresql-role;
       use_appservice_legacy_authorization = true;
-      enableRegistrationScript = false;
+      enableRegistrationScript = true;
       listeners = [
         {
           port = 8008;

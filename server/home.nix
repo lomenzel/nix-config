@@ -9,7 +9,6 @@
 
   nixpkgs.config.permittedInsecurePackages = [
     "olm-3.2.16"
-    "jitsi-meet-1.0.8043"
   ];
 
   services.matter-server.enable = true;
