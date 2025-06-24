@@ -15,7 +15,7 @@ with (helper-functions { inherit lib; });
 
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodium-fhs;
+    #package = pkgs.vscodium-fhs;
     haskell = {
       #enable = true;
       #hie.enable = true;
