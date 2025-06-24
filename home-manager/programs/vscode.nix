@@ -38,7 +38,6 @@ with (helper-functions { inherit lib; });
       "files.autoSave" = "afterDelay";
       "git.enableSmartCommit" = true;
       "git.confirmSync" = false;
-      "haskell.hlint.executablePath" = "${pkgs.hlint}/bin/hlint";
       "explorer.confirmDragAndDrop" = false;
       "git.autofetch" = true;
       "redhat.telemetry.enabled" = false;
