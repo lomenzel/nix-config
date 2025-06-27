@@ -40,9 +40,12 @@ in
         "jonas"
         "sophia"
         "stefan"
-        "eddi"
       ];
     };
+
+
+
+    
     servers.airin = {
       port = 30002;
       config.only_peaceful_mobs = true;
