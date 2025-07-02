@@ -3,6 +3,7 @@
 
   inputs = {
 
+    nvf.url = "github:notashelf/nvf";
     # Stable
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     home-manager = {
@@ -13,6 +14,7 @@
       url = "github:danth/stylix/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    speiseplan.url = "github:lomenzel/speiseplan-cli";
 
     # Unstable
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -67,13 +69,41 @@
           inputs.devshell.flakeModule
         ];
 
-        systems = [ "x86_64-linux" ];
+        systems = builtins.attrNames nixpkgs.legacyPackages;
 
         perSystem =
-          { config, pkgs, ... }:
+          { config, pkgs, system, self', ... }:
           {
             packages = {
-              inherit (pkgs) vim;
+              vim =
+                (inputs.nvf.lib.neovimConfiguration {
+                  inherit pkgs;
+                  modules = [
+                    {
+                      config.vim = {
+                        # Enable custom theming options
+                        theme.enable = true;
+
+                        # Enable Treesitter
+                        treesitter.enable = true;
+                        languages = {
+                          nix.enable = true;
+                        };
+                        terminal.toggleterm = {
+                          enable = true;
+                          lazygit.enable = true;
+                        };
+                        filetree.neo-tree = {
+                          enable = true;
+                        };
+
+                        # Other options will go here. Refer to the config
+                        # reference in Appendix B of the nvf manual.
+                        # ...
+                      };
+                    }
+                  ];
+                }).neovim;
             };
             devshells = {
               default = {
@@ -94,6 +124,7 @@
                   lolcat
                   cowsay
                   zsh
+                  self'.packages.vim
                 ];
 
               };
