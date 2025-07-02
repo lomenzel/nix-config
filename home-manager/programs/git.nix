@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  pkgs-self,
+  ...
+}:
 {
   programs.git = {
     enable = true;
@@ -6,7 +11,7 @@
     userEmail = "leonard-orlando.jonathan.menzel@stud.th-luebeck.de";
     extraConfig = {
       save.directory = "*";
-      core.editor = "${pkgs.vim}/bin/vim";
+      core.editor = "${pkgs-self.vim}/bin/nvim";
       pull.rebase = true;
       credential.helper = "store";
     };

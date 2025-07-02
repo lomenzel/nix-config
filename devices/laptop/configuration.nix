@@ -37,7 +37,10 @@
   boot = {
     kernelModules = [ "wl" ];
     extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
-    blacklistedKernelModules = [ "b43" "bcma" ];
+    blacklistedKernelModules = [
+      "b43"
+      "bcma"
+    ];
   };
 
   # Optional: Paket, das ST-Link und OpenOCD enthält

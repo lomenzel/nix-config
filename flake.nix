@@ -72,38 +72,16 @@
         systems = builtins.attrNames nixpkgs.legacyPackages;
 
         perSystem =
-          { config, pkgs, system, self', ... }:
+          {
+            config,
+            pkgs,
+            system,
+            self',
+            ...
+          }:
           {
             packages = {
-              vim =
-                (inputs.nvf.lib.neovimConfiguration {
-                  inherit pkgs;
-                  modules = [
-                    {
-                      config.vim = {
-                        # Enable custom theming options
-                        theme.enable = true;
-
-                        # Enable Treesitter
-                        treesitter.enable = true;
-                        languages = {
-                          nix.enable = true;
-                        };
-                        terminal.toggleterm = {
-                          enable = true;
-                          lazygit.enable = true;
-                        };
-                        filetree.neo-tree = {
-                          enable = true;
-                        };
-
-                        # Other options will go here. Refer to the config
-                        # reference in Appendix B of the nvf manual.
-                        # ...
-                      };
-                    }
-                  ];
-                }).neovim;
+              vim = import ./packages/vim.nix { inherit inputs system; };
             };
             devshells = {
               default = {
@@ -133,11 +111,12 @@
 
         flake = {
           nixosConfigurations = {
-            laptop = inputs.nixpkgs-unstable.lib.nixosSystem {
+            laptop = inputs.nixpkgs-unstable.lib.nixosSystem rec {
               system = "x86_64-linux";
               specialArgs = {
                 inherit inputs;
-                nixpkgs-unstable = import inputs.nixpkgs-unstable { system = "x86_64-linux"; };
+                nixpkgs-unstable = import inputs.nixpkgs-unstable { inherit system; };
+                pkgs-self = self.packages.${system};
                 secrets = import /home/leonard/.config/secrets/secrets.nix;
                 helper-functions = import ./helper-functions.nix;
                 nix-luanti = inputs.nix-luanti.packages."x86_64-linux";
@@ -179,6 +158,7 @@
                 specialArgs = {
                   inherit inputs;
                   uex = inputs.uex;
+                  pkgs-self = self.packages.${system};
                   nix-ai-stuff = inputs.nix-ai-stuff.packages.${system};
                   secrets = import /home/leonard/.config/secrets/secrets.nix;
                   helper-functions = import ./helper-functions.nix;

@@ -43,9 +43,6 @@ in
       ];
     };
 
-
-
-    
     servers.airin = {
       port = 30002;
       config.only_peaceful_mobs = true;
@@ -170,7 +167,7 @@ in
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
   ];
 

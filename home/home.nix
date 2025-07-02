@@ -7,6 +7,7 @@
   helper-functions,
   nixpkgs-unstable,
   pkgs-stable,
+  pkgs-self,
   ...
 }:
 
@@ -24,6 +25,7 @@
         helper-functions
         nixpkgs-unstable
         pkgs-stable
+        pkgs-self
         ;
     };
     users = {

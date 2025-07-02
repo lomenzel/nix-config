@@ -6,6 +6,7 @@
   lib,
   nixpkgs-unstable,
   pkgs-stable,
+  pkgs-self,
   nix-luanti,
   ...
 }:
@@ -13,7 +14,7 @@
   imports = [
     ./programs/firefox.nix
     ./programs/git.nix
-    ./programs/vim.nix
+    #./programs/vim.nix
     inputs.nix-luanti.homeManagerModules.default
     inputs.immich-uploader.homeManagerModules.default
     #./plasma.nix
@@ -56,19 +57,20 @@
   #home.file."${config.home.homeDirectory}/.librewolf/default/search.json.mozlz4".force = lib.mkForce true;
 
   home.file."${config.xdg.configHome}/speiseplan-cli/config.toml" = {
-        text = ''
-        url = "https://speiseplan.mcloud.digital/v2"
-        language = "de"
-        price_category = "student"
-        location_codes = ["HL_CA", "HL_BB", "HL_ME"]
-        '';
-        enable = true;
- };
+    text = ''
+      url = "https://speiseplan.mcloud.digital/v2"
+      language = "de"
+      price_category = "student"
+      location_codes = ["HL_CA", "HL_BB", "HL_ME"]
+    '';
+    enable = true;
+  };
 
   home.packages =
     with nixpkgs-unstable;
     with nixpkgs-unstable.kdePackages;
     [
+      pkgs-self.vim
       inputs.speiseplan.packages."x86_64-linux".speiseplan-cli
       libreoffice
       luanti
