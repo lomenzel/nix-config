@@ -5,7 +5,11 @@
     {
       config.vim = {
         # Enable custom theming options
-        theme.enable = true;
+        theme = {
+          enable = true;
+          name = "rose-pine";
+          style = "main";
+        };
 
         # Enable Treesitter
         treesitter.enable = true;

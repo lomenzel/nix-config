@@ -66,6 +66,11 @@
     enable = true;
   };
 
+  programs.alacritty = {
+    enable = true;
+    package = nixpkgs-unstable.alacritty;
+  };
+
   home.packages =
     with nixpkgs-unstable;
     with nixpkgs-unstable.kdePackages;
