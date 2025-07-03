@@ -8,6 +8,14 @@
   modules = [
     {
       config.vim = {
+        diagnostics = {
+          enable = true;
+          config = {
+            # update_in_insert = true;
+            virtual_lines.current_line = true;
+            virtual_text = true;
+          };
+        };
         # Enable custom theming options
         theme = {
           enable = true;
