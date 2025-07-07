@@ -23,6 +23,7 @@
           style = "main";
         };
 
+        autocomplete.nvim-cmp.enable = true;
         spellcheck.enable = true;
         keymaps = [
           {
@@ -48,7 +49,7 @@
           neotest = {
             package = pkgs.vimPlugins.neotest;
             after = ["neotest-haskell"];
-            setup = ''               
+            setup = ''             
               require('neotest').setup {
                 adapters = {
                   require('neotest-haskell') {
