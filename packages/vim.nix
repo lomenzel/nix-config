@@ -3,7 +3,7 @@
   system,
   ...
 }:
-(inputs.nvf.lib.neovimConfiguration {
+(inputs.nvf.lib.neovimConfiguration rec {
   pkgs = import inputs.nixpkgs-unstable {inherit system;};
   modules = [
     {
@@ -11,9 +11,9 @@
         diagnostics = {
           enable = true;
           config = {
-            # update_in_insert = true;
-            virtual_lines.current_line = true;
+            update_in_insert = true;
             virtual_text = true;
+            virtual_lines.current_line = true;
           };
         };
         # Enable custom theming options
@@ -31,7 +31,34 @@
             silent = true;
             action = "<cmd> lua vim.lsp.buf.code_action()<CR>";
           }
+          {
+            key = "<leader>t";
+            mode = "n";
+            silent = true;
+            action = ''
+              <cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>
+            '';
+          }
         ];
+        extraPlugins = {
+          neotest-haskell.package = pkgs.vimPlugins.neotest-haskell;
+          nvim-nio.package = pkgs.vimPlugins.nvim-nio;
+          plenary.package = pkgs.vimPlugins.plenary-nvim;
+
+          neotest = {
+            package = pkgs.vimPlugins.neotest;
+            after = ["neotest-haskell"];
+            setup = ''               
+              require('neotest').setup {
+                adapters = {
+                  require('neotest-haskell') {
+                    build_tools = { 'stack', 'cabal' },
+                    frameworks = { 'hspec' }
+                  }
+                }
+              }'';
+          };
+        };
 
         tabline.nvimBufferline.enable = true;
         minimap.codewindow.enable = true;
