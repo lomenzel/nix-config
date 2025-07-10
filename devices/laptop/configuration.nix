@@ -5,13 +5,13 @@
   inputs,
   secrets,
   ...
-}:
-{
+}: {
   imports = [
     ./hardware-configuration.nix
     ../laptop.nix
     ../../services/remotebuild-client.nix
     ../../services/remotebuild.nix
+    ../../server/overleaf.nix
     ../../home/vm.nix
   ];
 
@@ -35,8 +35,8 @@
   '';
 
   boot = {
-    kernelModules = [ "wl" ];
-    extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
+    kernelModules = ["wl"];
+    extraModulePackages = [config.boot.kernelPackages.broadcom_sta];
     blacklistedKernelModules = [
       "b43"
       "bcma"
@@ -63,7 +63,7 @@
 
   virtualisation.vmware.host = {
     #enable = true;
-    extraPackages = [ pkgs.ntfs3g ];
+    extraPackages = [pkgs.ntfs3g];
   };
 
   environment.systemPackages = with pkgs; [
@@ -74,7 +74,7 @@
     "displaylink"
     "modesetting"
   ];
-  systemd.services.dlm.wantedBy = [ "multi-user.target" ];
+  systemd.services.dlm.wantedBy = ["multi-user.target"];
 
   services.kubo = {
     enable = true;
@@ -84,7 +84,7 @@
     package = inputs.nixpkgs-unstable.legacyPackages."x86_64-linux".kubo;
     enableGC = true;
     settings = {
-      API.HTTPHeaders.Access-Control-Allow-Origin = [ "*" ];
+      API.HTTPHeaders.Access-Control-Allow-Origin = ["*"];
       API.HTTPHeaders.Access-Control-Allow-Methods = [
         "GET"
         "POST"
@@ -94,10 +94,8 @@
       Datastore.GCPeriod = "2h";
       Addresses.API = "/ip4/127.0.0.1/tcp/8082";
       Addresses.Gateway = "/ip4/0.0.0.0/tcp/8081";
-
     };
   };
 
   system.stateVersion = "23.11";
-
 }
