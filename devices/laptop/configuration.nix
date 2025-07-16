@@ -15,6 +15,14 @@
     ../../home/vm.nix
   ];
 
+  # overleaf
+  services.overleaf = {
+    enable = true;
+    dataDir = "/var/lib/overleaf";
+    port = "8083";
+    forceBuild = true;
+  };
+
   nixpkgs.config.permittedInsecurePackages = [
     "olm-3.2.16"
     "jitsi-meet-1.0.8043"
