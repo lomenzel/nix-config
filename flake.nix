@@ -13,10 +13,10 @@
       url = "github:nix-community/stylix/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    speiseplan.url = "github:lomenzel/speiseplan-cli";
+    speiseplan.url = "github:draculente/speiseplan-cli";
 
     # Unstable
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     home-manager-unstable = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs-unstable";

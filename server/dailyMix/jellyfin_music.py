@@ -108,6 +108,8 @@ def get_all_songs(user_id: str) -> dict:
         path = i['Path']
         genre = i['Genres']
         # length in seconds
+        if 'RunTimeTicks' not in i:
+            continue
         length = i['RunTimeTicks'] / 10000000
         items[i['Id']] = {'song_name': song_name, 'play_count': play_count, 'last_played': last_played, 'path': path,
                           'album_id': album_id, 'album_artist': album_artist, 'is_favorite': is_favorite,

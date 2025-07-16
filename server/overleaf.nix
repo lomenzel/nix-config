@@ -12,17 +12,17 @@ let
   cfg = config.services.overleaf;
   
   overleafRepo = pkgs.fetchFromGitHub {
-    owner = "Yeshey";
+    owner = "overleaf";
     repo = "overleaf";
-    rev = "eebda7f63edcf095ea1a4d156b3bacb7dd23ab23";
-    sha256 = "sha256-9/DNYSW+CCGCBmtkPvVl4+E2qKyECjjHX/h6og3qaB4=";
+    rev = "9720413218e6749760bb0c2d5f9d392b98ac2e5a";
+    sha256 = "sha256-C53Tw82vc/EV6snSgNNeY2qwzESiidm/fUznia++mXo=";
   };
 
   toolkitRepo = pkgs.fetchFromGitHub {
     owner = "overleaf";
     repo = "toolkit";
-    rev = "895fe739417bdf4d292514036d2d65864c5d4310";
-    sha256 = "sha256-G9LS4r73mGQDBbuLUsa7z4qdFJt77XZcPLe7d/bEf6Y=";
+    rev = "89df4ac80b2153b46a9df6a14e66dc098f840807";
+    sha256 = "sha256-B8xSPmk8A7znTBCGbZm646/P92SBc+xB3gAjotp+zUg=";
   };
 
   # Script to copy repos, build images, and prepare environment

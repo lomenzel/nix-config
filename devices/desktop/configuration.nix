@@ -21,7 +21,16 @@ in
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     #../../services/samba.nix
+    ../../server/overleaf.nix
   ];
+    # overleaf
+  services.overleaf = {
+    enable = true;
+    dataDir = "/var/lib/overleaf";
+    port = "8083";
+    forceBuild = true;
+  };
+
 
   services.luanti = {
     enable = true;

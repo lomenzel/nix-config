@@ -26,13 +26,13 @@ in
     #./nextcloud.nix
     ./matrix.nix
     ./anki.nix
-    ./home.nix
+    #./home.nix
 
     #testing
     ./dailyMix/dailyMix.nix
-    ./habitica.nix
+    #./habitica.nix
     #./jitsi.nix
-    ./comfy.nix
+    #./comfy.nix
     #./mail.nix
     #./keycloak.nix
     #./hedgedoc.nix
@@ -42,16 +42,6 @@ in
     ./locationshare.nix
 
   ];
-
-  services.k3s = {
-    #enable = true;
-    role = "agent";
-    token = secrets.k3s.token;
-    extraFlags = [
-      #"--no-deploy traefik" # Disable Traefik
-    ];
-    serverAddr = "https://192.168.178.169:6443";
-  };
 
   #Security
   services.openssh = {
