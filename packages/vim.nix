@@ -89,6 +89,7 @@
           enableFormat = true;
           enableTreesitter = true;
           nix.enable = true;
+          clang.enable = true;
           haskell = {
             enable = true;
           };
