@@ -10,15 +10,12 @@
     ./hardware-configuration.nix
     ../laptop.nix
     ../../services/remotebuild-client.nix
-    ../../services/remotebuild.nix
-    ../../server/overleaf.nix
     ../../home/vm.nix
   ];
   boot.loader.systemd-boot.configurationLimit = 10;
 
   nixpkgs.config.permittedInsecurePackages = [
-    "olm-3.2.16"
-    "jitsi-meet-1.0.8043"
+    #"olm-3.2.16"
   ];
   networking.firewall.enable = false;
 
@@ -35,15 +32,6 @@
     SUBSYSTEM=="tty", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374b", MODE="0666", GROUP="dialout", SYMLINK+="stm32_nucleo"
   '';
 
-  boot = {
-    kernelModules = ["wl"];
-    extraModulePackages = [config.boot.kernelPackages.broadcom_sta];
-    blacklistedKernelModules = [
-      "b43"
-      "bcma"
-    ];
-  };
-
   # Optional: Paket, das ST-Link und OpenOCD enthält
   # services.udev.packages = [ pkgs.openocd pkgs.stlink ];
 
@@ -51,28 +39,14 @@
 
   #services.minetest-server.enable = true;
 
-  fileSystems."/mnt/desktop" = {
-    device = "leonard@menzel.lol:/";
-    fsType = "sshfs";
-    options = [
-      "allow_other"
-      "nodev"
-      "noatime"
-      "IdentityFile=/home/leonard/.ssh/desktop"
-    ];
-  };
 
   virtualisation.vmware.host = {
     #enable = true;
     extraPackages = [pkgs.ntfs3g];
   };
 
-  environment.systemPackages = with pkgs; [
-    displaylink
-  ];
 
   services.xserver.videoDrivers = [
-    "displaylink"
     "modesetting"
   ];
   systemd.services.dlm.wantedBy = ["multi-user.target"];

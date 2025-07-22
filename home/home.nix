@@ -125,9 +125,7 @@
         pciutils
         vulkan-tools
         #kmail
-        kontact
-        kmail-account-wizard
-        akonadi-import-wizard
+
         #neochat
       ];
   };

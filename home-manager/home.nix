@@ -85,7 +85,6 @@
       picard
       mpv
       kate
-      tor-browser-bundle-bin
       (vlc.override {
         libbluray = libbluray.override {
           withAACS = true;
@@ -99,14 +98,11 @@
         };
       })
       anki
-      texliveFull
       discord
-      thunderbird
-      arianna
-      signal-desktop
-      elisa
       finamp
-      alpaka
+      kontact
+      kmail-account-wizard
+      akonadi-import-wizard
       kwallet
       kwalletmanager
       kcalc
