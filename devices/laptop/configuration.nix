@@ -14,7 +14,7 @@
     ../../server/overleaf.nix
     ../../home/vm.nix
   ];
-
+  boot.loader.systemd-boot.configurationLimit = 10;
 
   nixpkgs.config.permittedInsecurePackages = [
     "olm-3.2.16"
