@@ -118,8 +118,6 @@
           };
         };
 
-        assistant.avante-nvim.enable = true;
-
         statusline = {
           lualine.enable = true;
         };

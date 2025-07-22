@@ -32,7 +32,6 @@
   #hardware.tuxedo-rs.tailor-gui.enable = true;
 
   nixpkgs.config.nativeOptimization = "native";
-  virtualisation.docker.enable = true;
   #boot.kernelPackages = pkgs.linuxPackages_testing;
 
   services.openssh.settings.PermitRootLogin = "yes";

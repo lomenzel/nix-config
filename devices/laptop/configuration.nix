@@ -78,7 +78,7 @@
   systemd.services.dlm.wantedBy = ["multi-user.target"];
 
   services.kubo = {
-    enable = true;
+    enable = false;
     autoMount = true;
     localDiscovery = true;
     #extraFlags = [ "--revert-ok" ];
