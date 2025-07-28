@@ -25,13 +25,7 @@ with (helper-functions { inherit lib; });
     profiles.default.extensions = with pkgs.vscode-extensions; [
       bbenoist.nix
       jnoortheen.nix-ide
-      continue.continue
       ms-vscode-remote.remote-containers
-      haskell.haskell
-      justusadam.language-haskell
-      ms-vscode.live-server
-      tomoki1207.pdf
-      redhat.vscode-yaml
     ];
 
     profiles.default.userSettings = {
@@ -44,30 +38,5 @@ with (helper-functions { inherit lib; });
     };
 
   };
-
-  home.file =
-    let
-      desktop = model: {
-        title = "${model}@desktop";
-        provider = "ollama";
-        model = model;
-        apiBase = "https://chat.ai.menzel.lol/";
-        requestOptions = {
-          headers = {
-            Authorization = "Basic ${toBase64 "menzel:${secrets.basicAuth.menzel}"}";
-          };
-        };
-      };
-    in
-    {
-      ".continue/config.json".text = builtins.toJSON {
-        models = [
-          (desktop "llama3.2:3b")
-          (desktop "llama3.2:1b")
-          (desktop "deepseek-r1:14b")
-        ];
-        tabAutocompleteModel = desktop "llama3.2:3b";
-      };
-    };
 
 }

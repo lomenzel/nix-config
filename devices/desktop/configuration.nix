@@ -4,7 +4,7 @@
 
 {
   config,
-  pkgs,
+  pkgs-unstable,
   inputs,
   nix-luanti,
   ...
@@ -22,8 +22,12 @@ in
     ./hardware-configuration.nix
     #../../services/samba.nix
     ../../server/overleaf.nix
+    ../../services/wsh.nix
+    ../../home/home.nix
+    ../../server/server.nix
+    ../../services/remotebuild.nix
   ];
-    # overleaf
+  # overleaf
   services.overleaf = {
     enable = true;
     dataDir = "/var/lib/overleaf";
@@ -31,10 +35,9 @@ in
     forceBuild = true;
   };
 
-
   services.luanti = {
     enable = true;
-    package = inputs.nixpkgs-unstable.legacyPackages."x86_64-linux".luanti-server;
+    package = pkgs-unstable.luanti-server;
     servers.kinder = {
       port = 30001;
       mods = with nix-luanti.mods; [

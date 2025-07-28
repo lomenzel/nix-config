@@ -1,6 +1,6 @@
 {
   config,
-  pkgs,
+  pkgs-unstable,
   secrets,
   lib,
   pkgs-self,
@@ -9,31 +9,19 @@
 {
 
   environment.sessionVariables = {
-    FLAKE = lib.mkDefault "/home/leonard/.config/nix-config";
     NH_FLAKE = lib.mkDefault "/home/leonard/.config/nix-config";
 
-    KUBECONFIG = secrets.k3s.kubeconfig;
     NIXPKGS_ALLOW_UNFREE = 1;
   };
 
   nix = {
-    package = pkgs.nixVersions.stable;
     extraOptions = ''
       experimental-features = nix-command flakes pipe-operators
     '';
     distributedBuilds = true;
   };
-  users.users.leonard.packages = with pkgs; [
-    nh
-    htop
-    curl
-    nix-output-monitor
-    killall
-    nixfmt-rfc-style
-    less
-    git
-  ];
-  users.users.leonard.shell = pkgs.zsh;
+
+  users.users.leonard.shell = pkgs-unstable.zsh;
   networking.nameservers = [
     "192.168.178.188"
     "8.8.8.8"

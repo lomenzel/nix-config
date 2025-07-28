@@ -4,7 +4,7 @@
   inputs,
   secrets,
   lib,
-  nixpkgs-unstable,
+  pkgs-unstable,
   pkgs-stable,
   pkgs-self,
   nix-luanti,
@@ -27,19 +27,6 @@
     baseUrl = "https://photos.menzel.lol/api";
     apiKey = secrets.immich.apiKey;
     mediaPaths = [ "~/Bilder/Immich-Upload-Daemon-Test" ];
-  };
-
-  services.luanti = {
-    enable = true;
-    package = inputs.nixpkgs-unstable.legacyPackages."x86_64-linux".luanti-server;
-    servers.test.port = 30000;
-    servers.test.mods = with inputs.nix-luanti.packages."x86_64-linux".mods; [
-      waypoints
-    ];
-    whitelist = [
-      "leonard"
-      "eemes"
-    ];
   };
 
   nixpkgs = {
@@ -68,13 +55,40 @@
 
   programs.alacritty = {
     enable = true;
-    package = nixpkgs-unstable.alacritty;
+    package = pkgs-unstable.alacritty;
   };
 
   home.packages =
-    with nixpkgs-unstable;
-    with nixpkgs-unstable.kdePackages;
+    with pkgs-unstable;
+    with pkgs-unstable.kdePackages;
     [
+      nh
+      htop
+      curl
+      nix-output-monitor
+      killall
+      nixfmt-rfc-style
+      less
+      git
+      exfat
+      exfatprogs
+      glxinfo
+      clinfo
+      wayland-utils
+      pciutils
+      vulkan-tools
+      yakuake
+      kio-gdrive
+      kde-rounded-corners
+      krfb
+      krdc
+      kaccounts-providers
+      kaccounts-integration
+      kcmutils
+      maliit-keyboard
+      kdepim-addons
+      pimcommon
+      krohnkite
       pkgs-self.vim
       inputs.speiseplan.packages."x86_64-linux".speiseplan-cli
       libreoffice

@@ -1,11 +1,12 @@
 {
   config,
-  pkgs,
+  pkgs-unstable
   inputs,
   lib,
   ...
-}: {
-  imports = [];
+}:
+{
+  imports = [ ];
 
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
@@ -16,23 +17,6 @@
     libaacs
     libdvdcss
     libbluray
-  ];
-
-  users.users.leonard.extraGroups = [config.services.kubo.group];
-  users.users.leonard.packages = with pkgs;
-  with kdePackages; [
-    yakuake
-    kio-gdrive
-    kde-rounded-corners
-    krfb
-    krdc
-    kaccounts-providers
-    kaccounts-integration
-    kcmutils
-    maliit-keyboard
-    kdepim-addons
-    pimcommon
-    krohnkite
   ];
 
   stylix = {
@@ -60,7 +44,7 @@
 
     fonts = {
       monospace = {
-        package = inputs.nixpkgs-unstable.legacyPackages."x86_64-linux".nerd-fonts.comic-shanns-mono;
+        package = pkgs-unstable.nerd-fonts.comic-shanns-mono;
         name = "ComicShannsMono Nerd Font Mono";
       };
     };

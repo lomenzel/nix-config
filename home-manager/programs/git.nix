@@ -1,6 +1,5 @@
 {
   config,
-  pkgs,
   pkgs-self,
   ...
 }:

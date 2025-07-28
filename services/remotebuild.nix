@@ -6,7 +6,8 @@
     group = "remotebuild";
     openssh.authorizedKeys.keyFiles = [
       ./remotebuild-minive.pub
-    ] ++ (if config.networking.hostName != "laptop" then [ ./remotebuild-laptop.pub ] else [ ]);
+    ]
+    ++ (if config.networking.hostName != "laptop" then [ ./remotebuild-laptop.pub ] else [ ]);
   };
   users.groups.remotebuild = { };
   nix.settings = {

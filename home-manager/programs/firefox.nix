@@ -4,7 +4,7 @@
   lib,
   colors,
   helper-functions,
-  nixpkgs-unstable,
+  pkgs-unstable,
   ...
 }:
 with (helper-functions { inherit lib; });
@@ -104,11 +104,11 @@ in
 
   stylix.targets.firefox.profileNames = [ "default" ];
 
-  programs = with pkgs; {
+  programs = with pkgs-unstable; {
     firefox = {
       enable = true;
-      package = nixpkgs-unstable.firefox;
-      nativeMessagingHosts = with pkgs.kdePackages; [ plasma-browser-integration ];
+      package = firefox;
+      nativeMessagingHosts = with kdePackages; [ plasma-browser-integration ];
       profiles.default = {
         userChrome = ''
           ${css-colors}

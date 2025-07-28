@@ -4,7 +4,7 @@
   ...
 }:
 (inputs.nvf.lib.neovimConfiguration rec {
-  pkgs = import inputs.nixpkgs-unstable {inherit system;};
+  pkgs = import inputs.nixpkgs-unstable { inherit system; };
   modules = [
     {
       config.vim = {
@@ -48,8 +48,8 @@
 
           neotest = {
             package = pkgs.vimPlugins.neotest;
-            after = ["neotest-haskell"];
-            setup = ''             
+            after = [ "neotest-haskell" ];
+            setup = ''
               require('neotest').setup {
                 adapters = {
                   require('neotest-haskell') {
