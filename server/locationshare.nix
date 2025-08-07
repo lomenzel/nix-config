@@ -1,11 +1,11 @@
 {
   config,
   pkgs,
-  secrets,
+  legacy_secrets,
   ...
 }:
 {
-  services.location-share = with secrets.locationshare; {
+  services.location-share = with legacy_secrets.locationshare; {
     enable = true;
     port = 3457;
     registrationSecret = registrationSecret;

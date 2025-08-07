@@ -2,7 +2,7 @@
   config,
   lib,
   pkgs,
-  secrets,
+  legacy_secrets,
   ...
 }:
 {
@@ -12,7 +12,7 @@
     users = [
       {
         username = "leonard";
-        password = secrets.anki;
+        password = legacy_secrets.anki;
       }
     ];
     port = 27701;

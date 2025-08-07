@@ -16,7 +16,7 @@
       syncMedia = true;
       url = "https://anki.menzel.lol";
       username = "leonard";
-      passwordFile =  secrets."programs/anki/sync_key".path;
+      passwordFile = secrets."programs/anki/sync_key".path;
     };
     theme = "followSystem";
     language = "eo_UY";

@@ -109,8 +109,7 @@
           animalia
           logistica
         ];
-      }
-      )
+      })
 
       )
       nixpkgs-fmt

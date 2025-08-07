@@ -2,7 +2,8 @@
   inputs,
   lib,
   ...
-}: {
+}:
+{
   imports = lib.singleton inputs.sops-nix.nixosModules.sops;
   sops = {
     defaultSopsFile = ./secrets.yaml;

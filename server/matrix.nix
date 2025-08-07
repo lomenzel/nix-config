@@ -1,7 +1,7 @@
 {
   config,
   pkgs,
-  secrets,
+  legacy_secrets,
   lib,
   ...
 }:
@@ -19,8 +19,8 @@ let
   ZulipBridgeRegistrationFile = pkgs.writeText "zulip-registration.yaml" ''
     id: zulipbridge
     url: http://127.0.0.1:28464
-    as_token: ${secrets.zulip-bridge.as_token}
-    hs_token: ${secrets.zulip-bridge.hs_token}
+    as_token: ${legacy_secrets.zulip-bridge.as_token}
+    hs_token: ${legacy_secrets.zulip-bridge.hs_token}
     rate_limited: false
     sender_localpart: zulipbridge
     namespaces:
@@ -35,7 +35,7 @@ in
 
   services.postgresql.enable = true;
   services.postgresql.initialScript = pkgs.writeText "synapse-init.sql" ''
-    CREATE ROLE "matrix-synapse" WITH LOGIN PASSWORD '${secrets.synapse-postgresql-role}';
+    CREATE ROLE "matrix-synapse" WITH LOGIN PASSWORD '${legacy_secrets.synapse-postgresql-role}';
     CREATE DATABASE "matrix-synapse" WITH OWNER "matrix-synapse"
       TEMPLATE template0
       LC_COLLATE = "C"
@@ -47,7 +47,7 @@ in
     settings = {
       server_name = domain;
       public_baseurl = baseUrl;
-      registration_shared_secret = secrets.synapse-postgresql-role;
+      registration_shared_secret = legacy_secrets.synapse-postgresql-role;
       use_appservice_legacy_authorization = true;
       enableRegistrationScript = true;
       listeners = [
@@ -91,7 +91,7 @@ in
       encryption = {
         allow = true;
         default = true;
-        pickle_key = secrets.mautrix-signal.key;
+        pickle_key = legacy_secrets.mautrix-signal.key;
       };
       /*
         appservice = {
@@ -103,26 +103,14 @@ in
     registerToSynapse = true;
   };
 
-  services.mx-puppet-discord = {
-    # enable = true;
-    settings = {
-      bridge = {
-        bindAddress = "0.0.0.0";
-        domain = "menzel.lol";
-        homeserverUrl = "http://127.0.0.1:8008";
-      };
-      logging.console = "silly";
-      provisioning.whitelist = [ "@leonard:menzel.lol" ];
-      relay.whitelist = [ "@.*:menzel.lol" ];
-    };
-  };
+
 
   services.mautrix-whatsapp = {
     enable = true;
     settings = {
       appservice = {
-        as_token = secrets.mautrix-whatsapp.as_token;
-        hs_token = secrets.mautrix-whatsapp.hs_token;
+        as_token = legacy_secrets.mautrix-whatsapp.as_token;
+        hs_token = legacy_secrets.mautrix-whatsapp.hs_token;
       };
       homeserver.address = "http://localhost:8008";
       bridge = {
@@ -154,8 +142,8 @@ in
           prefix = "/public";
           external = "https://menzel.lol/public";
         };
-        as_token = secrets.mautrix-telegram.as_token;
-        hs_token = secrets.mautrix-telegram.hs_token;
+        as_token = legacy_secrets.mautrix-telegram.as_token;
+        hs_token = legacy_secrets.mautrix-telegram.hs_token;
         port = 8281;
         address = "http://localhost:8281";
       };
@@ -175,8 +163,8 @@ in
         };
       };
       telegram = {
-        api_id = secrets.mautrix-telegram.id;
-        api_hash = secrets.mautrix-telegram.hash;
+        api_id = legacy_secrets.mautrix-telegram.id;
+        api_hash = legacy_secrets.mautrix-telegram.hash;
       };
     };
   };

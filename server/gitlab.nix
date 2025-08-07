@@ -1,7 +1,7 @@
 {
   config,
   pkgs,
-  secrets,
+  legacy_secrets,
   lib,
   ...
 }:
@@ -17,15 +17,15 @@
     host = "git.menzel.lol";
     port = 443;
     https = true;
-    databasePasswordFile = pkgs.writeText "password" secrets.gitlab.rootPassword;
-    initialRootPasswordFile = pkgs.writeText "password" secrets.gitlab.rootPassword;
+    databasePasswordFile = pkgs.writeText "password" legacy_secrets.gitlab.rootPassword;
+    initialRootPasswordFile = pkgs.writeText "password" legacy_secrets.gitlab.rootPassword;
     secrets = {
       activeRecordSaltFile = "/var/lib/gitlab-secrets/active_record_salt";
       activeRecordPrimaryKeyFile = "/var/lib/gitlab-secrets/active_record_primary_key";
       activeRecordDeterministicKeyFile = "/var/lib/gitlab-secrets/active_record_deterministic_key";
-      secretFile = pkgs.writeText "password" secrets.gitlab.rootPassword;
-      otpFile = pkgs.writeText "password" secrets.gitlab.rootPassword;
-      dbFile = pkgs.writeText "password" secrets.gitlab.rootPassword;
+      secretFile = pkgs.writeText "password" legacy_secrets.gitlab.rootPassword;
+      otpFile = pkgs.writeText "password" legacy_secrets.gitlab.rootPassword;
+      dbFile = pkgs.writeText "password" legacy_secrets.gitlab.rootPassword;
       jwsFile = pkgs.runCommand "oidcKeyBase" { } "${pkgs.openssl}/bin/openssl genrsa 2048 > $out";
     };
   };
@@ -40,11 +40,11 @@
     };
     services = {
       default = {
-        authenticationTokenConfigFile = pkgs.writeText "auth-file" secrets.gitlab.authenticationFile;
+        authenticationTokenConfigFile = pkgs.writeText "auth-file" legacy_secrets.gitlab.authenticationFile;
         dockerImage = "alpine";
       };
       nix = with lib; {
-        authenticationTokenConfigFile = pkgs.writeText "auth-file" secrets.gitlab.authenticationFileNix;
+        authenticationTokenConfigFile = pkgs.writeText "auth-file" legacy_secrets.gitlab.authenticationFileNix;
         dockerImage = "alpine";
         dockerVolumes = [
           "/nix/store:/nix/store:ro"

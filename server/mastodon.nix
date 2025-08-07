@@ -1,7 +1,7 @@
 {
   config,
   pkgs,
-  secrets,
+  legacy_secrets,
   ...
 }:
 {
@@ -26,7 +26,7 @@
       OIDC_REDIRECT_URI = "https://social.menzel.lol/auth/auth/openid_connect/callback";
       OIDC_SECURITY_ASSUME_EMAIL_IS_VERIFIED = "true";
       OIDC_CLIENT_ID = "mastodon";
-      OIDC_CLIENT_SECRET = secrets.auth.mastodon_client_secret;
+      OIDC_CLIENT_SECRET = legacy_secrets.auth.mastodon_client_secret;
     };
   };
 }

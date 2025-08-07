@@ -1,7 +1,7 @@
 {
   config,
   pkgs,
-  secrets,
+  legacy_secrets,
   ...
 }:
 let
@@ -18,7 +18,7 @@ let
   jellyfin-music =
     let
       env_file = pkgs.writeText ".env" ''
-        API_KEY=${secrets.jellyfin.api-key}
+        API_KEY=${legacy_secrets.jellyfin.api-key}
         JELLYFIN_IP=https://media.menzel.lol
         USER_NAME=leonard
         PLAYLIST_LENGTH=5  # Length of the playlist in hours

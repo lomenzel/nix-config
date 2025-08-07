@@ -3,7 +3,7 @@
   pkgs,
   pkgs-unstable,
   inputs,
-  secrets,
+  legacy_secrets,
   ...
 }:
 {

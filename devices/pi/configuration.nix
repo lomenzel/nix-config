@@ -7,7 +7,7 @@
   lib,
   pkgs,
   inputs,
-  secrets,
+  legacy_secrets,
   helper-functions,
   ...
 }:

@@ -20,19 +20,20 @@ in
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     #../../services/samba.nix
-    ../../server/overleaf.nix
     ../../services/wsh.nix
     ../../home/home.nix
     ../../server/server.nix
     ../../services/remotebuild.nix
   ];
   # overleaf
-  services.overleaf = {
-    enable = true;
-    dataDir = "/var/lib/overleaf";
-    port = "8083";
-    forceBuild = true;
-  };
+  /*
+    services.overleaf = {
+      enable = true;
+      dataDir = "/var/lib/overleaf";
+      port = "8083";
+      forceBuild = true;
+    };
+  */
 
   services.luanti = {
     enable = true;

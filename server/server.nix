@@ -1,11 +1,11 @@
 {
   config,
   pkgs,
-  secrets,
+  legacy_secrets,
   ...
 }:
 let
-  sshKey = secrets.ssh.keys.laptop;
+  sshKey = legacy_secrets.ssh.keys.laptop;
 in
 {
   imports = [

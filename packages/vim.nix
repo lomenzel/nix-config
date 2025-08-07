@@ -43,23 +43,23 @@
         ];
         extraPlugins = {
           /*
-          neotest-haskell.package = pkgs.vimPlugins.neotest-haskell;
-          nvim-nio.package = pkgs.vimPlugins.nvim-nio;
-          plenary.package = pkgs.vimPlugins.plenary-nvim;
+            neotest-haskell.package = pkgs.vimPlugins.neotest-haskell;
+            nvim-nio.package = pkgs.vimPlugins.nvim-nio;
+            plenary.package = pkgs.vimPlugins.plenary-nvim;
 
-          neotest = {
-            package = pkgs.vimPlugins.neotest;
-            after = [ "neotest-haskell" ];
-            setup = ''
-              require('neotest').setup {
-                adapters = {
-                  require('neotest-haskell') {
-                    build_tools = { 'stack', 'cabal' },
-                    frameworks = { 'hspec' }
+            neotest = {
+              package = pkgs.vimPlugins.neotest;
+              after = [ "neotest-haskell" ];
+              setup = ''
+                require('neotest').setup {
+                  adapters = {
+                    require('neotest-haskell') {
+                      build_tools = { 'stack', 'cabal' },
+                      frameworks = { 'hspec' }
+                    }
                   }
-                }
-              }'';
-          };
+                }'';
+            };
           */
         };
 

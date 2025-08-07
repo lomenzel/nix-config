@@ -1,12 +1,12 @@
 {
   config,
   pkgs,
-  secrets,
+  legacy_secrets,
   ...
 }:
 
 let
-  inwxCredentials = pkgs.writeText "inwx-credentials" secrets.acme.inwxCredentials;
+  inwxCredentials = pkgs.writeText "inwx-credentials" legacy_secrets.acme.inwxCredentials;
 in
 {
 
