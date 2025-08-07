@@ -113,7 +113,7 @@ in
 
   hardware.graphics = {
     enable = true;
-    extraPackages = with pkgs; [ nvidia-vaapi-driver ];
+    extraPackages = with pkgs-unstable; [ nvidia-vaapi-driver ];
   };
 
   # Load nvidia driver for Xorg and Wayland
@@ -168,7 +168,7 @@ in
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs-unstable; [
     #vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
   ];
