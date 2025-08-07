@@ -2,20 +2,20 @@
   config,
   pkgs,
   inputs,
+  legacy_secrets,
   secrets,
   lib,
   pkgs-unstable,
   pkgs-stable,
   pkgs-self,
-  nix-luanti,
   ...
 }:
 {
   imports = [
     ./programs/firefox.nix
     ./programs/git.nix
+    ./programs/anki.nix
     #./programs/vim.nix
-    inputs.nix-luanti.homeManagerModules.default
     inputs.immich-uploader.homeManagerModules.default
     #./plasma.nix
     #inputs.plasma-manager.homeManagerModules.plasma-manager
@@ -25,7 +25,7 @@
   services.immich-upload = {
     enable = true;
     baseUrl = "https://photos.menzel.lol/api";
-    apiKey = secrets.immich.apiKey;
+    apiKey = legacy_secrets.immich.apiKey;
     mediaPaths = [ "~/Bilder/Immich-Upload-Daemon-Test" ];
   };
 
@@ -53,6 +53,12 @@
     enable = true;
   };
 
+  home.activation = {
+    removeHMBackups = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      rm ~/.gtkrc-2.0.homemanager-backup ~/.mozilla/firefox/default/search.json.mozlz4.homemanager-backup || true
+    '';
+  };
+
   programs.alacritty = {
     enable = true;
     package = pkgs-unstable.alacritty;
@@ -64,14 +70,13 @@
     [
       nh
       htop
+      sops
       curl
       nix-output-monitor
       killall
       nixfmt-rfc-style
       less
       git
-      exfat
-      exfatprogs
       glxinfo
       clinfo
       wayland-utils
@@ -92,7 +97,22 @@
       pkgs-self.vim
       inputs.speiseplan.packages."x86_64-linux".speiseplan-cli
       libreoffice
-      luanti
+      (luanti.withPackages ({
+        games = with luantiPackages.games; [
+          mineclone2
+          mineclonia
+          minetest_game
+          nodecore
+        ];
+        mods = with luantiPackages.mods; [
+          i3
+          animalia
+          logistica
+        ];
+      }
+      )
+
+      )
       nixpkgs-fmt
       qtwebsockets
       brave
@@ -111,8 +131,6 @@
           withBDplus = true;
         };
       })
-      anki
-      discord
       finamp
       kontact
       kmail-account-wizard
@@ -127,6 +145,7 @@
     enable = true;
     nix-direnv.enable = true;
   };
+  programs.vesktop.enable = true;
   programs.starship = {
     enable = true;
   };

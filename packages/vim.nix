@@ -42,6 +42,7 @@
           }
         ];
         extraPlugins = {
+          /*
           neotest-haskell.package = pkgs.vimPlugins.neotest-haskell;
           nvim-nio.package = pkgs.vimPlugins.nvim-nio;
           plenary.package = pkgs.vimPlugins.plenary-nvim;
@@ -59,6 +60,7 @@
                 }
               }'';
           };
+          */
         };
 
         tabline.nvimBufferline.enable = true;

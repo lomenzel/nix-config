@@ -6,7 +6,6 @@
   config,
   pkgs-unstable,
   inputs,
-  nix-luanti,
   ...
 }:
 let
@@ -40,7 +39,7 @@ in
     package = pkgs-unstable.luanti-server;
     servers.kinder = {
       port = 30001;
-      mods = with nix-luanti.mods; [
+      mods = with pkgs.luantiPackages.mods; [
         waypoints
       ];
       config = {

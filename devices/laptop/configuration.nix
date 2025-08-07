@@ -2,7 +2,6 @@
   config,
   pkgs,
   pkgs-unstable,
-  nix-luanti,
   inputs,
   secrets,
   ...
@@ -14,6 +13,7 @@
     ../../home/home.nix
     ../../services/wsh.nix
   ];
+
   boot.loader.systemd-boot.configurationLimit = 10;
 
   nixpkgs.config.permittedInsecurePackages = [

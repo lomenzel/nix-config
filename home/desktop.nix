@@ -1,10 +1,13 @@
 {
   config,
-  pkgs-unstable
+  pkgs-unstable,
   inputs,
   lib,
   ...
 }:
+let
+  pkgs = pkgs-unstable;
+in
 {
   imports = [ ];
 

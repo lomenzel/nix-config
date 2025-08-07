@@ -4,6 +4,7 @@
   inputs,
   lib,
   secrets,
+  legacy_secrets,
   helper-functions,
   pkgs-unstable,
   pkgs-stable,
@@ -21,12 +22,14 @@
     extraSpecialArgs = {
       inherit
         inputs
-        secrets
         helper-functions
         pkgs-unstable
         pkgs-stable
         pkgs-self
+        legacy_secrets
+        
         ;
+    secrets = config.sops.secrets;
     };
     users = {
       "leonard" = import ../home-manager/home.nix;
