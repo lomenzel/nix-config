@@ -39,7 +39,7 @@ in
     package = pkgs-unstable.luanti-server;
     servers.kinder = {
       port = 30001;
-      mods = with pkgs.luantiPackages.mods; [
+      mods = with pkgs-unstable.luantiPackages.mods; [
         waypoints
       ];
       config = {
@@ -51,15 +51,6 @@ in
         "jonas"
         "sophia"
         "stefan"
-      ];
-    };
-
-    servers.airin = {
-      port = 30002;
-      config.only_peaceful_mobs = true;
-      whitelist = [
-        "leonard"
-        "airin"
       ];
     };
   };
