@@ -24,6 +24,7 @@
           hash = "sha256-FghgCtVQIxc9qB5vZZlblugk6HLnxoT8xanZK+N8qEc=";
           tag = "v0.11.3";
         };
+        version = "0.11.3";
       };
     };
   };
