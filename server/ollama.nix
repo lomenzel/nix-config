@@ -14,6 +14,7 @@
       host = "0.0.0.0";
       loadModels = [
         "llama3.1:8b"
+        "gpt-oss:20b"
       ];
       acceleration = "cuda";
       package = pkgs-unstable.ollama-cuda.overrideAttrs {
