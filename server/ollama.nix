@@ -16,7 +16,14 @@
         "llama3.1:8b"
       ];
       acceleration = "cuda";
-      package = pkgs-unstable.ollama-cuda;
+      package = pkgs-unstable.ollama-cuda.overrideAttrs {
+        src = pkgs-unstable.fetchFromGitHub {
+          owner = "ollama";
+          repo = "ollama";
+          hash = "";
+          tag = "v0.11.3";
+        };
+      };
     };
   };
 
