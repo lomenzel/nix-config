@@ -9,6 +9,7 @@
   nixpkgs.config.allowUnfree = true;
   services = {
     ollama = {
+      home = "/mnt/server/ollama";
       enable = true;
       port = 3500;
       host = "0.0.0.0";
@@ -20,6 +21,7 @@
         "qwen3:14b"
         "deepcoder:14b"
         "llama4:16x17b"
+        "deepseek-r1:14b"
 
       ];
       acceleration = "cuda";
@@ -27,10 +29,10 @@
         src = pkgs-unstable.fetchFromGitHub {
           owner = "ollama";
           repo = "ollama";
-          hash = "sha256-FghgCtVQIxc9qB5vZZlblugk6HLnxoT8xanZK+N8qEc=";
-          tag = "v0.11.3";
+          hash = "sha256-joIA/rH8j+SJH5EVMr6iqKLve6bkntPQM43KCN9JTZ8=";
+          tag = "v0.11.4";
         };
-        version = "0.11.3";
+        version = "0.11.4";
       };
     };
   };
