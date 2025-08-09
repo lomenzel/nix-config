@@ -10,6 +10,7 @@
   services = {
     ollama = {
       home = "/mnt/server/ollama";
+      user = "ollama";
       enable = true;
       port = 3500;
       host = "0.0.0.0";
