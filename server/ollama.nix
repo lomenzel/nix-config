@@ -15,6 +15,12 @@
       loadModels = [
         "llama3.1:8b"
         "gpt-oss:20b"
+        "gpt-oss:120b"
+        "qwen3-coder:30b"
+        "qwen3:14b"
+        "deepcoder:14b"
+        "llama4:16x17b"
+
       ];
       acceleration = "cuda";
       package = pkgs-unstable.ollama-cuda.overrideAttrs {
