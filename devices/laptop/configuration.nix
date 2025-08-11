@@ -26,6 +26,8 @@
 
   nixpkgs.config.nativeOptimization = "native";
 
+  virtualisation.docker.enable = true;
+
   services.udev.extraRules = ''
     # STMicroelectronics STLink V2
     SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3748", MODE="0666", GROUP="plugdev"
