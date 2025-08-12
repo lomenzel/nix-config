@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, pkgs-unstable, config, ... }:
 {
   services.luanti = {
     enable = true;
