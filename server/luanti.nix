@@ -23,6 +23,7 @@
       test = {
         port = 30002;
         host = "test.game.menzel.lol";
+        ssl = true;
       };
     };
   };
