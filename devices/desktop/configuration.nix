@@ -35,27 +35,6 @@ in
     };
   */
 
-  services.luanti = {
-    enable = true;
-    package = pkgs-unstable.luanti-server;
-    servers.kinder = {
-      port = 30001;
-      mods = with pkgs-unstable.luantiPackages.mods; [
-        waypoints
-      ];
-      config = {
-        only_peaceful_mobs = true;
-      };
-      whitelist = [
-        "leonard"
-        "airin"
-        "jonas"
-        "sophia"
-        "stefan"
-      ];
-    };
-  };
-
   fileSystems."/mnt/server" = {
     device = "192.168.178.188:/var/lib/nfs/desktop";
     fsType = "nfs4";
@@ -163,6 +142,7 @@ in
     extraGroups = [
       "networkmanager"
       "wheel"
+      "docker"
     ];
   };
 
