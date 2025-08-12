@@ -29,6 +29,7 @@ in
     #./home.nix
 
     #testing
+    ./luanti.nix
     ./dailyMix/dailyMix.nix
     #./habitica.nix
     #./jitsi.nix
