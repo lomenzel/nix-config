@@ -1,4 +1,9 @@
-{ pkgs, pkgs-unstable, config, ... }:
+{
+  pkgs,
+  pkgs-unstable,
+  config,
+  ...
+}:
 {
   services.luanti = {
     enable = true;
@@ -19,11 +24,6 @@
           "sophia"
           "stefan"
         ];
-      };
-      test = {
-        port = 30002;
-        host = "test.game.menzel.lol";
-        ssl = true;
       };
     };
   };

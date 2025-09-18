@@ -103,8 +103,6 @@ in
     registerToSynapse = true;
   };
 
-
-
   services.mautrix-whatsapp = {
     enable = true;
     settings = {

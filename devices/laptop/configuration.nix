@@ -11,14 +11,53 @@
     ./hardware-configuration.nix
     ../../services/remotebuild-client.nix
     ../../home/home.nix
-    ../../services/wsh.nix
+    ../../services/wsh
+
   ];
+
+  services.inwx-dns.enable = true;
+  services.inwx-dns.hosts = [
+    "laptop.devices.lmenzel.de"
+  ];
+  services.nginx = {
+    enable = true;
+    virtualHosts."laptop.devices.lmenzel.de" = {
+      forceSSL = false;
+      locations."/" = {
+        extraConfig = ''
+          add_header Content-Type text/plain;
+          return 200 "laptop is online\n";
+        '';
+      };
+    };
+  };
 
   boot.loader.systemd-boot.configurationLimit = 10;
 
   nixpkgs.config.permittedInsecurePackages = [
     #"olm-3.2.16"
   ];
+
+  services.luanti = {
+    servers = {
+      nodecore = {
+        port = 30000;
+        host = "nodecore.localhost";
+        game = pkgs.luantiPackages.games.nodecore;
+      };
+      minetest_game = {
+        port = 30001;
+        host = "minetest_game.localhost";
+        game = pkgs.luantiPackages.games.minetest_game;
+      };
+      mineclonia = {
+        port = 30002;
+        host = "mineclonia.localhost";
+        game = pkgs.luantiPackages.games.mineclonia;
+      };
+    };
+  };
+
   networking.firewall.enable = false;
   systemd.services.NetworkManager-wait-online.enable = false;
 

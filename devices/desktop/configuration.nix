@@ -20,7 +20,7 @@ in
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     #../../services/samba.nix
-    ../../services/wsh.nix
+    ../../services/wsh
     ../../home/home.nix
     ../../server/server.nix
     ../../services/remotebuild.nix

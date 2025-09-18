@@ -3,7 +3,6 @@
   pkgs,
   inputs,
   lib,
-  legacy_secrets,
   helper-functions,
   pkgs-unstable,
   pkgs-stable,
@@ -25,8 +24,6 @@
         pkgs-unstable
         pkgs-stable
         pkgs-self
-        legacy_secrets
-
         ;
       secrets = config.sops.secrets;
     };
@@ -42,9 +39,6 @@
     "root"
     "leonard"
   ];
-
-  nix.sshServe.write = true;
-  nix.sshServe.enable = true;
 
   boot.plymouth = {
     enable = true;

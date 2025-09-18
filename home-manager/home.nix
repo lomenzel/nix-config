@@ -2,7 +2,6 @@
   config,
   pkgs,
   inputs,
-  legacy_secrets,
   secrets,
   lib,
   pkgs-unstable,
@@ -25,7 +24,7 @@
   services.immich-upload = {
     enable = true;
     baseUrl = "https://photos.menzel.lol/api";
-    apiKey = legacy_secrets.immich.apiKey;
+    apiKeyFile = secrets."services/immich/apiKey".path;
     mediaPaths = [ "~/Bilder/Immich-Upload-Daemon-Test" ];
   };
 
@@ -71,6 +70,7 @@
       nh
       htop
       sops
+      ethersync
       curl
       nix-output-monitor
       killall

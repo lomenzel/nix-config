@@ -9,7 +9,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../home/home.nix
-    ../../services/wsh.nix
+    ../../services/wsh
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
