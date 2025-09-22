@@ -60,6 +60,7 @@
   services.openssh.enable = true;
   services.fwupd.enable = true;
   xdg.portal.enable = true;
+  users.mutableUsers = false;
 
   users.users.leonard = {
     isNormalUser = true;

@@ -5,6 +5,8 @@
     nvf.url = "github:notashelf/nvf";
     sops-nix.url = "github:Mic92/sops-nix";
 
+    impermanence.url = "github:nix-community/impermanence";
+
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
@@ -79,11 +81,12 @@
             with inputs;
             [
               stylix-unstable.nixosModules.stylix
-              nixos-hardware.nixosModules.tuxedo-pulse-15-gen2
+              #nixos-hardware.nixosModules.tuxedo-pulse-15-gen2
               wsh.nixosModules."x86_64-linux".default
               nix-luanti.nixosModules.default
               ./secrets
               ./devices/laptop/configuration.nix
+              inputs.impermanence.nixosModules.impermanence
               home-manager-unstable.nixosModules.default
             ]
             ++ builtins.attrValues inputs.self.nixosModules;

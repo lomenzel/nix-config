@@ -16,6 +16,7 @@
       "extern/inwx/username".owner = config.services.inwx-dns.user;
       "extern/inwx/password".owner = config.services.inwx-dns.user;
       "services/immich/apiKey".owner = "leonard";
+      "devices/password" = {};
     };
     templates."inwx-secrets"  = {
       content = ''
@@ -30,6 +31,8 @@
     inwx-username-file = config.sops.secrets."extern/inwx/username".path;
     inwx-password-file = config.sops.secrets."extern/inwx/password".path;
   };
+
+  users.users.leonard.hashedPasswordFile = config.sops.secrets."devices/password".path;
 
   security.acme.defaults.credentialsFile = config.sops.templates.inwx-secrets.path;
 

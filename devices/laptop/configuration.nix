@@ -9,6 +9,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./persistence.nix
     ../../services/remotebuild-client.nix
     ../../home/home.nix
     ../../services/wsh
@@ -85,5 +86,5 @@
   ];
   systemd.services.dlm.wantedBy = [ "multi-user.target" ];
 
-  system.stateVersion = "23.11";
+  system.stateVersion = "25.05";
 }

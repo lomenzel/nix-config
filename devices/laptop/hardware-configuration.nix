@@ -10,40 +10,78 @@
 }:
 
 {
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-  boot.initrd.availableKernelModules = [
-    "nvme"
-    "xhci_pci"
-    "usb_storage"
-    "sd_mod"
-  ];
+  imports =
+    [ (modulesPath + "/installer/scan/not-detected.nix")
+    ];
+
+  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "uas" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/deb0a596-52cc-4d49-adfa-2377ea1aae87";
-    fsType = "ext4";
-  };
+  fileSystems."/" =
+    { device = "/dev/disk/by-uuid/9471126a-c6b0-4e4a-b052-b6c8aa609be9";
+      fsType = "btrfs";
+      options = [ "subvol=@root" ];
+    };
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/AF78-33DE";
-    fsType = "vfat";
-  };
 
-  swapDevices = [ { device = "/dev/disk/by-uuid/7a7ea918-0fa7-4b35-b813-70ff9c69db0b"; } ];
+  boot.initrd.postResumeCommands = lib.mkAfter ''
+    mkdir /btrfs_tmp
+    mount /dev/nvme0n1p2 /btrfs_tmp
+    if [[ -e /btrfs_tmp/@root ]]; then
+        mkdir -p /btrfs_tmp/old_roots
+        timestamp=$(date --date="@$(stat -c %Y /btrfs_tmp/@root)" "+%Y-%m-%-d_%H:%M:%S")
+        mv /btrfs_tmp/@root "/btrfs_tmp/old_roots/$timestamp"
+    fi
 
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
+    delete_subvolume_recursively() {
+        IFS=$'\n'
+        for i in $(btrfs subvolume list -o "$1" | cut -f 9- -d ' '); do
+            delete_subvolume_recursively "/btrfs_tmp/$i"
+        done
+        btrfs subvolume delete "$1"
+    }
+
+    for i in $(find /btrfs_tmp/old_roots/ -maxdepth 1 -mtime +5); do
+        delete_subvolume_recursively "$i"
+    done
+
+    btrfs subvolume create /btrfs_tmp/@root
+    umount /btrfs_tmp
+  '';
+
+  fileSystems."/persistent" =
+    { device = "/dev/disk/by-uuid/9471126a-c6b0-4e4a-b052-b6c8aa609be9";
+      fsType = "btrfs";
+      neededForBoot = true;
+      options = [ "subvol=@persistent" ];
+    };
+
+  fileSystems."/nix" =
+    { device = "/dev/disk/by-uuid/9471126a-c6b0-4e4a-b052-b6c8aa609be9";
+      fsType = "btrfs";
+      neededForBoot = true;
+      options = [ "subvol=@nix" ];
+    };
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/7119-52DD";
+      fsType = "vfat";
+      options = [ "fmask=0077" "dmask=0077" ];
+    };
+
+  swapDevices = [ { device ="/dev/disk/by-uuid/df1bd1ed-bbe8-4446-a2f2-b0ddd0c0d5a5";} ];
+
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp1s0.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlp3s0.useDHCP = lib.mkDefault true;
+
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+
+
 
   hardware.bluetooth.enable = true;
   #services.blueman.enable = true;
