@@ -10,13 +10,13 @@
   sops = {
     defaultSopsFile = ./secrets.yaml;
     defaultSopsFormat = "yaml";
-    age.keyFile = "/home/leonard/.config/sops/age/keys.txt";
+    age.keyFile = "/persistent/sops-key.txt";
     secrets = {
       "programs/anki/sync_key".owner = "leonard";
       "extern/inwx/username".owner = config.services.inwx-dns.user;
       "extern/inwx/password".owner = config.services.inwx-dns.user;
       "services/immich/apiKey".owner = "leonard";
-      "devices/password" = {};
+      "devices/password".neededForUsers = true;
     };
     templates."inwx-secrets"  = {
       content = ''

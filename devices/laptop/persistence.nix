@@ -17,9 +17,13 @@
         "Videos"
         ".local/share/direnv"
         ".config/nix-config"
+        ".config/kdeconnect"
+        ".mozilla/firefox/default/storage"
+        ".mozilla/firefox/default/extensions"
       ];
       files = [
-        ".config/sops/age/keys.txt"
+        ".mozilla/firefox/default/storage.sqlite"
+        ".mozilla/firefox/default/cookies.sqlite"
       ];
     };
 
