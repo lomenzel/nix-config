@@ -15,15 +15,11 @@
         "Dokumente"
         "Musik"
         "Videos"
+        "Projekte"
         ".local/share/direnv"
         ".config/nix-config"
         ".config/kdeconnect"
-        ".mozilla/firefox/default/storage"
-        ".mozilla/firefox/default/extensions"
-      ];
-      files = [
-        ".mozilla/firefox/default/storage.sqlite"
-        ".mozilla/firefox/default/cookies.sqlite"
+        ".mozilla/firefox"
       ];
     };
 
