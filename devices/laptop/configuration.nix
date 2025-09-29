@@ -9,7 +9,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./persistence.nix
+   # ./persistence.nix
     ../../services/remotebuild-client.nix
     ../../home/home.nix
     ../../services/wsh

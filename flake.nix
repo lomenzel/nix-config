@@ -86,7 +86,7 @@
               nix-luanti.nixosModules.default
               ./secrets
               ./devices/laptop/configuration.nix
-              inputs.impermanence.nixosModules.impermanence
+              #inputs.impermanence.nixosModules.impermanence
               home-manager-unstable.nixosModules.default
             ]
             ++ builtins.attrValues inputs.self.nixosModules;
