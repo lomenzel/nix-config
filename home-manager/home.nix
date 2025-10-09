@@ -70,6 +70,7 @@
       nh
       htop
       sops
+      devenv
       ethersync
       curl
       nix-output-monitor
