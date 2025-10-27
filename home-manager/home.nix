@@ -96,7 +96,7 @@
       krohnkite
       pkgs-self.vim
       inputs.speiseplan.packages."x86_64-linux".speiseplan-cli
-      libreoffice
+      # libreoffice
       (luanti.withPackages ({
         games = with luantiPackages.games; [
           mineclone2
