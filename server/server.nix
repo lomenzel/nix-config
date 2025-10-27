@@ -40,7 +40,7 @@ in
     #./adguard.nix
     #./kasm.nix
     #./kubernetes.nix
-    ./locationshare.nix
+    #./locationshare.nix
 
   ];
 
