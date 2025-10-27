@@ -34,9 +34,9 @@ in
 
     opacity = {
       applications = 1;
-      desktop = 1;
+      desktop = 0.8;
       popups = 1;
-      terminal = 0.9;
+      terminal = 1.0;
     };
 
     cursor = {
@@ -47,9 +47,20 @@ in
 
     fonts = {
       monospace = {
-        package = pkgs-unstable.nerd-fonts.comic-shanns-mono;
-        name = "ComicShannsMono Nerd Font Mono";
+        package = pkgs-unstable.nerd-fonts.jetbrains-mono;
+        name = "JetBrainsMono Nerd Font Mono";
       };
+      sansSerif  = { package =  pkgs-unstable.roboto;
+      name = "Roboto";};
+
+      serif =  {
+        package = pkgs-unstable.roboto-serif;
+        name = "Roboto Serif";
+      };
+    emoji = {
+      package = pkgs.noto-fonts-emoji;
+      name = "Noto Color Emoji";
+    };
     };
 
     targets = {

@@ -39,27 +39,7 @@
     #"olm-3.2.16"
   ];
 
-  services.luanti = {
-    servers = {
-      nodecore = {
-        port = 30000;
-        host = "nodecore.localhost";
-        game = pkgs.luantiPackages.games.nodecore;
-      };
-      minetest_game = {
-        port = 30001;
-        host = "minetest_game.localhost";
-        game = pkgs.luantiPackages.games.minetest_game;
-      };
-      mineclonia = {
-        port = 30002;
-        host = "mineclonia.localhost";
-        game = pkgs.luantiPackages.games.mineclonia;
-      };
-    };
-  };
-
-  networking.firewall.enable = false;
+  networking.firewall.enable = true;
   systemd.services.NetworkManager-wait-online.enable = false;
 
   nix.distributedBuilds = true;

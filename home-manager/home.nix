@@ -14,6 +14,7 @@
     ./programs/firefox.nix
     ./programs/git.nix
     ./programs/anki.nix
+    ./programs/luanti.nix
     #./programs/vim.nix
     inputs.immich-uploader.homeManagerModules.default
     #./plasma.nix
@@ -38,9 +39,6 @@
       allowUnfreePredicate = (_: true);
     };
   };
-
-  #home.file."${config.home.homeDirectory}/.gtkrc-2.0".force = lib.mkForce true;
-  #home.file."${config.home.homeDirectory}/.librewolf/default/search.json.mozlz4".force = lib.mkForce true;
 
   home.file."${config.xdg.configHome}/speiseplan-cli/config.toml" = {
     text = ''
@@ -83,6 +81,7 @@
       wayland-utils
       pciutils
       vulkan-tools
+      darkly
       yakuake
       kio-gdrive
       kde-rounded-corners
@@ -125,12 +124,14 @@
           withBDplus = true;
         };
       })
+      /*
       (handbrake.override {
         libbluray = libbluray.override {
           withAACS = true;
           withBDplus = true;
         };
       })
+      */
       finamp
       kontact
       kmail-account-wizard

@@ -35,6 +35,7 @@ with (helper-functions { inherit lib; });
       "explorer.confirmDragAndDrop" = false;
       "git.autofetch" = true;
       "redhat.telemetry.enabled" = false;
+      "C_Cpp.intelliSenseEngine" ="disabled";
     };
 
   };
