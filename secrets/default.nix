@@ -13,8 +13,8 @@
     age.keyFile = "/persistent/sops-key.txt";
     secrets = {
       "programs/anki/sync_key".owner = "leonard";
-      "extern/inwx/username".owner = config.services.inwx-dns.user;
-      "extern/inwx/password".owner = config.services.inwx-dns.user;
+      "extern/inwx/username".owner = lib.mkIf (builtins.hasAttr "inwx-dns" options.services && config.services.inwx-dns.enable)  config.services.inwx-dns.user;
+      "extern/inwx/password".owner = lib.mkIf (builtins.hasAttr "inwx-dns" options.services && config.services.inwx-dns.enable)  config.services.inwx-dns.user;
       "services/immich/apiKey".owner = "leonard";
       "devices/password".neededForUsers = true;
     };
