@@ -27,7 +27,7 @@
     };
   };
 
-  services.inwx-dns = lib.mkIf (builtins.hasAttr "inwx-dns" options.services) {
+  services.inwx-dns = lib.mkIf (builtins.hasAttr "inwx-dns" options.services && config.services.inwx-dns.enable) {
     inwx-username-file = config.sops.secrets."extern/inwx/username".path;
     inwx-password-file = config.sops.secrets."extern/inwx/password".path;
   };
