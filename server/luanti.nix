@@ -21,8 +21,7 @@
           "airin"
           "jonas"
           "sophia"
-          "sophia8"
-          "anne"
+          "Soso"
           "stefan"
         ];
       };
