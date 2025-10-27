@@ -3,8 +3,7 @@
   pkgs-unstable,
   config,
   ...
-}:
-{
+}: {
   services.luanti = {
     enable = true;
     package = pkgs-unstable.luanti-server;
@@ -22,6 +21,8 @@
           "airin"
           "jonas"
           "sophia"
+          "sophia8"
+          "anne"
           "stefan"
         ];
       };
