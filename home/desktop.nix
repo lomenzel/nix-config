@@ -20,6 +20,7 @@ in
     libaacs
     libdvdcss
     libbluray
+    kdePackages.powerdevil
   ];
 
   stylix = {

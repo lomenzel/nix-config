@@ -22,10 +22,10 @@ in
     #./minecraft.nix
     #./searx.nix
     #./immich.nix
-    ./ollama.nix
+    #./ollama.nix
     #./nextcloud.nix
     ./matrix.nix
-    ./anki.nix
+    #./anki.nix
     #./home.nix
 
     #testing
