@@ -69,14 +69,14 @@
       htop
       sops
       devenv
-      ethersync
+      teamtype
       curl
       nix-output-monitor
       killall
       nixfmt-rfc-style
       less
       git
-      glxinfo
+      mesa-demos
       clinfo
       wayland-utils
       pciutils

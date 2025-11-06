@@ -42,7 +42,7 @@
           }
         ];
         extraPlugins = {
-          ethersync.package = pkgs.vimPlugins.ethersync;
+          teamtype.package = pkgs.vimPlugins.teamtype;
         };
 
         tabline.nvimBufferline.enable = true;
