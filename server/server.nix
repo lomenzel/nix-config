@@ -15,7 +15,7 @@ in
     ./acme.nix
 
     #working
-    ./gitlab.nix
+    #./gitlab.nix
     #./jellyfin.nix
     #./kubo.nix
     ./mastodon.nix
