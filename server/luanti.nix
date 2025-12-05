@@ -25,6 +25,16 @@
           "stefan"
         ];
       };
+      sophiaLeonard = {
+        port = 30002;
+        mods = with pkgs-unstable.luantiPackages.mods; [
+          waypoints
+        ];
+        game = pkgs-unstable.luantiPackages.games.mineclonia;
+        config = {
+          only_peaceful_mobs = false;
+        };
+      };
     };
   };
 }

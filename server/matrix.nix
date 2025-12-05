@@ -168,6 +168,7 @@ in
   };
   systemd.services.mautrix-telegram.path = [ pkgs.ffmpeg ]; # converting stickers
 
+/*
   systemd.services.matrix-zulip-bridge =
     let
 
@@ -205,6 +206,9 @@ in
         };
     };
 
+*/
+  
+  
   services.nginx = {
     virtualHosts = {
       /*
