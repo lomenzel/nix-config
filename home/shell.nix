@@ -16,7 +16,7 @@
 
   nix = {
     extraOptions = ''
-      experimental-features = nix-command flakes pipe-operators
+      experimental-features = nix-command flakes pipe-operators recursive-nix
     '';
     distributedBuilds = true;
   };
