@@ -16,6 +16,8 @@
 
   ];
 
+  programs.nix-ld.enable = false;
+
   services.inwx-dns.enable = true;
   services.inwx-dns.hosts = [
     "laptop.devices.lmenzel.de"

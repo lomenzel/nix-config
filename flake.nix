@@ -40,6 +40,7 @@
     };
     immich-uploader.url = "github:lomenzel/immich_upload_daemon";
     wsh.url = "github:lomenzel/web-command";
+    nixtheplanet.url = "github:matthewcroughan/nixtheplanet";
   };
 
   outputs =
@@ -80,6 +81,7 @@
           modules =
             with inputs;
             [
+              nixtheplanet.nixosModules.macos-ventura
               stylix-unstable.nixosModules.stylix
               #nixos-hardware.nixosModules.tuxedo-pulse-15-gen2
               wsh.nixosModules."x86_64-linux".default
@@ -111,6 +113,7 @@
             modules =
               with inputs;
               [
+                nixtheplanet.nixosModules.macos-ventura
                 wsh.nixosModules.${system}.default
                 ./devices/desktop/configuration.nix
                 ./secrets

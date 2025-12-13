@@ -40,6 +40,12 @@
     "leonard"
   ];
 
+  services.macos-ventura = {
+    enable = true;
+    openFirewall = false;
+    vncListenAddr = "0.0.0.0";
+  };
+
   boot.plymouth = {
     enable = true;
   };

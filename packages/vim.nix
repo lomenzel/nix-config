@@ -73,13 +73,6 @@
           enableFormat = true;
           enableTreesitter = true;
           nix.enable = true;
-          clang = {
-            enable = true;
-            lsp = {
-              enable = true;
-              package = pkgs.llvmPackages_21.clang-tools;
-            };
-          };
           haskell = {
             enable = true;
           };
