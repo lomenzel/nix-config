@@ -18,7 +18,7 @@ in
     #./gitlab.nix
     #./jellyfin.nix
     #./kubo.nix
-    ./mastodon.nix
+    #./mastodon.nix
     #./minecraft.nix
     #./searx.nix
     #./immich.nix

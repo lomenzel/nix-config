@@ -41,7 +41,7 @@
   ];
 
   services.macos-ventura = {
-    enable = true;
+    enable = false;
     openFirewall = false;
     vncListenAddr = "0.0.0.0";
   };
