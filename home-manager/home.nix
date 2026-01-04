@@ -116,6 +116,7 @@
       qtwebsockets
       brave
       picard
+      fractal
       mpv
       kate
       (vlc.override {
