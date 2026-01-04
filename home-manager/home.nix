@@ -146,7 +146,7 @@
     enable = true;
     nix-direnv.enable = true;
   };
-  programs.vesktop.enable = true;
+ # programs.vesktop.enable = true;
   programs.starship = {
     enable = true;
   };
