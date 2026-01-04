@@ -24,7 +24,7 @@ in
     #./immich.nix
     #./ollama.nix
     #./nextcloud.nix
-    ./matrix.nix
+    #./matrix.nix
     #./anki.nix
     #./home.nix
 
