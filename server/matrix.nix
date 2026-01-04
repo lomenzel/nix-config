@@ -163,6 +163,7 @@ in
       telegram = {
         api_id = legacy_secrets.mautrix-telegram.id;
         api_hash = legacy_secrets.mautrix-telegram.hash;
+        connection.use_ipv6 = true;
       };
     };
   };
