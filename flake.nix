@@ -93,6 +93,31 @@
             ]
             ++ builtins.attrValues inputs.self.nixosModules;
         };
+        tablet = inputs.nixpkgs-unstable.lib.nixosSystem rec {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;
+            pkgs-unstable = import inputs.nixpkgs-unstable {
+              inherit system;
+              overlays = [
+                inputs.nix-luanti.overlays.default
+              ];
+            };
+            pkgs-self = self.packages.${system};
+            helper-functions = import ./helper-functions.nix;
+
+          };
+          modules = with inputs; [
+                          nixtheplanet.nixosModules.macos-ventura
+
+            stylix-unstable.nixosModules.stylix
+            wsh.nixosModules.${system}.default
+            nix-luanti.nixosModules.default
+            ./secrets
+            ./devices/tablet/configuration.nix
+            home-manager-unstable.nixosModules.default
+          ] ++ builtins.attrValues inputs.self.nixosModules;
+        };
         desktop =
           let
             system = "x86_64-linux";
