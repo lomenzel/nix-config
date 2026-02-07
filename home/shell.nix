@@ -14,9 +14,18 @@
     NIXPKGS_ALLOW_UNFREE = 1;
   };
 
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+    "pipe-operators"
+    "recursive-nix"
+    "ca-derivations"
+    "dynamic-derivations"
+  ];
+
   nix = {
     extraOptions = ''
-      experimental-features = nix-command flakes pipe-operators recursive-nix
+      experimental-features = nix-command flakes pipe-operators recursive-nix ca-derivations dynamic-derivations
     '';
     distributedBuilds = true;
   };

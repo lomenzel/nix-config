@@ -18,7 +18,7 @@
 
   programs.nix-ld.enable = false;
 
-  services.inwx-dns.enable = true;
+  services.inwx-dns.enable = false;
   services.inwx-dns.hosts = [
     "laptop.devices.lmenzel.de"
   ];
@@ -32,6 +32,25 @@
           return 200 "laptop is online\n";
         '';
       };
+    };
+  };
+
+  services.luanti.servers = {
+    wiefaewiubguazb = {
+      port = 30000;
+      mapserver = {
+        enable = true;
+        companionMod = true;
+        config = {
+          port = 30001;
+          webapi.secretkey = "supersecret";
+        };
+      };
+      game = pkgs-unstable.luantiPackages.games.mineclonia;
+      config = {
+        mcl_villages_village_chance = 300;
+      };
+      host = "game.localhost";
     };
   };
 

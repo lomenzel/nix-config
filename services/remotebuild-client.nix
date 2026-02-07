@@ -17,8 +17,8 @@
       hostName = "menzel.lol";
       sshUser = "remotebuild";
       sshKey = "/root/.ssh/remotebuild";
-      system = pkgs.stdenv.hostPlatform.system;
-      maxJobs = 31;
+      system = "x86_64-linux";
+      maxJobs = 8;
       speedFactor = 2;
       supportedFeatures = [
         "nixos-test"

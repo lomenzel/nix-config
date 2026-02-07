@@ -61,6 +61,12 @@
         {
           vim = import ./packages/vim.nix { inherit inputs system; };
           dns-update = pkgs.callPackage ./packages/dns-update { };
+          homeConfigurations.leonard = home-manager.lib.homeManagerConfiguration {
+            pkgs = import nixpkgs { inherit system; };
+            modules = [
+              ./devices/mini/home.nix
+            ];
+          };
         }
       ) nixpkgs.legacyPackages;
 

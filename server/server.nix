@@ -30,7 +30,7 @@ in
 
     #testing
     ./luanti.nix
-    ./dailyMix/dailyMix.nix
+    #./dailyMix/dailyMix.nix
     #./habitica.nix
     #./jitsi.nix
     #./comfy.nix

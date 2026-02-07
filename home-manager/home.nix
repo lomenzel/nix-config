@@ -73,7 +73,7 @@
       curl
       nix-output-monitor
       killall
-      nixfmt-rfc-style
+      nixfmt
       less
       git
       mesa-demos
@@ -100,7 +100,6 @@
       (luanti.withPackages ({
         games = with luantiPackages.games; [
           mineclone2
-          mineclonia
           minetest_game
           nodecore
         ];
@@ -108,6 +107,18 @@
           i3
           animalia
           logistica
+        ];
+        texturePacks = with luantiPackages.texturePacks; [
+          (minecraft.override {
+            acceptMinecraftEula = true;
+          })
+          soothing32
+          (mergeLuantiTexturePacks [
+            modrinth.tnt-barrel
+            (minecraft.override {
+              acceptMinecraftEula = true;
+            })
+          ])
         ];
       })
 
@@ -119,12 +130,7 @@
       fractal
       mpv
       kate
-      (vlc.override {
-        libbluray = libbluray.override {
-          withAACS = true;
-          withBDplus = true;
-        };
-      })
+      vlc
       /*
       (handbrake.override {
         libbluray = libbluray.override {

@@ -9,7 +9,7 @@
 with (helper-functions { inherit lib; });
 {
 
-  home.packages = [ pkgs.nixfmt-rfc-style ];
+  home.packages = [ pkgs.nixfmt ];
 
   stylix.targets.vscode.profileNames = [ "default" ];
 
