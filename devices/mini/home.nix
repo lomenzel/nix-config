@@ -9,5 +9,6 @@
     fractal
   ];
   home.username = "leonard";
+  home.homeDirectory = "/home/leonard";
   home.stateVersion = "25.11";
 }

@@ -62,7 +62,7 @@
           vim = import ./packages/vim.nix { inherit inputs system; };
           dns-update = pkgs.callPackage ./packages/dns-update { };
           homeConfigurations.leonard = inputs.home-manager-unstable.lib.homeManagerConfiguration {
-            pkgs = import nixpkgs { inherit system; };
+            pkgs = import inputs.nixpkgs-unstable { inherit system; };
             extraSpecialArgs = {
               inherit inputs;
             };
