@@ -63,6 +63,9 @@
           dns-update = pkgs.callPackage ./packages/dns-update { };
           homeConfigurations.leonard = home-manager.lib.homeManagerConfiguration {
             pkgs = import nixpkgs { inherit system; };
+            extraSpecialArgs = {
+              inherit inputs;
+            };
             modules = [
               ./devices/mini/home.nix
             ];
