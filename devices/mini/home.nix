@@ -8,5 +8,6 @@
   home.packages = with inputs.nixpkgs-unstable.legacyPackages."x86_64-linux".pkgsCross.armv7l-hf-multiplatform; [
     fractal
   ];
+  home.username = "leonard";
   home.stateVersion = "25.11";
 }
