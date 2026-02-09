@@ -1,7 +1,6 @@
 {
   config,
   pkgs-unstable,
-  legacy_secrets,
   lib,
   pkgs-self,
   ...

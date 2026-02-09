@@ -1,12 +1,9 @@
 {
   config,
   pkgs,
-  legacy_secrets,
   ...
 }:
-let
-  sshKey = legacy_secrets.ssh.keys.laptop;
-in
+
 {
   imports = [
     #helpers
@@ -53,10 +50,6 @@ in
     };
   };
 
-  users.users."leonard".openssh.authorizedKeys.keys = [
-    "ssh-ed25519 ${sshKey} leonard"
-    "ssh-ed25519 ${sshKey} root"
-  ];
 
   networking.firewall =
     let

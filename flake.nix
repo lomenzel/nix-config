@@ -52,6 +52,7 @@
       ...
     }@inputs:
     {
+      images.pi = self.nixosConfigurations.pi.config.system.build.sdImage;
 
       packages = builtins.mapAttrs (
         system: _:
@@ -61,17 +62,18 @@
         {
           vim = import ./packages/vim.nix { inherit inputs system; };
           dns-update = pkgs.callPackage ./packages/dns-update { };
-          homeConfigurations.leonard = inputs.home-manager-unstable.lib.homeManagerConfiguration {
-            pkgs = import inputs.nixpkgs-unstable { inherit system; };
-            extraSpecialArgs = {
-              inherit inputs;
-            };
-            modules = [
-              ./devices/mini/home.nix
-            ];
-          };
         }
       ) nixpkgs.legacyPackages;
+
+      homeConfigurations.leonard = inputs.home-manager-unstable.lib.homeManagerConfiguration {
+        pkgs = import inputs.nixpkgs-unstable { system = "armv7l-linux"; };
+        extraSpecialArgs = {
+          inherit inputs;
+        };
+        modules = [
+          ./devices/mini/home.nix
+        ];
+      };
 
       nixosConfigurations = {
         laptop = inputs.nixpkgs-unstable.lib.nixosSystem rec {
@@ -116,16 +118,19 @@
             helper-functions = import ./helper-functions.nix;
 
           };
-          modules = with inputs; [
-                          nixtheplanet.nixosModules.macos-ventura
+          modules =
+            with inputs;
+            [
+              nixtheplanet.nixosModules.macos-ventura
 
-            stylix-unstable.nixosModules.stylix
-            wsh.nixosModules.${system}.default
-            nix-luanti.nixosModules.default
-            ./secrets
-            ./devices/tablet/configuration.nix
-            home-manager-unstable.nixosModules.default
-          ] ++ builtins.attrValues inputs.self.nixosModules;
+              stylix-unstable.nixosModules.stylix
+              wsh.nixosModules.${system}.default
+              nix-luanti.nixosModules.default
+              ./secrets
+              ./devices/tablet/configuration.nix
+              home-manager-unstable.nixosModules.default
+            ]
+            ++ builtins.attrValues inputs.self.nixosModules;
         };
         desktop =
           let
@@ -136,7 +141,6 @@
             specialArgs = {
               inherit inputs;
               pkgs-self = self.packages.${system};
-              legacy_secrets = import /home/leonard/.config/secrets/secrets.nix;
               helper-functions = import ./helper-functions.nix;
               nix-luanti = inputs.nix-luanti.packages."x86_64-linux";
               pkgs-unstable = import inputs.nixpkgs-unstable {
@@ -157,9 +161,24 @@
               ]
               ++ builtins.attrValues inputs.self.nixosModules;
           });
+
+        pi = inputs.nixpkgs-unstable.lib.nixosSystem rec {
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./devices/pi/configuration.nix
+          ];
+        };
       };
       nixosModules = {
         inwx-dns-update = import ./modules/server/dyndns.nix;
+      };
+
+      checks."x86_64-linux" = (self.packages."x86_64-linux") // {
+        laptop = self.nixosConfigurations.laptop.config.system.build.toplevel;
+        tablet = self.nixosConfigurations.tablet.config.system.build.toplevel;
+        desktop = self.nixosConfigurations.desktop.config.system.build.toplevel;
+        mini = self.homeConfigurations.leonard.activationPackage;
+        pi = self.images.pi;
       };
     };
 

@@ -12,6 +12,15 @@
     ];
   };
 
+  programs.ssh.extraConfig = ''
+    host pi
+      HostName menzel.lol
+      Port 2222
+      User remotebuild
+      IdentityFile /root/.ssh/remotebuild
+      IdentitiesOnly yes
+  '';
+
   nix.buildMachines = [
     {
       hostName = "menzel.lol";
@@ -24,6 +33,18 @@
         "nixos-test"
         "big-parallel"
         "kvm"
+      ];
+    }
+    {
+      hostName = "pi";
+      sshUser = "remotebuild";
+      sshKey = "/root/.ssh/remotebuild";
+      system = "aarch64-linux,armv7l-linux";
+      maxJobs = 1;
+      speedFactor = 1;
+      supportedFeatures = [
+        "nixos-test"
+        "gccarch-armv7-a"
       ];
     }
   ];
