@@ -1,0 +1,8 @@
+stages:
+    - test
+
+test:
+    tags:
+        - nix
+    script: 
+        - nix flake check --extra-experimental-features 'flakes nix-command pipe-operators' -L
