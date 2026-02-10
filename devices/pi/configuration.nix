@@ -16,7 +16,7 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJwiGVjy2K6pIUfQN2kYOy8D13DviLOYJ+/8R4kEtLxE leonard@desktop"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF12/h6efxRizHua9BbyA7e9wmLPc+S8Cjge0pQlOxGw leonard@laptop"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJOp8OfZYX8oARzccUZlc/9+5RHFypZ2KksuWCs0uQnm root@server"
-
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJTFSMsMsJbwa3lriyt9H5UZS8Ppq2tC2pUv5DeimAzg root@desktop"
     ];
   };
   users.groups.remotebuild = { };
@@ -24,7 +24,14 @@
     trusted-users = [ "remotebuild" ];
     max-jobs = 1;
     extra-platforms = [ "armv7l-linux" ];
-    system-features = ["benchmark" "big-parallel" "gccarch-armv8-a" "kvm" "nixos-test" "gccarch-armv7-a"];
+    system-features = [
+      "benchmark"
+      "big-parallel"
+      "gccarch-armv8-a"
+      "kvm"
+      "nixos-test"
+      "gccarch-armv7-a"
+    ];
   };
   zramSwap.enable = true;
   system.stateVersion = "26.05";
