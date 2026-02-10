@@ -1,8 +1,26 @@
 stages:
     - test
+    - build
 
 test:
     tags:
         - nix
     script: 
         - nix flake check --extra-experimental-features 'flakes nix-command pipe-operators' -L
+
+build-image:
+  stage: build
+  tags:
+    - nix
+  needs: []
+  script:
+    - nix build .#images.pi --extra-experimental-features 'flakes nix-command pipe-operators' -L
+    - IMAGE_PATH=$(readlink -f ./result/*.img*)
+    - cp "$IMAGE_PATH" ./pi-compressed
+    - nix shell nixpkgs#zstd -c unzstd ./pi-compressed -o pi.img
+
+  artifacts:
+    name: "pi-image-$CI_COMMIT_SHORT_SHA"
+    paths:
+      - pi.img
+    expire: 1 week
