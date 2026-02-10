@@ -17,7 +17,7 @@ build-image:
     - nix build .#images.pi --extra-experimental-features 'flakes nix-command pipe-operators' -L
     - IMAGE_PATH=$(find -L ./result -name "*.img*" -type f | head -n 1)
     - cp "$IMAGE_PATH" ./pi-compressed
-    - nix shell nixpkgs#zstd -c unzstd ./pi-compressed -o pi.img
+    - nix shell nixpkgs#zstd -c unzstd ./pi-compressed -o pi.img --extra-experimental-features 'flakes nix-command pipe-operators'
 
   artifacts:
     name: "pi-image-$CI_COMMIT_SHORT_SHA"
