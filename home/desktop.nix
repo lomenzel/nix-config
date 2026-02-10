@@ -26,8 +26,8 @@ in
   stylix = {
     enable = true;
     image = pkgs.fetchurl {
-      url = "https://wallpaperaccess.com/full/632832.png";
-      hash = "sha256-yA0wijeakH6zLrUe4dhsqWKvZiRv3AJTnZW2QcCdTE4=";
+      url = "https://images.pling.com/img/00/00/83/26/85/2344981/sheperdsvalleyreprise-demo.jpg";
+      hash = "sha256-nyT3e3efefDdX2g4meSUyzRzUlxCUnQbcmK0hV6XKaY=";
     };
     #targets.qt.platform = lib.mkForce "gnome";
     polarity = "light";
