@@ -27,7 +27,7 @@ in
     enable = true;
     image = pkgs.fetchurl {
       url = "https://wallpaperaccess.com/full/632832.png";
-      hash = "sha256-79fPkuP9lmwlVsSE2AAt1mTlOdxTa5xgEPVzfvIcIas=";
+      hash = "sha256-yA0wijeakH6zLrUe4dhsqWKvZiRv3AJTnZW2QcCdTE4=";
     };
     #targets.qt.platform = lib.mkForce "gnome";
     polarity = "light";

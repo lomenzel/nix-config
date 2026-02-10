@@ -23,7 +23,8 @@ in
     ../../services/wsh
     ../../home/home.nix
     ../../server/server.nix
-    ../../services/remotebuild.nix
+    #../../services/remotebuild.nix
+    ../../services/remotebuild-client.nix
   ];
   # overleaf
   /*

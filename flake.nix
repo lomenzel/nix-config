@@ -66,9 +66,10 @@
       ) nixpkgs.legacyPackages;
 
       homeConfigurations.leonard = inputs.home-manager-unstable.lib.homeManagerConfiguration {
-        pkgs = import inputs.nixpkgs-unstable { system = "armv7l-linux"; };
+        pkgs = (import inputs.nixpkgs-unstable { system = "armv7l-linux"; });
         extraSpecialArgs = {
-          inherit inputs;
+          pkgs-cross =
+            (import inputs.nixpkgs-unstable { system = "x86_64-linux"; }).pkgsCross.armv7l-hf-multiplatform;
         };
         modules = [
           ./devices/mini/home.nix
