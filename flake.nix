@@ -48,12 +48,83 @@
       self,
       nixpkgs,
       wsh,
+      stylix,
+      stylix-unstable,
+      home-manager-unstable,
       home-manager,
+      nix-luanti,
+      nixtheplanet,
       ...
     }@inputs:
-    {
-      images.pi = self.nixosConfigurations.pi.config.system.build.sdImage;
 
+    let
+      supportedSystems =
+        [
+          "x86_64-linux"
+          "aarch64-linux"
+          "armv7l-linux"
+        ]
+        |> builtins.map (system: {
+          name = system;
+          value = null;
+        })
+        |> builtins.listToAttrs;
+
+      mkConfig =
+        {
+          hostPlatform ? "x86_64-linux",
+          deviceModule,
+          unstable ? true,
+          secrets ? true,
+        }:
+        buildPlatform:
+        let
+          finalBuildPlatform = if buildPlatform != null then buildPlatform else hostPlatform;
+          defaultOverlays = [
+            inputs.nix-luanti.overlays.default
+          ];
+        in
+        inputs.${if unstable then "nixpkgs-unstable" else "nixpkgs"}.lib.nixosSystem rec {
+          system = hostPlatform;
+          specialArgs = {
+            inherit inputs;
+            pkgs-unstable = import inputs.nixpkgs-unstable {
+              system = hostPlatform;
+              overlays = defaultOverlays;
+            };
+            pkgs-self = self.packages.${hostPlatform};
+            helper-functions = import ./helper-functions.nix;
+          };
+          modules = [
+            deviceModule
+            (
+              { ... }:
+              {
+                nixpkgs.buildPlatform = buildPlatform;
+                nixpkgs.hostPlatform = hostPlatform;
+              }
+            )
+            inputs.nixtheplanet.nixosModules.macos-ventura
+            (if unstable then stylix-unstable else stylix).nixosModules.stylix
+            wsh.nixosModules.${hostPlatform}.default
+            nix-luanti.nixosModules.default
+            (if unstable then home-manager-unstable else home-manager).nixosModules.default
+          ]
+          ++ (if secrets then [ ./secrets ] else [ ])
+          ++ builtins.attrValues inputs.self.nixosModules;
+        };
+
+      laptop = mkConfig { deviceModule = ./devices/laptop/configuration.nix; };
+      tablet = mkConfig { deviceModule = ./devices/tablet/configuration.nix; };
+      desktop = mkConfig { deviceModule = ./devices/desktop/configuration.nix; };
+      pi = mkConfig {
+        deviceModule = ./devices/pi/configuration.nix;
+        hostPlatform = "aarch64-linux";
+        secrets = false;
+      };
+    in
+
+    {
       packages = builtins.mapAttrs (
         system: _:
         let
@@ -62,8 +133,9 @@
         {
           vim = import ./packages/vim.nix { inherit inputs system; };
           dns-update = pkgs.callPackage ./packages/dns-update { };
+          pi = (pi system).config.system.build.sdImage;
         }
-      ) nixpkgs.legacyPackages;
+      ) supportedSystems;
 
       homeConfigurations.leonard = inputs.home-manager-unstable.lib.homeManagerConfiguration {
         pkgs = (import inputs.nixpkgs-unstable { system = "armv7l-linux"; });
@@ -77,110 +149,28 @@
       };
 
       nixosConfigurations = {
-        laptop = inputs.nixpkgs-unstable.lib.nixosSystem rec {
-          system = "x86_64-linux";
-          specialArgs = {
-            inherit inputs;
-            pkgs-unstable = import inputs.nixpkgs-unstable {
-              inherit system;
-              overlays = [
-                inputs.nix-luanti.overlays.default
-              ];
-            };
-            pkgs-self = self.packages.${system};
-            helper-functions = import ./helper-functions.nix;
-          };
-          modules =
-            with inputs;
-            [
-              nixtheplanet.nixosModules.macos-ventura
-              stylix-unstable.nixosModules.stylix
-              #nixos-hardware.nixosModules.tuxedo-pulse-15-gen2
-              wsh.nixosModules."x86_64-linux".default
-              nix-luanti.nixosModules.default
-              ./secrets
-              ./devices/laptop/configuration.nix
-              #inputs.impermanence.nixosModules.impermanence
-              home-manager-unstable.nixosModules.default
-            ]
-            ++ builtins.attrValues inputs.self.nixosModules;
-        };
-        tablet = inputs.nixpkgs-unstable.lib.nixosSystem rec {
-          system = "x86_64-linux";
-          specialArgs = {
-            inherit inputs;
-            pkgs-unstable = import inputs.nixpkgs-unstable {
-              inherit system;
-              overlays = [
-                inputs.nix-luanti.overlays.default
-              ];
-            };
-            pkgs-self = self.packages.${system};
-            helper-functions = import ./helper-functions.nix;
-
-          };
-          modules =
-            with inputs;
-            [
-              nixtheplanet.nixosModules.macos-ventura
-
-              stylix-unstable.nixosModules.stylix
-              wsh.nixosModules.${system}.default
-              nix-luanti.nixosModules.default
-              ./secrets
-              ./devices/tablet/configuration.nix
-              home-manager-unstable.nixosModules.default
-            ]
-            ++ builtins.attrValues inputs.self.nixosModules;
-        };
-        desktop =
-          let
-            system = "x86_64-linux";
-          in
-          (inputs.nixpkgs-unstable.lib.nixosSystem {
-            inherit system;
-            specialArgs = {
-              inherit inputs;
-              pkgs-self = self.packages.${system};
-              helper-functions = import ./helper-functions.nix;
-              nix-luanti = inputs.nix-luanti.packages."x86_64-linux";
-              pkgs-unstable = import inputs.nixpkgs-unstable {
-                system = "x86_64-linux";
-                overlays = [ inputs.nix-luanti.overlays.default ];
-              };
-            };
-            modules =
-              with inputs;
-              [
-                nixtheplanet.nixosModules.macos-ventura
-                wsh.nixosModules.${system}.default
-                ./devices/desktop/configuration.nix
-                ./secrets
-                stylix-unstable.nixosModules.stylix
-                home-manager-unstable.nixosModules.default
-                nix-luanti.nixosModules.default
-              ]
-              ++ builtins.attrValues inputs.self.nixosModules;
-          });
-
-        pi = inputs.nixpkgs-unstable.lib.nixosSystem rec {
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./devices/pi/configuration.nix
-          ];
-        };
+        laptop = laptop "x86_64-linux";
+        tablet = tablet "x86_64-linux";
+        desktop = desktop "x86_64-linux";
+        pi = pi "aarch64-linux";
       };
       nixosModules = {
         inwx-dns-update = import ./modules/server/dyndns.nix;
       };
 
-      checks."x86_64-linux" = (self.packages."x86_64-linux") // {
-        laptop = self.nixosConfigurations.laptop.config.system.build.toplevel;
-        tablet = self.nixosConfigurations.tablet.config.system.build.toplevel;
-        desktop = self.nixosConfigurations.desktop.config.system.build.toplevel;
-        mini = self.homeConfigurations.leonard.activationPackage;
-        pi = self.images.pi;
-      };
+      checks = builtins.mapAttrs (
+        system: _:
+        let
+          pkgs = import nixpkgs { inherit system; };
+        in
+        (self.packages.${system})
+        // {
+          laptop = (laptop system).config.system.build.toplevel;
+          tablet = (tablet system).config.system.build.toplevel;
+          desktop = (desktop system).config.system.build.toplevel;
+          mini = self.homeConfigurations.leonard.activationPackage;
+        }
+      ) supportedSystems;
     };
 
 }

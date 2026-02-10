@@ -8,7 +8,7 @@
 {
   home.packages = with pkgs-cross; [
     pkgs.hello
-    fractal
+    #fractal
   ];
   home.username = "leonard";
   home.homeDirectory = "/home/leonard";

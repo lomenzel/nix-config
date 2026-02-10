@@ -3,9 +3,6 @@
   imports = [
     "${inputs.nixpkgs-unstable}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
   ];
-  nixpkgs.hostPlatform = "aarch64-linux";
-  nixpkgs.buildPlatform = "x86_64-linux";
-
   users.users.remotebuild = {
     isNormalUser = true;
     createHome = false;
