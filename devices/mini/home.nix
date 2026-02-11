@@ -27,14 +27,20 @@
 */
 
   home.packages = with pkgs; [
-    hello
-    htop
-
-    #pkgs-native.hello
-    #fractal
+    # pkgs-native.hello # just for fun to test remote builder :)
+    # htop
+    # git
+    # curl
+    # wget
+    # nix-output-monitor
+    # less
+    # nixfmt
+    # vim
+    # kate
+    #nh
+    fractal
     #tuba
     #passes
-    #nh
 
   ];
   home.username = "leonard";
