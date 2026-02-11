@@ -710,6 +710,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-passes-fix": {
+      "locked": {
+        "lastModified": 1770850819,
+        "narHash": "sha256-X07E8scTH5lDYpMay+7FufOCiCzmV1XlknLXklCKLng=",
+        "owner": "lomenzel",
+        "repo": "nixpkgs",
+        "rev": "ef3e4dbb5f991af3a1fde5beb9f8b701c8006c67",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lomenzel",
+        "ref": "passes-fix-cross",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-sbc-fix": {
       "locked": {
         "lastModified": 1770638399,
@@ -1104,6 +1120,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_6",
         "nixpkgs-fractal-fix": "nixpkgs-fractal-fix",
+        "nixpkgs-passes-fix": "nixpkgs-passes-fix",
         "nixpkgs-sbc-fix": "nixpkgs-sbc-fix",
         "nixpkgs-spidermonkey-fix": "nixpkgs-spidermonkey-fix",
         "nixpkgs-unstable": "nixpkgs-unstable",

@@ -26,8 +26,9 @@
   };
 */
 
-  home.packages = with pkgs; [
-    # pkgs-native.hello # just for fun to test remote builder :)
+  home.packages = with pkgs-native; [
+    #pkgs-native.rhash
+    hello
     htop
     git
     curl
@@ -41,7 +42,7 @@
     fractal
     gnome-keyring
     #tuba # deno needs to build rusty_v8 from source for this to work
-    #passes # broken (probably some native-buildinputs vs buildinputs issue)
+    passes # broken (probably some native-buildinputs vs buildinputs issue)
 
   ];
   services.gnome-keyring.enable = true;

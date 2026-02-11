@@ -25,6 +25,7 @@
     nixpkgs-sbc-fix.url = "github:lomenzel/nixpkgs/update-sbc-to-2.2";
     nixpkgs-spidermonkey-fix.url = "github:lomenzel/nixpkgs/spidermonkey-fix-armv7l";
     nixpkgs-fractal-fix.url = "github:lomenzel/nixpkgs/fractal-fix-cross";
+    nixpkgs-passes-fix.url = "github:lomenzel/nixpkgs/passes-fix-cross";
 
     home-manager-unstable = {
       url = "github:nix-community/home-manager";
@@ -134,9 +135,8 @@
             final.callPackage
               "${inputs.nixpkgs-spidermonkey-fix}/pkgs/development/interpreters/spidermonkey/140.nix"
               { };
-          fractal = final.callPackage
-            "${inputs.nixpkgs-fractal-fix}/pkgs/by-name/fr/fractal/package.nix"
-            { };
+          fractal = final.callPackage "${inputs.nixpkgs-fractal-fix}/pkgs/by-name/fr/fractal/package.nix" { };
+          passes = final.callPackage "${inputs.nixpkgs-passes-fix}/pkgs/by-name/pa/passes/package.nix" { };
         })
       ];
 
