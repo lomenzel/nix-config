@@ -7,13 +7,14 @@
 }:
 {
   imports = [
-    (
-      { pkgs, ... }@args:
-      ((import ../../home-manager/programs/anki.nix) (args // { secrets = config.sops.secrets; }))
-    )
-    inputs.sops-nix.homeManagerModules.sops
+    # (
+    #   { pkgs, ... }@args:
+    #   ((import ../../home-manager/programs/anki.nix) (args // { secrets = config.sops.secrets; }))
+    # )
+    #inputs.sops-nix.homeManagerModules.sops
   ];
 
+/*
   sops = {
     defaultSopsFile = ../../secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
@@ -23,11 +24,13 @@
       "services.immich/apiKey" = { };
     };
   };
+*/
 
   home.packages = with pkgs; [
-    #hello
+    hello
+    htop
 
-    pkgs-native.hello
+    #pkgs-native.hello
     #fractal
     #tuba
     #passes
