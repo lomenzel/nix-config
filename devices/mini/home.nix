@@ -31,6 +31,7 @@
     htop
     git
     curl
+    home-manager
     #wget # broken
     #nix-output-monitor ghc broken
     less
