@@ -1,7 +1,36 @@
 stages:
-    - test
+    - check
 
-test:
+laptop:
+    stage: check
+    tags:
+        - nix
+    script: 
+        - nix build .#checks."x86_64-linux".laptop --extra-experimental-features 'flakes nix-command pipe-operators' -L
+
+mini:
+    stage: check
+    tags:
+        - nix
+    script: 
+        - nix build .#checks."x86_64-linux".mini --extra-experimental-features 'flakes nix-command pipe-operators' -L
+
+desktop:
+    stage: check
+    tags:
+        - nix
+    script: 
+        - nix build .#checks."x86_64-linux".desktop --extra-experimental-features 'flakes nix-command pipe-operators' -L
+
+tablet:
+    stage: check
+    tags:
+        - nix
+    script: 
+        - nix build .#checks."x86_64-linux".tablet --extra-experimental-features 'flakes nix-command pipe-operators' -L
+
+all:
+    stage: check
     tags:
         - nix
     script: 
