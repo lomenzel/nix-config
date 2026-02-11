@@ -20,7 +20,11 @@
     speiseplan.url = "github:draculente/speiseplan-cli";
 
     # Unstable
-    nixpkgs-unstable.url = "github:lomenzel/nixpkgs/update-sbc-to-2.2";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    nixpkgs-sbc-fix.url = "github:lomenzel/nixpkgs/update-sbc-to-2.2";
+    nixpkgs-spidermonkey-fix.url = "github:lomenzel/nixpkgs/spidermonkey-fix-armv7l";
+
     home-manager-unstable = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -81,9 +85,6 @@
         buildPlatform:
         let
           finalBuildPlatform = if buildPlatform != null then buildPlatform else hostPlatform;
-          defaultOverlays = [
-            inputs.nix-luanti.overlays.default
-          ];
         in
         inputs.${if unstable then "nixpkgs-unstable" else "nixpkgs"}.lib.nixosSystem rec {
           system = hostPlatform;
@@ -124,15 +125,36 @@
         secrets = false;
       };
 
-      mini = buildPlatform: inputs.home-manager-unstable.lib.homeManagerConfiguration rec {
-        pkgs = (import inputs.nixpkgs-unstable { system = buildPlatform;}).pkgsCross.armv7l-hf-multiplatform;
-        extraSpecialArgs = { inherit inputs pkgs;
-          pkgs-native = import inputs.nixpkgs-unstable { system = "armv7l-linux"; };
+      defaultOverlays = [
+        inputs.nix-luanti.overlays.default
+        (final: prev: {
+          sbc = final.callPackage "${inputs.nixpkgs-sbc-fix}/pkgs/by-name/sb/sbc/package.nix" { };
+          spidermonkey_140 =
+            final.callPackage
+              "${inputs.nixpkgs-spidermonkey-fix}/pkgs/development/interpreters/spidermonkey/140.nix"
+              { };
+        })
+      ];
+
+      mini =
+        buildPlatform:
+        inputs.home-manager-unstable.lib.homeManagerConfiguration rec {
+          pkgs =
+            (import inputs.nixpkgs-unstable {
+              system = buildPlatform;
+              overlays = defaultOverlays;
+            }).pkgsCross.armv7l-hf-multiplatform;
+          extraSpecialArgs = {
+            inherit inputs pkgs;
+            pkgs-native = import inputs.nixpkgs-unstable {
+              system = "armv7l-linux";
+              overlays = defaultOverlays;
+            };
+          };
+          modules = [
+            ./devices/mini/home.nix
+          ];
         };
-        modules = [
-          ./devices/mini/home.nix
-        ];
-      };
 
     in
 
@@ -171,7 +193,8 @@
           laptop = (laptop system).config.system.build.toplevel;
           tablet = (tablet system).config.system.build.toplevel;
           desktop = (desktop system).config.system.build.toplevel;
-          mini = (mini system).activationPackage;        }
+          mini = (mini system).activationPackage;
+        }
       ) supportedSystems;
     };
 

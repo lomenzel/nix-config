@@ -694,7 +694,7 @@
         "type": "github"
       }
     },
-    "nixpkgs-unstable": {
+    "nixpkgs-sbc-fix": {
       "locked": {
         "lastModified": 1770638399,
         "narHash": "sha256-F0fA1w4RkV5jvgsBs019Ojtv6LhblFBSOBQQ4r/BrIk=",
@@ -706,6 +706,38 @@
       "original": {
         "owner": "lomenzel",
         "ref": "update-sbc-to-2.2",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-spidermonkey-fix": {
+      "locked": {
+        "lastModified": 1770823820,
+        "narHash": "sha256-yovpadqvCLKIc3o7MUJ3kymOm1yGgoIPfhehrV7HC/g=",
+        "owner": "lomenzel",
+        "repo": "nixpkgs",
+        "rev": "43d5b70298736750713e6ae2e491aa89f40fa400",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lomenzel",
+        "ref": "spidermonkey-fix-armv7l",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-unstable": {
+      "locked": {
+        "lastModified": 1770562336,
+        "narHash": "sha256-ub1gpAONMFsT/GU2hV6ZWJjur8rJ6kKxdm9IlCT0j84=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "d6c71932130818840fc8fe9509cf50be8c64634f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -1055,6 +1087,8 @@
         "nix-luanti": "nix-luanti",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_6",
+        "nixpkgs-sbc-fix": "nixpkgs-sbc-fix",
+        "nixpkgs-spidermonkey-fix": "nixpkgs-spidermonkey-fix",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nixtheplanet": "nixtheplanet",
         "nvf": "nvf",
