@@ -28,21 +28,22 @@
 
   home.packages = with pkgs; [
     # pkgs-native.hello # just for fun to test remote builder :)
-    # htop
-    # git
-    # curl
-    # wget
-    # nix-output-monitor
-    # less
-    # nixfmt
-    # vim
-    # kate
-    #nh
+    htop
+    git
+    curl
+    #wget # broken
+    #nix-output-monitor ghc broken
+    less
+    #nixfmt ghc
+    vim
+    #nh # broken
     fractal
-    #tuba
-    #passes
+    gnome-keyring
+    #tuba # deno needs to build rusty_v8 from source for this to work
+    #passes # broken (probably some native-buildinputs vs buildinputs issue)
 
   ];
+  services.gnome-keyring.enable = true;
   home.username = "leonard";
   home.homeDirectory = "/home/leonard";
   home.stateVersion = "26.05";
