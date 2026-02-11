@@ -3,6 +3,7 @@
 
   inputs = {
     nvf.url = "github:notashelf/nvf";
+    #nvf.inputs.nixpkgs.follows = "nixpkgs-unstable";
     sops-nix.url = "github:Mic92/sops-nix";
 
     impermanence.url = "github:nix-community/impermanence";
@@ -19,7 +20,7 @@
     speiseplan.url = "github:draculente/speiseplan-cli";
 
     # Unstable
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs-unstable.url = "github:lomenzel/nixpkgs/update-sbc-to-2.2";
     home-manager-unstable = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -122,6 +123,17 @@
         hostPlatform = "aarch64-linux";
         secrets = false;
       };
+
+      mini = buildPlatform: inputs.home-manager-unstable.lib.homeManagerConfiguration rec {
+        pkgs = (import inputs.nixpkgs-unstable { system = buildPlatform;}).pkgsCross.armv7l-hf-multiplatform;
+        extraSpecialArgs = { inherit inputs pkgs;
+          pkgs-native = import inputs.nixpkgs-unstable { system = "armv7l-linux"; };
+        };
+        modules = [
+          ./devices/mini/home.nix
+        ];
+      };
+
     in
 
     {
@@ -137,16 +149,7 @@
         }
       ) supportedSystems;
 
-      homeConfigurations.leonard = inputs.home-manager-unstable.lib.homeManagerConfiguration {
-        pkgs = (import inputs.nixpkgs-unstable { system = "armv7l-linux"; });
-        extraSpecialArgs = {
-          pkgs-cross =
-            (import inputs.nixpkgs-unstable { system = "x86_64-linux"; }).pkgsCross.armv7l-hf-multiplatform;
-        };
-        modules = [
-          ./devices/mini/home.nix
-        ];
-      };
+      homeConfigurations.leonard = mini "x86_64-linux";
 
       nixosConfigurations = {
         laptop = laptop "x86_64-linux";
@@ -168,8 +171,7 @@
           laptop = (laptop system).config.system.build.toplevel;
           tablet = (tablet system).config.system.build.toplevel;
           desktop = (desktop system).config.system.build.toplevel;
-          mini = self.homeConfigurations.leonard.activationPackage;
-        }
+          mini = (mini system).activationPackage;        }
       ) supportedSystems;
     };
 

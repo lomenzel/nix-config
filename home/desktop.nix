@@ -30,8 +30,8 @@ in
       hash = "sha256-nyT3e3efefDdX2g4meSUyzRzUlxCUnQbcmK0hV6XKaY=";
     };
     #targets.qt.platform = lib.mkForce "gnome";
-    polarity = "light";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-dawn.yaml";
+    polarity = "dark";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/materia.yaml";
 
     opacity = {
       applications = 1;

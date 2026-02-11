@@ -45,6 +45,7 @@
       supportedFeatures = [
         "nixos-test"
         "gccarch-armv7-a"
+        "big-parallel"
       ];
     }
   ];

@@ -475,11 +475,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1770654520,
-        "narHash": "sha256-mg5WZMIPGsFu9MxSrUcuJUPMbfMsF77el5yb/7rc10k=",
+        "lastModified": 1770779995,
+        "narHash": "sha256-Evbc+u49wYQ5uyEi/HHxVFEt3g/w4MZxkMXMe7McjRM=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "6c4fdbe1ad198fac36c320fd45c5957324a80b8e",
+        "rev": "b3f43db171474132528be57610bfa5fb3b766879",
         "type": "github"
       },
       "original": {
@@ -629,11 +629,11 @@
       },
       "locked": {
         "host": "git.menzel.lol",
-        "lastModified": 1770682686,
-        "narHash": "sha256-m9ylEkgAutHPb1qzf/izwccxaZcOLoO6TtFDcPugnRM=",
+        "lastModified": 1770769162,
+        "narHash": "sha256-Yq8APaTPLSi0IEJVKf6nhdtljC3dgyUROIoaqyje4MU=",
         "owner": "leonard",
         "repo": "nix-luanti",
-        "rev": "9fe5219638d96728fa113695808fa3aa66fb233d",
+        "rev": "2752b18e24e31bba6e639235cc5326a96a1f2771",
         "type": "gitlab"
       },
       "original": {
@@ -696,16 +696,16 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1770537093,
-        "narHash": "sha256-pF1quXG5wsgtyuPOHcLfYg/ft/QMr8NnX0i6tW2187s=",
-        "owner": "NixOS",
+        "lastModified": 1770638399,
+        "narHash": "sha256-F0fA1w4RkV5jvgsBs019Ojtv6LhblFBSOBQQ4r/BrIk=",
+        "owner": "lomenzel",
         "repo": "nixpkgs",
-        "rev": "fef9403a3e4d31b0a23f0bacebbec52c248fbb51",
+        "rev": "800ce1f5dd7831e67af5932ee58ea25ef7e68225",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
+        "owner": "lomenzel",
+        "ref": "update-sbc-to-2.2",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -967,11 +967,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1770703021,
-        "narHash": "sha256-gqb5psh3ydigaeAnOby4KwXAXtzU0uZK9AeRAYIw53g=",
+        "lastModified": 1770813256,
+        "narHash": "sha256-G6np3C9Zz0ddUevUOox4mPZqclbV3xSyHuhRR0Dzk4g=",
         "owner": "notashelf",
         "repo": "nvf",
-        "rev": "4d0d1884a00b32c034299fcd3e96f9e0cb68d23b",
+        "rev": "bd265fee7e9655e2898e6f6b76267eb832b0f3c9",
         "type": "github"
       },
       "original": {

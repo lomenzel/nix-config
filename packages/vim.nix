@@ -4,7 +4,7 @@
   ...
 }:
 (inputs.nvf.lib.neovimConfiguration rec {
-  pkgs = import inputs.nixpkgs-unstable { inherit system; };
+  pkgs = import inputs.nvf.inputs.nixpkgs { inherit system; };
   modules = [
     {
       config.vim = {
@@ -17,11 +17,11 @@
           };
         };
         # Enable custom theming options
-        theme = {
-          enable = true;
-          name = "rose-pine";
-          style = "main";
-        };
+        # theme = {
+        #   enable = true;
+        #   name = "rose-pine";
+        #   style = "main";
+        # };
 
         autocomplete.nvim-cmp.enable = true;
         spellcheck.enable = true;
@@ -41,9 +41,6 @@
             '';
           }
         ];
-        extraPlugins = {
-          teamtype.package = pkgs.vimPlugins.teamtype;
-        };
 
         tabline.nvimBufferline.enable = true;
         minimap.codewindow.enable = true;
@@ -57,7 +54,7 @@
             enable = true;
             autocmd.enable = true;
           };
-          otter-nvim.enable = true;
+          #otter-nvim.enable = true;
           nvim-docs-view.enable = true;
         };
 
@@ -68,10 +65,10 @@
         };
 
         # Enable Treesitter
-        treesitter.enable = true;
+        #treesitter.enable = true;
         languages = {
           enableFormat = true;
-          enableTreesitter = true;
+          #enableTreesitter = true;
           nix.enable = true;
           haskell = {
             enable = true;

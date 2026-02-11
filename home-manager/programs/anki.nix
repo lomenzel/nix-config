@@ -1,5 +1,5 @@
 {
-  pkgs-unstable,
+  pkgs,
   config,
   secrets,
   ...
@@ -9,7 +9,7 @@
   programs.anki = {
     enable = true;
     style = "native";
-    package = pkgs-unstable.anki;
+    package = pkgs.anki;
     sync = {
       autoSync = true;
       autoSyncMediaMinutes = 2;
@@ -23,12 +23,12 @@
 
     minimalistMode = true;
 
-    addons = with pkgs-unstable.ankiAddons; [
+    addons = with pkgs.ankiAddons; [
       (
-        (pkgs-unstable.anki-utils.buildAnkiAddon (finalAttrs: rec {
+        (pkgs.anki-utils.buildAnkiAddon (finalAttrs: rec {
           pname = "puppy-reinforcement";
           version = "1.1.1";
-          src = pkgs-unstable.fetchFromGitHub {
+          src = pkgs.fetchFromGitHub {
             owner = "glutanimate";
             repo = "puppy-reinforcement";
             rev = "v${version}";
