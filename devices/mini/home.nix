@@ -26,7 +26,7 @@
   };
 */
 
-  home.packages = with pkgs-native; [
+  home.packages = with pkgs; [
     #pkgs-native.rhash
     hello
     htop

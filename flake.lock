@@ -629,11 +629,11 @@
       },
       "locked": {
         "host": "git.menzel.lol",
-        "lastModified": 1770769162,
-        "narHash": "sha256-Yq8APaTPLSi0IEJVKf6nhdtljC3dgyUROIoaqyje4MU=",
+        "lastModified": 1770856124,
+        "narHash": "sha256-xxUD1XS7OK4m+7Am5JQufQwBnKc9TqiDHGEuKZ6G89Y=",
         "owner": "leonard",
         "repo": "nix-luanti",
-        "rev": "2752b18e24e31bba6e639235cc5326a96a1f2771",
+        "rev": "56928218841072c40cd8b7bd027823eeea2e1eb9",
         "type": "gitlab"
       },
       "original": {
@@ -646,11 +646,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1770631810,
-        "narHash": "sha256-b7iK/x+zOXbjhRqa+XBlYla4zFvPZyU5Ln2HJkiSnzc=",
+        "lastModified": 1770882871,
+        "narHash": "sha256-nw5g+xl3veea+maxJ2/81tMEA/rPq9aF1H5XF35X+OE=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "2889685785848de940375bf7fea5e7c5a3c8d502",
+        "rev": "af04cb78aa85b2a4d1c15fc7270347e0d0eda97b",
         "type": "github"
       },
       "original": {
@@ -676,22 +676,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-fractal-fix": {
-      "locked": {
-        "lastModified": 1770832289,
-        "narHash": "sha256-9IcBgufRL4wgydsxLLuaH9SugebufLsa/CqOuEJem8c=",
-        "owner": "lomenzel",
-        "repo": "nixpkgs",
-        "rev": "76c87fee6704a63d32e604d338bd7274cd1fc72d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "lomenzel",
-        "ref": "fractal-fix-cross",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-lib": {
       "locked": {
         "dir": "lib",
@@ -706,6 +690,22 @@
         "dir": "lib",
         "owner": "NixOS",
         "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-libglycin-fix-cross": {
+      "locked": {
+        "lastModified": 1770890956,
+        "narHash": "sha256-fJXnbQ8TD6I/LG63wMcEaHALRJbfZXuO4JCmC+su6e8=",
+        "owner": "lomenzel",
+        "repo": "nixpkgs",
+        "rev": "10e0d8baa43a5635851c0f468d9c06d0447d6dc2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lomenzel",
+        "ref": "libglycin-fix-cross",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -1119,7 +1119,7 @@
         "nix-luanti": "nix-luanti",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_6",
-        "nixpkgs-fractal-fix": "nixpkgs-fractal-fix",
+        "nixpkgs-libglycin-fix-cross": "nixpkgs-libglycin-fix-cross",
         "nixpkgs-passes-fix": "nixpkgs-passes-fix",
         "nixpkgs-sbc-fix": "nixpkgs-sbc-fix",
         "nixpkgs-spidermonkey-fix": "nixpkgs-spidermonkey-fix",
