@@ -27,8 +27,6 @@
 */
 
   home.packages = with pkgs; [
-    #pkgs-native.rhash
-    pkgs-native.hello
     htop
     git
     curl
@@ -45,6 +43,7 @@
     passes # broken (probably some native-buildinputs vs buildinputs issue)
 
   ];
+  programs.zsh.enable = true;
   services.gnome-keyring.enable = true;
   home.username = "leonard";
   home.homeDirectory = "/home/leonard";
