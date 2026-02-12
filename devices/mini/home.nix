@@ -28,7 +28,7 @@
 
   home.packages = with pkgs; [
     #pkgs-native.rhash
-    hello
+    pkgs-native.hello
     htop
     git
     curl
