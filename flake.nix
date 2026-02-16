@@ -155,6 +155,7 @@
               system = "armv7l-linux";
               overlays = defaultOverlays;
             };
+            vim-config = import ./packages/vim.nix {inherit inputs; system = buildPlatform; cross = "armv7l-hf-multiplatform";};
           };
           modules = [
             ./devices/mini/home.nix

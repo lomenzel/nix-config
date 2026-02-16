@@ -3,6 +3,7 @@
   pkgs-native,
   config,
   inputs,
+  vim-config,
   ...
 }:
 {
@@ -31,15 +32,17 @@
     git
     curl
     home-manager
+    #jellyfin-desktop # unsupported system
+    #vim-config broken
     #wget # broken
     #nix-output-monitor ghc broken
     less
-    #nixfmt ghc
+    #nixfmt broken
     vim
     #nh # broken
     fractal
     gnome-keyring
-    #firefox-mobile
+    #firefox-mobile # broken dependency
     #tuba # deno needs to build rusty_v8 from source for this to work
     passes # broken (probably some native-buildinputs vs buildinputs issue)
 
@@ -51,7 +54,6 @@
       enable = true;
       plugins = [
         "git"
-        "direnv"
       ];
       theme = "jispwoso";
     };

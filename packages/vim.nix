@@ -1,10 +1,15 @@
 {
   inputs,
   system,
+  cross ? null,
   ...
 }:
 (inputs.nvf.lib.neovimConfiguration rec {
-  pkgs = import inputs.nvf.inputs.nixpkgs { inherit system; };
+  pkgs =
+    let
+      raw_pkgs = import inputs.nvf.inputs.nixpkgs { inherit system; };
+    in
+    if cross == null then raw_pkgs else raw_pkgs.pkgsCross.${cross};
   modules = [
     {
       config.vim = {
