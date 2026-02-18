@@ -32,6 +32,7 @@
     git
     curl
     home-manager
+    mensa-sh-gnome
     #jellyfin-desktop # unsupported system
     #vim-config broken
     #wget # broken

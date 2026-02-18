@@ -475,11 +475,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1771188132,
-        "narHash": "sha256-qLXxN/tPrZtnekaLBQuVtxQfvqqs5cT5WbyH4zZaTGI=",
+        "lastModified": 1771411804,
+        "narHash": "sha256-bWHN38fKAbuyrIm6MzTVMOU93rCxFUOKumlWvtwUzLs=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "ae8003d8b61d0d373e7ca3da1a48f9c870d15df9",
+        "rev": "77c47a454236cede268990eb3e457f062014f414",
         "type": "github"
       },
       "original": {
@@ -629,11 +629,11 @@
       },
       "locked": {
         "host": "git.menzel.lol",
-        "lastModified": 1771200899,
-        "narHash": "sha256-v/aO7ZXRzXSWF1N0MfDeifLQQPTBknKB6l0Qtl0QfD8=",
+        "lastModified": 1771373510,
+        "narHash": "sha256-eSdJLXQLOuXwoQXUL8Q3WOoxqZ03UonNhKcu2ynPRto=",
         "owner": "leonard",
         "repo": "nix-luanti",
-        "rev": "a4ccf7c0fcd8f8e0c6563993f79d242b2d346a98",
+        "rev": "7ec08ac1a4f1da6ba2b765075a819a6e99214671",
         "type": "gitlab"
       },
       "original": {
@@ -646,11 +646,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1771171797,
-        "narHash": "sha256-ngIarpog/Hv5r9M1YyvsaaSUBCqtWqHl6pibq6n2ppo=",
+        "lastModified": 1771405934,
+        "narHash": "sha256-qRLfXgxSpHjEja40/PXwNMeWOUc4MNTE1B09sLV4NbQ=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "531af1dbaee7cfdd7aed1e595ce418b7e2e99a80",
+        "rev": "0d58bcd2ce85879252fe47375063ccc98f7de0f8",
         "type": "github"
       },
       "original": {
@@ -694,18 +694,18 @@
         "type": "github"
       }
     },
-    "nixpkgs-libglycin-fix-cross": {
+    "nixpkgs-mensa": {
       "locked": {
-        "lastModified": 1770890956,
-        "narHash": "sha256-fJXnbQ8TD6I/LG63wMcEaHALRJbfZXuO4JCmC+su6e8=",
+        "lastModified": 1771412456,
+        "narHash": "sha256-mCpHH4M9lugiMiyFviBFHINHDg6WhIqu+FEiy1+5hxs=",
         "owner": "lomenzel",
         "repo": "nixpkgs",
-        "rev": "10e0d8baa43a5635851c0f468d9c06d0447d6dc2",
+        "rev": "040500e713cbe15a5f2ad6842dfc81454e2ec783",
         "type": "github"
       },
       "original": {
         "owner": "lomenzel",
-        "ref": "libglycin-fix-cross",
+        "ref": "mensa-sh-gnome-init",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -726,22 +726,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-sbc-fix": {
-      "locked": {
-        "lastModified": 1770638399,
-        "narHash": "sha256-F0fA1w4RkV5jvgsBs019Ojtv6LhblFBSOBQQ4r/BrIk=",
-        "owner": "lomenzel",
-        "repo": "nixpkgs",
-        "rev": "800ce1f5dd7831e67af5932ee58ea25ef7e68225",
-        "type": "github"
-      },
-      "original": {
-        "owner": "lomenzel",
-        "ref": "update-sbc-to-2.2",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-spidermonkey-fix": {
       "locked": {
         "lastModified": 1770823820,
@@ -754,6 +738,22 @@
       "original": {
         "owner": "lomenzel",
         "ref": "spidermonkey-fix-armv7l",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-staging": {
+      "locked": {
+        "lastModified": 1771404998,
+        "narHash": "sha256-hovMHQiPPzXjlSvgrd90hmpcTfdPk+ukVzCPxcD9tXE=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "41cef2c2440b6eb33477cd9466b33eac01190b33",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "staging",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -1031,11 +1031,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1771148535,
-        "narHash": "sha256-UmpHVCVgqIpWWahmEcFb1pOwyI3PGKpgrL2BiRGDWec=",
+        "lastModified": 1771411984,
+        "narHash": "sha256-65AhGyzsdFZtASLLwV5cx7/VDPfQcmqP4DMI3nZ7N+Y=",
         "owner": "notashelf",
         "repo": "nvf",
-        "rev": "d6338d4c4cee45634dd54dfb9cbb6abc5a86752e",
+        "rev": "9d1cec158bdcf9b4a8fe069e29d9d067dfb2c199",
         "type": "github"
       },
       "original": {
@@ -1119,10 +1119,10 @@
         "nix-luanti": "nix-luanti",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_6",
-        "nixpkgs-libglycin-fix-cross": "nixpkgs-libglycin-fix-cross",
+        "nixpkgs-mensa": "nixpkgs-mensa",
         "nixpkgs-passes-fix": "nixpkgs-passes-fix",
-        "nixpkgs-sbc-fix": "nixpkgs-sbc-fix",
         "nixpkgs-spidermonkey-fix": "nixpkgs-spidermonkey-fix",
+        "nixpkgs-staging": "nixpkgs-staging",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nixtheplanet": "nixtheplanet",
         "nvf": "nvf",
@@ -1253,11 +1253,11 @@
         "tinted-zed": "tinted-zed_2"
       },
       "locked": {
-        "lastModified": 1770914701,
-        "narHash": "sha256-QHFYyngohNhih4w+3IqQty5DV+p1txsx1kkk6XJWar8=",
+        "lastModified": 1771330061,
+        "narHash": "sha256-qBWXy3mSOEYjvZB/RZHT0joVPhNWU8GQZQljLzyMTq0=",
         "owner": "nix-community",
         "repo": "stylix",
-        "rev": "db03fed72e5ca02be34e1d24789345a943329738",
+        "rev": "fa45bf2d70517a8643a0edb44b02b8e6c0453d06",
         "type": "github"
       },
       "original": {

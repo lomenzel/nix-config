@@ -22,10 +22,10 @@
     # Unstable
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    nixpkgs-sbc-fix.url = "github:lomenzel/nixpkgs/update-sbc-to-2.2";
+    nixpkgs-staging.url = "github:nixos/nixpkgs/staging";
     nixpkgs-spidermonkey-fix.url = "github:lomenzel/nixpkgs/spidermonkey-fix-armv7l";
     nixpkgs-passes-fix.url = "github:lomenzel/nixpkgs/passes-fix-cross";
-    nixpkgs-libglycin-fix-cross.url = "github:lomenzel/nixpkgs/libglycin-fix-cross";
+    nixpkgs-mensa.url = "github:lomenzel/nixpkgs/mensa-sh-gnome-init";
 
     home-manager-unstable = {
       url = "github:nix-community/home-manager";
@@ -130,14 +130,14 @@
       defaultOverlays = [
         inputs.nix-luanti.overlays.default
         (final: prev: {
-          sbc = final.callPackage "${inputs.nixpkgs-sbc-fix}/pkgs/by-name/sb/sbc/package.nix" { };
+          sbc = final.callPackage "${inputs.nixpkgs-staging}/pkgs/by-name/sb/sbc/package.nix" { };
           spidermonkey_140 =
             final.callPackage
               "${inputs.nixpkgs-spidermonkey-fix}/pkgs/development/interpreters/spidermonkey/140.nix"
               { };
           #fractal = final.callPackage "${inputs.nixpkgs-fractal-fix}/pkgs/by-name/fr/fractal/package.nix" { };
           passes = final.callPackage "${inputs.nixpkgs-passes-fix}/pkgs/by-name/pa/passes/package.nix" { };
-          libglycin = final.callPackage "${inputs.nixpkgs-libglycin-fix-cross}/pkgs/by-name/li/libglycin/package.nix" {};
+          mensa-sh-gnome = final.callPackage "${inputs.nixpkgs-mensa}/pkgs/by-name/me/mensa-sh-gnome/package.nix" { };
         })
       ];
 
