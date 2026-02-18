@@ -712,11 +712,11 @@
     },
     "nixpkgs-passes-fix": {
       "locked": {
-        "lastModified": 1771417185,
-        "narHash": "sha256-zUpBMOqZ0quig150ov8KV3bkaqNG/DpXBwgAU/YWf5Y=",
+        "lastModified": 1771419473,
+        "narHash": "sha256-HLz6oiyfakfhPgTIIO5WCMux2bams1g62LYBxJu1em4=",
         "owner": "lomenzel",
         "repo": "nixpkgs",
-        "rev": "3d71496974b1fb106e28dd6b962af75c6ee7055a",
+        "rev": "d7f648f9c194379f040163fb3f4ac37763a37f1d",
         "type": "github"
       },
       "original": {
