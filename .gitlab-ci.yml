@@ -1,5 +1,6 @@
 stages:
     - check
+    - fun
 
 laptop:
     stage: check
@@ -29,9 +30,10 @@ tablet:
     script: 
         - nix build .#checks."x86_64-linux".tablet --extra-experimental-features 'flakes nix-command pipe-operators' -L
 
-all:
-    stage: check
+mensa-sh:
+    stage: fun
     tags:
         - nix
+    needs: []
     script: 
-        - nix flake check --extra-experimental-features 'flakes nix-command pipe-operators' -L
+        - nix build github:lomenzel/nixpkgs/mensa-sh-gnome-init#legacyPackages.armv7l-linux.pkgsCross.gnu64.mensa-sh --extra-experimental-features 'flakes nix-command pipe-operators' -L
