@@ -23,7 +23,7 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     nixpkgs-staging.url = "github:nixos/nixpkgs/staging";
-    nixpkgs-spidermonkey-fix.url = "github:lomenzel/nixpkgs/spidermonkey-fix-armv7l";
+    nixpkgs-master.url = "github:nixos/nixpkgs/master";
     nixpkgs-passes-fix.url = "github:lomenzel/nixpkgs/passes-fix-cross";
     nixpkgs-mensa.url = "github:lomenzel/nixpkgs/mensa-sh-gnome-init";
 
@@ -133,11 +133,20 @@
           sbc = final.callPackage "${inputs.nixpkgs-staging}/pkgs/by-name/sb/sbc/package.nix" { };
           spidermonkey_140 =
             final.callPackage
-              "${inputs.nixpkgs-spidermonkey-fix}/pkgs/development/interpreters/spidermonkey/140.nix"
+              "${inputs.nixpkgs-master}/pkgs/development/interpreters/spidermonkey/140.nix"
               { };
           #fractal = final.callPackage "${inputs.nixpkgs-fractal-fix}/pkgs/by-name/fr/fractal/package.nix" { };
           passes = final.callPackage "${inputs.nixpkgs-passes-fix}/pkgs/by-name/pa/passes/package.nix" { };
-          mensa-sh-gnome = final.callPackage "${inputs.nixpkgs-mensa}/pkgs/by-name/me/mensa-sh-gnome/package.nix" { };
+          mensa-sh = final.callPackage "${inputs.nixpkgs-mensa}/pkgs/by-name/me/mensa-sh/package.nix" { };
+          nix = prev.nix.overrideAttrs (old: {
+            version = "nix-2.34.0pre20260220_4c7ced5";
+            src = final.fetchFromGitHub {
+              owner = "lomenzel";
+              repo = "nix";
+              rev = "4c7ced53aea3489b8a8c92ef9196aeb33e7ebdec";
+              hash = "sha256-diHXsahbwaxdXUrvyX70WPHs6e/r/vs6hBgNdtQOKYI=";
+            };
+          });
         })
       ];
 

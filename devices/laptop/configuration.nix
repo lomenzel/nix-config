@@ -16,6 +16,8 @@
 
   ];
 
+  boot.kernelPackages = pkgs.linuxPackages_testing;
+
   programs.nix-ld.enable = false;
 
   services.inwx-dns.enable = false;

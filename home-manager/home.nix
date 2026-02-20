@@ -77,6 +77,7 @@
       less
       git
       mesa-demos
+      mensa-sh
       clinfo
       wayland-utils
       pciutils

@@ -32,8 +32,9 @@
     git
     curl
     home-manager
-    mensa-sh-gnome
-    #jellyfin-desktop # unsupported system
+    mensa-sh
+    #jellyfin-desktop # unsupported system / mpvqt native vs buildinputs
+    #gnome-contacts # broken dependency
     #vim-config broken
     #wget # broken
     #nix-output-monitor ghc broken
@@ -45,7 +46,7 @@
     gnome-keyring
     #firefox-mobile # broken dependency
     #tuba # deno needs to build rusty_v8 from source for this to work
-    passes # broken (probably some native-buildinputs vs buildinputs issue)
+    passes
 
   ];
 
