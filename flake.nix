@@ -5,6 +5,7 @@
     nvf.url = "github:notashelf/nvf";
     #nvf.inputs.nixpkgs.follows = "nixpkgs-unstable";
     sops-nix.url = "github:Mic92/sops-nix";
+    nix-fork.url = "github:lomenzel/nix";
 
     impermanence.url = "github:nix-community/impermanence";
 
@@ -106,6 +107,7 @@
               {
                 nixpkgs.buildPlatform = buildPlatform;
                 nixpkgs.hostPlatform = hostPlatform;
+                nix.package = inputs.nix-fork.packages.${hostPlatform}.nix;
               }
             )
             inputs.nixtheplanet.nixosModules.macos-ventura
@@ -138,15 +140,6 @@
           #fractal = final.callPackage "${inputs.nixpkgs-fractal-fix}/pkgs/by-name/fr/fractal/package.nix" { };
           passes = final.callPackage "${inputs.nixpkgs-passes-fix}/pkgs/by-name/pa/passes/package.nix" { };
           mensa-sh = final.callPackage "${inputs.nixpkgs-mensa}/pkgs/by-name/me/mensa-sh/package.nix" { };
-          nix = prev.nix.overrideAttrs (old: {
-            version = "nix-2.34.0pre20260220_4c7ced5";
-            src = final.fetchFromGitHub {
-              owner = "lomenzel";
-              repo = "nix";
-              rev = "4c7ced53aea3489b8a8c92ef9196aeb33e7ebdec";
-              hash = "sha256-diHXsahbwaxdXUrvyX70WPHs6e/r/vs6hBgNdtQOKYI=";
-            };
-          });
         })
       ];
 

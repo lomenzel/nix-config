@@ -85,7 +85,7 @@
       darkly
       yakuake
       kio-gdrive
-      kde-rounded-corners
+      #pkgs.kde-rounded-corners
       krfb
       krdc
       kaccounts-providers
