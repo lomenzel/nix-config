@@ -85,7 +85,14 @@
       darkly
       yakuake
       kio-gdrive
-      #pkgs.kde-rounded-corners
+      (kde-rounded-corners.overrideAttrs (oldAttrs: {
+        src = pkgs.fetchFromGitHub {
+          owner = "matinlotfali";
+          repo = "KDE-Rounded-Corners";
+          rev = "2cf9329b31b3152e5513f7069c4bb11c765fdc6e";
+          sha256 = "sha256-mVoLCnpWHC2qDouO97n2cmxiewLCokjnWl1I9tnkIN4=";
+        };
+      }))
       krfb
       krdc
       kaccounts-providers
@@ -133,12 +140,12 @@
       kate
       vlc
       /*
-      (handbrake.override {
-        libbluray = libbluray.override {
-          withAACS = true;
-          withBDplus = true;
-        };
-      })
+        (handbrake.override {
+          libbluray = libbluray.override {
+            withAACS = true;
+            withBDplus = true;
+          };
+        })
       */
       finamp
       kontact
@@ -154,7 +161,7 @@
     enable = true;
     nix-direnv.enable = true;
   };
- # programs.vesktop.enable = true;
+  # programs.vesktop.enable = true;
   programs.starship = {
     enable = true;
   };

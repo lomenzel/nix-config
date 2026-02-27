@@ -37,24 +37,6 @@
     };
   };
 
-  services.luanti.servers = {
-    wiefaewiubguazb = {
-      port = 30000;
-      mapserver = {
-        enable = true;
-        companionMod = true;
-        config = {
-          port = 30001;
-          webapi.secretkey = "supersecret";
-        };
-      };
-      game = pkgs-unstable.luantiPackages.games.mineclonia;
-      config = {
-        mcl_villages_village_chance = 300;
-      };
-      host = "game.localhost";
-    };
-  };
 
   boot.loader.systemd-boot.configurationLimit = 10;
 
@@ -69,7 +51,7 @@
 
   nixpkgs.config.nativeOptimization = "native";
 
-  virtualisation.docker.enable = true;
+  #virtualisation.docker.enable = true;
 
   services.udev.extraRules = ''
     # STMicroelectronics STLink V2

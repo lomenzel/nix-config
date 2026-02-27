@@ -9,7 +9,9 @@ let
   pkgs = pkgs-unstable;
 in
 {
-  imports = [ ];
+  imports = [
+    ../services/kubo.nix
+   ];
 
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;

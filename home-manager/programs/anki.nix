@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  inputs,
   secrets,
   ...
 }:
@@ -9,7 +10,7 @@
   programs.anki = {
     enable = true;
     style = "native";
-    package = pkgs.anki;
+    package = inputs.nixpkgs-master.legacyPackages.x86_64-linux.anki;
     sync = {
       autoSync = true;
       autoSyncMediaMinutes = 2;

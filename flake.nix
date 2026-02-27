@@ -133,12 +133,6 @@
         inputs.nix-luanti.overlays.default
         (final: prev: {
           sbc = final.callPackage "${inputs.nixpkgs-staging}/pkgs/by-name/sb/sbc/package.nix" { };
-          spidermonkey_140 =
-            final.callPackage
-              "${inputs.nixpkgs-master}/pkgs/development/interpreters/spidermonkey/140.nix"
-              { };
-          #fractal = final.callPackage "${inputs.nixpkgs-fractal-fix}/pkgs/by-name/fr/fractal/package.nix" { };
-          passes = final.callPackage "${inputs.nixpkgs-passes-fix}/pkgs/by-name/pa/passes/package.nix" { };
           mensa-sh = final.callPackage "${inputs.nixpkgs-mensa}/pkgs/by-name/me/mensa-sh/package.nix" { };
         })
       ];
