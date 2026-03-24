@@ -23,9 +23,7 @@
     # Unstable
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    nixpkgs-staging.url = "github:nixos/nixpkgs/staging";
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
-    nixpkgs-passes-fix.url = "github:lomenzel/nixpkgs/passes-fix-cross";
     nixpkgs-mensa.url = "github:lomenzel/nixpkgs/mensa-sh-gnome-init";
 
     home-manager-unstable = {
@@ -97,6 +95,14 @@
               system = hostPlatform;
               overlays = defaultOverlays;
             };
+            pkgs-master = import inputs.nixpkgs-master {
+              system = hostPlatform;
+              overlays = defaultOverlays;
+            };
+            pkgs-stable = import inputs.nixpkgs {
+              system = hostPlatform;
+              overlays = defaultOverlays;
+            };
             pkgs-self = self.packages.${hostPlatform};
             helper-functions = import ./helper-functions.nix;
           };
@@ -107,7 +113,7 @@
               {
                 nixpkgs.buildPlatform = buildPlatform;
                 nixpkgs.hostPlatform = hostPlatform;
-                nix.package = inputs.nix-fork.packages.${hostPlatform}.nix;
+                #nix.package = inputs.nix-fork.packages.${hostPlatform}.nix;
               }
             )
             inputs.nixtheplanet.nixosModules.macos-ventura
@@ -131,10 +137,26 @@
 
       defaultOverlays = [
         inputs.nix-luanti.overlays.default
-        (final: prev: {
-          sbc = final.callPackage "${inputs.nixpkgs-staging}/pkgs/by-name/sb/sbc/package.nix" { };
-          mensa-sh = final.callPackage "${inputs.nixpkgs-mensa}/pkgs/by-name/me/mensa-sh/package.nix" { };
-        })
+        (
+          final: prev:
+          {
+            mensa-sh = final.callPackage "${inputs.nixpkgs-mensa}/pkgs/by-name/me/mensa-sh/package.nix" { };
+          }
+          // (
+            if prev.stdenv.hostPlatform.isAarch32 then
+              {
+                yt-dlp = prev.yt-dlp.override {
+                  deno = final.nodejs; # deno does not support armv7l but nodejs does and yt-dlp can be built with either
+                };
+                libcamera = prev.libcamera.overrideAttrs (old: {
+                  mesonFlags = old.mesonFlags ++ [ "-Drpi-awb-nn=disabled" ];
+                  # pr https://github.com/NixOS/nixpkgs/pull/502988
+                });
+              }
+            else
+              { }
+          )
+        )
       ];
 
       mini =
@@ -151,7 +173,11 @@
               system = "armv7l-linux";
               overlays = defaultOverlays;
             };
-            vim-config = import ./packages/vim.nix {inherit inputs; system = buildPlatform; cross = "armv7l-hf-multiplatform";};
+            vim-config = import ./packages/vim.nix {
+              inherit inputs;
+              system = buildPlatform;
+              cross = "armv7l-hf-multiplatform";
+            };
           };
           modules = [
             ./devices/mini/home.nix

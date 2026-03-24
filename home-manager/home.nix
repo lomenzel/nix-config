@@ -79,12 +79,14 @@
       mesa-demos
       mensa-sh
       clinfo
+      ktorrent
       wayland-utils
       pciutils
       vulkan-tools
       darkly
       yakuake
       kio-gdrive
+      appimage-run
       (kde-rounded-corners.overrideAttrs (oldAttrs: {
         src = pkgs.fetchFromGitHub {
           owner = "matinlotfali";
