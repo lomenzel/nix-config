@@ -46,7 +46,7 @@
     gnome-keyring
     appimage-run
     #firefox-mobile # broken dependency
-    tuba # deno needs to build rusty_v8 from source for this to work but js support can be disabled
+    tuba
     luanti
     passes
 

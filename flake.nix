@@ -148,9 +148,19 @@
                 yt-dlp = prev.yt-dlp.override {
                   deno = final.nodejs; # deno does not support armv7l but nodejs does and yt-dlp can be built with either
                 };
-                libcamera = prev.libcamera.overrideAttrs (old: {
-                  mesonFlags = old.mesonFlags ++ [ "-Drpi-awb-nn=disabled" ];
-                  # pr https://github.com/NixOS/nixpkgs/pull/502988
+                libcamera = final.callPackage "${inputs.nixpkgs-master}/pkgs/by-name/li/libcamera/package.nix" { };
+                clapper-enhancers = prev.clapper-enhancers.overrideAttrs (old: {
+                  nativeBuildInputs =
+                    (old.nativeBuildInputs or [ ])
+                    ++ final.lib.optionals (!prev.stdenv.buildPlatform.canExecute prev.stdenv.hostPlatform) [
+                      final.buildPackages.mesonEmulatorHook
+                    ];
+                });
+                webkitgtk_6_0 = prev.webkitgtk_6_0.overrideAttrs (old: {
+                  env = final.lib.optionalAttrs final.clangStdenv.hostPlatform.isAarch32 {
+                    NIX_CFLAGS_COMPILE = "-fno-integrated-as";
+                    NIX_LDFLAGS = "-latomic";
+                  };
                 });
               }
             else
