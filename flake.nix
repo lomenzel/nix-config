@@ -19,6 +19,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     speiseplan.url = "github:draculente/speiseplan-cli";
+    mensa-sh.url = "github:Importantus/mensa-sh-gnome";
 
     # Unstable
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -60,6 +61,7 @@
       home-manager,
       nix-luanti,
       nixtheplanet,
+      mensa-sh,
       ...
     }@inputs:
 
@@ -118,7 +120,6 @@
             )
             inputs.nixtheplanet.nixosModules.macos-ventura
             (if unstable then stylix-unstable else stylix).nixosModules.stylix
-            wsh.nixosModules.${hostPlatform}.default
             nix-luanti.nixosModules.default
             (if unstable then home-manager-unstable else home-manager).nixosModules.default
           ]
@@ -137,10 +138,11 @@
 
       defaultOverlays = [
         inputs.nix-luanti.overlays.default
+        mensa-sh.overlay
+        wsh.overlay
         (
           final: prev:
           {
-            mensa-sh = final.callPackage "${inputs.nixpkgs-mensa}/pkgs/by-name/me/mensa-sh/package.nix" { };
           }
           // (
             if prev.stdenv.hostPlatform.isAarch32 then
@@ -179,7 +181,7 @@
             }).pkgsCross.armv7l-hf-multiplatform;
           extraSpecialArgs = {
             inherit inputs pkgs;
-            pkgs-native = import inputs.nixpkgs-unstable {
+            pkgs-native = import inputs.nixpkgs-master {
               system = "armv7l-linux";
               overlays = defaultOverlays;
             };

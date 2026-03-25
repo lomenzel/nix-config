@@ -15,6 +15,7 @@
     ./programs/git.nix
     ./programs/anki.nix
     ./programs/luanti.nix
+    ./programs/wsh/default.nix
     #./programs/vim.nix
     inputs.immich-uploader.homeManagerModules.default
     #./plasma.nix

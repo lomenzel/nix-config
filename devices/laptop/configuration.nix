@@ -12,7 +12,6 @@
    # ./persistence.nix
     ../../services/remotebuild-client.nix
     ../../home/home.nix
-    ../../services/wsh
 
   ];
 

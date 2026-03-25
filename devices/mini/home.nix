@@ -8,6 +8,7 @@
 }:
 {
   imports = [
+    ../../home-manager/programs/wsh/default.nix
     # (
     #   { pkgs, ... }@args:
     #   ((import ../../home-manager/programs/anki.nix) (args // { secrets = config.sops.secrets; }))
@@ -49,7 +50,9 @@
     tuba
     luanti
     passes
-
+    gnome-clocks
+    gnome-weather
+    gnome-calculator
   ];
 
   programs.zsh = {

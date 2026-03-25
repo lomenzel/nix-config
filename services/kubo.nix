@@ -1,10 +1,10 @@
 {
   config,
-  pkgs-stable,
+  pkgs-master,
   ...
 }: {
   services.kubo = {
-    package = pkgs-stable.kubo;
+    package = pkgs-master.kubo;
     enable = true;
     localDiscovery = true;
     autoMount = true;

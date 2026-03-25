@@ -121,7 +121,7 @@ in
         search = {
           engines = {
             "wsh" = {
-              urls = [ { template = "http://localhost:8012/{searchTerms}"; } ];
+              urls = [ { template = "http://localhost:${builtins.toString config.services.wsh.port}/{searchTerms}"; } ];
             };
           };
           default = "wsh";
