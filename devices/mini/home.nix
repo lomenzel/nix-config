@@ -59,8 +59,8 @@
 
   xdg.configFile."environment.d/nix-gpu.conf".text = ''
     MESA_GLES_VERSION_OVERRIDE=2.0
-    LIBGL_DRIVERS_PATH=/usr/lib/dri
-    LIBVA_DRIVERS_PATH=/usr/lib/dri
+    LIBGL_DRIVERS_PATH=${pkgs.mesa}/lib/dri:/usr/lib/dri
+    LIBVA_DRIVERS_PATH=${pkgs.mesa}/lib/dri:/usr/lib/dri
     __EGL_VENDOR_LIBRARY_DIRS=${pkgs.mesa}/share/glvnd/egl_vendor.d:/usr/share/glvnd/egl_vendor.d
     SDL_VIDEODRIVER=wayland
   '';
