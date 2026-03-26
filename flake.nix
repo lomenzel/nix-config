@@ -166,7 +166,6 @@
                   };
                 });
                 gnome-chess = prev.gnome-chess.overrideAttrs (old: {
-                  # fairymax and stockfish dont compile :(
                   preFixup = old.preFixup or "" + ''
                     gappsWrapperArgs+=(--prefix PATH : "${final.lib.makeBinPath [ final.gnuchess final.stockfish ]}")
                   '';

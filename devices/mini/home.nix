@@ -57,6 +57,11 @@
     gnome-chess
   ];
 
+  home.sessionVariables = {
+    __EGL_VENDOR_LIBRARY_DIRS = "${pkgs.mesa}/share/glvnd/egl_vendor.d";
+    LIBGL_DRIVERS_PATH = "${pkgs.mesa}/lib/dri";
+  };
+
   programs.zsh = {
     enable = true;
     oh-my-zsh = {
