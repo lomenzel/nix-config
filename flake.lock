@@ -1210,6 +1210,7 @@
         "nvf": "nvf",
         "sops-nix": "sops-nix",
         "speiseplan": "speiseplan",
+        "stockfish-fix": "stockfish-fix",
         "stylix": "stylix",
         "stylix-unstable": "stylix-unstable",
         "wsh": "wsh"
@@ -1249,6 +1250,22 @@
       "original": {
         "owner": "draculente",
         "repo": "speiseplan-cli",
+        "type": "github"
+      }
+    },
+    "stockfish-fix": {
+      "locked": {
+        "lastModified": 1774514101,
+        "narHash": "sha256-CWU926Iv8VId4ZYN2LuI5DvwVjSvk2H+GebaKgsP9OA=",
+        "owner": "lomenzel",
+        "repo": "nixpkgs",
+        "rev": "23fc9a2140b35e10383dd5e61e01e3d8cb567218",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lomenzel",
+        "ref": "stockfish-aarch32",
+        "repo": "nixpkgs",
         "type": "github"
       }
     },

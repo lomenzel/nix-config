@@ -53,6 +53,8 @@
     gnome-clocks
     gnome-weather
     gnome-calculator
+    epiphany
+    gnome-chess
   ];
 
   programs.zsh = {

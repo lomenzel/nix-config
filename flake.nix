@@ -20,6 +20,7 @@
     };
     speiseplan.url = "github:draculente/speiseplan-cli";
     mensa-sh.url = "github:Importantus/mensa-sh-gnome";
+    stockfish-fix.url = "github:lomenzel/nixpkgs/stockfish-aarch32";
 
     # Unstable
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -164,9 +165,22 @@
                     NIX_LDFLAGS = "-latomic";
                   };
                 });
+                gnome-chess = prev.gnome-chess.overrideAttrs (old: {
+                  # fairymax and stockfish dont compile :(
+                  preFixup = old.preFixup or "" + ''
+                    gappsWrapperArgs+=(--prefix PATH : "${final.lib.makeBinPath [ final.gnuchess final.stockfish ]}")
+                  '';
+                });
+                stockfish = final.callPackage "${inputs.stockfish-fix}/pkgs/by-name/st/stockfish/package.nix" {};
               }
             else
-              { }
+              {
+                gnome-chess = prev.gnome-chess.overrideAttrs (old: {
+                  preFixup = old.preFixup or "" + ''
+                    gappsWrapperArgs+=(--prefix PATH : "${final.lib.makeBinPath [ final.gnuchess final.stockfish final.fairymax ]}")
+                  '';
+                });
+              }
           )
         )
       ];
