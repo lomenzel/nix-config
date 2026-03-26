@@ -59,6 +59,9 @@
 
   xdg.configFile."environment.d/nix-gpu.conf".text = ''
     MESA_GLES_VERSION_OVERRIDE=2.0
+    LIBGL_DRIVERS_PATH=/usr/lib/dri
+    LIBVA_DRIVERS_PATH=/usr/lib/dri
+    __EGL_VENDOR_LIBRARY_DIRS=/usr/share/glvnd/egl_vendor.d
   '';
 
   programs.zsh = {
