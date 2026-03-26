@@ -55,6 +55,7 @@
     gnome-calculator
     epiphany
     gnome-chess
+    gnome-console
   ];
 
   home.sessionVariables = {
