@@ -171,6 +171,12 @@
                   '';
                 });
                 stockfish = final.callPackage "${inputs.stockfish-fix}/pkgs/by-name/st/stockfish/package.nix" {};
+                luanti = prev.luanti.overrideAttrs (old: {
+                  cmakeFlags = (old.cmakeFlags or [ ]) ++ [
+                    (final.lib.cmakeBool "ENABLE_GLES2" true)
+                  ];
+                  buildInputs = (old.buildInputs or [ ]) ++ [ final.libGL ];
+                });
               }
             else
               {

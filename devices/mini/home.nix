@@ -57,6 +57,10 @@
     gnome-console
   ];
 
+  xdg.configFile."environment.d/nix-gpu.conf".text = ''
+    MESA_GLES_VERSION_OVERRIDE=2.0
+  '';
+
   programs.zsh = {
     enable = true;
     oh-my-zsh = {
@@ -66,11 +70,6 @@
       ];
       theme = "jispwoso";
     };
-    envExtra = ''
-      export __EGL_VENDOR_LIBRARY_DIRS="${pkgs.mesa}/share/glvnd/egl_vendor.d"
-      export LIBGL_DRIVERS_PATH="${pkgs.mesa}/lib/dri"
-      export MESA_GLES_VERSION_OVERRIDE="2.0"
-    '';
   };
   targets.genericLinux.enable = true;
   targets.genericLinux.gpu.enable = false;
