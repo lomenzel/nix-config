@@ -612,6 +612,22 @@
         "type": "github"
       }
     },
+    "mozilla-fix": {
+      "locked": {
+        "lastModified": 1774600574,
+        "narHash": "sha256-6zvYXAudhBs/qbCFnknk5WSr2dv3576JidMWW3dVJNU=",
+        "owner": "lomenzel",
+        "repo": "nixpkgs",
+        "rev": "631bac2fee6ef0a2c88effceb46dca54d1db2ddf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lomenzel",
+        "ref": "firefox-aarch32",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "ndg": {
       "inputs": {
         "nixpkgs": [
@@ -1199,6 +1215,7 @@
         "immich-uploader": "immich-uploader",
         "impermanence": "impermanence",
         "mensa-sh": "mensa-sh",
+        "mozilla-fix": "mozilla-fix",
         "nix-fork": "nix-fork",
         "nix-luanti": "nix-luanti",
         "nixos-hardware": "nixos-hardware",

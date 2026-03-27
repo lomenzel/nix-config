@@ -16,17 +16,17 @@
     #inputs.sops-nix.homeManagerModules.sops
   ];
 
-/*
-  sops = {
-    defaultSopsFile = ../../secrets/secrets.yaml;
-    defaultSopsFormat = "yaml";
-    age.keyFile = "home/.config/sops/keys/age-key.txt";
-    secrets = {
-      "programs/anki/sync_key" = { };
-      "services.immich/apiKey" = { };
+  /*
+    sops = {
+      defaultSopsFile = ../../secrets/secrets.yaml;
+      defaultSopsFormat = "yaml";
+      age.keyFile = "home/.config/sops/keys/age-key.txt";
+      secrets = {
+        "programs/anki/sync_key" = { };
+        "services.immich/apiKey" = { };
+      };
     };
-  };
-*/
+  */
 
   home.packages = with pkgs; [
     htop
@@ -45,7 +45,7 @@
     fractal
     gnome-keyring
     appimage-run
-    #firefox-mobile # broken dependency
+    firefox-mobile
     tuba
     luanti
     passes

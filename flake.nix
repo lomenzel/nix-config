@@ -21,6 +21,7 @@
     speiseplan.url = "github:draculente/speiseplan-cli";
     mensa-sh.url = "github:Importantus/mensa-sh-gnome";
     stockfish-fix.url = "github:lomenzel/nixpkgs/stockfish-aarch32";
+    mozilla-fix.url = "github:lomenzel/nixpkgs/firefox-aarch32";
 
     # Unstable
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -177,6 +178,7 @@
                   ];
                   buildInputs = (old.buildInputs or [ ]) ++ [ final.libGL ];
                 });
+                buildMozillaMach = opts: final.callPackage (import "${inputs.mozilla-fix}/pkgs/build-support/build-mozilla-mach/default.nix" opts) {};
               }
             else
               {
