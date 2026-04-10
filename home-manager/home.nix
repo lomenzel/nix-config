@@ -30,6 +30,8 @@
     mediaPaths = [ "~/Bilder/Immich-Upload-Daemon-Test" ];
   };
 
+  services.ssh-agent.enable = true;
+
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -66,6 +68,8 @@
     with pkgs-unstable;
     with pkgs-unstable.kdePackages;
     [
+      radicle-node
+      radicle-desktop
       nh
       htop
       sops
