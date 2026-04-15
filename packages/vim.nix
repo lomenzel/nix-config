@@ -21,12 +21,12 @@
             virtual_lines.current_line = true;
           };
         };
-        # Enable custom theming options
-        # theme = {
-        #   enable = true;
-        #   name = "rose-pine";
-        #   style = "main";
-        # };
+        #Enable custom theming options
+        theme = {
+          enable = true;
+          name = "rose-pine";
+          style = "main";
+        };
 
         autocomplete.nvim-cmp.enable = true;
         spellcheck.enable = true;
@@ -48,11 +48,11 @@
         ];
 
         tabline.nvimBufferline.enable = true;
-        minimap.codewindow.enable = true;
+        minimap.codewindow.enable = false; # ts_utils problem
         telescope.enable = true;
         notify.nvim-notify.enable = true;
         lsp = {
-          enable = true;
+          #enable = false;
           formatOnSave = true;
           inlayHints.enable = true;
           lightbulb = {
@@ -115,9 +115,31 @@
           enable = true;
         };
 
-        # Other options will go here. Refer to the config
-        # reference in Appendix B of the nvf manual.
-        # ...
+        assistant.avante-nvim = {
+          enable = false;
+          setupOpts = {
+            providers = {
+              litellm = {
+                endpoint = "https://ai.menzel.lol/v1";
+                model = "chat-large";
+                timeout = 3000000;
+              };
+             };
+            provider = "litellm";
+          };
+        };
+
+        extraPackages = [
+          pkgs.jujutsu
+        ];
+
+        extraPlugins = with pkgs.vimPlugins; {
+          jj = {
+            package = jj-nvim;
+            setup = "require('jj').setup({})";
+          };
+        };
+
       };
     }
   ];
