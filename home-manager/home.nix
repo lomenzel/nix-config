@@ -8,12 +8,23 @@
   pkgs-stable,
   pkgs-self,
   ...
-}: {
+}: let
+  mkMenu = menu: let
+    configFile = pkgs.writeText "config.yaml" (pkgs.lib.generators.toYAML {} {
+      inherit menu;
+    });
+  in
+    pkgs.writeShellScript "my-menu" ''
+      exec ${lib.getExe pkgs.wlr-which-key} ${configFile}
+    '';
+in {
   imports = [
     ./programs/firefox.nix
     ./programs/git.nix
     ./programs/anki.nix
     ./programs/luanti.nix
+    ./plasma.nix
+    inputs.plasma-manager.homeModules.plasma-manager
     ./programs/wsh/default.nix
     #./programs/vim.nix
     inputs.immich-uploader.homeManagerModules.default
@@ -58,6 +69,81 @@
     '';
   };
 
+  programs.plasma = {
+    enable = true;
+    hotkeys.commands = {
+      menu = {
+        name = "Which key menu";
+        key = "Meta";
+        command =
+          mkMenu [
+            {
+              key = "b";
+              desc = "Browser";
+              submenu = [
+                {
+                  key = "b";
+                  desc = "Brave";
+                  cmd = "${lib.getExe pkgs.brave}";
+                }
+                {
+                  key = "c";
+                  desc = "Chrome";
+                  cmd = "${lib.getExe pkgs.google-chrome}";
+                }
+                {
+                  key = "f";
+                  desc = "Firefox";
+                  cmd = "firefox";
+                }
+                {
+                  key = "t";
+                  desc = "Tor";
+                  cmd = "${lib.getExe pkgs.tor-browser}";
+                }
+              ];
+            }
+            {
+              key = "t";
+              desc = "Terminal";
+              cmd = "alacritty";
+            }
+            {
+              key = "p";
+              desc = "Power";
+              submenu = [
+                {
+                  key = "a";
+                  desc = "Abmelden";
+                  cmd = "loginctl terminate-user leonard";
+                }
+                {
+                  key = "s";
+                  desc = "Pause";
+                  cmd = "systemctl suspend";
+                }
+                {
+                  key = "l";
+                  desc = "Lock";
+                  cmd = "loginctl lock-session";
+                }
+                {
+                  key = "r";
+                  desc = "Neustart";
+                  cmd = "reboot";
+                }
+                {
+                  key = "o";
+                  desc = "Gute Nacht";
+                  cmd = "poweroff";
+                }
+              ];
+            }
+          ]
+          |> builtins.toString;
+      };
+    };
+  };
   programs.alacritty = {
     enable = true;
     package = pkgs-unstable.alacritty;

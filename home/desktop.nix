@@ -4,16 +4,15 @@
   inputs,
   lib,
   ...
-}:
-let
+}: let
   pkgs = pkgs-unstable;
-in
-{
+in {
   imports = [
     ../services/kubo.nix
-   ];
+  ];
 
-  services.displayManager.sddm.enable = true;
+  security.pam.services.ly.kwallet.enable = true;
+  services.displayManager.ly.enable = true;
   services.desktopManager.plasma6.enable = true;
   programs.kdeconnect.enable = true;
 
@@ -53,17 +52,19 @@ in
         package = pkgs-unstable.nerd-fonts.jetbrains-mono;
         name = "JetBrainsMono Nerd Font Mono";
       };
-      sansSerif  = { package =  pkgs-unstable.roboto;
-      name = "Roboto";};
+      sansSerif = {
+        package = pkgs-unstable.roboto;
+        name = "Roboto";
+      };
 
-      serif =  {
+      serif = {
         package = pkgs-unstable.roboto-serif;
         name = "Roboto Serif";
       };
-    emoji = {
-      package = pkgs.noto-fonts-color-emoji;
-      name = "Noto Color Emoji";
-    };
+      emoji = {
+        package = pkgs.noto-fonts-color-emoji;
+        name = "Noto Color Emoji";
+      };
     };
 
     targets = {

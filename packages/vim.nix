@@ -5,11 +5,12 @@
   ...
 }:
 (inputs.nvf.lib.neovimConfiguration rec {
-  pkgs =
-    let
-      raw_pkgs = import inputs.nvf.inputs.nixpkgs { inherit system; };
-    in
-    if cross == null then raw_pkgs else raw_pkgs.pkgsCross.${cross};
+  pkgs = let
+    raw_pkgs = import inputs.nvf.inputs.nixpkgs {inherit system;};
+  in
+    if cross == null
+    then raw_pkgs
+    else raw_pkgs.pkgsCross.${cross};
   modules = [
     {
       config.vim = {
@@ -53,6 +54,7 @@
         notify.nvim-notify.enable = true;
         lsp = {
           #enable = false;
+          presets.nixd.enable = true;
           formatOnSave = true;
           inlayHints.enable = true;
           lightbulb = {
@@ -73,8 +75,12 @@
         #treesitter.enable = true;
         languages = {
           enableFormat = true;
-          #enableTreesitter = true;
-          nix.enable = true;
+          enableTreesitter = true;
+          nix = {
+            enable = true;
+            lsp.enable = false;
+          };
+
           haskell = {
             enable = true;
           };
@@ -115,20 +121,6 @@
           enable = true;
         };
 
-        assistant.avante-nvim = {
-          enable = false;
-          setupOpts = {
-            providers = {
-              litellm = {
-                endpoint = "https://ai.menzel.lol/v1";
-                model = "chat-large";
-                timeout = 3000000;
-              };
-             };
-            provider = "litellm";
-          };
-        };
-
         extraPackages = [
           pkgs.jujutsu
         ];
@@ -139,7 +131,6 @@
             setup = "require('jj').setup({})";
           };
         };
-
       };
     }
   ];

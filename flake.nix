@@ -14,6 +14,7 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    plasma-manager.url = "github:nix-community/plasma-manager";
     stylix = {
       url = "github:nix-community/stylix/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -52,211 +53,225 @@
     nixtheplanet.url = "github:matthewcroughan/nixtheplanet";
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      wsh,
-      stylix,
-      stylix-unstable,
-      home-manager-unstable,
-      home-manager,
-      nix-luanti,
-      nixtheplanet,
-      mensa-sh,
-      ...
-    }@inputs:
+  outputs = {
+    self,
+    nixpkgs,
+    wsh,
+    stylix,
+    stylix-unstable,
+    home-manager-unstable,
+    home-manager,
+    nix-luanti,
+    nixtheplanet,
+    mensa-sh,
+    ...
+  } @ inputs: let
+    supportedSystems =
+      [
+        "x86_64-linux"
+        "aarch64-linux"
+        "armv7l-linux"
+      ]
+      |> builtins.map (system: {
+        name = system;
+        value = null;
+      })
+      |> builtins.listToAttrs;
 
-    let
-      supportedSystems =
-        [
-          "x86_64-linux"
-          "aarch64-linux"
-          "armv7l-linux"
-        ]
-        |> builtins.map (system: {
-          name = system;
-          value = null;
-        })
-        |> builtins.listToAttrs;
-
-      mkConfig =
-        {
-          hostPlatform ? "x86_64-linux",
-          deviceModule,
-          unstable ? true,
-          secrets ? true,
-        }:
-        buildPlatform:
-        let
-          finalBuildPlatform = if buildPlatform != null then buildPlatform else hostPlatform;
-        in
-        inputs.${if unstable then "nixpkgs-unstable" else "nixpkgs"}.lib.nixosSystem rec {
-          system = hostPlatform;
-          specialArgs = {
-            inherit inputs;
-            pkgs-unstable = import inputs.nixpkgs-unstable {
-              system = hostPlatform;
-              overlays = defaultOverlays;
-            };
-            pkgs-master = import inputs.nixpkgs-master {
-              system = hostPlatform;
-              overlays = defaultOverlays;
-            };
-            pkgs-stable = import inputs.nixpkgs {
-              system = hostPlatform;
-              overlays = defaultOverlays;
-            };
-            pkgs-self = self.packages.${hostPlatform};
-            helper-functions = import ./helper-functions.nix;
+    mkConfig = {
+      hostPlatform ? "x86_64-linux",
+      deviceModule,
+      unstable ? true,
+      secrets ? true,
+    }: buildPlatform: let
+      finalBuildPlatform =
+        if buildPlatform != null
+        then buildPlatform
+        else hostPlatform;
+    in
+      inputs.${
+        if unstable
+        then "nixpkgs-unstable"
+        else "nixpkgs"
+      }.lib.nixosSystem rec {
+        system = hostPlatform;
+        specialArgs = {
+          inherit inputs;
+          pkgs-unstable = import inputs.nixpkgs-unstable {
+            system = hostPlatform;
+            overlays = defaultOverlays;
           };
-          modules = [
+          pkgs-master = import inputs.nixpkgs-master {
+            system = hostPlatform;
+            overlays = defaultOverlays;
+          };
+          pkgs-stable = import inputs.nixpkgs {
+            system = hostPlatform;
+            overlays = defaultOverlays;
+          };
+          pkgs-self = self.packages.${hostPlatform};
+          helper-functions = import ./helper-functions.nix;
+        };
+        modules =
+          [
             deviceModule
             (
-              { ... }:
-              {
+              {...}: {
                 nixpkgs.buildPlatform = buildPlatform;
                 nixpkgs.hostPlatform = hostPlatform;
                 #nix.package = inputs.nix-fork.packages.${hostPlatform}.nix;
               }
             )
             inputs.nixtheplanet.nixosModules.macos-ventura
-            (if unstable then stylix-unstable else stylix).nixosModules.stylix
+            (
+              if unstable
+              then stylix-unstable
+              else stylix
+            ).nixosModules.stylix
             nix-luanti.nixosModules.default
-            (if unstable then home-manager-unstable else home-manager).nixosModules.default
+            (
+              if unstable
+              then home-manager-unstable
+              else home-manager
+            ).nixosModules.default
           ]
-          ++ (if secrets then [ ./secrets ] else [ ])
+          ++ (
+            if secrets
+            then [./secrets]
+            else []
+          )
           ++ builtins.attrValues inputs.self.nixosModules;
-        };
-
-      laptop = mkConfig { deviceModule = ./devices/laptop/configuration.nix; };
-      tablet = mkConfig { deviceModule = ./devices/tablet/configuration.nix; };
-      desktop = mkConfig { deviceModule = ./devices/desktop/configuration.nix; };
-      pi = mkConfig {
-        deviceModule = ./devices/pi/configuration.nix;
-        hostPlatform = "aarch64-linux";
-        secrets = false;
       };
 
-      defaultOverlays = [
-        inputs.nix-luanti.overlays.default
-        mensa-sh.overlay
-        wsh.overlay
-        (
-          final: prev:
+    laptop = mkConfig {deviceModule = ./devices/laptop/configuration.nix;};
+    tablet = mkConfig {deviceModule = ./devices/tablet/configuration.nix;};
+    desktop = mkConfig {deviceModule = ./devices/desktop/configuration.nix;};
+    pi = mkConfig {
+      deviceModule = ./devices/pi/configuration.nix;
+      hostPlatform = "aarch64-linux";
+      secrets = false;
+    };
+
+    defaultOverlays = [
+      inputs.nix-luanti.overlays.default
+      mensa-sh.overlay
+      wsh.overlay
+      (
+        final: prev:
           {
           }
           // (
-            if prev.stdenv.hostPlatform.isAarch32 then
-              {
-                yt-dlp = prev.yt-dlp.override {
-                  deno = final.nodejs; # deno does not support armv7l but nodejs does and yt-dlp can be built with either
+            if prev.stdenv.hostPlatform.isAarch32
+            then {
+              yt-dlp = prev.yt-dlp.override {
+                deno = final.nodejs; # deno does not support armv7l but nodejs does and yt-dlp can be built with either
+              };
+              libcamera = final.callPackage "${inputs.nixpkgs-master}/pkgs/by-name/li/libcamera/package.nix" {};
+              clapper-enhancers = prev.clapper-enhancers.overrideAttrs (old: {
+                nativeBuildInputs =
+                  (old.nativeBuildInputs or [])
+                  ++ final.lib.optionals (!prev.stdenv.buildPlatform.canExecute prev.stdenv.hostPlatform) [
+                    final.buildPackages.mesonEmulatorHook
+                  ];
+              });
+              webkitgtk_6_0 = prev.webkitgtk_6_0.overrideAttrs (old: {
+                env = final.lib.optionalAttrs final.clangStdenv.hostPlatform.isAarch32 {
+                  NIX_CFLAGS_COMPILE = "-fno-integrated-as";
+                  NIX_LDFLAGS = "-latomic";
                 };
-                libcamera = final.callPackage "${inputs.nixpkgs-master}/pkgs/by-name/li/libcamera/package.nix" { };
-                clapper-enhancers = prev.clapper-enhancers.overrideAttrs (old: {
-                  nativeBuildInputs =
-                    (old.nativeBuildInputs or [ ])
-                    ++ final.lib.optionals (!prev.stdenv.buildPlatform.canExecute prev.stdenv.hostPlatform) [
-                      final.buildPackages.mesonEmulatorHook
-                    ];
-                });
-                webkitgtk_6_0 = prev.webkitgtk_6_0.overrideAttrs (old: {
-                  env = final.lib.optionalAttrs final.clangStdenv.hostPlatform.isAarch32 {
-                    NIX_CFLAGS_COMPILE = "-fno-integrated-as";
-                    NIX_LDFLAGS = "-latomic";
-                  };
-                });
-                gnome-chess = prev.gnome-chess.overrideAttrs (old: {
-                  preFixup = old.preFixup or "" + ''
-                    gappsWrapperArgs+=(--prefix PATH : "${final.lib.makeBinPath [ final.gnuchess final.stockfish ]}")
+              });
+              gnome-chess = prev.gnome-chess.overrideAttrs (old: {
+                preFixup =
+                  old.preFixup or ""
+                  + ''
+                    gappsWrapperArgs+=(--prefix PATH : "${final.lib.makeBinPath [final.gnuchess final.stockfish]}")
                   '';
-                });
-                stockfish = final.callPackage "${inputs.stockfish-fix}/pkgs/by-name/st/stockfish/package.nix" {};
-                luanti = prev.luanti.overrideAttrs (old: {
-                  cmakeFlags = (old.cmakeFlags or [ ]) ++ [
+              });
+              stockfish = final.callPackage "${inputs.stockfish-fix}/pkgs/by-name/st/stockfish/package.nix" {};
+              luanti = prev.luanti.overrideAttrs (old: {
+                cmakeFlags =
+                  (old.cmakeFlags or [])
+                  ++ [
                     (final.lib.cmakeBool "ENABLE_GLES2" true)
                   ];
-                  buildInputs = (old.buildInputs or [ ]) ++ [ final.libGL ];
-                });
-                buildMozillaMach = opts: final.callPackage (import "${inputs.mozilla-fix}/pkgs/build-support/build-mozilla-mach/default.nix" opts) {};
-              }
-            else
-              {
-                gnome-chess = prev.gnome-chess.overrideAttrs (old: {
-                  preFixup = old.preFixup or "" + ''
-                    gappsWrapperArgs+=(--prefix PATH : "${final.lib.makeBinPath [ final.gnuchess final.stockfish final.fairymax ]}")
+                buildInputs = (old.buildInputs or []) ++ [final.libGL];
+              });
+              buildMozillaMach = opts: final.callPackage (import "${inputs.mozilla-fix}/pkgs/build-support/build-mozilla-mach/default.nix" opts) {};
+            }
+            else {
+              gnome-chess = prev.gnome-chess.overrideAttrs (old: {
+                preFixup =
+                  old.preFixup or ""
+                  + ''
+                    gappsWrapperArgs+=(--prefix PATH : "${final.lib.makeBinPath [final.gnuchess final.stockfish final.fairymax]}")
                   '';
-                });
-              }
+              });
+            }
           )
-        )
-      ];
+      )
+    ];
 
-      mini =
-        buildPlatform:
-        inputs.home-manager-unstable.lib.homeManagerConfiguration rec {
-          pkgs =
-            (import inputs.nixpkgs-unstable {
-              system = buildPlatform;
-              overlays = defaultOverlays;
-            }).pkgsCross.armv7l-hf-multiplatform;
-          extraSpecialArgs = {
-            inherit inputs pkgs;
-            pkgs-native = import inputs.nixpkgs-master {
-              system = "armv7l-linux";
-              overlays = defaultOverlays;
-            };
-            vim-config = import ./packages/vim.nix {
-              inherit inputs;
-              system = buildPlatform;
-              cross = "armv7l-hf-multiplatform";
-            };
+    mini = buildPlatform:
+      inputs.home-manager-unstable.lib.homeManagerConfiguration rec {
+        pkgs =
+          (import inputs.nixpkgs-unstable {
+            system = buildPlatform;
+            overlays = defaultOverlays;
+          }).pkgsCross.armv7l-hf-multiplatform;
+        extraSpecialArgs = {
+          inherit inputs pkgs;
+          pkgs-native = import inputs.nixpkgs-master {
+            system = "armv7l-linux";
+            overlays = defaultOverlays;
           };
-          modules = [
-            ./devices/mini/home.nix
-          ];
+          vim-config = import ./packages/vim.nix {
+            inherit inputs;
+            system = buildPlatform;
+            cross = "armv7l-hf-multiplatform";
+          };
         };
-
-    in
-
-    {
-      packages = builtins.mapAttrs (
-        system: _:
-        let
-          pkgs = import nixpkgs { inherit system; };
-        in
-        {
-          vim = import ./packages/vim.nix { inherit inputs system; };
-          dns-update = pkgs.callPackage ./packages/dns-update { };
+        modules = [
+          ./devices/mini/home.nix
+        ];
+      };
+  in {
+    packages =
+      builtins.mapAttrs (
+        system: _: let
+          pkgs = import nixpkgs {inherit system;};
+        in {
+          vim = import ./packages/vim.nix {inherit inputs system;};
+          dns-update = pkgs.callPackage ./packages/dns-update {};
           pi = (pi system).config.system.build.sdImage;
         }
-      ) supportedSystems;
+      )
+      supportedSystems;
 
-      homeConfigurations.leonard = mini "x86_64-linux";
+    homeConfigurations.leonard = mini "x86_64-linux";
 
-      nixosConfigurations = {
-        laptop = laptop "x86_64-linux";
-        tablet = tablet "x86_64-linux";
-        desktop = desktop "x86_64-linux";
-        pi = pi "aarch64-linux";
-      };
-      nixosModules = {
-        inwx-dns-update = import ./modules/server/dyndns.nix;
-      };
-
-      checks = builtins.mapAttrs (
-        system: _:
-        let
-          pkgs = import nixpkgs { inherit system; };
-        in
-        (self.packages.${system})
-        // {
-          laptop = (laptop system).config.system.build.toplevel;
-          tablet = (tablet system).config.system.build.toplevel;
-          desktop = (desktop system).config.system.build.toplevel;
-          mini = (mini system).activationPackage;
-        }
-      ) supportedSystems;
+    nixosConfigurations = {
+      laptop = laptop "x86_64-linux";
+      tablet = tablet "x86_64-linux";
+      desktop = desktop "x86_64-linux";
+      pi = pi "aarch64-linux";
+    };
+    nixosModules = {
+      inwx-dns-update = import ./modules/server/dyndns.nix;
     };
 
+    checks =
+      builtins.mapAttrs (
+        system: _: let
+          pkgs = import nixpkgs {inherit system;};
+        in
+          (self.packages.${system})
+          // {
+            laptop = (laptop system).config.system.build.toplevel;
+            tablet = (tablet system).config.system.build.toplevel;
+            desktop = (desktop system).config.system.build.toplevel;
+            mini = (mini system).activationPackage;
+          }
+      )
+      supportedSystems;
+  };
 }

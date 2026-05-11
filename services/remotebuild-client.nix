@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   nix.distributedBuilds = true;
   nix.settings.builders-use-substitutes = true;
 
@@ -28,7 +27,7 @@
       sshKey = "/root/.ssh/remotebuild";
       system = "x86_64-linux";
       maxJobs = 8;
-      speedFactor = 2;
+      speedFactor = 1;
       supportedFeatures = [
         "nixos-test"
         "big-parallel"
