@@ -21,7 +21,7 @@ in
     ./hardware-configuration.nix
     #../../services/samba.nix
     ../../home/home.nix
-    ../../server/server.nix
+    #../../server/server.nix
     #../../services/remotebuild.nix
     ../../services/remotebuild-client.nix
   ];

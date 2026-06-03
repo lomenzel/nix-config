@@ -34,6 +34,6 @@
 
   users.users.leonard.hashedPasswordFile = config.sops.secrets."devices/password".path;
 
-  security.acme.defaults.credentialsFile = config.sops.templates.inwx-secrets.path;
+  #security.acme.defaults.credentialFiles.INWX_PASSWORD_FILE = config.sops.templates.inwx-secrets.path;
 
 }

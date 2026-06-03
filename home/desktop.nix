@@ -4,9 +4,11 @@
   inputs,
   lib,
   ...
-}: let
+}:
+let
   pkgs = pkgs-unstable;
-in {
+in
+{
   imports = [
     ../services/kubo.nix
   ];
@@ -15,6 +17,13 @@ in {
   services.displayManager.ly.enable = true;
   services.desktopManager.plasma6.enable = true;
   programs.kdeconnect.enable = true;
+
+  networking.firewall.allowedTCPPortRanges = [
+    {
+      from = 5900;
+      to = 6000;
+    }
+  ];
 
   environment.systemPackages = with pkgs; [
     libbdplus
