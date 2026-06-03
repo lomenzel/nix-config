@@ -10,7 +10,7 @@
   imports = [
     ./hardware-configuration.nix
    # ./persistence.nix
-    ../../services/remotebuild-client.nix
+   # ../../services/remotebuild-client.nix
     ../../home/home.nix
 
   ];
@@ -23,19 +23,6 @@
   services.inwx-dns.hosts = [
     "laptop.devices.lmenzel.de"
   ];
-  services.nginx = {
-    enable = true;
-    virtualHosts."laptop.devices.lmenzel.de" = {
-      forceSSL = false;
-      locations."/" = {
-        extraConfig = ''
-          add_header Content-Type text/plain;
-          return 200 "laptop is online\n";
-        '';
-      };
-    };
-  };
-
 
   boot.loader.systemd-boot.configurationLimit = 10;
 
