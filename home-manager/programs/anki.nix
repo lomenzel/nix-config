@@ -11,7 +11,7 @@
     enable = true;
     style = "native";
     package = inputs.nixpkgs-master.legacyPackages.x86_64-linux.anki;
-    sync = {
+    profiles.leonard.sync = {
       autoSync = true;
       autoSyncMediaMinutes = 2;
       syncMedia = true;

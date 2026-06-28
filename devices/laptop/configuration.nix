@@ -4,17 +4,83 @@
   pkgs-unstable,
   inputs,
   legacy_secrets,
+  lib,
   ...
 }:
 {
   imports = [
     ./hardware-configuration.nix
-   # ./persistence.nix
-   # ../../services/remotebuild-client.nix
+    # ./persistence.nix
+    # ../../services/remotebuild-client.nix
     ../../home/home.nix
 
   ];
+  networking.hostName = "laptop";
 
+  services.luanti.servers.test = {
+    game = pkgs.luantiPackages.games.mineclone2;
+    port = 30005;
+    mods = [
+      (pkgs.luantiPackages.mods.animalia_mcl_hunger.overrideAttrs {
+        src = pkgs.fetchFromGitHub {
+          owner = "tbook";
+          repo = "animalia-voxelibre";
+          rev = "8c2b596d516812b8191c06e55f1952e63cdc4da5";
+          hash = "sha256-nf72zNHTfn/RWM+0kmAVPH420W8nkj3WGFhBMKyBO6k=";
+        };
+      })
+    ];
+  };
+
+  networking.useDHCP = lib.mkDefault true;
+
+  hardware.bluetooth.enable = true;
+  #services.blueman.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+
+  hardware.graphics.enable = true;
+
+  # Configure keymap in X11
+  services.xserver = {
+    xkb.layout = "de";
+    xkb.variant = "";
+  };
+
+  # Configure console keymap
+  console.keyMap = "de";
+
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
+
+  services.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
+  # Set your time zone.
+  time.timeZone = "UTC";
+
+  # Select internationalisation properties.
+  i18n.defaultLocale = "de_DE.UTF-8";
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "de_DE.UTF-8";
+    LC_IDENTIFICATION = "de_DE.UTF-8";
+    LC_MEASUREMENT = "de_DE.UTF-8";
+    LC_MONETARY = "de_DE.UTF-8";
+    LC_NAME = "de_DE.UTF-8";
+    LC_NUMERIC = "de_DE.UTF-8";
+    LC_PAPER = "de_DE.UTF-8";
+    LC_TELEPHONE = "de_DE.UTF-8";
+    LC_TIME = "de_DE.UTF-8";
+  };
+
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_testing;
 
   programs.nix-ld.enable = false;
@@ -56,6 +122,11 @@
     "modesetting"
   ];
   systemd.services.dlm.wantedBy = [ "multi-user.target" ];
+  networking.networkmanager.enable = true;
 
-  system.stateVersion = "25.05";
+  security.sudo.package = pkgs.sudo.override { withInsults = true; };
+
+  system.stateVersion = "26.05";
+  nixpkgs.config.allowUnfree = true;
+
 }

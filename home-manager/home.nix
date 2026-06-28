@@ -38,6 +38,9 @@ in
     #inputs.plasma-manager.homeManagerModules.plasma-manager
     ./programs/vscode.nix
   ];
+  home.sessionVariables = {
+    EDITOR = "${pkgs-self.vim}/bin/nvim";
+  };
 
   services.immich-upload = {
     enable = true;
@@ -71,7 +74,7 @@ in
 
   home.activation = {
     removeHMBackups = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      rm ~/.gtkrc-2.0.homemanager-backup ~/.mozilla/firefox/default/search.json.mozlz4.homemanager-backup || true
+      rm ~/.gtkrc-2.0.homemanager-backup ~/.config/mozilla/firefox/default/search.json.mozlz4.homemanager-backup || true
     '';
   };
 
@@ -117,21 +120,21 @@ in
                   desc = "Vivaldi";
                   cmd = "${lib.getExe pkgs.vivaldi}";
                 }
-                {
-                  key = "q";
-                  desc = "Konqueror";
-                  cmd = "${lib.getExe pkgs.kdePackages.konqueror}";
-                }
-                {
-                  key = "k";
-                  desc = "Falkon";
-                  cmd = "${lib.getExe pkgs.kdePackages.falkon}";
-                }
-                {
-                  key = "a";
-                  desc = "Angelfish";
-                  cmd = "${lib.getExe pkgs.kdePackages.angelfish}";
-                }
+                # {
+                #   key = "q";
+                #   desc = "Konqueror";
+                #   cmd = "${lib.getExe pkgs.kdePackages.konqueror}";
+                # }
+                # {
+                #   key = "k";
+                #   desc = "Falkon";
+                #   cmd = "${lib.getExe pkgs.kdePackages.falkon}";
+                # }
+                # {
+                #   key = "a";
+                #   desc = "Angelfish";
+                #   cmd = "${lib.getExe pkgs.kdePackages.angelfish}";
+                # }
               ];
             }
             {
@@ -156,7 +159,7 @@ in
                 {
                   key = "l";
                   desc = "Luanti";
-                  cmd = "${lib.getExe (
+                  cmd = "${
                     pkgs.luanti.withPackages {
                       games = with pkgs.luantiPackages.games; [
                         mineclone2
@@ -182,7 +185,7 @@ in
                         ])
                       ];
                     }
-                  )}";
+                  }/bin/luanti";
                 }
                 {
                   key = "m";
@@ -284,14 +287,7 @@ in
       kio-gdrive
       appimage-run
       jujutsu
-      (kde-rounded-corners.overrideAttrs (oldAttrs: {
-        src = pkgs.fetchFromGitHub {
-          owner = "matinlotfali";
-          repo = "KDE-Rounded-Corners";
-          rev = "2cf9329b31b3152e5513f7069c4bb11c765fdc6e";
-          sha256 = "sha256-mVoLCnpWHC2qDouO97n2cmxiewLCokjnWl1I9tnkIN4=";
-        };
-      }))
+      (kde-rounded-corners)
       krfb
       krdc
       kaccounts-providers
@@ -302,7 +298,7 @@ in
       pimcommon
       krohnkite
       pkgs-self.vim
-      inputs.speiseplan.packages."x86_64-linux".speiseplan-cli
+      #inputs.speiseplan.packages."x86_64-linux".speiseplan-cli
       # libreoffice
 
       nixpkgs-fmt
@@ -342,5 +338,5 @@ in
   home.enableNixpkgsReleaseCheck = false;
   home.username = "leonard";
   home.homeDirectory = "/home/leonard";
-  home.stateVersion = "24.05";
+  home.stateVersion = "26.05";
 }
