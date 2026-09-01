@@ -35,7 +35,7 @@ in {
         id = "VLD0:lhZi0sT0coOuyXlxDfJUm3FRToXIB9slcyxRvfNcbwk";
       };
       server = {
-        ip-address = "10.44.1.2";
+        ip-address = "10.44.1.3";
         id = "VLD0:YJICEWH1jySmWrQ8a0LSaVMr-lP3TpuOTq0fdte95CA";
       };
     };
