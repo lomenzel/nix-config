@@ -34,6 +34,10 @@ in {
         ip-address = "10.44.1.2";
         id = "VLD0:lhZi0sT0coOuyXlxDfJUm3FRToXIB9slcyxRvfNcbwk";
       };
+      server = {
+        ip-address = "10.44.1.2";
+        id = "VLD0:YJICEWH1jySmWrQ8a0LSaVMr-lP3TpuOTq0fdte95CA";
+      };
     };
     key = config.sops.secrets."services/tailveil/${config.networking.hostName}".path;
   };
