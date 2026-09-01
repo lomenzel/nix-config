@@ -1,21 +1,17 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
 {
   config,
   pkgs-unstable,
   inputs,
   ...
-}:
-let
-  toHostList =
-    virtualHosts:
+}: let
+  toHostList = virtualHosts:
     builtins.concatStringsSep "\n" (
       builtins.map (hostname: "127.0.0.1 ${hostname}") (builtins.attrNames virtualHosts)
     );
-in
-{
+in {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -25,14 +21,30 @@ in
     #../../services/remotebuild.nix
     # ../../services/remotebuild-client.nix
   ];
-  # overleaf
-  /*
-    services.overleaf = {
-      enable = true;
-      dataDir = "/var/lib/overleaf";
-      port = "8083";
-      forceBuild = true;
+
+  services.tailveil = {
+    enable = true;
+    nodes = {
+      laptop = {
+        ip-address = "10.44.1.1";
+        id = "VLD0:zSlM15MhSQFYx38L4JfmeF0pR8aSwbAGCU4OuJXMblQ";
+      };
+      desktop = {
+        ip-address = "10.44.1.2";
+        id = "VLD0:lhZi0sT0coOuyXlxDfJUm3FRToXIB9slcyxRvfNcbwk";
+      };
     };
+    key = config.sops.secrets."services/tailveil/${config.networking.hostName}".path;
+  };
+  # overleaf
+
+  /*
+  services.overleaf = {
+    enable = true;
+    dataDir = "/var/lib/overleaf";
+    port = "8083";
+    forceBuild = true;
+  };
   */
 
   fileSystems."/mnt/server" = {
@@ -93,14 +105,13 @@ in
 
   hardware.graphics = {
     enable = true;
-    extraPackages = with pkgs-unstable; [ nvidia-vaapi-driver ];
+    extraPackages = with pkgs-unstable; [nvidia-vaapi-driver];
   };
 
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
   #hardware.nvidia-container-toolkit.enable = true;
   hardware.nvidia = {
-
     #   # Modesetting is required.
     #   modesetting.enable = false;
     #   powerManagement.enable = false;
@@ -132,7 +143,6 @@ in
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-
   };
 
   users.users.leonard = {
@@ -166,21 +176,20 @@ in
   #services.teamviewer.enable = true;
 
   /*
-    services.wyoming.satellite = {
-      area = "Stübele";
-      enable = true;
-      sounds = {
-        awake = ./marimba-bloop-2-188149.wav;
-        done = ./marimba-bloop-3-188151.wav;
-      };
-      vad.enable = false;
-      user = "leonard";
-      microphone.command = "${pkgs.pulseaudio}/bin/parec -d alsa_input.usb-C-Media_Electronics_Inc._USB_PnP_Sound_Device-00.mono-fallback --raw --rate=16000 --format=s16le --channels=1";
+  services.wyoming.satellite = {
+    area = "Stübele";
+    enable = true;
+    sounds = {
+      awake = ./marimba-bloop-2-188149.wav;
+      done = ./marimba-bloop-3-188151.wav;
     };
-    services.wyoming.openwakeword = {
-      preloadModels = [ "hey_jarvis" ];
-      enable = true;
-    };
+    vad.enable = false;
+    user = "leonard";
+    microphone.command = "${pkgs.pulseaudio}/bin/parec -d alsa_input.usb-C-Media_Electronics_Inc._USB_PnP_Sound_Device-00.mono-fallback --raw --rate=16000 --format=s16le --channels=1";
+  };
+  services.wyoming.openwakeword = {
+    preloadModels = [ "hey_jarvis" ];
+    enable = true;
+  };
   */
-
 }

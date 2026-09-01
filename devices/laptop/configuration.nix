@@ -23,6 +23,10 @@
         ip-address = "10.44.1.1";
         id = "VLD0:zSlM15MhSQFYx38L4JfmeF0pR8aSwbAGCU4OuJXMblQ";
       };
+      desktop = {
+        ip-address = "10.44.1.2";
+        id = "VLD0:lhZi0sT0coOuyXlxDfJUm3FRToXIB9slcyxRvfNcbwk";
+      };
     };
     key = config.sops.secrets."services/tailveil/${config.networking.hostName}".path;
   };
