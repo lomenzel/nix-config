@@ -17,6 +17,7 @@
       "services/immich/apiKey".owner = "leonard";
       "devices/password".neededForUsers = true;
       "services/tailveil/laptop" = {};
+      "services/tailveil/desktop" = {};
     };
     templates."inwx-secrets" = {
       content = ''
