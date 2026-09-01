@@ -5,7 +5,7 @@
 }: {
   services.kubo = {
     package = pkgs-master.kubo;
-    enable = false;
+    enable = true;
     localDiscovery = true;
     autoMount = true;
     enableGC = true;
@@ -17,3 +17,4 @@
     config.services.kubo.group
   ];
 }
+

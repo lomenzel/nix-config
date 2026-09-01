@@ -4,8 +4,7 @@
   lib,
   options,
   ...
-}:
-{
+}: {
   imports = lib.singleton inputs.sops-nix.nixosModules.sops;
   sops = {
     defaultSopsFile = ./secrets.yaml;
@@ -13,12 +12,13 @@
     age.keyFile = "/persistent/sops-key.txt";
     secrets = {
       "programs/anki/sync_key".owner = "leonard";
-      "extern/inwx/username".owner = lib.mkIf (builtins.hasAttr "inwx-dns" options.services && config.services.inwx-dns.enable)  config.services.inwx-dns.user;
-      "extern/inwx/password".owner = lib.mkIf (builtins.hasAttr "inwx-dns" options.services && config.services.inwx-dns.enable)  config.services.inwx-dns.user;
+      "extern/inwx/username".owner = lib.mkIf (builtins.hasAttr "inwx-dns" options.services && config.services.inwx-dns.enable) config.services.inwx-dns.user;
+      "extern/inwx/password".owner = lib.mkIf (builtins.hasAttr "inwx-dns" options.services && config.services.inwx-dns.enable) config.services.inwx-dns.user;
       "services/immich/apiKey".owner = "leonard";
       "devices/password".neededForUsers = true;
+      "services/tailveil/laptop" = {};
     };
-    templates."inwx-secrets"  = {
+    templates."inwx-secrets" = {
       content = ''
         INWX_USERNAME=${config.sops.placeholder."extern/inwx/username"}
         INWX_PASSWORD=${config.sops.placeholder."extern/inwx/password"}
@@ -35,5 +35,4 @@
   users.users.leonard.hashedPasswordFile = config.sops.secrets."devices/password".path;
 
   #security.acme.defaults.credentialFiles.INWX_PASSWORD_FILE = config.sops.templates.inwx-secrets.path;
-
 }

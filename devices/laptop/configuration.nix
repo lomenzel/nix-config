@@ -6,16 +6,26 @@
   legacy_secrets,
   lib,
   ...
-}:
-{
+}: {
   imports = [
     ./hardware-configuration.nix
     # ./persistence.nix
     # ../../services/remotebuild-client.nix
     ../../home/home.nix
-
+    ../../modules/tailveil.nix
   ];
   networking.hostName = "laptop";
+
+  services.tailveil = {
+    enable = true;
+    nodes = {
+      laptop = {
+        ip-address = "10.44.1.1";
+        id = "VLD0:zSlM15MhSQFYx38L4JfmeF0pR8aSwbAGCU4OuJXMblQ";
+      };
+    };
+    key = config.sops.secrets."services/tailveil/${config.networking.hostName}".path;
+  };
 
   services.luanti.servers.test = {
     game = pkgs.luantiPackages.games.mineclone2;
@@ -50,8 +60,28 @@
   console.keyMap = "de";
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  services.printing = {
+    enable = true;
+    drivers = [
+      pkgs.epson-escpr2
+    ];
+  };
 
+  # 2. Enable Avahi (mDNS / Zeroconf) so network printers are automatically discovered
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
+  # 3. (Optional but recommended) Enable scanning support for multifunction printers
+  hardware.sane = {
+    enable = true;
+    extraBackends = [pkgs.sane-airscan];
+  };
+
+  # Make sure your user is in the printer/scanner groups
+  users.users.leonard.extraGroups = ["lp" "scanner"];
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -96,7 +126,7 @@
     #"olm-3.2.16"
   ];
 
-  networking.firewall.enable = true;
+  networking.firewall.enable = false;
   systemd.services.NetworkManager-wait-online.enable = false;
 
   nix.distributedBuilds = true;
@@ -121,12 +151,11 @@
   services.xserver.videoDrivers = [
     "modesetting"
   ];
-  systemd.services.dlm.wantedBy = [ "multi-user.target" ];
+  systemd.services.dlm.wantedBy = ["multi-user.target"];
   networking.networkmanager.enable = true;
 
-  security.sudo.package = pkgs.sudo.override { withInsults = true; };
+  security.sudo.package = pkgs.sudo.override {withInsults = true;};
 
   system.stateVersion = "26.05";
   nixpkgs.config.allowUnfree = true;
-
 }

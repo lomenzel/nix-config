@@ -49,11 +49,10 @@
         ];
 
         tabline.nvimBufferline.enable = true;
-        minimap.codewindow.enable = false; # ts_utils problem
         telescope.enable = true;
         notify.nvim-notify.enable = true;
         lsp = {
-          #enable = false;
+          enable = true;
           presets.nixd.enable = true;
           formatOnSave = true;
           inlayHints.enable = true;
@@ -76,13 +75,17 @@
         languages = {
           enableFormat = true;
           enableTreesitter = true;
+          enableDAP = true;
           nix = {
             enable = true;
             lsp.enable = false;
           };
 
+          rust.enable = true;
           haskell = {
             enable = true;
+            extensions.haskell-tools.enable = true;
+            lsp.enable = false;
           };
         };
         visuals = {
@@ -120,9 +123,20 @@
         filetree.neo-tree = {
           enable = true;
         };
+        assistant = {
+          avante-nvim = {
+            enable = false;
+          };
+        };
 
-        extraPackages = [
-          pkgs.jujutsu
+        extraPackages = with pkgs; [
+          jujutsu
+          rustc
+          gnumake
+          cargo
+          openjdk
+          uiua
+          ghc
         ];
 
         extraPlugins = with pkgs.vimPlugins; {
