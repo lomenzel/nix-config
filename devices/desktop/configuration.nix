@@ -20,6 +20,7 @@ in {
     #../../server/server.nix
     #../../services/remotebuild.nix
     # ../../services/remotebuild-client.nix
+    ../../modules/tailveil.nix
   ];
 
   services.tailveil = {
