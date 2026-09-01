@@ -37,6 +37,22 @@ in {
     };
     key = config.sops.secrets."services/tailveil/${config.networking.hostName}".path;
   };
+
+  services.ollama = {
+    enable = true;
+    host = "10.44.1.2";
+    loadModels = [
+      "olmo-3.1:32b"
+      "starcoder2:3b"
+      "starcoder2:7b"
+      "starcoder2:15b"
+      "qwen3.8:27b"
+    ];
+    openFirewall = true;
+    package = pkgs-unstable.ollama-cuda;
+    syncModels = true;
+  };
+
   # overleaf
 
   /*
