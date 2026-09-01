@@ -53,7 +53,7 @@ in {
       "qwen3.8:27b"
     ];
     openFirewall = true;
-    package = pkgs-unstable.ollama-cpu;
+    package = pkgs-unstable.ollama-cuda;
     syncModels = true;
   };
 
@@ -125,15 +125,15 @@ in {
   #hardware.nvidia-container-toolkit.enable = true;
   hardware.nvidia = {
     #   # Modesetting is required.
-    #   modesetting.enable = false;
+    modesetting.enable = true;
     #   powerManagement.enable = false;
     #   powerManagement.finegrained = false;
 
-    open = false;
+    open = true;
 
-    #   nvidiaSettings = true;
+    nvidiaSettings = true;
 
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
+    #package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 
   services.xserver.enable = true;
