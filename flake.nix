@@ -99,6 +99,7 @@
           inherit inputs;
           pkgs-unstable = import inputs.nixpkgs-unstable {
             system = hostPlatform;
+            config.allowUnfree = true;
             overlays = defaultOverlays;
           };
           pkgs-master = import inputs.nixpkgs-master {
