@@ -26,6 +26,7 @@ in {
     ./programs/anki.nix
     ./programs/luanti.nix
     ./plasma.nix
+    ./programs/opencode.nix
     inputs.plasma-manager.homeModules.plasma-manager
     ./programs/wsh/default.nix
     #./programs/vim.nix
@@ -298,6 +299,7 @@ in {
     kio-gdrive
     appimage-run
     jujutsu
+    t3code
     kde-rounded-corners
     krfb
     krdc

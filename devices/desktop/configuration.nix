@@ -53,7 +53,7 @@ in {
       "qwen3.8:27b"
     ];
     openFirewall = true;
-    package = pkgs-unstable.ollama-cuda;
+    package = pkgs-unstable.ollama-cpu;
     syncModels = true;
   };
 
