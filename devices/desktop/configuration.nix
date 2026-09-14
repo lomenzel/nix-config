@@ -42,8 +42,16 @@ in {
     key = config.sops.secrets."services/tailveil/${config.networking.hostName}".path;
   };
 
+  systemd.services.ollama.after = ["network-online.target" "tailveil.service"];
+  systemd.services.ollama.wants = ["network-online.target" "tailveil.service"];
   services.ollama = {
     enable = true;
+    environmentVariables = {
+      OLLAMA_CONTEXT_LENGTH = "32768"; # Sets the default context size
+      OLLAMA_FLASH_ATTENTION = "1";
+      OLLAMA_KV_CACHE_TYPE = "q8_0";
+    };
+
     host = "10.44.1.2";
     loadModels = [
       "olmo-3.1:32b"

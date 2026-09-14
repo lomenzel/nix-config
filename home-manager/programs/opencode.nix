@@ -10,8 +10,19 @@
         npm = "@ai-sdk/openai-compatible";
         name = "Ollama";
         models = {
-          "olmo-3.1:32b".name = "Olmo 3.1";
-          "qwen3.8:27b".name = "Qwen 3.8";
+          "olmo-3.1:32b" = {
+            name = "Olmo 3.1";
+            limit = {
+              context = 32768;
+            };
+          };
+
+          "qwen3.8:27b" = {
+            name = "Qwen 3.8";
+            limit = {
+              context = 16384;
+            };
+          };
         };
       };
       model = "ollama/qwen3.8:27b";

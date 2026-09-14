@@ -84,6 +84,11 @@ in {
         command =
           mkMenu [
             {
+              key = "i";
+              desc = "Tickets";
+              cmd = "${lib.getExe pkgs.kdePackages.itinerary}";
+            }
+            {
               key = "b";
               desc = "Browser";
               submenu = [
