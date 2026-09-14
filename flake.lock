@@ -765,19 +765,19 @@
         "type": "github"
       }
     },
-    "nixpkgs-mensa": {
+    "nixpkgs-ollama": {
       "locked": {
-        "lastModified": 1771873942,
-        "narHash": "sha256-Qxa/hE+DcJYl5T9aVvgTiFRZEP/KVF4R8Ma51xkVGQk=",
-        "owner": "lomenzel",
+        "lastModified": 1788959995,
+        "narHash": "sha256-6aUB2lsfZ0GLbO4gpRkUwNrxB7O2M6RzRwXStIt2JcA=",
+        "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "0cf131ee4e3b720a5f0084901b223a9a2278280e",
+        "rev": "1043b385fdb6d0959825aed31437ff411d6a7978",
         "type": "github"
       },
       "original": {
-        "owner": "lomenzel",
-        "ref": "mensa-sh-gnome-init",
+        "owner": "nixos",
         "repo": "nixpkgs",
+        "rev": "1043b385fdb6d0959825aed31437ff411d6a7978",
         "type": "github"
       }
     },
@@ -1249,7 +1249,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_9",
         "nixpkgs-master": "nixpkgs-master",
-        "nixpkgs-mensa": "nixpkgs-mensa",
+        "nixpkgs-ollama": "nixpkgs-ollama",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nixtheplanet": "nixtheplanet",
         "nvf": "nvf",

@@ -28,8 +28,8 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
-    nixpkgs-mensa.url = "github:lomenzel/nixpkgs/mensa-sh-gnome-init";
 
+    nixpkgs-ollama.url = "github:nixos/nixpkgs/1043b385fdb6d0959825aed31437ff411d6a7978";
     home-manager-unstable = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
