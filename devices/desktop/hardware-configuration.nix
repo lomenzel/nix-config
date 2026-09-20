@@ -7,9 +7,7 @@
   pkgs,
   modulesPath,
   ...
-}:
-
-{
+}: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
@@ -22,20 +20,24 @@
     "usbhid"
     "sd_mod"
   ];
-  boot.initrd.kernelModules = [ "dm-snapshot" ];
+  boot.initrd.kernelModules = ["dm-snapshot"];
   boot.kernelModules = [
     "kvm-intel"
     "sg"
   ];
-  boot.extraModulePackages = [ ];
+  boot.extraModulePackages = [];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/1dde808a-4ffd-4324-af70-e964db0d2fa1";
     fsType = "ext4";
   };
 
-  boot.initrd.luks.devices."luks-b85ca0fd-d244-45b6-922d-41a24dffcdc2".device =
-    "/dev/disk/by-uuid/b85ca0fd-d244-45b6-922d-41a24dffcdc2";
+  boot.initrd.luks.devices = {
+    "luks-b85ca0fd-d244-45b6-922d-41a24dffcdc2" = {
+      allowDiscards = true;
+      device = "/dev/disk/by-uuid/b85ca0fd-d244-45b6-922d-41a24dffcdc2";
+    };
+  };
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/2437-0FB6";
@@ -59,7 +61,7 @@
   # networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
 
   hardware.enableRedistributableFirmware = true;
-  hardware.firmware = [ pkgs.sof-firmware ];
+  hardware.firmware = [pkgs.sof-firmware];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

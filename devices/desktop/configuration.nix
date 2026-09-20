@@ -59,6 +59,7 @@ in {
       "starcoder2:7b"
       "starcoder2:15b"
       "qwen3.8:27b"
+      "qwen3.8-flash-next:125b-a6b-q4_K_M"
     ];
     openFirewall = true;
     package = pkgs-unstable.ollama-cuda;
