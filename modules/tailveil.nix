@@ -144,5 +144,6 @@ in
     networking.firewall.extraCommands = ''
       iptables -t mangle -A POSTROUTING -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu || true
     '';
+    networking.firewall.trustedInterfaces = [ "tailveil0" ];
   };
 }
