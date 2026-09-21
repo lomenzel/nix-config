@@ -69,6 +69,7 @@ in {
   services.open-webui = {
     enable = true;
     host = "10.44.1.2";
+    port = 11111;
   };
 
   services.searx.enable = true;
