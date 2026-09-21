@@ -19,8 +19,8 @@
           "qwen3.8-flash-next:125b-a6b-q4_K_M" = {
             name = "Qwen 3.8 Flash Next";
             limit = {
-              context = 32768;
-              output = 4096;
+              context = 65536;
+              output = 8192;
             };
             variants = {
               low = {
@@ -37,16 +37,16 @@
           "olmo-3.1:32b" = {
             name = "Olmo 3.1";
             limit = {
-              context = 32768;
-              output = 4096;
+              context = 65536;
+              output = 8192;
             };
           };
 
           "qwen3.8:27b" = {
             name = "Qwen 3.8";
             limit = {
-              context = 32768;
-              output = 4096;
+              context = 65536;
+              output = 8192;
             };
             variants = {
               low = {
