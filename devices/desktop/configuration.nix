@@ -72,8 +72,29 @@ in {
     port = 11111;
   };
 
-  services.searx.enable = true;
 
+  services.searx = {
+    enable = true;
+    redisCreateLocally = true;
+    settings = {
+      server = {
+        port = 8100;
+        bind_address = "10.44.1.2";
+        secret_key = "lsakdasdbfajgvsdghavsdghfvajgshdvf";
+        cors_domains = ["*"];
+      };
+      api.enabled = true;
+      search = {
+        save_search = 0;
+        formats = [
+          "html"
+          "json"
+          "csv"
+          "rss"
+        ];
+      };
+    };
+  };
   # overleaf
 
   /*
