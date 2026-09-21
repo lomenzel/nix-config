@@ -19,8 +19,8 @@
           "qwen3.8-flash-next:125b-a6b-q4_K_M" = {
             name = "Qwen 3.8 Flash Next";
             limit = {
-              context = 65536;
-              output = 8192;
+              context = 32768;
+              output = 4096;
             };
             variants = {
               low = {
@@ -37,16 +37,16 @@
           "olmo-3.1:32b" = {
             name = "Olmo 3.1";
             limit = {
-              context = 65536;
-              output = 8192;
+              context = 32768;
+              output = 4096;
             };
           };
 
           "qwen3.8:27b" = {
             name = "Qwen 3.8";
             limit = {
-              context = 65536;
-              output = 8192;
+              context = 32768;
+              output = 4096;
             };
             variants = {
               low = {
@@ -62,12 +62,12 @@
           };
         };
       };
-      small_model = "ollama/qwen3.8:27b";
-      model = "ollama/qwen3.8:27b";
+      small_model = "ollama/qwen3.8-flash-next:125b-a6b-q4_K_M";
+      model = "ollama/qwen3.8-flash-next:125b-a6b-q4_K_M";
       disabled_providers = [ "opencode" ];
       agent = {
-        title.model = "ollama/qwen3.8:27b";
-        compaction.model = "ollama/qwen3.8:27b";
+        title.model = "ollama/qwen3.8-flash-next:125b-a6b-q4_K_M";
+        compaction.model = "ollama/qwen3.8-flash-next:125b-a6b-q4_K_M";
       };
     };
   };
