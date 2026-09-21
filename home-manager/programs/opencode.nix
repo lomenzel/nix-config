@@ -2,7 +2,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   programs.opencode = {
     enable = true;
     package = inputs.nixpkgs-ollama.legacyPackages.${pkgs.hostPlatform.system}.opencode;
@@ -21,6 +22,17 @@
               context = 65536;
               output = 8192;
             };
+            variants = {
+              low = {
+                reasoningEffort = "low";
+              };
+              medium = {
+                reasoningEffort = "medium";
+              };
+              xhigh = {
+                reasoningEffort = "xhigh";
+              };
+            };
           };
           "olmo-3.1:32b" = {
             name = "Olmo 3.1";
@@ -37,17 +49,22 @@
               output = 8192;
             };
             variants = {
-              low = {reasoningEffort = "low";};
-              medium = {reasoningEffort = "medium";};
-              high = {reasoningEffort = "high";};
-              xhigh = {reasoningEffort = "xhigh";};
+              low = {
+                reasoningEffort = "low";
+              };
+              medium = {
+                reasoningEffort = "medium";
+              };
+              xhigh = {
+                reasoningEffort = "xhigh";
+              };
             };
           };
         };
       };
       small_model = "ollama/qwen3.8:27b";
       model = "ollama/qwen3.8:27b";
-      disabled_providers = ["opencode"];
+      disabled_providers = [ "opencode" ];
       agent = {
         title.model = "ollama/qwen3.8:27b";
         compaction.model = "ollama/qwen3.8:27b";
