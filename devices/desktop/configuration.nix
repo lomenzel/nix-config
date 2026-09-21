@@ -66,6 +66,13 @@ in {
     syncModels = true;
   };
 
+  services.open-webui = {
+    enable = true;
+    host = "10.44.1.2";
+  };
+
+  services.searx.enable = true;
+
   # overleaf
 
   /*
