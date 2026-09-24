@@ -47,7 +47,7 @@ in {
   services.ollama = {
     enable = true;
     environmentVariables = {
-      OLLAMA_CONTEXT_LENGTH = "131072";
+      OLLAMA_CONTEXT_LENGTH = "${toString (256 * 1024)}";
       OLLAMA_KEEP_ALIVE = "24h";
       OLLAMA_FLASH_ATTENTION = "1";
       OLLAMA_KV_CACHE_TYPE = "q8_0";

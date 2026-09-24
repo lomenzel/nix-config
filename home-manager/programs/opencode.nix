@@ -2,7 +2,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   programs.opencode = {
     enable = true;
     #package = inputs.nixpkgs-ollama.legacyPackages.${pkgs.hostPlatform.system}.opencode;
@@ -30,8 +31,12 @@
         variant_cycle = "ctrl+t";
       };
       provider.local = {
-        options.baseURL = "http://10.44.1.2:11434/v1";
-        options.timeout = 9000000;
+        options = {
+          baseURL = "http://10.44.1.2:11434/v1";
+          timeout = 3 * 60 * 60 * 1000;
+          headerTimeout = 3 * 60 * 60 * 1000;
+          chunkTimeout = 3 * 60 * 60 * 1000;
+        };
         npm = "@ai-sdk/openai-compatible";
         name = "Ollama";
         models = {
@@ -44,8 +49,8 @@
               cache_read = 0.01;
             };
             limit = {
-              context = 131072;
-              output = 32768;
+              context = 131072 * 2;
+              output = 32768 * 2;
             };
             variants = {
               low = {
@@ -64,7 +69,7 @@
       };
       small_model = "local/flash-next3.8q4";
       model = "local/flash-next3.8q4";
-      disabled_providers = ["opencode"];
+      disabled_providers = [ "opencode" ];
       agent = {
         title = {
           model = "local/flash-next3.8q4";
