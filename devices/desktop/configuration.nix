@@ -47,7 +47,8 @@ in {
   services.ollama = {
     enable = true;
     environmentVariables = {
-      OLLAMA_CONTEXT_LENGTH = "65536";
+      OLLAMA_CONTEXT_LENGTH = "131072";
+      OLLAMA_KEEP_ALIVE = "24h";
       OLLAMA_FLASH_ATTENTION = "1";
       OLLAMA_KV_CACHE_TYPE = "q8_0";
     };
@@ -71,7 +72,6 @@ in {
     host = "10.44.1.2";
     port = 11111;
   };
-
 
   services.searx = {
     enable = true;

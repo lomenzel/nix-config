@@ -13,6 +13,10 @@ name = "duden"
 key = "d"
 url = "http://www.duden.de/suchen/dudenonline/{{s}}"
 [[sites]]
+name = "KI"
+key = "a"
+url = "http://10.44.1.2:11111/?models=qwen3.8-flash-next:125b-a6b-q4_K_M&submit=true&web-search=true&q={{s}}"
+[[sites]]
 name = "nixpkgs"
 key = "np"
 url = "https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query={{s}}"
