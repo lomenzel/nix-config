@@ -25,7 +25,7 @@
     mozilla-fix.url = "github:lomenzel/nixpkgs/firefox-aarch32";
 
     # Unstable
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable-small";
 
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
 

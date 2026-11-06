@@ -8,18 +8,22 @@
   pkgs-stable,
   pkgs-self,
   ...
-}: let
-  mkMenu = menu: let
-    configFile = pkgs.writeText "config.yaml" (
-      pkgs.lib.generators.toYAML {} {
-        inherit menu;
-      }
-    );
-  in
+}:
+let
+  mkMenu =
+    menu:
+    let
+      configFile = pkgs.writeText "config.yaml" (
+        pkgs.lib.generators.toYAML { } {
+          inherit menu;
+        }
+      );
+    in
     pkgs.writeShellScript "my-menu" ''
       exec ${lib.getExe pkgs.wlr-which-key} ${configFile}
     '';
-in {
+in
+{
   imports = [
     ./programs/firefox.nix
     ./programs/git.nix
@@ -43,7 +47,7 @@ in {
     enable = true;
     baseUrl = "https://photos.menzel.lol/api";
     apiKeyFile = secrets."services/immich/apiKey".path;
-    mediaPaths = ["~/Bilder/Immich-Upload-Daemon-Test"];
+    mediaPaths = [ "~/Bilder/Immich-Upload-Daemon-Test" ];
   };
 
   services.ssh-agent.enable = true;
@@ -53,6 +57,8 @@ in {
       allowUnfree = true;
       permittedInsecurePackages = [
         "olm-3.2.16"
+            "radicle-node-1.10.3"
+
       ];
 
       allowUnfreePredicate = _: true;
@@ -70,7 +76,7 @@ in {
   };
 
   home.activation = {
-    removeHMBackups = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    removeHMBackups = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       rm ~/.gtkrc-2.0.homemanager-backup ~/.config/mozilla/firefox/default/search.json.mozlz4.homemanager-backup || true
     '';
   };
@@ -95,7 +101,7 @@ in {
                 {
                   key = "b";
                   desc = "Brave";
-                  cmd = "${lib.getExe pkgs.brave}";
+                  cmd = "${lib.getExe pkgs-stable.brave}";
                 }
                 {
                   key = "c";
@@ -278,71 +284,73 @@ in {
     package = pkgs-unstable.alacritty;
   };
 
-  home.packages = with pkgs-unstable;
-  with pkgs-unstable.kdePackages; [
-    radicle-node
-    nh
-    htop
-    sops
-    devenv
-    teamtype
-    curl
-    nix-output-monitor
-    killall
-    nixfmt
-    less
-    git
-    mesa-demos
-    mensa-sh
-    clinfo
-    ktorrent
-    wayland-utils
-    pciutils
-    vulkan-tools
-    darkly
-    yakuake
-    kio-gdrive
-    appimage-run
-    jujutsu
-    t3code
-    kde-rounded-corners
-    krfb
-    krdc
-    kaccounts-providers
-    kaccounts-integration
-    kcmutils
-    maliit-keyboard
-    kdepim-addons
-    pimcommon
-    krohnkite
-    pkgs-self.vim
-    #inputs.speiseplan.packages."x86_64-linux".speiseplan-cli
-    # libreoffice
+  home.packages =
+    with pkgs-unstable;
+    with pkgs-unstable.kdePackages;
+    [
+      pkgs.radicle-node
+      nh
+      htop
+      sops
+      devenv
+      teamtype
+      curl
+      nix-output-monitor
+      killall
+      nixfmt
+      less
+      git
+      mesa-demos
+      mensa-sh
+      clinfo
+      ktorrent
+      wayland-utils
+      pciutils
+      vulkan-tools
+      darkly
+      yakuake
+      kio-gdrive
+      appimage-run
+      jujutsu
+      t3code
+      kde-rounded-corners
+      krfb
+      krdc
+      kaccounts-providers
+      kaccounts-integration
+      kcmutils
+      maliit-keyboard
+      kdepim-addons
+      pimcommon
+      krohnkite
+      pkgs-self.vim
+      #inputs.speiseplan.packages."x86_64-linux".speiseplan-cli
+      # libreoffice
 
-    nixpkgs-fmt
-    qtwebsockets
-    picard
-    mpv
-    kate
-    vlc
-    /*
-    (handbrake.override {
-      libbluray = libbluray.override {
-        withAACS = true;
-        withBDplus = true;
-      };
-    })
-    */
-    finamp
-    kontact
-    kmail-account-wizard
-    akonadi-import-wizard
-    kwallet
-    kwalletmanager
-    kcalc
-    merkuro
-    nextcloud-client
-  ];
+      nixpkgs-fmt
+      qtwebsockets
+      picard
+      mpv
+      kate
+      vlc
+      /*
+        (handbrake.override {
+          libbluray = libbluray.override {
+            withAACS = true;
+            withBDplus = true;
+          };
+        })
+      */
+      finamp
+      kontact
+      kmail-account-wizard
+      akonadi-import-wizard
+      kwallet
+      kwalletmanager
+      kcalc
+      merkuro
+      nextcloud-client
+    ];
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;

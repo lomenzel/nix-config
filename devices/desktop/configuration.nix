@@ -46,26 +46,34 @@ in {
   systemd.services.ollama.wants = ["network-online.target" "tailveil.service"];
   services.ollama = {
     enable = true;
+    modelsDir = "/ollama/models";
     environmentVariables = {
       OLLAMA_CONTEXT_LENGTH = "${toString (256 * 1024)}";
       OLLAMA_KEEP_ALIVE = "24h";
       OLLAMA_FLASH_ATTENTION = "1";
       OLLAMA_KV_CACHE_TYPE = "q8_0";
+      NCCL_P2P_DISABLE = "1";
     };
 
     host = "10.44.1.2";
     loadModels = [
-      "olmo-3.1:32b"
-      "starcoder2:3b"
-      "starcoder2:7b"
-      "starcoder2:15b"
-      "qwen3.8:27b"
+      "olmo-3.1:32b-think"
+      "hf.co/Hob-forge/Kolibri-1-GGUF:Q6_K"
+      "hf.co/unsloth/MiniMax-M3.1-Flash-GGUF:UD-Q4_K_XL"
       "qwen3.8-flash-next:125b-a6b-q4_K_M"
     ];
     openFirewall = true;
     package = pkgs-unstable.ollama-cuda;
     syncModels = true;
   };
+
+  fileSystems."/ollama" = {
+    device = "/dev/disk/by-label/ollama";
+    fsType = "ext4";
+  };
+    systemd.tmpfiles.rules = [
+    "d /ollama/models 0755 ollama ollama -"
+  ];
 
   services.open-webui = {
     enable = true;

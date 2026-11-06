@@ -15,7 +15,11 @@ with (helper-functions { inherit lib; });
 
   programs.vscode = {
     enable = true;
-    #package = pkgs.vscodium-fhs;
+    package = pkgs.vscode.overrideAttrs (old: {
+      postFixup = (old.postFixup or "") + ''
+        find $out -name "copilot-runtime" -exec chmod +x {} +
+      '';
+    });
     haskell = {
       #enable = true;
       #hie.enable = true;
@@ -35,9 +39,41 @@ with (helper-functions { inherit lib; });
       "explorer.confirmDragAndDrop" = false;
       "git.autofetch" = true;
       "redhat.telemetry.enabled" = false;
-      "C_Cpp.intelliSenseEngine" ="disabled";
+      "C_Cpp.intelliSenseEngine" = "disabled";
+      "github.copilot.enable" = {
+        "*" = false;
+        "plaintext" = false;
+        "markdown" = false;
+        "scminput" = false;
+      };
     };
 
+  };
+
+  home.file.chatLanguageModels = {
+    enable = true;
+    force = true;
+    target = ".config/Code/User/chatLanguageModels.json";
+    text = builtins.toJSON [
+      {
+        name = "Local Ollama";
+        vendor = "customendpoint";
+        apiType = "chat-completions";
+        apiKey = "ollama";
+        models = [
+          {
+            id = "qwen3.8-flash-next:125b-a6b-q4_K_M";
+            name = "Qwen 3.8 Flash Next";
+            url = "http://10.44.1.2:11434/v1/chat/completions";
+            toolCalling = true;
+            thinking = true;
+            vision = true;
+            maxInputTokens = (1024 * 256) - (1024 * 32);
+            maxOutputTokens = 1024 * 32;
+          }
+        ];
+      }
+    ];
   };
 
 }
